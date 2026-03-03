@@ -319,14 +319,14 @@
 
   <script>
     var STORAGE_KEY = 'sidebar_open';
+    var SCROLL_KEY = 'sidebar_scroll';
+    var nav = document.getElementById('sidebar-nav');
 
-    // Load saved open sections from localStorage
     function loadOpenSections() {
       try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); } catch(e) { return []; }
     }
 
-    // Save current open sections to localStorage
-    function saveOpenSections() {
+    function saveState() {
       var open = [];
       document.querySelectorAll('#sidebar-nav li.has-children').forEach(function(li) {
         if (li.classList.contains('open')) {
@@ -334,18 +334,33 @@
           if (a) open.push(a.getAttribute('href'));
         }
       });
-      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(open)); } catch(e) {}
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(open));
+        localStorage.setItem(SCROLL_KEY, nav.scrollTop);
+      } catch(e) {}
     }
 
-    // Restore open sections (already-open ones from Jekyll stay open; add saved ones)
+    // Restore open sections
     var saved = loadOpenSections();
-    if (saved.length) {
-      document.querySelectorAll('#sidebar-nav li.has-children > a').forEach(function(a) {
-        if (saved.indexOf(a.getAttribute('href')) !== -1) {
-          a.closest('li').classList.add('open');
-        }
-      });
+    document.querySelectorAll('#sidebar-nav li.has-children > a').forEach(function(a) {
+      if (saved.indexOf(a.getAttribute('href')) !== -1) {
+        a.closest('li').classList.add('open');
+      }
+    });
+
+    // Restore scroll position, or scroll active item into view on first visit
+    var savedScroll = localStorage.getItem(SCROLL_KEY);
+    if (savedScroll !== null) {
+      nav.scrollTop = parseInt(savedScroll, 10);
+    } else {
+      var active = document.querySelector('#sidebar-nav a.active');
+      if (active) active.scrollIntoView({ block: 'center', behavior: 'instant' });
     }
+
+    // Save scroll position before navigating away
+    window.addEventListener('beforeunload', function() {
+      try { localStorage.setItem(SCROLL_KEY, nav.scrollTop); } catch(e) {}
+    });
 
     // Toggle on click + save state
     document.querySelectorAll('#sidebar-nav li.has-children > a').forEach(function(a) {
@@ -354,16 +369,13 @@
         if (li.classList.contains('open')) {
           e.preventDefault();
           li.classList.remove('open');
+          saveState();
         } else {
           li.classList.add('open');
+          // Allow navigation, state saved by beforeunload
         }
-        saveOpenSections();
       });
     });
-
-    // Scroll active item into view
-    var active = document.querySelector('#sidebar-nav a.active');
-    if (active) active.scrollIntoView({ block: 'center', behavior: 'instant' });
   </script>
 </body>
 </html>
