@@ -1,9 +1,6 @@
 title: Stimulsoft Reports Documentation
 description: Programming documentation for Stimulsoft Reports products.
 
-# No theme - we use our own layout
-theme: null
-
 plugins:
   - jekyll-relative-links
 
@@ -11,22 +8,16 @@ relative_links:
   enabled: true
   collections: false
 
-# Apply our default layout to all markdown pages
+# Apply our layout to all markdown pages (no frontmatter needed)
 defaults:
   - scope:
       path: ""
     values:
       layout: default
 
-# Exclude non-doc files from Jekyll build
 exclude:
   - scripts/
   - "*.py"
-  - "*.js"
   - README.md
   - Gemfile
   - Gemfile.lock
-
-# Include all subdirectories (Jekyll ignores folders starting with _ or .)
-include:
-  - images/
