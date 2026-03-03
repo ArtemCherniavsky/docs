@@ -1,31 +1,32 @@
 {% for item in include.items %}
-  {% assign current_url = page.url | remove_trailing_slash %}
-  {% assign item_url = item.url | remove_trailing_slash %}
+  {% assign item_full_url = item.url | prepend: site.baseurl %}
+  {% assign current_url = page.url | remove_trailing_slash | prepend: site.baseurl %}
+  {% assign item_url_clean = item_full_url | remove_trailing_slash %}
   {% assign is_active = false %}
-  {% if current_url == item_url %}{% assign is_active = true %}{% endif %}
+  {% if current_url == item_url_clean %}{% assign is_active = true %}{% endif %}
 
   {% if item.children %}
     {% assign has_active_child = false %}
     {% for child in item.children %}
-      {% assign child_url = child.url | remove_trailing_slash %}
-      {% if current_url == child_url %}{% assign has_active_child = true %}{% endif %}
+      {% assign child_full = child.url | prepend: site.baseurl | remove_trailing_slash %}
+      {% if current_url == child_full %}{% assign has_active_child = true %}{% endif %}
       {% if child.children %}
         {% for grandchild in child.children %}
-          {% assign gc_url = grandchild.url | remove_trailing_slash %}
-          {% if current_url == gc_url %}{% assign has_active_child = true %}{% endif %}
+          {% assign gc_full = grandchild.url | prepend: site.baseurl | remove_trailing_slash %}
+          {% if current_url == gc_full %}{% assign has_active_child = true %}{% endif %}
         {% endfor %}
       {% endif %}
     {% endfor %}
 
     <li class="has-children{% if is_active or has_active_child %} open{% endif %}">
-      <a href="{{ item.url }}"{% if is_active %} class="active"{% endif %}>{{ item.title }}</a>
+      <a href="{{ item_full_url }}"{% if is_active %} class="active"{% endif %}>{{ item.title }}</a>
       <ul>
         {% include sidebar_item.html items=item.children %}
       </ul>
     </li>
   {% else %}
     <li>
-      <a href="{{ item.url }}"{% if is_active %} class="active"{% endif %}>{{ item.title }}</a>
+      <a href="{{ item_full_url }}"{% if is_active %} class="active"{% endif %}>{{ item.title }}</a>
     </li>
   {% endif %}
 {% endfor %}
