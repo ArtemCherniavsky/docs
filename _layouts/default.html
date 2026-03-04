@@ -164,6 +164,36 @@
       text-align: center;
     }
 
+    /* ── Breadcrumbs ── */
+    .breadcrumbs {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 20px;
+      font-size: 13px;
+    }
+
+    .breadcrumbs a {
+      color: var(--color-text-muted);
+      text-decoration: none;
+    }
+
+    .breadcrumbs a:hover {
+      color: var(--color-accent);
+      text-decoration: none;
+    }
+
+    .bc-sep {
+      color: #d1d5db;
+      font-size: 12px;
+    }
+
+    .bc-current {
+      color: var(--color-text);
+      font-weight: 500;
+    }
+
     #sidebar-nav {
       flex: 1;
       overflow-y: auto;
@@ -412,6 +442,7 @@
 
   <div id="main">
     <article id="content">
+      {% include breadcrumbs.html %}
       {{ content }}
     </article>
   </div>
@@ -473,11 +504,7 @@
     var SCROLL_KEY = 'sidebar_scroll';
     var nav = document.getElementById('sidebar-nav');
 
-    function loadOpenSections() {
-      try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); } catch(e) { return []; }
-    }
-
-    function saveState() {
+    function collectOpenHrefs() {
       var open = [];
       document.querySelectorAll('#sidebar-nav li.has-children').forEach(function(li) {
         if (li.classList.contains('open')) {
@@ -485,21 +512,40 @@
           if (a) open.push(a.getAttribute('href'));
         }
       });
+      return open;
+    }
+
+    function saveState() {
       try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(open));
-        localStorage.setItem(SCROLL_KEY, nav.scrollTop);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(collectOpenHrefs()));
+        localStorage.setItem(SCROLL_KEY, String(nav.scrollTop));
       } catch(e) {}
     }
 
-    // Restore open sections
-    var saved = loadOpenSections();
+    // Open all ancestor li.has-children up to sidebar root
+    function openAncestors(el) {
+      var cur = el.parentElement;
+      while (cur && cur.id !== 'sidebar-nav') {
+        if (cur.tagName === 'LI' && cur.classList.contains('has-children')) {
+          cur.classList.add('open');
+        }
+        cur = cur.parentElement;
+      }
+    }
+
+    // Restore open sections from localStorage
+    var saved;
+    try { saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); } catch(e) { saved = []; }
+
     document.querySelectorAll('#sidebar-nav li.has-children > a').forEach(function(a) {
       if (saved.indexOf(a.getAttribute('href')) !== -1) {
-        a.closest('li').classList.add('open');
+        var li = a.closest('li');
+        li.classList.add('open');
+        openAncestors(li);
       }
     });
 
-    // Restore scroll position, or scroll active item into view on first visit
+    // Restore scroll position
     var savedScroll = localStorage.getItem(SCROLL_KEY);
     if (savedScroll !== null) {
       nav.scrollTop = parseInt(savedScroll, 10);
@@ -508,23 +554,28 @@
       if (active) active.scrollIntoView({ block: 'center', behavior: 'instant' });
     }
 
-    // Save scroll position before navigating away
-    window.addEventListener('beforeunload', function() {
-      try { localStorage.setItem(SCROLL_KEY, nav.scrollTop); } catch(e) {}
-    });
-
-    // Toggle on click + save state
+    // Toggle category on click — save state AFTER toggle so it reflects new open state
     document.querySelectorAll('#sidebar-nav li.has-children > a').forEach(function(a) {
       a.addEventListener('click', function(e) {
         var li = this.closest('li');
         if (li.classList.contains('open')) {
+          // Closing: prevent navigation, just collapse
           e.preventDefault();
           li.classList.remove('open');
           saveState();
         } else {
+          // Opening: open and navigate — save state right before leaving
           li.classList.add('open');
-          // Allow navigation, state saved by beforeunload
+          saveState();
+          // navigation proceeds normally
         }
+      });
+    });
+
+    // Save state on any leaf link click
+    document.querySelectorAll('#sidebar-nav li:not(.has-children) > a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        saveState();
       });
     });
   </script>
