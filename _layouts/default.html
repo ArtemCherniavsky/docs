@@ -693,6 +693,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script>
     document.querySelectorAll('#content pre code').forEach(function(block) {
+      block.textContent = block.textContent.replace(/^\n/, '').replace(/\n$/, '');
       hljs.highlightElement(block);
     });
   </script>
