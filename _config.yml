@@ -23,5 +23,6 @@ exclude:
   - scripts/
   - "*.py"
   - README.md
+  - ARCHITECTURE.md
   - Gemfile
   - Gemfile.lock
