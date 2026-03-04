@@ -9,6 +9,7 @@ const INDEX = path.join(ROOT, "index.md");
 const OUTPUT = path.join(ROOT, "_data", "sidebar.yml");
 
 const ITEM_RE = /^( *)- \[([^\]]+)\]\(([^)]+)\)/;
+const EXCLUDE_PATHS = ["Out_Of_Date/"];
 
 function toUrl(filePath) {
   let url = "/" + filePath.replace(/\\/g, "/");
@@ -24,12 +25,25 @@ function parseSidebar(text) {
   const items = [];
   // stack entries: { indent, list }
   const stack = [];
+  let excludeUntilIndent = -1;
 
   for (const line of text.split("\n")) {
     const m = ITEM_RE.exec(line);
     if (!m) continue;
 
     const indent = m[1].length;
+
+    // If we're inside an excluded block, skip until indent goes back up
+    if (excludeUntilIndent >= 0) {
+      if (indent > excludeUntilIndent) continue;
+      else excludeUntilIndent = -1;
+    }
+
+    // Check if this item should be excluded
+    if (EXCLUDE_PATHS.some(p => m[3].startsWith(p))) {
+      excludeUntilIndent = indent;
+      continue;
+    }
     const title = m[2];
     const url = toUrl(m[3]);
     const node = { title, url };

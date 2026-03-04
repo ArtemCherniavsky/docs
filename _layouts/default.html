@@ -12,7 +12,9 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
+      --header-height: 56px;
       --sidebar-width: 260px;
+      --content-max: 1280px;
       --color-bg: #ffffff;
       --color-sidebar-bg: #fafafa;
       --color-border: #e7e9eb;
@@ -22,7 +24,7 @@
       --color-accent: #3b82f6;
       --color-accent-bg: #eff6ff;
       --color-hover-bg: #f3f4f6;
-      --color-code-bg: #f9fafb;
+      --color-code-bg: #f6f8fa;
       --color-active-text: #1d4ed8;
     }
 
@@ -34,70 +36,74 @@
       line-height: 1.7;
       color: var(--color-text);
       background: var(--color-bg);
-      display: flex;
-      min-height: 100vh;
+      display: block;
     }
 
-    /* ── Sidebar ── */
-    #sidebar {
-      width: var(--sidebar-width);
-      min-width: var(--sidebar-width);
-      background: var(--color-sidebar-bg);
-      border-right: 1px solid var(--color-border);
-      height: 100vh;
+    /* ── Header ── */
+    #site-header {
       position: sticky;
       top: 0;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-    }
-
-    #sidebar-header {
-      padding: 20px 16px 12px;
+      z-index: 50;
+      width: 100%;
+      height: var(--header-height);
+      background: var(--color-bg);
       border-bottom: 1px solid var(--color-border);
+    }
+
+    #header-inner {
+      max-width: var(--content-max);
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    #logo {
+      display: flex;
+      align-items: center;
       flex-shrink: 0;
-    }
-
-    #sidebar-header a {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--color-text);
       text-decoration: none;
-      letter-spacing: -0.01em;
-      display: block;
-      line-height: 1.3;
-      margin-bottom: 10px;
     }
 
-    #sidebar-header a:hover { color: var(--color-accent); }
+    #logo img {
+      height: 28px;
+      display: block;
+    }
 
-    /* Search */
-    #search-wrap { position: relative; }
+    /* Header search */
+    #header-search {
+      flex: 1;
+      max-width: 440px;
+      position: relative;
+    }
 
     #search-input {
       width: 100%;
-      padding: 7px 10px 7px 30px;
+      padding: 7px 10px 7px 32px;
       border: 1px solid var(--color-border);
       border-radius: 6px;
-      background: var(--color-bg);
+      background: var(--color-sidebar-bg);
       font-family: inherit;
       font-size: 13px;
       color: var(--color-text);
       outline: none;
-      transition: border-color 0.15s, box-shadow 0.15s;
+      transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
     }
 
     #search-input:focus {
       border-color: var(--color-accent);
       box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
+      background: var(--color-bg);
     }
 
     #search-input::placeholder { color: #9ca3af; }
 
-    #search-wrap::before {
+    #header-search::before {
       content: "";
       position: absolute;
-      left: 9px;
+      left: 10px;
       top: 50%;
       transform: translateY(-50%);
       width: 14px;
@@ -113,7 +119,7 @@
       position: absolute;
       left: 0;
       right: 0;
-      top: calc(100% + 4px);
+      top: calc(100% + 6px);
       background: var(--color-bg);
       border: 1px solid var(--color-border);
       border-radius: 8px;
@@ -165,40 +171,57 @@
       text-align: center;
     }
 
-    /* ── Breadcrumbs ── */
-    .breadcrumbs {
+    /* Header nav links */
+    #header-nav {
       display: flex;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 4px;
-      margin-bottom: 20px;
-      font-size: 13px;
+      gap: 2px;
+      margin-left: auto;
+      flex-shrink: 0;
     }
 
-    .breadcrumbs a {
+    #header-nav a {
+      font-size: 13.5px;
+      font-weight: 500;
       color: var(--color-text-muted);
       text-decoration: none;
+      padding: 6px 10px;
+      border-radius: 6px;
+      transition: background 0.1s, color 0.1s;
+      white-space: nowrap;
     }
 
-    .breadcrumbs a:hover {
-      color: var(--color-accent);
-      text-decoration: none;
-    }
-
-    .bc-sep {
-      color: #d1d5db;
-      font-size: 12px;
-    }
-
-    .bc-current {
+    #header-nav a:hover {
+      background: var(--color-hover-bg);
       color: var(--color-text);
-      font-weight: 500;
+    }
+
+    /* ── Page body (centered) ── */
+    #page {
+      max-width: var(--content-max);
+      margin: 0 auto;
+      display: flex;
+      min-height: calc(100vh - var(--header-height));
+    }
+
+    /* ── Sidebar ── */
+    #sidebar {
+      width: var(--sidebar-width);
+      min-width: var(--sidebar-width);
+      position: sticky;
+      top: var(--header-height);
+      height: calc(100vh - var(--header-height));
+      background: var(--color-sidebar-bg);
+      border-right: 1px solid var(--color-border);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
     }
 
     #sidebar-nav {
       flex: 1;
       overflow-y: auto;
-      padding: 12px 8px 24px;
+      padding: 16px 8px 24px;
       scrollbar-width: thin;
       scrollbar-color: #d1d5db transparent;
     }
@@ -208,7 +231,6 @@
     #sidebar-nav::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 2px; }
 
     #sidebar-nav ul { list-style: none; }
-
     #sidebar-nav li { margin: 1px 0; }
 
     #sidebar-nav a {
@@ -282,7 +304,28 @@
       padding: 48px 56px 80px;
     }
 
-    /* Typography */
+    /* ── Breadcrumbs ── */
+    .breadcrumbs {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 20px;
+      font-size: 13px;
+    }
+
+    .breadcrumbs a {
+      color: var(--color-text-muted);
+      text-decoration: none;
+    }
+
+    .breadcrumbs a:hover { color: var(--color-accent); }
+
+    .bc-sep { color: #d1d5db; font-size: 12px; }
+
+    .bc-current { color: var(--color-text); font-weight: 500; }
+
+    /* ── Typography ── */
     #content h1 {
       font-size: 30px;
       font-weight: 600;
@@ -317,16 +360,11 @@
 
     #content h1 + p,
     #content h1 + ul,
-    #content h1 + ol {
-      color: var(--color-text-muted);
-    }
+    #content h1 + ol { color: var(--color-text-muted); }
 
     #content p { margin-bottom: 16px; color: #374151; }
 
-    #content ul, #content ol {
-      margin: 0 0 16px 20px;
-      color: #374151;
-    }
+    #content ul, #content ol { margin: 0 0 16px 20px; color: #374151; }
 
     #content li { margin-bottom: 6px; }
     #content li > p { margin-bottom: 4px; }
@@ -343,8 +381,9 @@
       display: block;
     }
 
+    /* ── Code blocks ── */
     #content pre {
-      background: #f6f8fa;
+      background: var(--color-code-bg);
       border: 1px solid var(--color-border);
       border-radius: 8px;
       padding: 20px 24px;
@@ -353,6 +392,25 @@
       font-size: 13.5px;
       line-height: 1.6;
       position: relative;
+    }
+
+    #content pre .hljs { background: transparent; }
+
+    #content pre code {
+      background: none;
+      border: none;
+      padding: 0;
+      font-family: "JetBrains Mono", "Fira Code", "SF Mono", Consolas, monospace;
+    }
+
+    #content code {
+      background: var(--color-code-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-size: 13px;
+      font-family: "JetBrains Mono", "Fira Code", "SF Mono", Consolas, monospace;
+      color: var(--color-text);
     }
 
     .copy-btn {
@@ -374,34 +432,11 @@
 
     #content pre:hover .copy-btn { opacity: 1; }
 
-    .copy-btn:hover {
-      background: var(--color-hover-bg);
-      color: var(--color-text);
-    }
+    .copy-btn:hover { background: var(--color-hover-bg); color: var(--color-text); }
 
-    .copy-btn.copied {
-      color: #16a34a;
-      border-color: #bbf7d0;
-      opacity: 1;
-    }
+    .copy-btn.copied { color: #16a34a; border-color: #bbf7d0; opacity: 1; }
 
-    #content pre code {
-      background: none;
-      border: none;
-      padding: 0;
-      font-family: "JetBrains Mono", "Fira Code", "SF Mono", Consolas, monospace;
-    }
-
-    #content code {
-      background: #f6f8fa;
-      border: 1px solid var(--color-border);
-      border-radius: 4px;
-      padding: 2px 6px;
-      font-size: 13px;
-      font-family: "JetBrains Mono", "Fira Code", "SF Mono", Consolas, monospace;
-      color: var(--color-text);
-    }
-
+    /* ── Tables ── */
     #content table {
       border-collapse: collapse;
       width: 100%;
@@ -447,39 +482,57 @@
       margin: 32px 0;
     }
 
-    /* Override highlight.js background so our pre background shows through */
-    #content pre .hljs { background: transparent; }
-
-    /* Mobile */
+    /* ── Mobile ── */
     @media (max-width: 768px) {
-      body { flex-direction: column; }
-      #sidebar { width: 100%; min-width: unset; height: auto; position: static; }
+      #header-search { max-width: none; }
+      #header-nav { display: none; }
+      #page { flex-direction: column; }
+      #sidebar { width: 100%; min-width: unset; position: static; height: auto; }
       #sidebar-nav { max-height: 50vh; }
       #content { padding: 24px 20px 48px; }
     }
   </style>
 </head>
 <body>
-  <nav id="sidebar">
-    <div id="sidebar-header">
-      <a href="{{ site.baseurl }}/">{{ site.title }}</a>
-      <div id="search-wrap">
-        <input id="search-input" type="search" placeholder="Search docs..." autocomplete="off" spellcheck="false">
+
+  <!-- ── Global Header ── -->
+  <header id="site-header">
+    <div id="header-inner">
+      <a id="logo" href="{{ site.baseurl }}/">
+        <img src="https://www.stimulsoft.com/en/documentation/online/programming-manual/logo.svg" alt="Stimulsoft">
+      </a>
+
+      <div id="header-search">
+        <input id="search-input" type="search" placeholder="Search documentation..." autocomplete="off" spellcheck="false">
         <div id="search-results"></div>
       </div>
-    </div>
-    <div id="sidebar-nav">
-      <ul>
-        {% include sidebar_item.html items=site.data.sidebar %}
-      </ul>
-    </div>
-  </nav>
 
-  <div id="main">
-    <article id="content">
-      {% include breadcrumbs.html %}
-      {{ content }}
-    </article>
+      <nav id="header-nav">
+        <a href="https://www.youtube.com/user/StimulsoftVideos" target="_blank" rel="noopener">Video</a>
+        <a href="https://github.com/stimulsoft" target="_blank" rel="noopener">Samples</a>
+        <a href="https://www.stimulsoft.com/en/support" target="_blank" rel="noopener">Support</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ── Page body (centered) ── -->
+  <div id="page">
+
+    <nav id="sidebar">
+      <div id="sidebar-nav">
+        <ul>
+          {% include sidebar_item.html items=site.data.sidebar %}
+        </ul>
+      </div>
+    </nav>
+
+    <div id="main">
+      <article id="content">
+        {% include breadcrumbs.html %}
+        {{ content }}
+      </article>
+    </div>
+
   </div>
 
   <link rel="stylesheet" href="{{ site.baseurl }}/pagefind/pagefind-ui.css">
@@ -525,7 +578,7 @@
     });
 
     document.addEventListener('click', function(e) {
-      if (!document.getElementById('search-wrap').contains(e.target)) {
+      if (!document.getElementById('header-search').contains(e.target)) {
         searchResults.classList.remove('visible');
       }
     });
@@ -557,7 +610,6 @@
       } catch(e) {}
     }
 
-    // Open all ancestor li.has-children up to sidebar root
     function openAncestors(el) {
       var cur = el.parentElement;
       while (cur && cur.id !== 'sidebar-nav') {
@@ -619,19 +671,16 @@
 
       if (li.classList.contains('has-children')) {
         if (li.classList.contains('open')) {
-          // Collapse — no navigation
           e.preventDefault();
           li.classList.remove('open');
           li.querySelectorAll('li.has-children.open').forEach(function(child) {
             child.classList.remove('open');
           });
         } else {
-          // Expand — allow navigation
           li.classList.add('open');
         }
       }
 
-      // Always save current state before any navigation
       saveState();
     });
   </script>
