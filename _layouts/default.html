@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -387,7 +388,6 @@
       background: none;
       border: none;
       padding: 0;
-      color: #cdd6f4;
       font-family: "JetBrains Mono", "Fira Code", "SF Mono", Consolas, monospace;
     }
 
@@ -629,6 +629,12 @@
 
       // Always save current state before any navigation
       saveState();
+    });
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>
+    document.querySelectorAll('#content pre code').forEach(function(block) {
+      hljs.highlightElement(block);
     });
   </script>
 </body>
