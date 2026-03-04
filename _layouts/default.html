@@ -554,29 +554,27 @@
       if (active) active.scrollIntoView({ block: 'center', behavior: 'instant' });
     }
 
-    // Toggle category on click — save state AFTER toggle so it reflects new open state
-    document.querySelectorAll('#sidebar-nav li.has-children > a').forEach(function(a) {
-      a.addEventListener('click', function(e) {
-        var li = this.closest('li');
+    // Single delegated handler for all sidebar clicks
+    nav.addEventListener('click', function(e) {
+      var a = e.target.closest('a');
+      if (!a) return;
+
+      var li = a.closest('li');
+      if (!li) return;
+
+      if (li.classList.contains('has-children')) {
         if (li.classList.contains('open')) {
-          // Closing: prevent navigation, just collapse
+          // Collapse — no navigation
           e.preventDefault();
           li.classList.remove('open');
-          saveState();
         } else {
-          // Opening: open and navigate — save state right before leaving
+          // Expand — allow navigation
           li.classList.add('open');
-          saveState();
-          // navigation proceeds normally
         }
-      });
-    });
+      }
 
-    // Save state on any leaf link click
-    document.querySelectorAll('#sidebar-nav li:not(.has-children) > a').forEach(function(a) {
-      a.addEventListener('click', function() {
-        saveState();
-      });
+      // Always save current state before any navigation
+      saveState();
     });
   </script>
 </body>
