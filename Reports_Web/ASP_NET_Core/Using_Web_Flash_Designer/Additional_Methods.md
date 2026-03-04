@@ -14,10 +14,10 @@ Returns the report object with which the designer is currently working. It is po
 ...
 public IActionResult ExportReport()
 {
-StiReport report = StiNetCoreDesignerFx.GetReportObject(this);
-report.ReportName = "MyReportName";
-
-return StiNetCoreDesignerFx.ExportReportResult(this, report);
+    StiReport report = StiNetCoreDesignerFx.GetReportObject(this);
+    report.ReportName = "MyReportName";
+    
+    return StiNetCoreDesignerFx.ExportReportResult(this, report);
 }
 ...
 ```
@@ -34,9 +34,9 @@ Returns values for URLs with which the designer page was opened. Thus, it is pos
 ...
 public IActionResult ExportReport()
 {
-RouteValueDictionary routeValues = StiNetCoreDesignerFx.GetRouteValues(this);
-
-return StiNetCoreDesignerFx.ExportReportResult(this);
+    RouteValueDictionary routeValues = StiNetCoreDesignerFx.GetRouteValues(this);
+    
+    return StiNetCoreDesignerFx.ExportReportResult(this);
 }
 ...
 ```
@@ -50,7 +50,7 @@ You can also get values of URL parameters by parameter name, specifying it as th
 ...
 public IActionResult ExportReport(string id)
 {
-return StiNetCoreDesignerFx.ExportReportResult(this);
+    return StiNetCoreDesignerFx.ExportReportResult(this);
 }
 ...
 ```
@@ -67,18 +67,18 @@ Returns all parameters of the current state of the designer passed to the server
 ...
 public IActionResult ExportReport()
 {
-StiRequestParams requestParams = StiNetCoreDesignerFx.GetRequestParams(this);
-if (requestParams.ExportFormat == StiExportFormat.Pdf)
-{
-StiReport report = StiNetCoreDesignerFx.GetReportObject(this);
-
-// Some action with report for the PDF export
-// ...
-
-return StiNetCoreDesignerFx.ExportReportResult(this, report);
-}
-
-return StiNetCoreDesignerFx.ExportReportResult(this);
+    StiRequestParams requestParams = StiNetCoreDesignerFx.GetRequestParams(this);
+    if (requestParams.ExportFormat == StiExportFormat.Pdf)
+    {
+        StiReport report = StiNetCoreDesignerFx.GetReportObject(this);
+        
+        // Some action with report for the PDF export
+        // ...
+        
+        return StiNetCoreDesignerFx.ExportReportResult(this, report);
+    }
+    
+    return StiNetCoreDesignerFx.ExportReportResult(this);
 }
 ...
 ```
@@ -95,10 +95,10 @@ Returns the name of the requested XML localization file in the **GetLocalization
 ...
 public IActionResult GetLocalization()
 {
-string name = StiNetCoreDesignerFx.GetLocalizationName(this);
-string path = "Localization/" + name;
-
-return StiNetCoreDesignerFx.GetLocalizationResult(this, path);
+    string name = StiNetCoreDesignerFx.GetLocalizationName(this);
+    string path = "Localization/" + name;
+    
+    return StiNetCoreDesignerFx.GetLocalizationResult(this, path);
 }
 ...
 ```
@@ -115,16 +115,16 @@ Returns all parameters of the current report export. The type of the parameter o
 ...
 public IActionResult ExportReport()
 {
-StiExportSettings settings = StiNetCoreDesignerFx.GetExportSettings(this);
-if (settings.GetExportFormat() == StiExportFormat.Pdf)
-{
-StiPdfExportSettings pdfSettings = (StiPdfExportSettings)settings;
-pdfSettings.EmbeddedFonts = true;
-pdfSettings.AllowEditable = StiPdfAllowEditable.No;
-return StiNetCoreDesignerFx.ExportReportResult(this, settings);
-}
+    StiExportSettings settings = StiNetCoreDesignerFx.GetExportSettings(this);
+    if (settings.GetExportFormat() == StiExportFormat.Pdf)
+    {
+        StiPdfExportSettings pdfSettings = (StiPdfExportSettings)settings;
+        pdfSettings.EmbeddedFonts = true;
+        pdfSettings.AllowEditable = StiPdfAllowEditable.No;
+        return StiNetCoreDesignerFx.ExportReportResult(this, settings);
+    }
 
-return StiNetCoreDesignerFx.ExportReportResult(this);
+    return StiNetCoreDesignerFx.ExportReportResult(this);
 }
 ...
 ```

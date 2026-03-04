@@ -22,6 +22,8 @@ The Dot-Matrix viewer can be configured from code using static properties. Depen
 As can be seen on the picture above, the AutoRefresh property is enabled. This means that the AutoRefresh static property of the Dot-matrix viewer is set to true. If the AutoRefresh static property is set to false, then the AutoRefresh property in the Dot-matrix viewer is disabled. Add the following code into the project code:
 
 
+**C#**
+
 ```csharp
 ...
 StiOptions.Viewer.DotMatrix.AutoRefresh = false;

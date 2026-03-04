@@ -8,11 +8,11 @@ To run the report designer with a new (empty) report, it is enough to create a n
 ```
 ...
 @Html.Stimulsoft().StiMvcDesignerFx("MvcDesignerFx1", 
-new StiMvcDesignerFxOptions() {
-Actions =
-{
-GetReport = "GetReport"
-}
+    new StiMvcDesignerFxOptions() {
+        Actions =
+        {
+            GetReport = "GetReport"
+        }
 })
 ...
 ```
@@ -24,9 +24,9 @@ GetReport = "GetReport"
 ...
 public ActionResult GetReport()
 {
-StiReport report = new StiReport();
-
-return StiMvcDesignerFx.GetReportResult(report);
+    StiReport report = new StiReport();
+    
+    return StiMvcDesignerFx.GetReportResult(report);
 }
 ...
 ```
@@ -39,11 +39,11 @@ You can also create a new report using the main menu of the designer. The **Crea
 ```
 ...
 @Html.Stimulsoft().StiMvcDesignerFx("MvcDesignerFx1", 
-new StiMvcDesignerFxOptions() {
-Actions =
-{
-CreateReport = "CreateReport"
-}
+    new StiMvcDesignerFxOptions() {
+        Actions =
+        {
+            CreateReport = "CreateReport"
+        }
 })
 ...
 ```
@@ -55,15 +55,15 @@ CreateReport = "CreateReport"
 ...
 public ActionResult CreateReport()
 {
-StiReport report = new StiReport();
+    StiReport report = new StiReport();
+        
+    // Register data for the new report, if necessary
+    DataSet data = new DataSet("Demo");
+    data.ReadXml(Server.MapPath("~/Content/Data/Demo.xml"));
+    report.RegData(data);
+    report.Dictionary.Synchronize();
     
-// Register data for the new report, if necessary
-DataSet data = new DataSet("Demo");
-data.ReadXml(Server.MapPath("~/Content/Data/Demo.xml"));
-report.RegData(data);
-report.Dictionary.Synchronize();
-
-return StiMvcDesignerFx.GetReportResult(report);
+    return StiMvcDesignerFx.GetReportResult(report);
 }
 ...
 ```

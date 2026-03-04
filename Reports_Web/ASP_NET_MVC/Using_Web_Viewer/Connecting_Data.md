@@ -13,15 +13,15 @@ Data to a report can be connected in various ways. The easiest way is to store c
 ...
 public ActionResult GetReport()
 {
-DataSet ds = new DataSet();
-ds.ReadXml(Server.MapPath("~/Content/Data/Demo.xml"));
-
-StiReport report = new StiReport();
-report.Load(Server.MapPath("~/Content/TwoSimpleLists.mrt"));
-report.Dictionary.Databases.Clear();
-report.RegData("Demo", ds);
-
-return StiMvcViewer.GetReportResult(report);
+    DataSet ds = new DataSet();
+    ds.ReadXml(Server.MapPath("~/Content/Data/Demo.xml"));
+    
+    StiReport report = new StiReport();
+    report.Load(Server.MapPath("~/Content/TwoSimpleLists.mrt"));
+    report.Dictionary.Databases.Clear();
+    report.RegData("Demo", ds);
+    
+    return StiMvcViewer.GetReportResult(report);
 }
 ...
 ```
@@ -34,13 +34,13 @@ Data for the report can be connected not only when the report is loaded. For exa
 ```
 ...
 @Html.Stimulsoft().StiMvcViewer("MvcViewer1",
-new StiMvcViewerOptions() {
-Actions =
-{
-GetReport = "GetReport",
-ViewerEvent = "ViewerEvent",
-Interaction = "ViewerInteraction"
-}
+    new StiMvcViewerOptions() {
+        Actions =
+        {
+            GetReport = "GetReport",
+            ViewerEvent = "ViewerEvent",
+            Interaction = "ViewerInteraction"
+        }
 })
 ...
 ```
@@ -52,13 +52,13 @@ Interaction = "ViewerInteraction"
 ...
 public ActionResult ViewerInteraction()
 { 
-DataSet data = new DataSet();
-data.ReadXml(Server.MapPath("~/Content/Data/Demo.xml"));
-
-StiReport report = StiMvcViewer.GetReportObject();
-report.RegData("Demo", data);
-
-return StiMvcViewer.InteractionResult(report);
+    DataSet data = new DataSet();
+    data.ReadXml(Server.MapPath("~/Content/Data/Demo.xml"));
+    
+    StiReport report = StiMvcViewer.GetReportObject();
+    report.RegData("Demo", data);
+    
+    return StiMvcViewer.InteractionResult(report);
 }
 ...
 ```
@@ -72,19 +72,19 @@ If you want to connect new data only for a certain interactive action of the vie
 ...
 public ActionResult ViewerInteraction()
 {
-StiRequestParams requestParams = StiMvcViewer.GetRequestParams();
-if (requestParams.Action == StiAction.Variables)
-{
-DataSet data = new DataSet();
-data.ReadXml(Server.MapPath("~/Content/Data/Demo.xml"));
-
-StiReport report = StiMvcViewer.GetReportObject();
-report.RegData("Demo", data);
-
-return StiMvcViewer.InteractionResult(report);
-}
-
-return StiMvcViewer.InteractionResult();
+    StiRequestParams requestParams = StiMvcViewer.GetRequestParams();
+    if (requestParams.Action == StiAction.Variables)
+    {
+        DataSet data = new DataSet();
+        data.ReadXml(Server.MapPath("~/Content/Data/Demo.xml"));
+        
+        StiReport report = StiMvcViewer.GetReportObject();
+        report.RegData("Demo", data);
+        
+        return StiMvcViewer.InteractionResult(report);
+    }
+    
+    return StiMvcViewer.InteractionResult();
 }
 ...
 ```
@@ -100,19 +100,19 @@ The connection parameters to the SQL data source and any other ones can be store
 ...
 public ActionResult GetReport()
 {
-OracleConnection connection = new OracleConnection("Data Source=Oracle8i;Integrated Security=yes");
-connection.Open();
-OracleDataAdapter adapter = new OracleDataAdapter();
-adapter.SelectCommand = new OracleCommand("SELECT * FROM Products", connection);
- 
-DataSet dataSet = new DataSet("productsDataSet");
-adapter.Fill(dataSet, "Products");
- 
-StiReport report = new StiReport();
-report.Load(Server.MapPath("~/Content/SqlSampleReport.mrt"));
-report.RegData("Products", dataSet);
-
-return StiMvcViewer.GetReportResult(report);
+    OracleConnection connection = new OracleConnection("Data Source=Oracle8i;Integrated Security=yes");
+    connection.Open();
+    OracleDataAdapter adapter = new OracleDataAdapter();
+    adapter.SelectCommand = new OracleCommand("SELECT * FROM Products", connection);
+     
+    DataSet dataSet = new DataSet("productsDataSet");
+    adapter.Fill(dataSet, "Products");
+     
+    StiReport report = new StiReport();
+    report.Load(Server.MapPath("~/Content/SqlSampleReport.mrt"));
+    report.RegData("Products", dataSet);
+    
+    return StiMvcViewer.GetReportResult(report);
 }
 ...
 ```
@@ -129,14 +129,14 @@ Below is an example of code that you may use to change the connection string for
 ...
 public ActionResult GetReport()
 { 
-
-StiReport report = new StiReport();
-report.Load(Server.MapPath("Report.mrt"));
-((StiSqlDatabase)report.Dictionary.Databases["Connection"]).ConnectionString = @"Data Source=server;Integrated Security=True;Initial Catalog=DataBase";
-((StiSqlSource)report.Dictionary.DataSources["DataSourceName"]).SqlCommand = "select * from Table where Column = 100";
-((StiSqlSource)report.Dictionary.DataSources["DataSourceName"]).CommandTimeout = 1000;
-
-return StiMvcViewer.GetReportResult(report);
+    
+    StiReport report = new StiReport();
+    report.Load(Server.MapPath("Report.mrt"));
+    ((StiSqlDatabase)report.Dictionary.Databases["Connection"]).ConnectionString = @"Data Source=server;Integrated Security=True;Initial Catalog=DataBase";
+    ((StiSqlSource)report.Dictionary.DataSources["DataSourceName"]).SqlCommand = "select * from Table where Column = 100";
+    ((StiSqlSource)report.Dictionary.DataSources["DataSourceName"]).CommandTimeout = 1000;
+    
+    return StiMvcViewer.GetReportResult(report);
 }
 ...
 ```
@@ -155,22 +155,22 @@ You can also use data for designing reports and dashboards obtained from OData s
 ...
 public ActionResult GetReport()
 { 
+    
+    var report = new StiReport();
+    
+    //Authorization using a user account        
+    var oDataDatabase = new StiODataDatabase("OData", "OData", @"https://services.odata.org/V4/Northwind/Northwind.svc;AddressBearer=adress;UserName=UserName;Password=Password;Client_Id=Your Client ID", false, null);
+    
+    //Authorization using a user token        
+    var oDataDatabase = new StiODataDatabase("OData", "OData", @"https://services.odata.org/V4/Northwind/Northwind.svc;Token=Enter your token", false, null);
+    
+    report.Dictionary.Databases.Add(oDataDatabase);
+    oDataDatabase.Synchronize(report);
+    
+    //Query with data filter
+    ((StiSqlSource)report.Dictionary.DataSources["Products"]).SqlCommand = "Products?$filter=ProductID eq 2";
 
-var report = new StiReport();
-
-//Authorization using a user account        
-var oDataDatabase = new StiODataDatabase("OData", "OData", @"https://services.odata.org/V4/Northwind/Northwind.svc;AddressBearer=adress;UserName=UserName;Password=Password;Client_Id=Your Client ID", false, null);
-
-//Authorization using a user token        
-var oDataDatabase = new StiODataDatabase("OData", "OData", @"https://services.odata.org/V4/Northwind/Northwind.svc;Token=Enter your token", false, null);
-
-report.Dictionary.Databases.Add(oDataDatabase);
-oDataDatabase.Synchronize(report);
-
-//Query with data filter
-((StiSqlSource)report.Dictionary.DataSources["Products"]).SqlCommand = "Products?$filter=ProductID eq 2";
-
-return StiMvcViewer.GetReportResult(report);
+    return StiMvcViewer.GetReportResult(report);
 }
 ...
 ```
@@ -212,14 +212,14 @@ Connecting to XML and JSON data sources can be stored in the report template. If
 ...
 public ActionResult GetReport()
 {
-DataSet data = new DataSet();
-data.ReadXml(Server.MapPath("~/Content/Data/Demo.xml"));
-
-StiReport report = new StiReport();
-report.Load(Server.MapPath("~/Content/SimpleList.mrt"));
-report.RegData(data);
-
-return StiMvcViewer.GetReportResult(report);
+    DataSet data = new DataSet();
+    data.ReadXml(Server.MapPath("~/Content/Data/Demo.xml"));
+    
+    StiReport report = new StiReport();
+    report.Load(Server.MapPath("~/Content/SimpleList.mrt"));
+    report.RegData(data);
+    
+    return StiMvcViewer.GetReportResult(report);
 }
 ...
 ```
@@ -231,13 +231,13 @@ return StiMvcViewer.GetReportResult(report);
 ...
 public ActionResult GetReport()
 {
-DataSet data = StiJsonToDataSetConverterV2.GetDataSetFromFile(Server.MapPath("~/Content/Data/Demo.json"));
-
-StiReport report = new StiReport();
-report.Load(Server.MapPath("~/Content/SimpleList.mrt"));
-report.RegData(data);
-
-return StiMvcViewer.GetReportResult(report);
+    DataSet data = StiJsonToDataSetConverterV2.GetDataSetFromFile(Server.MapPath("~/Content/Data/Demo.json"));
+    
+    StiReport report = new StiReport();
+    report.Load(Server.MapPath("~/Content/SimpleList.mrt"));
+    report.RegData(data);
+    
+    return StiMvcViewer.GetReportResult(report);
 }
 ...
 ```

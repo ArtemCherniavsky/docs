@@ -8,29 +8,29 @@ The **HTML5 Viewer** is configured using properties that are located in the **St
 ```html
 ...
 <script type="text/javascript">
-var report = new Stimulsoft.Report.StiReport();
-report.loadFile("SimpleList.mrt");
-
-var options = new Stimulsoft.Viewer.StiViewerOptions();
-
-options.width = "1000px";
-options.height = "1000px";
-
-options.appearance.theme = Stimulsoft.Viewer.StiViewerTheme.Office2022WhiteBlue;
-options.appearance.reportDisplayMode = Stimulsoft.Report.Export.StiHtmlExportMode.Div;
-options.appearance.scrollbarsMode = true;
-options.appearance.backgroundColor = Stimulsoft.System.Drawing.Color.dodgerBlue;
-options.appearance.showTooltips = false;
-
-options.toolbar.showPrintButton = false;
-options.toolbar.showDesignButton = false;
-options.toolbar.showAboutButton = false;
-
-options.exports.showExportToPdf = true;
-options.exports.ShowExportToWord2007 = true;
-
-var viewer = new Stimulsoft.Viewer.StiViewer(options);
-viewer.report = report;
+    var report = new Stimulsoft.Report.StiReport();
+    report.loadFile("SimpleList.mrt");
+    
+    var options = new Stimulsoft.Viewer.StiViewerOptions();
+    
+    options.width = "1000px";
+    options.height = "1000px";
+    
+    options.appearance.theme = Stimulsoft.Viewer.StiViewerTheme.Office2022WhiteBlue;
+    options.appearance.reportDisplayMode = Stimulsoft.Report.Export.StiHtmlExportMode.Div;
+    options.appearance.scrollbarsMode = true;
+    options.appearance.backgroundColor = Stimulsoft.System.Drawing.Color.dodgerBlue;
+    options.appearance.showTooltips = false;
+    
+    options.toolbar.showPrintButton = false;
+    options.toolbar.showDesignButton = false;
+    options.toolbar.showAboutButton = false;
+    
+    options.exports.showExportToPdf = true;
+    options.exports.ShowExportToWord2007 = true;
+    
+    var viewer = new Stimulsoft.Viewer.StiViewer(options);
+    viewer.report = report;
 </script>
 ...
 ```
@@ -43,8 +43,8 @@ Please note that all dashboard elements have their own save options and full-scr
 ```csharp
 ...
 var dbsElementInteraction = report.getComponentByName("RegionMap1").dashboardInteraction;
-dbsElementInteraction.showFullScreenButton = false;
-dbsElementInteraction.showSaveButton = false;
+    dbsElementInteraction.showFullScreenButton = false;
+    dbsElementInteraction.showSaveButton = false;
 ...
 ```
 

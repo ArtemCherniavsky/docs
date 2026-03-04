@@ -31,26 +31,26 @@ import React from 'react';
 import { Stimulsoft } from 'stimulsoft-dashboards-js/Scripts/stimulsoft.designer';
 
 class App extends React.Component {
-constructor() {
-super();
-this.designer = new Stimulsoft.Designer.StiDesigner(false, "StiDesigner", false);
-}
+    constructor() {
+        super();
+        this.designer = new Stimulsoft.Designer.StiDesigner(false, "StiDesigner", false);
+    }
 
-render() {
-return (
-<div className="App">
-<h2>Stimulsoft Designer</h2>
-<div id="сontent"></div>
-</div>
-);
-}
+    render() {
+        return (
+                    <div className="App">
+                        <h2>Stimulsoft Designer</h2>
+                        <div id="сontent"></div>
+                    </div>
+        );
+    }
  
-componentDidMount() {
-var report = new Stimulsoft.Report.StiReport();
-
-this.designer.report = report;
-this.designer.renderHtml("сontent");
-}
+    componentDidMount() {
+        var report = new Stimulsoft.Report.StiReport();
+        
+        this.designer.report = report;
+        this.designer.renderHtml("сontent");
+    }
 }
 
 export default App;

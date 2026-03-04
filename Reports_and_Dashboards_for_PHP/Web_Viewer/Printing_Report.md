@@ -42,11 +42,11 @@ For example, if you want to set the print mode to PDF only:
 ```php
 
 <?php
-use Stimulsoft\Viewer\StiViewer;
-use Stimulsoft\Viewer\Enums\StiPrintDestination;
-
-$viewer = new StiViewer();
-$viewer->options->toolbar->printDestination = StiPrintDestination::Pdf;
+    use Stimulsoft\Viewer\StiViewer;
+    use Stimulsoft\Viewer\Enums\StiPrintDestination;
+    
+    $viewer = new StiViewer();
+    $viewer->options->toolbar->printDestination = StiPrintDestination::Pdf;
 ?>
 ```
 
@@ -58,10 +58,10 @@ The viewer also allows disabling the print option entirely if it's not needed. T
 ```php
 
 <?php
-use Stimulsoft\Viewer\StiViewer;
-
-$viewer = new StiViewer();
-$viewer->options->toolbar->showPrintButton = false;
+    use Stimulsoft\Viewer\StiViewer;
+    
+    $viewer = new StiViewer();
+    $viewer->options->toolbar->showPrintButton = false;
 ?>
 ```
 
@@ -78,20 +78,20 @@ Example of actions performed on the JavaScript client-side before printing a rep
 ```php
 
 <?php
-use Stimulsoft\Viewer\StiViewer;
-
-$viewer = new StiViewer();
-$viewer->onPrintReport = 'printReport';
-$viewer->process();
+    use Stimulsoft\Viewer\StiViewer;
+    
+    $viewer = new StiViewer();
+    $viewer->onPrintReport = 'printReport';
+    $viewer->process();
 ?>
 
 <script>
-function printReport(args) {
-if (args.printAction == 'PrintPdf'){
-args.pageRange.rangeType = Stimulsoft.Report.StiRangeType.CurrentPage;
-args.pageRange.currentPage = 1;
-}
-}
+    function printReport(args) {
+        if (args.printAction == 'PrintPdf'){
+            args.pageRange.rangeType = Stimulsoft.Report.StiRangeType.CurrentPage;
+            args.pageRange.currentPage = 1;
+        }
+    }
 </script>
 ```
 
@@ -103,19 +103,19 @@ Example of actions performed on the PHP server-side before printing a report:
 ```php
 
 <?php
-use Stimulsoft\Viewer\StiViewer;
-use Stimulsoft\Events\StiPrintEventArgs;
-use Stimulsoft\Report\Enums\StiRangeType;
-use Stimulsoft\Viewer\Enums\StiPrintAction;
-
-$viewer = new StiViewer();
-$viewer->onPrintReport = function (StiPrintEventArgs $args) {
-if ($args->printAction == StiPrintAction::PrintPdf){
-$args->pageRange->rangeType = StiRangeType::CurrentPage;
-$args->pageRange->currentPage = 1;
-}
-};
-$viewer->process();
+    use Stimulsoft\Viewer\StiViewer;
+    use Stimulsoft\Events\StiPrintEventArgs;
+    use Stimulsoft\Report\Enums\StiRangeType;
+    use Stimulsoft\Viewer\Enums\StiPrintAction;
+    
+    $viewer = new StiViewer();
+    $viewer->onPrintReport = function (StiPrintEventArgs $args) {
+        if ($args->printAction == StiPrintAction::PrintPdf){
+            $args->pageRange->rangeType = StiRangeType::CurrentPage;
+            $args->pageRange->currentPage = 1;
+        }
+    };
+    $viewer->process();
 ?>
 ```
 

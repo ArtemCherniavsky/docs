@@ -14,17 +14,17 @@ There are two modes of report display - with scroll bars and without them. The m
 
 @code
 {
-//Options object
-private StiBlazorViewerOptions Options;
-
-protected override void OnInitialized()
-{
-base.OnInitialized();
-
-//Init options object
-Options = new StiBlazorViewerOptions();
-Options.Appearance.ScrollbarsMode = false;
-}
+    //Options object
+    private StiBlazorViewerOptions Options;
+    
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        
+        //Init options object
+        Options = new StiBlazorViewerOptions();
+        Options.Appearance.ScrollbarsMode = false;
+    }
 }
 ```
 
@@ -49,17 +49,17 @@ The mode of a report or a dashboard full-screen display is envisaged in the **Bl
 
 @code
 {
-//Options object
-private StiBlazorViewerOptions Options;
-
-protected override void OnInitialized()
-{
-base.OnInitialized();
-
-//Init options object
-Options = new StiBlazorViewerOptions();
-Options.Appearance.FullScreenMode = true;
-}
+    //Options object
+    private StiBlazorViewerOptions Options;
+    
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        
+        //Init options object
+        Options = new StiBlazorViewerOptions();
+        Options.Appearance.FullScreenMode = true;
+    }
 }
 ```
 
@@ -80,17 +80,17 @@ There are three report display modes in the **Blazor Viewer** - page display, fu
 
 @code
 {
-//Options object
-private StiBlazorViewerOptions Options;
-
-protected override void OnInitialized()
-{
-base.OnInitialized();
-
-//Init options object
-Options = new StiBlazorViewerOptions();
-Options.Toolbar.ViewMode = StiWebViewMode.SinglePage;
-}
+    //Options object
+    private StiBlazorViewerOptions Options;
+    
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        
+        //Init options object
+        Options = new StiBlazorViewerOptions();
+        Options.Toolbar.ViewMode = StiWebViewMode.SinglePage;
+    }
 }
 ```
 
@@ -116,17 +116,17 @@ The support of work with a simple computer as well as with touchscreens and mobi
 
 @code
 {
-//Options object
-private StiBlazorViewerOptions Options;
-
-protected override void OnInitialized()
-{
-base.OnInitialized();
-
-//Init options object
-Options = new StiBlazorViewerOptions();
-Options.Appearance.InterfaceType = StiInterfaceType.Auto;
-}
+    //Options object
+    private StiBlazorViewerOptions Options;
+    
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        
+        //Init options object
+        Options = new StiBlazorViewerOptions();
+        Options.Appearance.InterfaceType = StiInterfaceType.Auto;
+    }
 }
 ```
 

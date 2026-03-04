@@ -25,7 +25,7 @@ To work with dynamic sorting, collapsing and drill-down reports, no additional v
 ```
 ...
 <cc1:StiWebViewerFx ID="StiWebViewerFx1" runat="server"
-OnInteraction="StiWebViewerFx1_Interaction">
+    OnInteraction="StiWebViewerFx1_Interaction">
 </cc1:StiWebViewerFx>
 ...
 ```
@@ -37,14 +37,14 @@ OnInteraction="StiWebViewerFx1_Interaction">
 ...
 protected void StiWebViewerFx1_Interaction(object sender, StiReportDataEventArgs e)
 {
-switch (e.Action)
-{
-case StiAction.Sorting:
-break;
-
-case StiAction.DrillDown:
-break;
-}
+    switch (e.Action)
+    {
+        case StiAction.Sorting:
+            break;
+        
+        case StiAction.DrillDown:
+            break;
+    }
 }
 ...
 ```

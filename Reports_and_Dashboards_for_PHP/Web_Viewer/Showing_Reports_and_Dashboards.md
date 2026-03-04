@@ -8,19 +8,19 @@ To display a report in the viewer, simply create a `StiReport` object, load the 
 ```php
 
 <?php
-require_once 'vendor/autoload.php';
-
-use Stimulsoft\Report\StiReport;
-use Stimulsoft\Viewer\StiViewer;
-
-$viewer = new StiViewer();
-$viewer->process();
-
-$report = new StiReport();
-$report->loadFile('reports/SimpleList.mrt'); 
-$viewer->report = $report;
-
-$viewer->printHtml();
+    require_once 'vendor/autoload.php';
+    
+    use Stimulsoft\Report\StiReport;
+    use Stimulsoft\Viewer\StiViewer;
+    
+    $viewer = new StiViewer();
+    $viewer->process();
+    
+    $report = new StiReport();
+    $report->loadFile('reports/SimpleList.mrt'); 
+    $viewer->report = $report;
+    
+    $viewer->printHtml();
 ?> 
 ```
 

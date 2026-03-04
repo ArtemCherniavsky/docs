@@ -15,7 +15,7 @@ To perform any actions, a special **OnExportReport** event is assigned before th
 ```
 ...
 <cc1:StiWebViewerFx ID="StiWebViewerFx1" runat="server"
-OnExportReport="StiWebViewerFx1_ExportReport">
+    OnExportReport="StiWebViewerFx1_ExportReport">
 </cc1:StiWebViewerFx>
 ...
 ```
@@ -27,9 +27,9 @@ OnExportReport="StiWebViewerFx1_ExportReport">
 ...
 protected void StiWebViewerFx1_ExportReport(object sender, StiExportReportEventArgs e)
 {
-StiExportFormat format = e.Format;
-StiReport report = e.Report;
-StiExportSettings settings = e.Settings;
+    StiExportFormat format = e.Format;
+    StiReport report = e.Report;
+    StiExportSettings settings = e.Settings;
 }
 ...
 ```
@@ -42,7 +42,7 @@ To perform any actions with an already exported report, the **OnExportReportResp
 ```
 ...
 <cc1:StiWebViewerFx ID="StiWebViewerFx1" runat="server"
-OnExportReportResponse="StiWebViewerFx1_ExportReportResponse">
+    OnExportReportResponse="StiWebViewerFx1_ExportReportResponse">
 </cc1:StiWebViewerFx>
 ...
 ```
@@ -54,10 +54,10 @@ OnExportReportResponse="StiWebViewerFx1_ExportReportResponse">
 ...
 protected void StiWebViewerFx1_ExportReportResponse(object sender, StiExportReportResponseEventArgs e)
 {
-StiExportFormat format = e.Format;
-string contentType = e.ContentType;
-string fileName = e.FileName;
-Stream stream = e.Stream;
+    StiExportFormat format = e.Format;
+    string contentType = e.ContentType;
+    string fileName = e.FileName;
+    Stream stream = e.Stream;
 }
 ...
 ```
@@ -73,35 +73,35 @@ The **Flash Viewer** component contains 30+ export formats, and sometimes you ne
 ```
 ...
 <cc1:StiWebViewerFx ID="StiWebViewerFx1" runat="server"
-ShowExportToDocument="true"
-ShowExportToPdf="true"
-ShowExportToXps="true"
-ShowExportToPowerPoint="true"
-ShowExportToHtml="true"
-ShowExportToHtml5="true"
-ShowExportToMht="true"
-ShowExportToText="true"
-ShowExportToRtf="true"
-ShowExportToWord2007="true"
-ShowExportToOpenDocumentWriter="true"
-ShowExportToExcel="true"
-ShowExportToExcelXml="true"
-ShowExportToExcel2007="true"
-ShowExportToOpenDocumentCalc="true"
-ShowExportToCsv="true"
-ShowExportToDbf="true"
-ShowExportToXml="true"
-ShowExportToDif="true"
-ShowExportToSylk="true"
-ShowExportToImageBmp="true"
-ShowExportToImageGif="true"
-ShowExportToImageJpeg="true"
-ShowExportToImagePcx="true"
-ShowExportToImagePng="true"
-ShowExportToImageTiff="true"
-ShowExportToImageMetafile="true"
-ShowExportToImageSvg="true"
-ShowExportToImageSvgz="true">
+    ShowExportToDocument="true"
+    ShowExportToPdf="true"
+    ShowExportToXps="true"
+    ShowExportToPowerPoint="true"
+    ShowExportToHtml="true"
+    ShowExportToHtml5="true"
+    ShowExportToMht="true"
+    ShowExportToText="true"
+    ShowExportToRtf="true"
+    ShowExportToWord2007="true"
+    ShowExportToOpenDocumentWriter="true"
+    ShowExportToExcel="true"
+    ShowExportToExcelXml="true"
+    ShowExportToExcel2007="true"
+    ShowExportToOpenDocumentCalc="true"
+    ShowExportToCsv="true"
+    ShowExportToDbf="true"
+    ShowExportToXml="true"
+    ShowExportToDif="true"
+    ShowExportToSylk="true"
+    ShowExportToImageBmp="true"
+    ShowExportToImageGif="true"
+    ShowExportToImageJpeg="true"
+    ShowExportToImagePcx="true"
+    ShowExportToImagePng="true"
+    ShowExportToImageTiff="true"
+    ShowExportToImageMetafile="true"
+    ShowExportToImageSvg="true"
+    ShowExportToImageSvgz="true">
 </cc1:StiWebViewerFx>
 ...
 ```
@@ -114,7 +114,7 @@ Also, if required, you can completely hide export dialogs. Exporting will always
 ```
 ...
 <cc1:StiWebViewerFx ID="StiWebViewerFx1" runat="server"
-ShowExportDialog="false">
+    ShowExportDialog="false">
 </cc1:StiWebViewerFx>
 ...
 ```
@@ -127,7 +127,7 @@ The **Flash Viewer** component can completely disable the export menu. To do thi
 ```
 ...
 <cc1:StiWebViewerFx ID="StiWebViewerFx1" runat="server"
-ShowSaveButton="false">
+    ShowSaveButton="false">
 </cc1:StiWebViewerFx>
 ...
 ```

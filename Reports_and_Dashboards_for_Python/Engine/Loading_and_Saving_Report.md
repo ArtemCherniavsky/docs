@@ -59,9 +59,9 @@ report.render()
 ```html
 
 <script>
-function afterRender(args) {
-let json = args.report.saveDocumentToJsonString();
-}
+    function afterRender(args) {
+        let json = args.report.saveDocumentToJsonString();
+    }
 </script>
 ```
 

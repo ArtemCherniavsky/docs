@@ -8,7 +8,7 @@ To run the designer with a new (empty) report, it is enough to create a new repo
 ```
 ...
 <cc1:StiWebDesignerFx ID="StiWebDesignerFx1" runat="server"
-OnGetReport="StiWebDesignerFx1_GetReport">
+    OnGetReport="StiWebDesignerFx1_GetReport">
 </cc1:StiWebDesignerFx>
 ...
 ```
@@ -20,7 +20,7 @@ OnGetReport="StiWebDesignerFx1_GetReport">
 ...
 protected void StiWebDesignerFx1_GetReport(object sender, StiReportDataEventArgs e)
 {
-e.Report = new StiReport();
+    e.Report = new StiReport();
 }
 ...
 ```
@@ -33,7 +33,7 @@ You can also create a new report using the main menu of the designer. The **OnCr
 ```
 ...
 <cc1:StiWebDesignerFx ID="StiWebDesignerFx1" runat="server"
-OnCreateReport="StiWebDesignerFx1_CreateReport">
+    OnCreateReport="StiWebDesignerFx1_CreateReport">
 </cc1:StiWebDesignerFx>
 ...
 ```
@@ -45,15 +45,15 @@ OnCreateReport="StiWebDesignerFx1_CreateReport">
 ...
 protected void StiWebDesignerFx1_CreateReport(object sender, StiReportDataEventArgs e)
 {
-StiReport report = new StiReport();
-
-// Register data for the new report, if necessary
-DataSet data = new DataSet("Demo");
-data.ReadXml(Server.MapPath("Data/Demo.xml"));
-report.RegData(data);
-report.Dictionary.Synchronize();
-
-e.Report = report;
+    StiReport report = new StiReport();
+    
+    // Register data for the new report, if necessary
+    DataSet data = new DataSet("Demo");
+    data.ReadXml(Server.MapPath("Data/Demo.xml"));
+    report.RegData(data);
+    report.Dictionary.Synchronize();
+    
+    e.Report = report;
 }
 ...
 ```

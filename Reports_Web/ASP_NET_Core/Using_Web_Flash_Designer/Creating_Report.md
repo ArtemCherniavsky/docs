@@ -8,10 +8,10 @@ To run the report designer with a new (empty) report, it is enough to create a n
 ```
 ...
 @Html.StiNetCoreDesignerFx(new StiNetCoreDesignerFxOptions() {
-Actions =
-{
-GetReport = "GetReport"
-}
+    Actions =
+    {
+        GetReport = "GetReport"
+    }
 })
 ...
 ```
@@ -23,9 +23,9 @@ GetReport = "GetReport"
 ...
 public IActionResult GetReport()
 {
-StiReport report = new StiReport();
-
-return StiNetCoreDesignerFx.GetReportResult(this, report);
+    StiReport report = new StiReport();
+    
+    return StiNetCoreDesignerFx.GetReportResult(this, report);
 }
 ...
 ```
@@ -38,10 +38,10 @@ You can also create a new report using the main menu of the designer. The **Crea
 ```
 ...
 @Html.StiNetCoreDesignerFx(new StiNetCoreDesignerFxOptions() {
-Actions =
-{
-CreateReport = "CreateReport"
-}
+    Actions =
+    {
+        CreateReport = "CreateReport"
+    }
 })
 ...
 ```
@@ -53,15 +53,15 @@ CreateReport = "CreateReport"
 ...
 public IActionResult CreateReport()
 {
-StiReport report = new StiReport();
+    StiReport report = new StiReport();
+        
+    // Register data for the new report, if necessary
+    DataSet data = new DataSet("Demo");
+    data.ReadXml(StiNetCoreHelper.MapPath(this, "Data/Demo.xml"));
+    report.RegData(data);
+    report.Dictionary.Synchronize();
     
-// Register data for the new report, if necessary
-DataSet data = new DataSet("Demo");
-data.ReadXml(StiNetCoreHelper.MapPath(this, "Data/Demo.xml"));
-report.RegData(data);
-report.Dictionary.Synchronize();
-
-return StiNetCoreDesignerFx.GetReportResult(this, report);
+    return StiNetCoreDesignerFx.GetReportResult(this, report);
 }
 ...
 ```

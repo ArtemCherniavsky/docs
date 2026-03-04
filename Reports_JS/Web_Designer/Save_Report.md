@@ -19,8 +19,8 @@ An editable report will be passed in the arguments of the event. That report can
 ```html
 ...
 designer.onSaveReport = function (args) {
-args.preventDefault = false;
-var jsonReport = args.report.saveToJsonString();
+    args.preventDefault = false;
+    var jsonReport = args.report.saveToJsonString();
 }
 ...
 ```
@@ -37,8 +37,8 @@ By default, after saving the report, the designer continues working without disp
 ```html
 ...
 designer.onSaveReport = function (args) {
-args.preventDefault = false;
-Stimulsoft.System.StiError.showError("Some message after saving", true);
+    args.preventDefault = false;
+    Stimulsoft.System.StiError.showError("Some message after saving", true);
 }
 ...
 ```
@@ -55,14 +55,14 @@ designer.renderHtml("content");
 
 designer.onSaveReport = function (args) {
 
-//a flag to prevent further processing of the event
-args.preventDefault = false;
-
-//Report name from the designer save dialog
-var reportName = args.fileName;
-
-//Original report name from properties
-var reportName = args.report.reportName;
+    //a flag to prevent further processing of the event
+    args.preventDefault = false;
+    
+    //Report name from the designer save dialog
+    var reportName = args.fileName;
+    
+    //Original report name from properties
+    var reportName = args.report.reportName;
 }
 ...
 ```
@@ -89,10 +89,10 @@ The **HTML5 Designer** component provides the ability to change the behavior of 
 ```html
 ...
 designer.onSaveAsReport = function (args) {
-args.report.repotName = "Report";
+    args.report.repotName = "Report";
 
-// Save the report template
-var jsonReport = args.report.saveToJsonString();
+    // Save the report template
+    var jsonReport = args.report.saveToJsonString();
 }
 ...
 ```

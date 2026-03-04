@@ -11,25 +11,25 @@ After purchasing a Stimulsoft product, you need to activate the license for the 
 ...
 public partial class Form1 : Form
 {
-public Form1()
-{
-//Activation with using license code
-Stimulsoft.Base.StiLicense.Key = "Your activation code...";
-
-//Activation with using license file
-Stimulsoft.Base.StiLicense.LoadFromFile("license.key");
-
-//Activation from byte array
-Stimulsoft.Base.StiLicense.LoadFromBytes(bytes);
-
-//Activation from stream
-Stimulsoft.Base.StiLicense.LoadFromStream(stream);
-
-//Activation from assembly
-Stimulsoft.Base.StiLicense.LoadFromEntryAssembly(assembly, "stimulsoft-license.key");
-
-InitializeComponent();
-}
+    public Form1()
+    {
+        //Activation with using license code
+        Stimulsoft.Base.StiLicense.Key = "Your activation code...";
+        
+        //Activation with using license file
+        Stimulsoft.Base.StiLicense.LoadFromFile("license.key");
+        
+        //Activation from byte array
+        Stimulsoft.Base.StiLicense.LoadFromBytes(bytes);
+        
+        //Activation from stream
+        Stimulsoft.Base.StiLicense.LoadFromStream(stream);
+        
+        //Activation from assembly
+        Stimulsoft.Base.StiLicense.LoadFromEntryAssembly(assembly, "stimulsoft-license.key");
+        
+        InitializeComponent();
+    }
 }
 ...
 ```

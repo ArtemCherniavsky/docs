@@ -12,10 +12,10 @@ To run the report designer with a new (empty) report, it is enough to create a n
 ```
 ...
 @Html.StiNetCoreDesigner(new StiNetCoreDesignerOptions() {
-Actions =
-{
-GetReport = "GetReport"
-}
+    Actions =
+    {
+        GetReport = "GetReport"
+    }
 })
 ...
 ```
@@ -27,9 +27,9 @@ GetReport = "GetReport"
 ...
 public IActionResult OnPostGetReport()
 {
-StiReport report = new StiReport();
-
-return StiNetCoreDesigner.GetReportResult(this, report);
+    StiReport report = new StiReport();
+    
+    return StiNetCoreDesigner.GetReportResult(this, report);
 }
 ...
 ```
@@ -42,10 +42,10 @@ You can also create a new report using the main menu of the designer. The **Crea
 ```
 ...
 @Html.StiNetCoreDesigner(new StiNetCoreDesignerOptions() {
-Actions =
-{
-CreateReport = "CreateReport"
-}
+    Actions =
+    {
+        CreateReport = "CreateReport"
+    }
 })
 ...
 ```
@@ -57,19 +57,19 @@ CreateReport = "CreateReport"
 ...
 public IActionResult OnPostCreateReport()
 {
-StiReport report = new StiReport();
-//var newDashboard = StiReport.CreateNewDashboard();
+    StiReport report = new StiReport();
+    //var newDashboard = StiReport.CreateNewDashboard();
+        
+    // Register data for the new report, if necessary
+    DataSet data = new DataSet("Demo");
+    data.ReadXml(StiNetCoreHelper.MapPath(this, "Data/Demo.xml"));
+    report.RegData(data);
+    //newDashboard.RegData(data);
+    report.Dictionary.Synchronize();
+    //newDashboard.Dictionary.Synchronize();
     
-// Register data for the new report, if necessary
-DataSet data = new DataSet("Demo");
-data.ReadXml(StiNetCoreHelper.MapPath(this, "Data/Demo.xml"));
-report.RegData(data);
-//newDashboard.RegData(data);
-report.Dictionary.Synchronize();
-//newDashboard.Dictionary.Synchronize();
-
-return StiNetCoreDesigner.GetReportResult(this, report);
-//return StiNetCoreDesigner.GetReportResult(this, newDashboard);
+    return StiNetCoreDesigner.GetReportResult(this, report);
+    //return StiNetCoreDesigner.GetReportResult(this, newDashboard);
 }
 ...
 ```

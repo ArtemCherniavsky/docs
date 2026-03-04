@@ -8,11 +8,11 @@ To show the report, you need to add the **StiNetCoreViewerFx**  component to the
 ```
 ...
 @Html.StiNetCoreViewerFx(new StiNetCoreViewerFxOptions() {
-Actions =
-{
-GetReport = "GetReport",
-ViewerEvent = "ViewerEvent"
-}
+    Actions =
+    {
+        GetReport = "GetReport",
+        ViewerEvent = "ViewerEvent"
+    }
 })
 ...
 ```
@@ -24,15 +24,15 @@ ViewerEvent = "ViewerEvent"
 ...
 public IActionResult GetReport()
 {
-StiReport report = new StiReport();
-report.Load(StiNetCoreHelper.MapPath(this, "Reports/SimpleList.mrt"));
-
-return StiNetCoreViewerFx.GetReportResult(this, report);
+    StiReport report = new StiReport();
+    report.Load(StiNetCoreHelper.MapPath(this, "Reports/SimpleList.mrt"));
+    
+    return StiNetCoreViewerFx.GetReportResult(this, report);
 }
-
+    
 public IActionResult ViewerEvent()
 {
-return StiNetCoreViewerFx.ViewerEventResult(this);
+    return StiNetCoreViewerFx.ViewerEventResult(this);
 }
 ...
 ```
@@ -56,10 +56,10 @@ If the report was not rendered before showing, the **Flash Viewer** component wi
 ...
 public IActionResult GetReport()
 {
-StiReport report = new StiReport();
-report.LoadDocument(StiNetCoreHelper.MapPath(this, "SimpleList.mdc"));
-
-return StiNetCoreViewerFx.GetReportResult(this, report);
+    StiReport report = new StiReport();
+    report.LoadDocument(StiNetCoreHelper.MapPath(this, "SimpleList.mdc"));
+    
+    return StiNetCoreViewerFx.GetReportResult(this, report);
 }
 ...
 ```

@@ -8,15 +8,15 @@ After purchasing a Stimulsoft product, you need to activate the license for the 
 ```
 ...
 <body>
-<%
-//Activation with using license code
-com.stimulsoft.base.licenses.StiLicense.setKey(
-"Your activation code...";
+    <%
+        //Activation with using license code
+        com.stimulsoft.base.licenses.StiLicense.setKey(
+        "Your activation code...";
 
-//Activation with using license file
-com.stimulsoft.base.licenses.StiLicense.loadFromFile(request.getSession().getServletContext().getRealPath("/license/license.key"));
-%>
-<stiwebviewer:webviewer report="${report}" options="${options}" />
+        //Activation with using license file
+        com.stimulsoft.base.licenses.StiLicense.loadFromFile(request.getSession().getServletContext().getRealPath("/license/license.key"));
+    %>
+    <stiwebviewer:webviewer report="${report}" options="${options}" />
 </body>
 ...
 ```

@@ -13,10 +13,10 @@ To save the edited report on the server-side, you need to set the **SaveReport**
 ```
 ...
 @Html.StiNetCoreDesignerFx(new StiNetCoreDesignerFxOptions() {
-Actions =
-{
-SaveReport = "SaveReport"
-}
+    Actions =
+    {
+        SaveReport = "SaveReport"
+    }
 })
 ...
 ```
@@ -28,12 +28,12 @@ SaveReport = "SaveReport"
 ...
 public IActionResult SaveReport()
 {
-StiReport report = StiNetCoreDesignerFx.GetReportObject(this);
+    StiReport report = StiNetCoreDesignerFx.GetReportObject(this);
+        
+    // Save the report template
+    // ...
     
-// Save the report template
-// ...
-
-return StiNetCoreDesignerFx.SaveReportResult(this);
+    return StiNetCoreDesignerFx.SaveReportResult(this);
 }
 ...
 ```
@@ -47,22 +47,22 @@ This action returns a response to the client-side of the designer about the resu
 ...
 public IActionResult SaveReport()
 {
-StiReport report = StiNetCoreDesignerFx.GetReportObject(this);
+    StiReport report = StiNetCoreDesignerFx.GetReportObject(this);
+        
+    // Save the report template
+    // ...
     
-// Save the report template
-// ...
-
-// Completion of the report saving without any dialog box
-return StiNetCoreDesignerFx.SaveReportResult(this);
-
-// Completion of the report saving with dialog box
-//return StiNetCoreDesignerFx.SaveReportResult(this, true);
-
-// Completion of the report saving with error dialog box
-//return StiNetCoreDesignerFx.SaveReportResult(this, 123);
-
-// Completion of the report saving with message dialog box
-//return StiNetCoreDesignerFx.SaveReportResult(this, "Some message after saving");
+    // Completion of the report saving without any dialog box
+    return StiNetCoreDesignerFx.SaveReportResult(this);
+    
+    // Completion of the report saving with dialog box
+    //return StiNetCoreDesignerFx.SaveReportResult(this, true);
+    
+    // Completion of the report saving with error dialog box
+    //return StiNetCoreDesignerFx.SaveReportResult(this, 123);
+    
+    // Completion of the report saving with message dialog box
+    //return StiNetCoreDesignerFx.SaveReportResult(this, "Some message after saving");
 }
 ...
 ```
@@ -88,13 +88,13 @@ The **Flash Designer** component allows you to correct the report on the server-
 ...
 public IActionResult SaveReport()
 {
-StiReport report = StiNetCoreDesignerFx.GetReportObject(this);
-report.ReportAuthor = "Stimulsoft";
+    StiReport report = StiNetCoreDesignerFx.GetReportObject(this);
+    report.ReportAuthor = "Stimulsoft";
+        
+    // Save the report template
+    // ...
     
-// Save the report template
-// ...
-
-return StiNetCoreDesignerFx.SaveReportResult(this, report);
+    return StiNetCoreDesignerFx.SaveReportResult(this, report);
 }
 ...
 ```
@@ -115,10 +115,10 @@ The **Flash Designer** component provides the ability to change the behavior of 
 ```
 ...
 @Html.StiNetCoreDesignerFx(new StiNetCoreDesignerFxOptions() {
-Actions =
-{
-SaveReportAs = "SaveReportAs"
-}
+    Actions =
+    {
+        SaveReportAs = "SaveReportAs"
+    }
 })
 ...
 ```
@@ -130,12 +130,12 @@ SaveReportAs = "SaveReportAs"
 ...
 public IActionResult SaveReportAs()
 {
-StiReport report = StiNetCoreDesignerFx.GetReportObject(this);
+    StiReport report = StiNetCoreDesignerFx.GetReportObject(this);
+        
+    // Save the report template
+    // ...
     
-// Save the report template
-// ...
-
-return StiNetCoreDesignerFx.SaveReportResult(this);
+    return StiNetCoreDesignerFx.SaveReportResult(this);
 }
 ...
 ```
@@ -151,14 +151,14 @@ The report is saved in the background mode without reloading the page in the web
 ```
 ...
 @Html.StiNetCoreDesignerFx(new StiNetCoreDesignerFxOptions() {
-Actions =
-{
-SaveReportAs = "SaveReportAs"
-},
-Behavior =
-{
-SaveReportAsMode = StiSaveMode.Visible
-}
+    Actions =
+    {
+        SaveReportAs = "SaveReportAs"
+    },
+    Behavior =
+    {
+        SaveReportAsMode = StiSaveMode.Visible
+    }
 })
 ...
 ```
@@ -175,19 +175,19 @@ Since the designer has the ability to create a new report, then, when you save i
 ...
 public IActionResult SaveReport()
 {
-StiReport report = StiNetCoreDesignerFx.GetReportObject(this);
-StiRequestParams requestParams = StiNetCoreDesignerFx.GetRequestParams(this);
+    StiReport report = StiNetCoreDesignerFx.GetReportObject(this);
+    StiRequestParams requestParams = StiNetCoreDesignerFx.GetRequestParams(this);
+        
+    if (requestParams.Designer.IsNewReport)
+    {
+        // Save the new report
+    }
+    else
+    {
+        // Save the edited report
+    }
     
-if (requestParams.Designer.IsNewReport)
-{
-// Save the new report
-}
-else
-{
-// Save the edited report
-}
-
-return StiNetCoreDesignerFx.SaveReportResult(this);
+    return StiNetCoreDesignerFx.SaveReportResult(this);
 }
 ...
 ```
@@ -205,14 +205,14 @@ The **Flash Designer** component provides the ability to automatically save a re
 ```
 ...
 @Html.StiNetCoreDesignerFx(new StiNetCoreDesignerFxOptions() {
-Actions =
-{
-SaveReport = "SaveReport"
-},
-Behavior =
-{
-AutoSaveInterval = 3
-}
+    Actions =
+    {
+        SaveReport = "SaveReport"
+    },
+    Behavior =
+    {
+        AutoSaveInterval = 3
+    }
 })
 ...
 ```

@@ -17,7 +17,7 @@ Before previewing the report, it is possible to perform any necessary actions, f
 ```
 ...
 <cc1:StiWebDesigner ID="StiWebDesigner1" runat="server"
-OnPreviewReport="StiWebDesigner1_PreviewReport">
+    OnPreviewReport="StiWebDesigner1_PreviewReport">
 </cc1:StiWebDesigner>
 ...
 ```
@@ -29,9 +29,9 @@ OnPreviewReport="StiWebDesigner1_PreviewReport">
 ...
 protected void StiWebDesigner1_PreviewReport(object sender, StiReportDataEventArgs e)
 {
-DataSet data = new DataSet("Demo");
-data.ReadXml(Server.MapPath("Data/Demo.xml"));
-e.Report.RegData(data);
+    DataSet data = new DataSet("Demo");
+    data.ReadXml(Server.MapPath("Data/Demo.xml"));
+    e.Report.RegData(data);
 }
 ...
 ```
@@ -44,7 +44,7 @@ If you need to take actions on your report immediately before displaying the rep
 ```
 ...
 <cc1:StiWebDesigner ID="StiWebDesigner1" runat="server"
-OnGetPreviewReport="StiWebDesigner1_GetPreviewReport">
+    OnGetPreviewReport="StiWebDesigner1_GetPreviewReport">
 </cc1:StiWebDesigner>
 ...
 ```
@@ -56,11 +56,11 @@ OnGetPreviewReport="StiWebDesigner1_GetPreviewReport">
 ...
 protected void StiWebDesigner1_GetPreviewReport(object sender, StiReportDataEventArgs e)
 {
-DataSet data = new DataSet("Demo");
-data.ReadXml(Server.MapPath("Data/Demo.xml"));
-e.Report.RegData(data);
-
-//report.IsRendered = false;
+    DataSet data = new DataSet("Demo");
+    data.ReadXml(Server.MapPath("Data/Demo.xml"));
+    e.Report.RegData(data);
+    
+    //report.IsRendered = false;
 }
 ...
 ```

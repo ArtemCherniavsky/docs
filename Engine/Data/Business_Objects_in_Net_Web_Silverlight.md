@@ -8,54 +8,58 @@ Business Object is a data type, which is a set of objects related to each other,
 This example creates a report with a business object. First we need to create the structure of the business object. Below is a sample code to create a business object class:
 
 
+**C#**
+
 ```csharp
 ...
 public class MyObject
 {
-public class Category
-{
-public int number;
-public int Number
-{
-get
-{
-return number;
-}
-}
+    public class Category
+    {
+        public int number;
+        public int Number
+        {
+            get
+            {
+                return number;
+            }
+        }
 
-public string name;
-public string Name
-{
-get 
-{ 
-return name;
-}
-}
+        public string name;
+        public string Name
+        {
+            get 
+            { 
+                return name;
+            }
+        }
 
-public string description;
-public string Description
-{
-get 
-{
-return description;
-}
-}
-}
+        public string description;
+        public string Description
+        {
+            get 
+            {
+                return description;
+            }
+        }
+    }
 
-public Category[] list = null;
-public Category[] List
-{
-get
-{
-return list;
-}
-}
+    public Category[] list = null;
+    public Category[] List
+    {
+        get
+        {
+            return list;
+        }
+    }
 }
 ...
 ```
 
 Now, you should populate the business object. Below is an example of code to populate a Business Object is with data:
 
+
+**C#**
 
 ```csharp
 ...
@@ -125,55 +129,59 @@ Press the Ok button once the fields are filled and parameters are specified. Aft
 Created business objects that are registered and passed to the report generator, but do not contain the actual data are called a description of business objects. Using the description of the business object, you can create a report template (define the structure and design the report), and then, before building, connect the real data and render a report. This is useful if you want to create reports with the same structure and design, but with different data. Create a structural description of the business object first. Below is a sample code to create a business object class:
 
 
+**C#**
+
 ```csharp
 ...
 public class MyObject
 {
-public class Category
-{
-public int categoryID;
-public int CategoryID
-{
-get
-{
-return categoryID;
-}
-}
+    public class Category
+    {
+        public int categoryID;
+        public int CategoryID
+        {
+            get
+            {
+                return categoryID;
+            }
+        }
 
-public string categoryName;
-public string CategoryName
-{
-get 
-{
-return categoryName; 
-}
-}
+        public string categoryName;
+        public string CategoryName
+        {
+            get 
+            {
+                return categoryName; 
+            }
+        }
 
-public string description;
-public string Description
-{
-get 
-{
-return description; 
-}
-}
+        public string description;
+        public string Description
+        {
+            get 
+            {
+                return description; 
+            }
+        }
 
-}
+    }
 
-public Category[] list = null;
-public Category[] Categories
-{
-get
-{
-return list;
-}
-}
+    public Category[] list = null;
+    public Category[] Categories
+    {
+        get
+        {
+            return list;
+        }
+    }
 }
 ...
 ```
 
 You then need to create a new business object class, register and pass it to the report generator. Below is a sample code to create and register a new business object:
 
+
+**C#**
 
 ```csharp
 ...
@@ -195,6 +203,8 @@ Now with help of the created description of the business object, create a report
 Once a report template is created, you can save it, for example, to the following path D:\\Report.mrt. Because the description of the business object does not contain the actual data, in order to render a report, you will get the real data to business objects, in our example we take the data from the database Northwind. For a start, create a connection to the database in Visual Studio. After that, put the code to obtain data for the business object. Getting real data for the business object occurs immediately before the report. Here is the code to obtain data for the business object:
 
 
+**C#**
+
 ```csharp
 ...
 int busobjLevel = 1;
@@ -204,12 +214,12 @@ report.Load("D:\\Report.mrt");
 
 using (NorthwindDataContext context = new NorthwindDataContext())
 {
-var categories =
-from c in context.Categories
-select new { c.CategoryID, c.CategoryName, c.Description };
+    var categories =
+        from c in context.Categories
+        select new { c.CategoryID, c.CategoryName, c.Description };
 
-report.RegBusinessObject("Categories", categories);
-report.Show();
+    report.RegBusinessObject("Categories", categories);
+    report.Show();
 }
 ...
 ```
@@ -224,6 +234,8 @@ After that, the report generator will receive the data for the business object f
 
 Creating, filling, signing and sending business objects to the Web is almost the same as in .NET. First, create a class of the business object that is identical as in .NET. Next, create an object of the business object class, register it manually fill data and pass them. Here are the differences that, instead of the mainreport.Design() method, you should use the StiWebDesigner1.Design(mainreport) method. Also perform synchronization using the mainreport.Dictionary.SynchronizeBusinessObjects(), because in the Web designer it is not possible to create a description of the business object from the data dictionary (the description can only be created from code). Below is a sample code to create, fill, register and pass the business objects:
 
+
+**C#**
 
 ```csharp
 ...
@@ -255,6 +267,8 @@ StiWebDesigner1.Design(mainreport);
 Just as in .NET, in Web you can create a description of the business objects first, then the report template, and then connect the data source with the real data and render a report. Create a description of the business object. But previously you have to make the class of the business object that is identical to the class of business object in .NET. Here is an example of writing a business object:
 
 
+**C#**
+
 ```csharp
 ...
 MyObject.Category obj = new MyObject.Category();
@@ -270,6 +284,8 @@ StiWebDesigner1.Design(report);
 Now with the description created, design a report template identical to .NET. Once a report template is created, you can save it, for example to the following path D:\\Report.mrt. Since the description of the business object does not contain the actual data, in order to build a report, you should get the real data to business objects, in this example, we take the data from the database Northwind. First, create a connection to the database in Visual Studio. After that, write the code to obtain data for the business object. Getting real data for the business object occurs immediately before the report. Here is the code to obtain data for the business object:
 
 
+**C#**
+
 ```csharp
 ...
 int busobjLevel = 1;
@@ -279,12 +295,12 @@ report.Load("D:\\Report.mrt");
 
 using (NorthwindDataContext context = new NorthwindDataContext())
 {
-var categories =
-from c in context.Categories
-select new { c.CategoryID, c.CategoryName, c.Description };
+    var categories =
+        from c in context.Categories
+        select new { c.CategoryID, c.CategoryName, c.Description };
 
-report.RegBusinessObject("Categories", categories);
-StiWebViewer1.Report = report;
+    report.RegBusinessObject("Categories", categories);
+    StiWebViewer1.Report = report;
 }
 ...
 ```

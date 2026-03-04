@@ -15,27 +15,27 @@ Example of saving a report as a JSON string on the client-side via JavaScript fo
 ```php
 
 <?php
-use Stimulsoft\Report\StiReport;
-use Stimulsoft\Designer\StiDesigner;
-
-$designer = new StiDesigner();
-$designer->onSaveReport = 'saveReport';
-$designer->process();
-
-$report = new StiReport();
-$report->loadFile('reports/SimpleList.mrt'); 
-$designer->report = $report;
+    use Stimulsoft\Report\StiReport;
+    use Stimulsoft\Designer\StiDesigner;
+    
+    $designer = new StiDesigner();
+    $designer->onSaveReport = 'saveReport';
+    $designer->process();
+    
+    $report = new StiReport();
+    $report->loadFile('reports/SimpleList.mrt'); 
+    $designer->report = $report;
 ?>
 
 ...
 
 <script>
-function saveReport(args) {
-let fileName = args.fileName;
-let report = args.report;
-let reportJson = args.report.saveToJsonString();
-...
-}
+    function saveReport(args) {
+        let fileName = args.fileName;
+        let report = args.report;
+        let reportJson = args.report.saveToJsonString();
+        ...
+    }
 </script>
 ```
 
@@ -47,15 +47,15 @@ If necessary, after saving the report, you can display a dialog with an error me
 ```php
 
 <script>
-function saveReport(args) {
-let report = args.report;
-
-// Error message
-Stimulsoft.System.StiError.showError("An error occurred while saving the report.");
-
-// Info message
-Stimulsoft.System.StiError.showError("The report was saved successfully.", true, true);
-}
+    function saveReport(args) {
+        let report = args.report;
+        
+        // Error message
+        Stimulsoft.System.StiError.showError("An error occurred while saving the report.");
+        
+        // Info message
+        Stimulsoft.System.StiError.showError("The report was saved successfully.", true, true);
+    }
 </script>
 ```
 
@@ -70,9 +70,9 @@ The functionality of this event is no different from the `onSaveReport` event, e
 ```php
 
 <script>
-function saveReport(args) {
-args.preventDefault = true;
-}
+    function saveReport(args) {
+        args.preventDefault = true;
+    }
 </script>
 ```
 
@@ -84,13 +84,13 @@ If necessary, you can access the original report name or the name from the save 
 ```php
 
 <script>
-function saveReport(args) {
-// Report name from the designer save dialog
-let reportName1 = args.fileName;
-
-// Original report name from properties
-let reportName2 = args.report.reportName;
-}
+    function saveReport(args) {
+        // Report name from the designer save dialog
+        let reportName1 = args.fileName;
+        
+        // Original report name from properties
+        let reportName2 = args.report.reportName;
+    }
 </script>
 ```
 
@@ -110,23 +110,23 @@ Example of saving an editable report as a file in a specified directory:
 ```php
 
 <?php
-use Stimulsoft\Report\StiReport;
-use Stimulsoft\Designer\StiDesigner;
-use Stimulsoft\Events\StiReportEventArgs;
-
-$designer = new StiDesigner();
-$designer->onSaveReport = function (StiReportEventArgs $args) {
-$reportJson = $args->getReportJson();
-file_put_contents('reports/' . $reportFileName, $reportJson);
-};
-
-$designer->process();
-
-$report = new StiReport();
-$report->loadFile('reports/SimpleList.mrt'); 
-$designer->report = $report;
-
-$designer->printHtml();
+    use Stimulsoft\Report\StiReport;
+    use Stimulsoft\Designer\StiDesigner;
+    use Stimulsoft\Events\StiReportEventArgs;
+    
+    $designer = new StiDesigner();
+    $designer->onSaveReport = function (StiReportEventArgs $args) {
+        $reportJson = $args->getReportJson();
+        file_put_contents('reports/' . $reportFileName, $reportJson);
+    };
+    
+    $designer->process();
+    
+    $report = new StiReport();
+    $report->loadFile('reports/SimpleList.mrt'); 
+    $designer->report = $report;
+    
+    $designer->printHtml();
 ?>
 ```
 

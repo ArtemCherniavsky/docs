@@ -11,15 +11,15 @@ If necessary, it is possible to view the C#/VB.Net code of an editable report te
 ```
 ...
 @Html.Stimulsoft().StiMvcDesignerFx("MvcDesignerFx1", 
-new StiMvcDesignerFxOptions() {
-Actions =
-{
-DesignerEvent = "DesignerEvent"
-},
-Toolbar =
-{
-ShowCodeTab = true
-}
+    new StiMvcDesignerFxOptions() {
+        Actions =
+        {
+            DesignerEvent = "DesignerEvent"
+        },
+        Toolbar =
+        {
+            ShowCodeTab = true
+        }
 })
 ...
 ```
@@ -31,7 +31,7 @@ ShowCodeTab = true
 ...
 public ActionResult DesignerEvent()
 {
-return StiMvcDesignerFx.DesignerEventResult();
+    return StiMvcDesignerFx.DesignerEventResult();
 }
 ...
 ```
@@ -52,11 +52,11 @@ The main menu of the **Flash Designer** component contains the **Exit** item, se
 ```
 ...
 @Html.Stimulsoft().StiMvcDesignerFx("MvcDesignerFx1", 
-new StiMvcDesignerFxOptions() {
-Actions =
-{
-Exit = "DesignerExit"
-}
+    new StiMvcDesignerFxOptions() {
+        Actions =
+        {
+            Exit = "DesignerExit"
+        }
 })
 ...
 ```
@@ -68,7 +68,7 @@ Exit = "DesignerExit"
 ...
 public ActionResult DesignerExit()
 {
-return View("MainPage");
+    return View("MainPage");
 }
 ...
 ```
@@ -81,11 +81,11 @@ In the **Exit** action method, you can jump to the required view. You can also s
 ```
 ...
 @Html.Stimulsoft().StiMvcDesignerFx("MvcDesignerFx1", 
-new StiMvcDesignerFxOptions() {
-Behavior =
-{
-ExitUrl = "http://www.stimulsoft.com"
-}
+    new StiMvcDesignerFxOptions() {
+        Behavior =
+        {
+            ExitUrl = "http://www.stimulsoft.com"
+        }
 })
 ...
 ```

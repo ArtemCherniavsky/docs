@@ -9,15 +9,15 @@ Data to a report can be connected in various ways. The easiest way is to store c
 ...
 public IActionResult GetReport()
 {
-DataSet ds = new DataSet();
-ds.ReadXml(StiNetCoreHelper.MapPath(this, "Data/Demo.xml"));
-
-StiReport report = new StiReport();
-report.Load(StiNetCoreHelper.MapPath(this, "Reports/TwoSimpleLists.mrt"));
-report.Dictionary.Databases.Clear();
-report.RegData("Demo", ds);
-
-return StiNetCoreViewerFx.GetReportResult(this, report);
+    DataSet ds = new DataSet();
+    ds.ReadXml(StiNetCoreHelper.MapPath(this, "Data/Demo.xml"));
+    
+    StiReport report = new StiReport();
+    report.Load(StiNetCoreHelper.MapPath(this, "Reports/TwoSimpleLists.mrt"));
+    report.Dictionary.Databases.Clear();
+    report.RegData("Demo", ds);
+    
+    return StiNetCoreViewerFx.GetReportResult(this, report);
 }
 ...
 ```
@@ -33,19 +33,19 @@ The connection parameters to the SQL data source, as well as to any other ones, 
 ...
 public IActionResult GetReport()
 {
-OracleConnection connection = new OracleConnection("Data Source=Oracle8i;Integrated Security=yes");
-connection.Open();
-OracleDataAdapter adapter = new OracleDataAdapter();
-adapter.SelectCommand = new OracleCommand("SELECT * FROM Products", connection);
- 
-DataSet dataSet = new DataSet("productsDataSet");
-adapter.Fill(dataSet, "Products");
- 
-StiReport report = new StiReport();
-report.Load(StiNetCoreHelper.MapPath(this, "Reports/SqlSampleReport.mrt"));
-report.RegData("Products", dataSet);
-
-return StiNetCoreViewerFx.GetReportResult(this, report);
+    OracleConnection connection = new OracleConnection("Data Source=Oracle8i;Integrated Security=yes");
+    connection.Open();
+    OracleDataAdapter adapter = new OracleDataAdapter();
+    adapter.SelectCommand = new OracleCommand("SELECT * FROM Products", connection);
+     
+    DataSet dataSet = new DataSet("productsDataSet");
+    adapter.Fill(dataSet, "Products");
+     
+    StiReport report = new StiReport();
+    report.Load(StiNetCoreHelper.MapPath(this, "Reports/SqlSampleReport.mrt"));
+    report.RegData("Products", dataSet);
+    
+    return StiNetCoreViewerFx.GetReportResult(this, report);
 }
 ...
 ```
@@ -96,14 +96,14 @@ Connecting to XML and JSON data sources can be stored in the report template. If
 ...
 public IActionResult GetReport()
 {
-DataSet data = new DataSet();
-data.ReadXml(StiNetCoreHelper.MapPath(this, "Data/Demo.xml"));
-
-StiReport report = new StiReport();
-report.Load(StiNetCoreHelper.MapPath(this, "Reports/SimpleList.mrt"));
-report.RegData(data);
-
-return StiNetCoreViewerFx.GetReportResult(this, report);
+    DataSet data = new DataSet();
+    data.ReadXml(StiNetCoreHelper.MapPath(this, "Data/Demo.xml"));
+    
+    StiReport report = new StiReport();
+    report.Load(StiNetCoreHelper.MapPath(this, "Reports/SimpleList.mrt"));
+    report.RegData(data);
+    
+    return StiNetCoreViewerFx.GetReportResult(this, report);
 }
 ...
 ```
@@ -115,13 +115,13 @@ return StiNetCoreViewerFx.GetReportResult(this, report);
 ...
 public IActionResult GetReport()
 {
-DataSet data = StiJsonToDataSetConverterV2.GetDataSetFromFile(StiNetCoreHelper.MapPath(this, "Data/Demo.json"));
-
-StiReport report = new StiReport();
-report.Load(StiNetCoreHelper.MapPath(this, "Reports/SimpleList.mrt"));
-report.RegData(data);
-
-return StiNetCoreViewerFx.GetReportResult(this, report);
+    DataSet data = StiJsonToDataSetConverterV2.GetDataSetFromFile(StiNetCoreHelper.MapPath(this, "Data/Demo.json"));
+    
+    StiReport report = new StiReport();
+    report.Load(StiNetCoreHelper.MapPath(this, "Reports/SimpleList.mrt"));
+    report.RegData(data);
+    
+    return StiNetCoreViewerFx.GetReportResult(this, report);
 }
 ...
 ```

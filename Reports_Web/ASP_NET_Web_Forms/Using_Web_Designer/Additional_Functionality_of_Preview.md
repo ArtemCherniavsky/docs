@@ -15,7 +15,7 @@ In any of the above actions, you can work with the report template, such as chan
 ```
 ...
 <cc1:StiWebDesigner ID="StiWebDesigner1" runat="server"
-OnExportReport="StiWebDesigner1_ExportReport">
+    OnExportReport="StiWebDesigner1_ExportReport">
 </cc1:StiWebDesigner>
 ...
 ```
@@ -27,8 +27,8 @@ OnExportReport="StiWebDesigner1_ExportReport">
 ...
 protected void StiWebDesigner1_ExportReport(object sender, StiReportDataEventArgs e)
 {
-e.Report.ReportName = "MyReportName";
-e.Report.ReportAlias = "MyReportAlias";
+    e.Report.ReportName = "MyReportName";
+    e.Report.ReportAlias = "MyReportAlias";
 }
 ...
 ```

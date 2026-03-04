@@ -13,23 +13,25 @@ In addition to the standard (built-in) functions, there is an ability to define 
 An example of using on the base of **Samples\webfx\**. Suppose you need to implement a custom **substring** function. In the class **my.actions.MyRenderReportAction** write the following:
 
 
+**webfx**
+
 ```
 ...
 public StiReport render(StiReport report) throws IOException, StiException {
-report.getCustomFunctions().add(new StiCustomFunction() {
-public Object invoke(List<Object> args) {
-return ((String) args.get(0)).substring((Integer)args.get(1), (Integer) args.get(2));
-}
+    report.getCustomFunctions().add(new StiCustomFunction() {
+        public Object invoke(List<Object> args) {
+            return ((String) args.get(0)).substring((Integer)args.get(1), (Integer) args.get(2));
+        }
 
-public List<Class> getParametersList() {
-return new ArrayList<Class>(Arrays.asList(String.class, Integer.class, Integer.class));
-}
+        public List<Class> getParametersList() {
+            return new ArrayList<Class>(Arrays.asList(String.class, Integer.class, Integer.class));
+        }
 
-public String getFunctionName() {
-return "substring";
-}
-});
-return super.render(report);
+        public String getFunctionName() {
+            return "substring";
+        }
+    });
+    return super.render(report);
 }
 ...
 ```

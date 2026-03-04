@@ -25,32 +25,32 @@ page "{handler?}"
 ...
 private StiReport LoadSimpleList()
 {
-DataSet dataSet = new DataSet();
-dataSet.ReadXml(Server.MapPath("Reports/Demo.xml"));
-
-StiReport report = new StiReport();
-report.Load(Server.MapPath("Reports/SimpleList.mrt"));
-report.RegData(dataSet);
-
-return report;
+    DataSet dataSet = new DataSet();
+    dataSet.ReadXml(Server.MapPath("Reports/Demo.xml"));
+    
+    StiReport report = new StiReport();
+    report.Load(Server.MapPath("Reports/SimpleList.mrt"));
+    report.RegData(dataSet);
+    
+    return report;
 }
 
 public IActionResult OnGetPrintReport()
 {
-StiReport report = LoadSimpleList();
-
-return StiNetCoreReportResponse.PrintAsPdf(report);
-//return StiNetCoreReportResponse.PrintAsHtml(report);
+    StiReport report = LoadSimpleList();
+    
+    return StiNetCoreReportResponse.PrintAsPdf(report);
+    //return StiNetCoreReportResponse.PrintAsHtml(report);
 }
 
 public IActionResult OnGetExportReport()
 {
-StiReport report = LoadSimpleList();
-
-return StiNetCoreReportResponse.ResponseAsPdf(report);
-//return StiNetCoreReportResponse.ResponseAsExcel2007(report);
-//return StiNetCoreReportResponse.ResponseAsText(report);
-//StiNetCoreReportResponse.ResponseAsJson(report);
+    StiReport report = LoadSimpleList();
+    
+    return StiNetCoreReportResponse.ResponseAsPdf(report);
+    //return StiNetCoreReportResponse.ResponseAsExcel2007(report);
+    //return StiNetCoreReportResponse.ResponseAsText(report);
+    //StiNetCoreReportResponse.ResponseAsJson(report);
 }
 ...
 ```

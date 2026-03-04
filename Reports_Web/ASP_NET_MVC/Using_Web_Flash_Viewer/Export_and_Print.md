@@ -20,31 +20,31 @@ The **Flash Viewer** component provides the ability to print the report in vario
 ...
 private StiReport LoadSimpleList()
 {
-DataSet dataSet = new DataSet();
-dataSet.ReadXml(Server.MapPath("Reports/Demo.xml"));
-
-StiReport report = new StiReport();
-report.Load(Server.MapPath("Reports/SimpleList.mrt"));
-report.RegData(dataSet);
-
-return report;
+    DataSet dataSet = new DataSet();
+    dataSet.ReadXml(Server.MapPath("Reports/Demo.xml"));
+    
+    StiReport report = new StiReport();
+    report.Load(Server.MapPath("Reports/SimpleList.mrt"));
+    report.RegData(dataSet);
+    
+    return report;
 }
 
 public ActionResult PrintReport()
 {
-StiReport report = LoadSimpleList();
-
-return StiMvcReportResponse.PrintAsPdf(report);
-//return StiMvcReportResponse.PrintAsHtml(report);
+    StiReport report = LoadSimpleList();
+    
+    return StiMvcReportResponse.PrintAsPdf(report);
+    //return StiMvcReportResponse.PrintAsHtml(report);
 }
 
 public ActionResult ExportReport()
 {
-StiReport report = LoadSimpleList();
-
-return StiMvcReportResponse.ResponseAsPdf(report);
-//return StiMvcReportResponse.ResponseAsExcel2007(report);
-//return StiMvcReportResponse.ResponseAsText(report);
+    StiReport report = LoadSimpleList();
+    
+    return StiMvcReportResponse.ResponseAsPdf(report);
+    //return StiMvcReportResponse.ResponseAsExcel2007(report);
+    //return StiMvcReportResponse.ResponseAsText(report);
 }
 ...
 ```

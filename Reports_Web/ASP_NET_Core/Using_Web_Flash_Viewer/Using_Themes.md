@@ -8,7 +8,7 @@ The **Flash Viewer** component has the ability to change the appearance of visua
 ```
 ...
 @Html.StiNetCoreViewerFx(new StiNetCoreViewerFxOptions() {
-Theme = StiViewerThemeFx.Office2022
+    Theme = StiViewerThemeFx.Office2022
 })
 ...
 ```

@@ -15,7 +15,7 @@ The report viewer has a special **OnViewerEvent** event that will be called when
 ```
 ...
 <cc1:StiWebViewer ID="StiWebViewer1" runat="server"
-OnViewerEvent="StiWebViewer1_ViewerEvent">
+    OnViewerEvent="StiWebViewer1_ViewerEvent">
 </cc1:StiWebViewer>
 ...
 ```
@@ -27,8 +27,8 @@ OnViewerEvent="StiWebViewer1_ViewerEvent">
 ...
 protected void StiWebViewer1_ViewerEvent(object sender, StiViewerEventArgs e)
 {
-StiAction action = e.Action;
-StiRequestParams parameters = e.RequestParams;
+    StiAction action = e.Action;
+    StiRequestParams parameters = e.RequestParams;
 }
 ...
 ```

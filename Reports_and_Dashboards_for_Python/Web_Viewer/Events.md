@@ -20,8 +20,8 @@ from stimulsoft_reports.viewer.enums import StiPrintAction, StiExportAction
 ```html
 
 <script>
-StiExportAction = Stimulsoft.Viewer.StiExportAction;
-StiExportFormat = Stimulsoft.Report.StiExportFormat;
+    StiExportAction = Stimulsoft.Viewer.StiExportAction;
+    StiExportFormat = Stimulsoft.Report.StiExportFormat;
 </script>
 ```
 

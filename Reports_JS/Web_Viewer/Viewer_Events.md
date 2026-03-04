@@ -331,10 +331,10 @@ Asynchronous event is called before printing the report. This is not relevant wh
 ...
 //Remove image before report print
 viewer.onPrintReport = (args) => {
-var page = args.report.renderedPages.getByIndex(0);
-var image = page.components.getByName("Image1");
-if (image)
-page.components.remove(image);
+    var page = args.report.renderedPages.getByIndex(0);
+    var image = page.components.getByName("Image1");
+    if (image)
+        page.components.remove(image);
 }
 ...
 ```
@@ -365,12 +365,12 @@ Asynchronous event is called before export but after applying the export options
 ```html
 ...
 viewer.onBeginExportReport = function (args) {
-switch (event.format) {
-case Stimulsoft.Report.StiExportFormat.Html:
-args.settings.zoom = 2;  // Set zoom to 200%
-break;
-}
-console.log("exporting");
+    switch (event.format) {
+        case Stimulsoft.Report.StiExportFormat.Html:
+        args.settings.zoom = 2;  // Set zoom to 200%
+        break;
+    }
+    console.log("exporting");
 }
 ...
 ```
@@ -402,7 +402,7 @@ Asynchronous event is called after export report. The event handler argument “
 ```html
 ...
 viewer.onEndExportReport = (args) => {
-args.fileName = "SampleFileName.txt";
+    args.fileName = "SampleFileName.txt";
 }
 ...
 ```
@@ -428,8 +428,8 @@ Asynchronous event is called while interactive action of the viewer (dynamic sor
 ```html
 ...
 viewer.onInteraction = (args) => {
-if (args.action == "Variables")
-args.variables["Variable1"] = "New Value";
+    if (args.action == "Variables")
+        args.variables["Variable1"] = "New Value";
 }
 ...
 ```
@@ -458,18 +458,18 @@ It is called before sending the report by email. This is not relevant when viewi
 ```html
 ...
 viewer.onEmailReport = (args, callback) => {
-args.async = true;
-
-var emailAddress = args.settings.email;
-var emailMessage = args.settings.message;
-var emailSubject = args.settings.subject;
-var emailAttachmentFileName = args.fileName;
-var emailAttachment = args.data;
-sendEmail(emailAddress, emailMessage, emailSubject, emailAttachmentFileName, emailAttachment);
-
-setTimeout(() => {
-callback();
-}, 5000);
+    args.async = true;
+    
+    var emailAddress = args.settings.email;
+    var emailMessage = args.settings.message;
+    var emailSubject = args.settings.subject;
+    var emailAttachmentFileName = args.fileName;
+    var emailAttachment = args.data;
+    sendEmail(emailAddress, emailMessage, emailSubject, emailAttachmentFileName, emailAttachment);
+    
+    setTimeout(() => {
+        callback();
+    }, 5000);
 }
 ...
 ```
@@ -497,14 +497,14 @@ var viewer = new Stimulsoft.Viewer.StiViewer(viewerOptions, "StiViewer", false);
 viewer.renderHtml("content");
 
 viewer.onDesignReport = (args) => {
-var viewerDiv = document.getElementById("content");
-viewerDiv.innerHTML = "";
-var designerOptions = new Stimulsoft.Designer.StiDesignerOptions();
-designerOptions.appearance.fullScreenMode = true;
-var designer = new Stimulsoft.Designer.StiDesigner(designerOptions, "StiDesigner", false);
-designer.renderHtml("content");
-   
-designer.report = args.report;
+    var viewerDiv = document.getElementById("content");
+    viewerDiv.innerHTML = "";
+    var designerOptions = new Stimulsoft.Designer.StiDesignerOptions();
+    designerOptions.appearance.fullScreenMode = true;
+    var designer = new Stimulsoft.Designer.StiDesigner(designerOptions, "StiDesigner", false);
+    designer.renderHtml("content");
+       
+    designer.report = args.report;
 }
 ...
 ```
@@ -529,7 +529,7 @@ Asynchronous event is called after a report is rendered before its displaying in
 ```html
 ...
 viewer.onShowReport = function (args) {
-console.log("showing");
+    console.log("showing");
 }
 ...
 ```
@@ -553,9 +553,9 @@ Asynchronous event that provides the ability to use custom method of opening tem
 ```html
 ...
 viewer.onOpenReport = (args) => {
-args.async = true;
-args.report = anotherReport;
-callback();
+    args.async = true;
+    args.report = anotherReport;
+    callback();
 }
 ...
 ```
@@ -580,10 +580,10 @@ Asynchronous event that provides the ability to change of the report before it i
 ```html
 ...
 viewer.onOpenedReport = (args) => {
-if (args.report.reportAuthor != "Stimulsoft") {
-args.preventDefault = true;
-window.alert("report.reportAuthor == " + args.report.reportAuthor);
-}
+    if (args.report.reportAuthor != "Stimulsoft") {
+        args.preventDefault = true;
+        window.alert("report.reportAuthor == " + args.report.reportAuthor);
+    }
 }
 ...
 ```

@@ -8,33 +8,33 @@ The **HTML5 Viewer** is configured using properties that are located in the **St
 ```
 ...
 @Html.Stimulsoft().StiMvcViewer("MvcViewer1", 
-new StiMvcViewerOptions() {
-Theme = StiViewerTheme.Office2022WhiteTeal,
-Localization = "~/Content/Localization/en.xml",
-Actions =
-{
-GetReport = "GetReport",
-ViewerEvent = "ViewerEvent"
-},
-Appearance =
-{
-InterfaceType = StiInterfaceType.Auto,
-ScrollbarsMode = true,
-ShowTooltips = false
-},
-Exports =
-{
-DefaultSettings = 
-{
-ExportToPdf = 
-{
-CreatorString = "Company Name",
-ImageQuality = 0.75f
-}
-},
-ShowExportToDbf = false,
-ShowExportToDif = false   
-}
+    new StiMvcViewerOptions() {
+        Theme = StiViewerTheme.Office2022WhiteTeal,
+        Localization = "~/Content/Localization/en.xml",
+        Actions =
+        {
+            GetReport = "GetReport",
+            ViewerEvent = "ViewerEvent"
+        },
+        Appearance =
+        {
+            InterfaceType = StiInterfaceType.Auto,
+            ScrollbarsMode = true,
+            ShowTooltips = false
+        },
+        Exports =
+        {
+            DefaultSettings = 
+            {
+                ExportToPdf = 
+                {
+                    CreatorString = "Company Name",
+                    ImageQuality = 0.75f
+                }
+            },
+            ShowExportToDbf = false,
+            ShowExportToDif = false   
+        }
 })
 ...
 ```

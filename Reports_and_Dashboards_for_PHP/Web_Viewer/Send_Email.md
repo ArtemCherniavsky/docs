@@ -14,24 +14,24 @@ Here is an example of sending a report by email with the minimum required parame
 ```php
 
 <?php
-use Stimulsoft\Viewer\StiViewer;
-use Stimulsoft\Events\StiEmailEventArgs;
-use Stimulsoft\Report\StiReport;
-use Stimulsoft\StiResult;
-
-$viewer = new StiViewer();
-$viewer->options->toolbar->showSendEmailButton = true;
-
-$viewer->onEmailReport = function (StiEmailEventArgs $args) {
-$args->settings->from = 'mail.sender@stimulsoft.com';
-$args->settings->host = 'smtp.stimulsoft.com';
-$args->settings->login = '********';
-$args->settings->password = '********';
-
-return StiResult::getSuccess('The Email has been sent successfully.');
-};
-
-$viewer->process();
+    use Stimulsoft\Viewer\StiViewer;
+    use Stimulsoft\Events\StiEmailEventArgs;
+    use Stimulsoft\Report\StiReport;
+    use Stimulsoft\StiResult;
+    
+    $viewer = new StiViewer();
+    $viewer->options->toolbar->showSendEmailButton = true;
+    
+    $viewer->onEmailReport = function (StiEmailEventArgs $args) {
+        $args->settings->from = 'mail.sender@stimulsoft.com';
+        $args->settings->host = 'smtp.stimulsoft.com';
+        $args->settings->login = '********';
+        $args->settings->password = '********';
+        
+        return StiResult::getSuccess('The Email has been sent successfully.');
+    };
+    
+    $viewer->process();
 ?>
 ```
 
@@ -52,20 +52,20 @@ Here’s an example of modifying the email subject before sending:
 ```php
 
 <?php
-use Stimulsoft\Viewer\StiViewer;
-
-$viewer = new StiViewer();
-$viewer->options->toolbar->showSendEmailButton = true;
-$viewer->onEmailReport = 'emailReport';
-$viewer->process();
+    use Stimulsoft\Viewer\StiViewer;
+    
+    $viewer = new StiViewer();
+    $viewer->options->toolbar->showSendEmailButton = true;
+    $viewer->onEmailReport = 'emailReport';
+    $viewer->process();
 ?>
 
 ...
 
 <script>
-function emailReport(args) {
-args.settings.subject = "Invoice: " + args.settings.subject;
-}
+    function emailReport(args) {
+        args.settings.subject = "Invoice: " + args.settings.subject;
+    }
 </script>
 ```
 
@@ -80,10 +80,10 @@ Example of checking and modifying the email subject on the PHP server-side befor
 ```php
 
 $viewer->onEmailReport = function (StiEmailEventArgs $args) {
-if (strlen($args->settings->subject ?? '') == 0)
-$args->settings->subject = "{$args->formatName} report {$args->settings->attachmentName}";
-
-return StiResult::getSuccess('The Email has been sent successfully.');
+    if (strlen($args->settings->subject ?? '') == 0)
+        $args->settings->subject = "{$args->formatName} report {$args->settings->attachmentName}";
+    
+    return StiResult::getSuccess('The Email has been sent successfully.');
 };
 ```
 
@@ -95,11 +95,11 @@ Example of adding additional recipients to the email with the report:
 ```php
 
 $viewer->onEmailReport = function (StiEmailEventArgs $args) {
-$args->settings->cc[] = 'extra_recipient_one@stimulsoft.com';
-$args->settings->bcc[] = 'hidden_recipient_one@stimulsoft.com';
-$args->settings->bcc[] = 'hidden_recipient_two@stimulsoft.com John Smith';
-
-return StiResult::getSuccess('The Email has been sent successfully.');
+    $args->settings->cc[] = 'extra_recipient_one@stimulsoft.com';
+    $args->settings->bcc[] = 'hidden_recipient_one@stimulsoft.com';
+    $args->settings->bcc[] = 'hidden_recipient_two@stimulsoft.com John Smith';
+    
+    return StiResult::getSuccess('The Email has been sent successfully.');
 };
 ```
 
@@ -113,12 +113,12 @@ The viewer allows you to set default values for the email dialog. These are cont
 ```php
 
 <?php
-use Stimulsoft\Viewer\StiViewer;
-
-$viewer = new StiViewer();
-$viewer->options->toolbar->showSendEmailButton = true;
-$viewer->options->email->defaultEmailAddress = 'recipient_address@stimulsoft.com';
-$viewer->options->email->defaultEmailSubject = 'New Invoice';
-$viewer->options->email->defaultEmailMessage = 'Please check the new invoice in the attachment';
+    use Stimulsoft\Viewer\StiViewer;
+    
+    $viewer = new StiViewer();
+    $viewer->options->toolbar->showSendEmailButton = true;
+    $viewer->options->email->defaultEmailAddress = 'recipient_address@stimulsoft.com';
+    $viewer->options->email->defaultEmailSubject = 'New Invoice';
+    $viewer->options->email->defaultEmailMessage = 'Please check the new invoice in the attachment';
 ?>
 ```

@@ -32,18 +32,18 @@ By default, the Viewer displays only the top toolbar, where there are all contro
 
 @code
 {
-//Options object
-private StiBlazorViewerOptions Options;
-
-protected override void OnInitialized()
-{
-base.OnInitialized();
-
-//Init options object
-Options = new StiBlazorViewerOptions();
-Options.Appearance.ScrollbarsMode = true;
-Options.Toolbar.DisplayMode = StiToolbarDisplayMode.Separated;
-}
+    //Options object
+    private StiBlazorViewerOptions Options;
+    
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        
+        //Init options object
+        Options = new StiBlazorViewerOptions();
+        Options.Appearance.ScrollbarsMode = true;
+        Options.Toolbar.DisplayMode = StiToolbarDisplayMode.Separated;
+    }
 }
 ```
 
@@ -65,22 +65,22 @@ Additionally, you may set the parameters of the main viewer elements. For exampl
 
 @code
 {
-//Options object
-private StiBlazorViewerOptions Options;
-
-protected override void OnInitialized()
-{
-base.OnInitialized();
-
-//Init options object
-Options = new StiBlazorViewerOptions();
-Options.Appearance.BackgroundColor = Color.White;
-Options.Appearance.PageBorderColor = Color.Blue;
-Options.Appearance.ShowPageShadow = true;
-Options.Toolbar.BackgroundColor = Color.White;
-Options.Toolbar.BorderColor = Color.Gray;
-Options.Toolbar.FontColor = Color.Black;
-Options.Toolbar.FontFamily = "Arial";
-}
+    //Options object
+    private StiBlazorViewerOptions Options;
+    
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        
+        //Init options object
+        Options = new StiBlazorViewerOptions();
+        Options.Appearance.BackgroundColor = Color.White;
+        Options.Appearance.PageBorderColor = Color.Blue;
+        Options.Appearance.ShowPageShadow = true;
+        Options.Toolbar.BackgroundColor = Color.White;
+        Options.Toolbar.BorderColor = Color.Gray;
+        Options.Toolbar.FontColor = Color.Black;
+        Options.Toolbar.FontFamily = "Arial";
+    }
 }
 ```

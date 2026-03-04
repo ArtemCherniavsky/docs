@@ -8,7 +8,7 @@ In the **HTML5 Designer** component you can change the appearance of visual cont
 ```
 ...
 @Html.StiNetCoreDesigner(new StiNetCoreDesignerOptions() {
-Theme = StiDesignerTheme.Office2022WhiteTeal
+    Theme = StiDesignerTheme.Office2022WhiteTeal
 })
 ...
 ```

@@ -16,12 +16,12 @@ To show the report, you need to add the **StiMvcViewer** component to the page, 
 ```
 ...
 @Html.Stimulsoft().StiMvcViewer("MvcViewer1", 
-new StiMvcViewerOptions() {
-Actions =
-{
-GetReport = "GetReport",
-ViewerEvent = "ViewerEvent"
-}
+    new StiMvcViewerOptions() {
+        Actions =
+        {
+            GetReport = "GetReport",
+            ViewerEvent = "ViewerEvent"
+        }
 })
 ...
 ```
@@ -33,16 +33,16 @@ ViewerEvent = "ViewerEvent"
 ...
 public ActionResult GetReport()
 {
-StiReport report = new StiReport();
-report.Load(Server.MapPath("~/Content/SimpleList.mrt"));
-//report.Load(Server.MapPath("~/Content/Dashboard.mrt"));
-
-return StiMvcViewer.GetReportResult(report);
+    StiReport report = new StiReport();
+    report.Load(Server.MapPath("~/Content/SimpleList.mrt"));
+    //report.Load(Server.MapPath("~/Content/Dashboard.mrt"));
+    
+    return StiMvcViewer.GetReportResult(report);
 }
 
 public ActionResult ViewerEvent()
 {
-return StiMvcViewer.ViewerEventResult();
+    return StiMvcViewer.ViewerEventResult();
 }
 ...
 ```
@@ -66,10 +66,10 @@ If the report is not rendered before showing, the **HTML5 Viewer** component wil
 ...
 public ActionResult GetReport()
 {
-StiReport report = new StiReport();
-report.LoadDocument(Server.MapPath("~/Content/SimpleList.mdc"));
-
-return StiMvcViewer.GetReportResult(report);
+    StiReport report = new StiReport();
+    report.LoadDocument(Server.MapPath("~/Content/SimpleList.mdc"));
+    
+    return StiMvcViewer.GetReportResult(report);
 }
 ...
 ```
@@ -81,9 +81,9 @@ return StiMvcViewer.GetReportResult(report);
 ...
 public ActionResult GetReport()
 {
-StiReport report = new StiReportCompiledClass();
-
-return StiMvcViewer.GetReportResult(report);
+    StiReport report = new StiReportCompiledClass();
+    
+    return StiMvcViewer.GetReportResult(report);
 }
 ...
 ```
@@ -97,10 +97,10 @@ Since the dashboard is not a static document and requires data to work, the form
 ...
 public ActionResult GetReport()
 {
-StiReport report = new StiReport();
-report.Load(Server.MapPath("~/Reports/Snapshot.mrt"));
-
-return StiMvcViewer.GetReportResult(report);
+    StiReport report = new StiReport();
+    report.Load(Server.MapPath("~/Reports/Snapshot.mrt"));
+    
+    return StiMvcViewer.GetReportResult(report);
 }
 ...
 ```
@@ -116,10 +116,10 @@ You can load custom fonts using the **StiFontCollection** class, having specifie
 ...
 public class ViewerController : Controller
 {
-static ViewerController()
-{
-Stimulsoft.Base.StiFontCollection.AddFontFile(Server.MapPath("~/fonts/my-font/font-name.ttf"));
-}
+    static ViewerController()
+    {
+        Stimulsoft.Base.StiFontCollection.AddFontFile(Server.MapPath("~/fonts/my-font/font-name.ttf"));
+    }
 }
 ...
 ```

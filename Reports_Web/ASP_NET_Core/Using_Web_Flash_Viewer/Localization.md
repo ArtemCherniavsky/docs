@@ -8,7 +8,7 @@ The **Flash Viewer** component supports the complete localization of its interfa
 ```
 ...
 @Html.StiNetCoreViewerFx(new StiNetCoreViewerFxOptions() {
-Localization = "Localization/en.xml"
+    Localization = "Localization/en.xml"
 })
 ...
 ```
@@ -21,11 +21,11 @@ If you need to control loading the localization, you need to define a special **
 ```
 ...
 @Html.StiNetCoreViewerFx(new StiNetCoreViewerFxOptions() {
-Actions =
-{
-GetLocalization = "GetLocalization"
-},
-Localization = "Localization/en.xml"
+    Actions =
+    {
+        GetLocalization = "GetLocalization"
+    },
+    Localization = "Localization/en.xml"
 })
 ...
 ```
@@ -37,9 +37,9 @@ Localization = "Localization/en.xml"
 ...
 public IActionResult GetLocalization()
 {
-return StiNetCoreViewerFx.GetLocalizationResult(this);
-//return StiNetCoreViewerFx.GetLocalizationResult(this, path);
-//return StiNetCoreViewerFx.GetLocalizationResult(this, xml);
+    return StiNetCoreViewerFx.GetLocalizationResult(this);
+    //return StiNetCoreViewerFx.GetLocalizationResult(this, path);
+    //return StiNetCoreViewerFx.GetLocalizationResult(this, xml);
 }
 ...
 ```

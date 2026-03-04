@@ -17,11 +17,11 @@ The export function does not require additional settings for the viewer. If you 
 ```
 ...
 @Html.Stimulsoft().StiMvcViewer("MvcViewer1", 
-new StiMvcViewerOptions() {
-Actions =
-{
-ExportReport = "ExportReport"
-}
+    new StiMvcViewerOptions() {
+        Actions =
+        {
+            ExportReport = "ExportReport"
+        }
 })
 ...
 ```
@@ -33,10 +33,10 @@ ExportReport = "ExportReport"
 ...
 public ActionResult ExportReport()
 {
-// Some code before export
-// ...
+    // Some code before export
+    // ...
 
-return StiMvcViewer.ExportReportResult();
+    return StiMvcViewer.ExportReportResult();
 }
 ...
 ```
@@ -51,23 +51,23 @@ Each report export format of the **HTML5 Viewer** component has a lot of setting
 ```
 ...
 @Html.Stimulsoft().StiMvcViewer("MvcViewer1", 
-new StiMvcViewerOptions() {
-Exports =
-{
-DefaultSettings =
-{
-ExportToPdf =
-{
-ImageQuality = 0.75f,
-ImageFormat = Stimulsoft.Report.Export.StiImageFormat.Color
-},
-ExportToHtml =
-{
-ExportMode = Stimulsoft.Report.Export.StiHtmlExportMode.Div,
-UseEmbeddedImages = true
-}
-}
-}
+    new StiMvcViewerOptions() {
+        Exports =
+        {
+            DefaultSettings =
+            {
+                ExportToPdf =
+                {
+                    ImageQuality = 0.75f,
+                    ImageFormat = Stimulsoft.Report.Export.StiImageFormat.Color
+                },
+                ExportToHtml =
+                {
+                    ExportMode = Stimulsoft.Report.Export.StiHtmlExportMode.Div,
+                    UseEmbeddedImages = true
+                }
+            }
+        }
 })
 ...
 ```
@@ -80,11 +80,11 @@ If it is required, you can completely hide export dialogs. Exporting will always
 ```
 ...
 @Html.Stimulsoft().StiMvcViewer("MvcViewer1", 
-new StiMvcViewerOptions() {
-Exports =
-{
-ShowExportDialog = false
-}
+    new StiMvcViewerOptions() {
+        Exports =
+        {
+            ShowExportDialog = false
+        }
 })
 ...
 ```
@@ -97,39 +97,39 @@ The **HTML5 Viewer** component contains 30+ export formats, and sometimes you ne
 ```
 ...
 @Html.Stimulsoft().StiMvcViewer("MvcViewer1", 
-new StiMvcViewerOptions() {
-Exports =
-{
-ShowExportToDocument = true,
-ShowExportToPdf = true,
-ShowExportToXps = true,
-ShowExportToPowerPoint = true,
-ShowExportToHtml = true,
-ShowExportToHtml5 = true,
-ShowExportToMht = true,
-ShowExportToText = true,
-ShowExportToRtf = true,
-ShowExportToWord2007 = true,
-ShowExportToOpenDocumentWriter = true,
-ShowExportToExcel = true,
-ShowExportToExcelXml = true,
-ShowExportToExcel2007 = true,
-ShowExportToOpenDocumentCalc = true,
-ShowExportToCsv = true,
-ShowExportToDbf = true,
-ShowExportToXml = true,
-ShowExportToDif = true,
-ShowExportToSylk = true,
-ShowExportToImageBmp = true,
-ShowExportToImageGif = true,
-ShowExportToImageJpeg = true,
-ShowExportToImagePcx = true,
-ShowExportToImagePng = true,
-ShowExportToImageTiff = true,
-ShowExportToImageMetafile = true,
-ShowExportToImageSvg = true,
-ShowExportToImageSvgz = true
-}
+    new StiMvcViewerOptions() {
+        Exports =
+        {
+            ShowExportToDocument = true,
+            ShowExportToPdf = true,
+            ShowExportToXps = true,
+            ShowExportToPowerPoint = true,
+            ShowExportToHtml = true,
+            ShowExportToHtml5 = true,
+            ShowExportToMht = true,
+            ShowExportToText = true,
+            ShowExportToRtf = true,
+            ShowExportToWord2007 = true,
+            ShowExportToOpenDocumentWriter = true,
+            ShowExportToExcel = true,
+            ShowExportToExcelXml = true,
+            ShowExportToExcel2007 = true,
+            ShowExportToOpenDocumentCalc = true,
+            ShowExportToCsv = true,
+            ShowExportToDbf = true,
+            ShowExportToXml = true,
+            ShowExportToDif = true,
+            ShowExportToSylk = true,
+            ShowExportToImageBmp = true,
+            ShowExportToImageGif = true,
+            ShowExportToImageJpeg = true,
+            ShowExportToImagePcx = true,
+            ShowExportToImagePng = true,
+            ShowExportToImageTiff = true,
+            ShowExportToImageMetafile = true,
+            ShowExportToImageSvg = true,
+            ShowExportToImageSvgz = true
+        }
 })
 ...
 ```
@@ -142,11 +142,11 @@ The **HTML5 Viewer** component can completely disable the export menu. To do thi
 ```
 ...
 @Html.Stimulsoft().StiMvcViewer("MvcViewer1", 
-new StiMvcViewerOptions() {
-Toolbar =
-{
-ShowSaveButton = false
-}
+    new StiMvcViewerOptions() {
+        Toolbar =
+        {
+            ShowSaveButton = false
+        }
 })
 ...
 ```

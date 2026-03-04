@@ -29,12 +29,12 @@ Then you should add JavaScript code of report loading to the HTML page, and assi
 ```html
 ...
 <script type="text/javascript">
-var report = new Stimulsoft.Report.StiReport();
-report.loadFile("SimpleList.mrt");
-//report.loadFile("Dashboard.mrt");
+    var report = new Stimulsoft.Report.StiReport();
+    report.loadFile("SimpleList.mrt");
+    //report.loadFile("Dashboard.mrt");
     
-var viewer = new Stimulsoft.Viewer.StiViewer();            
-viewer.report = report;
+    var viewer = new Stimulsoft.Viewer.StiViewer();            
+    viewer.report = report;
 </script>
 ...
 ```
@@ -54,7 +54,7 @@ You can create a **StiViewer** object using the **Stimulsoft.Viewer.StiViewer()*
 ```html
 ...
 <script type="text/javascript">
-var viewer = new Stimulsoft.Viewer.StiViewer(null, "StiViewer", false);
+    var viewer = new Stimulsoft.Viewer.StiViewer(null, "StiViewer", false);
 </script>
 ...
 ```
@@ -67,10 +67,10 @@ And the subsequent output of the viewer in the current DIV element.
 ...
 <div>Page content</div>
 <div>
-<script type="text/javascript">
-// Render the report viewer in this place
-viewer.renderHtml();
-</script>
+    <script type="text/javascript">
+    // Render the report viewer in this place
+        viewer.renderHtml();
+    </script>
 </div>
 ...
 ```
@@ -82,8 +82,8 @@ As an argument of the **renderHtml(id)** output method of the viewer, it is allo
 ```html
 ...
 <script type="text/javascript" >
-var viewer = new Stimulsoft.Viewer.StiViewer(null, "StiViewer", false);
-viewer.renderHtml("content");
+    var viewer = new Stimulsoft.Viewer.StiViewer(null, "StiViewer", false);
+    viewer.renderHtml("content");
 </script>
 ...
 ```

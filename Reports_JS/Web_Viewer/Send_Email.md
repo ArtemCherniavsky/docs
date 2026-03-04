@@ -22,14 +22,14 @@ options.toolbar.showSendEmailButton = true;
 ```html
 ...
 viewer.onEmailReport = function (args) {
-// args.settings -  send email form
-// args.settings.email  -  email adress
-// args.settings.subject  -  email subject
-// args.settings.message  -  email message
-
-// args.format  -  export format - PDF, HTML, HTML 5, Excel2007, Word2007, CSV
-// args.fileName - report file name (name of attachement)
-// args.data  -  byte array with exported report file
+    // args.settings -  send email form
+    // args.settings.email  -  email adress
+    // args.settings.subject  -  email subject
+    // args.settings.message  -  email message
+    
+    // args.format  -  export format - PDF, HTML, HTML 5, Excel2007, Word2007, CSV
+    // args.fileName - report file name (name of attachement)
+    // args.data  -  byte array with exported report file
 }
 ...
 ```

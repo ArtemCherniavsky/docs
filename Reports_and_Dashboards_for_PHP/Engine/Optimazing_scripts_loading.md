@@ -15,10 +15,10 @@ To use packed scripts you should set the `$js->packed` to `true`. For example:
 ```php
 
 <?php
-use Stimulsoft\Report\StiReport;
-
-$report = new StiReport();
-$report->javascript->usePacked = true;
+    use Stimulsoft\Report\StiReport;
+    
+    $report = new StiReport();
+    $report->javascript->usePacked = true;
 ?>
 ```
 
@@ -39,14 +39,14 @@ To use partial script loading, simply configure the appropriate options in the `
 ```php
 
 <?php
-use Stimulsoft\Report\StiReport;
-
-$report = new StiReport();
-$report->javascript->reportsChart = true;
-$report->javascript->reportsExport = true;
-$report->javascript->reportsImportXlsx = true;
-$report->javascript->reportsMaps = false;
-$report->javascript->blocklyEditor = false;
+    use Stimulsoft\Report\StiReport;
+    
+    $report = new StiReport();
+    $report->javascript->reportsChart = true;
+    $report->javascript->reportsExport = true;
+    $report->javascript->reportsImportXlsx = true;
+    $report->javascript->reportsMaps = false;
+    $report->javascript->blocklyEditor = false;
 ?>
 ```
 

@@ -35,7 +35,7 @@ To perform any actions, a special **OnPrintReport** event is assigned before the
 ```
 ...
 <cc1:StiWebViewerFx ID="StiWebViewerFx1" runat="server"
-OnPrintReport="StiWebViewerFx1_PrintReport">
+    OnPrintReport="StiWebViewerFx1_PrintReport">
 </cc1:StiWebViewerFx>
 ...
 ```
@@ -47,8 +47,8 @@ OnPrintReport="StiWebViewerFx1_PrintReport">
 ...
 protected void StiWebViewerFx1_PrintReport(object sender, StiPrintReportEventArgs e)
 {
-StiReport report = e.Report;
-StiExportSettings settings = e.Settings;
+    StiReport report = e.Report;
+    StiExportSettings settings = e.Settings;
 }
 ...
 ```
@@ -69,9 +69,9 @@ If you choose to print a report on the viewer panel, a print dialog with a selec
 ```
 ...
 <cc1:StiWebViewerFx ID="StiWebViewerFx1" runat="server"
-AllowDefaultPrint="false"
-AllowPrintToHtml="false"
-AllowPrintToPdf="true">
+    AllowDefaultPrint="false"
+    AllowPrintToHtml="false"
+    AllowPrintToPdf="true">
 </cc1:StiWebViewerFx>
 ...
 ```
@@ -84,7 +84,7 @@ The **Flash Viewer** component has the ability to disable the built-in report pr
 ```
 ...
 <cc1:StiWebViewerFx ID="StiWebViewerFx1" runat="server"
-ShowPrintDialog="false">
+    ShowPrintDialog="false">
 </cc1:StiWebViewerFx>
 ...
 ```
@@ -97,7 +97,7 @@ Also, the **Flash Viewer** component has the ability to completely disable repor
 ```
 ...
 <cc1:StiWebViewerFx ID="StiWebViewerFx1" runat="server"
-ShowPrintButton="false">
+    ShowPrintButton="false">
 </cc1:StiWebViewerFx>
 ...
 ```
@@ -110,9 +110,9 @@ When printing in **Default** mode, the **Flash Viewer** component allows you to 
 ```
 ...
 <cc1:StiWebViewerFx ID="StiWebViewerFx1" runat="server"
-AutoPageOrientation="true"
-AutoPageScale="true"
-PrintAsBitmap="true">
+    AutoPageOrientation="true"
+    AutoPageScale="true"
+    PrintAsBitmap="true">
 </cc1:StiWebViewerFx>
 ...
 ```

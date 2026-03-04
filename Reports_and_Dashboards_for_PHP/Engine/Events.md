@@ -19,38 +19,38 @@ Here’s an example of different ways to add functions of various types to an ev
 ```php
 
 <?php
-use Stimulsoft\Events\StiDataEventArgs;
-use Stimulsoft\Events\StiVariablesEventArgs;
-use Stimulsoft\Report\StiReport;
-
-function prepareVariables(StiVariablesEventArgs $args) {
-$variables = $args->variables;
-};
-
-$report = new StiReport();
-$report->onPrepareVariables->append(prepareVariables);
-$report->onPrepareVariables->append('prepareVariables');
-$report->onBeginProcessData = function(StiDataEventArgs $args) {
-$args->connectionString = 'Server=localhost;Database=test;uid=root;password=******;';
-};
-
-$report->onBeforeRender = 'args.report.dictionary.clear();'; 
-$report->onAfterRender = 'afterRender';
-
-$report->loadFile('reports/Variables.mrt');
-$report->render();
+    use Stimulsoft\Events\StiDataEventArgs;
+    use Stimulsoft\Events\StiVariablesEventArgs;
+    use Stimulsoft\Report\StiReport;
+    
+    function prepareVariables(StiVariablesEventArgs $args) {
+        $variables = $args->variables;
+    };
+    
+    $report = new StiReport();
+    $report->onPrepareVariables->append(prepareVariables);
+    $report->onPrepareVariables->append('prepareVariables');
+    $report->onBeginProcessData = function(StiDataEventArgs $args) {
+        $args->connectionString = 'Server=localhost;Database=test;uid=root;password=******;';
+    };
+    
+    $report->onBeforeRender = 'args.report.dictionary.clear();'; 
+    $report->onAfterRender = 'afterRender';
+    
+    $report->loadFile('reports/Variables.mrt');
+    $report->render();
 ?>
 
 ...
 
 <script>
-function prepareVariables(args) {
-let variables = args.variables;
-}
-
-function afterRender(args) {
-alert("The report rendering is completed.");
-}
+    function prepareVariables(args) {
+        let variables = args.variables;
+    }
+    
+    function afterRender(args) {
+        alert("The report rendering is completed.");
+    }
 </script>
 ```
 

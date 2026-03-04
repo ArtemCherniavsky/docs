@@ -9,12 +9,12 @@ The **Angular Viewer** component can change the appearance of visual controls. T
 ...
 public IActionResult InitViewer()
 {
-var requestParams = StiAngularViewer.GetRequestParams(this);
-var options = new StiAngularViewerOptions();
-options.Actions.ViewerEvent = "ViewerEvent";
-options.Theme = StiViewerTheme.Office2022WhiteTeal;
-
-return StiAngularViewer.ViewerDataResult(requestParams, options);
+    var requestParams = StiAngularViewer.GetRequestParams(this);
+    var options = new StiAngularViewerOptions();
+    options.Actions.ViewerEvent = "ViewerEvent";
+    options.Theme = StiViewerTheme.Office2022WhiteTeal;
+    
+    return StiAngularViewer.ViewerDataResult(requestParams, options);
 }
 ...
 ```
@@ -33,13 +33,13 @@ By default, the viewer has only the top toolbar on which all the report controls
 ...
 public IActionResult InitViewer()
 {
-var requestParams = StiAngularViewer.GetRequestParams(this);
-var options = new StiAngularViewerOptions();
-options.Actions.ViewerEvent = "ViewerEvent";
-options.Appearance.ScrollbarsMode = true;
-options.Toolbar.DisplayMode = StiToolbarDisplayMode.Separated;
-
-return StiAngularViewer.ViewerDataResult(requestParams, options);
+    var requestParams = StiAngularViewer.GetRequestParams(this);
+    var options = new StiAngularViewerOptions();
+    options.Actions.ViewerEvent = "ViewerEvent";
+    options.Appearance.ScrollbarsMode = true;
+    options.Toolbar.DisplayMode = StiToolbarDisplayMode.Separated;
+    
+    return StiAngularViewer.ViewerDataResult(requestParams, options);
 }
 ...
 ```
@@ -56,18 +56,18 @@ In addition, it is possible to set the appearance parameters for the main elemen
 ...
 public IActionResult InitViewer()
 {
-var requestParams = StiAngularViewer.GetRequestParams(this);
-var options = new StiAngularViewerOptions();
-options.Actions.ViewerEvent = "ViewerEvent";
-options.Appearance.BackgroundColor = Color.White;
-options.Appearance.PageBorderColor = Color.Blue;
-options.Appearance.ShowPageShadow = true;
-options.Toolbar.BackgroundColor = Color.White;
-options.Toolbar.BorderColor = Color.Gray;
-options.Toolbar.FontColor = Color.Black;
-options.Toolbar.FontFamily = "Arial";
-
-return StiAngularViewer.ViewerDataResult(requestParams, options);
+    var requestParams = StiAngularViewer.GetRequestParams(this);
+    var options = new StiAngularViewerOptions();
+    options.Actions.ViewerEvent = "ViewerEvent";
+    options.Appearance.BackgroundColor = Color.White;
+    options.Appearance.PageBorderColor = Color.Blue;
+    options.Appearance.ShowPageShadow = true;
+    options.Toolbar.BackgroundColor = Color.White;
+    options.Toolbar.BorderColor = Color.Gray;
+    options.Toolbar.FontColor = Color.Black;
+    options.Toolbar.FontFamily = "Arial";
+    
+    return StiAngularViewer.ViewerDataResult(requestParams, options);
 }
 ...
 ```

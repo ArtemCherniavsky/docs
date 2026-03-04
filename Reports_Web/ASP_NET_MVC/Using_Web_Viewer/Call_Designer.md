@@ -8,15 +8,15 @@ The **HTML5 Viewer** component has the ability to call the report designer. The 
 ```
 ...
 @Html.Stimulsoft().StiMvcViewer("MvcViewer1", 
-new StiMvcViewerOptions() {
-Actions =
-{
-DesignReport = "DesignReport"
-},
-Toolbar =
-{
-ShowDesignButton = true
-}
+    new StiMvcViewerOptions() {
+        Actions =
+        {
+            DesignReport = "DesignReport"
+        },
+        Toolbar =
+        {
+            ShowDesignButton = true
+        }
 })
 ...
 ```
@@ -28,10 +28,10 @@ ShowDesignButton = true
 ...
 public ActionResult DesignReport()
 {
-StiReport report = StiMvcViewer.GetReportObject();
-ViewBag.ReportName = report.ReportName;
-
-return View("Designer");
+    StiReport report = StiMvcViewer.GetReportObject();
+    ViewBag.ReportName = report.ReportName;
+    
+    return View("Designer");
 }
 ...
 ```

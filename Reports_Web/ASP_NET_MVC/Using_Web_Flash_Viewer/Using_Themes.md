@@ -8,8 +8,8 @@ The **Flash Viewer** component has the ability to change the appearance of visua
 ```
 ...
 @Html.Stimulsoft().StiMvcViewerFx("MvcViewerFx1",
-new StiMvcViewerFxOptions() {
-Theme = StiViewerThemeFx.Office2022
+    new StiMvcViewerFxOptions() {
+        Theme = StiViewerThemeFx.Office2022
 })
 ...
 ```

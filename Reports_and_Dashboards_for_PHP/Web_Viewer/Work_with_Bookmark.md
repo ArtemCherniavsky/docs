@@ -13,10 +13,10 @@ By default, the width of the bookmarks panel is set to 180 pixels, but the viewe
 ```php
 
 <?php
-use Stimulsoft\Viewer\StiViewer;
-
-$viewer = new StiViewer();
-$viewer->options->appearance->bookmarksTreeWidth = 300;
+    use Stimulsoft\Viewer\StiViewer;
+    
+    $viewer = new StiViewer();
+    $viewer->options->appearance->bookmarksTreeWidth = 300;
 ?>
 ```
 
@@ -28,10 +28,10 @@ If bookmarks aren’t required in the report, this feature can be disabled entir
 ```php
 
 <?php
-use Stimulsoft\Viewer\StiViewer;
-
-$viewer = new StiViewer();
-$viewer->options->toolbar->showBookmarksButton = false;
+    use Stimulsoft\Viewer\StiViewer;
+    
+    $viewer = new StiViewer();
+    $viewer->options->toolbar->showBookmarksButton = false;
 ?>
 ```
 
@@ -48,9 +48,9 @@ When printing a report with bookmarks, the bookmarks tree will be hidden. If you
 ```php
 
 <?php
-use Stimulsoft\Viewer\StiViewer;
-
-$viewer = new StiViewer();
-$viewer->options->appearance->bookmarksPrint = true;
+    use Stimulsoft\Viewer\StiViewer;
+    
+    $viewer = new StiViewer();
+    $viewer->options->appearance->bookmarksPrint = true;
 ?>
 ```

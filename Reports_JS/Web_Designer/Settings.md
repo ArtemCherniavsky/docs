@@ -8,21 +8,21 @@ The HTML5 Designer is configured using properties that are located in the **Stim
 ```html
 ...
 <script type="text/javascript">
-var report = new Stimulsoft.Report.StiReport();
-report.loadFile("SimpleList.mrt");
-
-var options = new Stimulsoft.Designer.StiDesignerOptions();
-options.appearance.theme = Stimulsoft.Designer.StiDesignerTheme.Office2022WhiteBlue;
-options.viewerOptions.appearance.reportDisplayMode = Stimulsoft.Report.Export.StiHtmlExportMode.Auto;
-options.toolbar.showFileMenuExit = false;
-options.toolbar.showFileMenuOptions = false;
-options.bands.showChildBand = false;
-options.components.showPanel = false;
-options.appearance.showReportTree = false;
-options.appearance.showTooltips = false;
-
-var designer = new Stimulsoft.Designer.StiDesigner(options);
-designer.report = report;
+    var report = new Stimulsoft.Report.StiReport();
+    report.loadFile("SimpleList.mrt");
+    
+    var options = new Stimulsoft.Designer.StiDesignerOptions();
+    options.appearance.theme = Stimulsoft.Designer.StiDesignerTheme.Office2022WhiteBlue;
+    options.viewerOptions.appearance.reportDisplayMode = Stimulsoft.Report.Export.StiHtmlExportMode.Auto;
+    options.toolbar.showFileMenuExit = false;
+    options.toolbar.showFileMenuOptions = false;
+    options.bands.showChildBand = false;
+    options.components.showPanel = false;
+    options.appearance.showReportTree = false;
+    options.appearance.showTooltips = false;
+    
+    var designer = new Stimulsoft.Designer.StiDesigner(options);
+    designer.report = report;
 </script>
 ...
 ```

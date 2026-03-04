@@ -18,10 +18,10 @@ Returns the report object with which the designer is currently working. It is po
 ...
 public ActionResult ExportReport()
 {
-StiReport report = StiMvcDesigner.GetReportObject();
-report.ReportName = "MyReportName";
-
-return StiMvcDesigner.ExportReportResult(report);
+    StiReport report = StiMvcDesigner.GetReportObject();
+    report.ReportName = "MyReportName";
+    
+    return StiMvcDesigner.ExportReportResult(report);
 }
 ...
 ```
@@ -38,15 +38,15 @@ Returns the report object that will be used for the particular action. For examp
 ...
 public ActionResult OpenReport()
 {
-StiReport report = StiMvcDesigner.GetActionReportObject();
-
-// Register data for the opened report, if necessary
-DataSet data = new DataSet("Demo");
-data.ReadXml(Server.MapPath("~/Content/Data/Demo.xml"));
-report.RegData(data);
-report.Dictionary.Synchronize();
-
-return StiMvcDesigner.GetReportResult(report);
+    StiReport report = StiMvcDesigner.GetActionReportObject();
+    
+    // Register data for the opened report, if necessary
+    DataSet data = new DataSet("Demo");
+    data.ReadXml(Server.MapPath("~/Content/Data/Demo.xml"));
+    report.RegData(data);
+    report.Dictionary.Synchronize();
+    
+    return StiMvcDesigner.GetReportResult(report);
 }
 ...
 ```
@@ -63,9 +63,9 @@ Returns values for URLs with which the designer page was opened. Thus, it is pos
 ...
 public ActionResult ExportReport()
 {
-RouteValueDictionary routeValues = StiMvcDesigner.GetRouteValues();
-
-return StiMvcDesigner.ExportReportResult();
+    RouteValueDictionary routeValues = StiMvcDesigner.GetRouteValues();
+    
+    return StiMvcDesigner.ExportReportResult();
 }
 ...
 ```
@@ -79,7 +79,7 @@ You can also get values of URL parameters by parameter name, specifying it as th
 ...
 public ActionResult ExportReport(string id)
 {
-return StiMvcDesigner.ExportReportResult();
+    return StiMvcDesigner.ExportReportResult();
 }
 ...
 ```
@@ -96,18 +96,18 @@ Returns all parameters of the current state of the designer passed to the server
 ...
 public ActionResult ExportReport()
 {
-StiRequestParams requestParams = StiMvcDesigner.GetRequestParams();
-if (requestParams.ExportFormat == StiExportFormat.Pdf)
-{
-StiReport report = StiMvcDesigner.GetReportObject();
-
-// Some action with report for the PDF export
-// ...
-
-return StiMvcDesigner.ExportReportResult(report);
-}
-
-return StiMvcDesigner.ExportReportResult();
+    StiRequestParams requestParams = StiMvcDesigner.GetRequestParams();
+    if (requestParams.ExportFormat == StiExportFormat.Pdf)
+    {
+        StiReport report = StiMvcDesigner.GetReportObject();
+        
+        // Some action with report for the PDF export
+        // ...
+        
+        return StiMvcDesigner.ExportReportResult(report);
+    }
+    
+    return StiMvcDesigner.ExportReportResult();
 }
 ...
 ```
@@ -124,16 +124,16 @@ Returns all parameters of the current report export. The parameter object type w
 ...
 public ActionResult ExportReport()
 {
-StiExportSettings settings = StiMvcDesigner.GetExportSettings();
-if (settings.GetExportFormat() == StiExportFormat.Pdf)
-{
-StiPdfExportSettings pdfSettings = (StiPdfExportSettings)settings;
-pdfSettings.EmbeddedFonts = true;
-pdfSettings.AllowEditable = StiPdfAllowEditable.No;
-return StiMvcDesigner.ExportReportResult(settings);
-}
-
-return StiMvcDesigner.ExportReportResult();
+    StiExportSettings settings = StiMvcDesigner.GetExportSettings();
+    if (settings.GetExportFormat() == StiExportFormat.Pdf)
+    {
+        StiPdfExportSettings pdfSettings = (StiPdfExportSettings)settings;
+        pdfSettings.EmbeddedFonts = true;
+        pdfSettings.AllowEditable = StiPdfAllowEditable.No;
+        return StiMvcDesigner.ExportReportResult(settings);
+    }
+    
+    return StiMvcDesigner.ExportReportResult();
 }
 ...
 ```

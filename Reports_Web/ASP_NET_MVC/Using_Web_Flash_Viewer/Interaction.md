@@ -8,11 +8,11 @@ The **Flash Viewer** component supports the dynamic sorting and drill-down of re
 ```
 ...
 @Html.Stimulsoft().StiMvcViewerFx("MvcViewerFx1", 
-new StiMvcViewerFxOptions() {
-Actions =
-{
-GetReportSnapshot = "GetReportSnapshot"
-}
+    new StiMvcViewerFxOptions() {
+        Actions =
+        {
+            GetReportSnapshot = "GetReportSnapshot"
+        }
 })
 ...
 ```
@@ -24,10 +24,10 @@ GetReportSnapshot = "GetReportSnapshot"
 ...
 public ActionResult GetReportSnapshot()
 {
-StiReport report = new StiReport();
-report.Load(Server.MapPath("~/Content/ReportWithParameters.mrt"));
-
-return StiMvcViewerFx.GetReportSnapshotResult(report);
+    StiReport report = new StiReport();
+    report.Load(Server.MapPath("~/Content/ReportWithParameters.mrt"));
+    
+    return StiMvcViewerFx.GetReportSnapshotResult(report);
 }
 ...
 ```

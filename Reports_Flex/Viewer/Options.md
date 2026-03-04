@@ -3,6 +3,8 @@
 If a report is shown in the dialog window, i.e. ability to set parameters of dialog window.
 
 
+**Code**
+
 ```
 ...
 var report: StiReport = new StiReport();
@@ -24,6 +26,8 @@ In example 4 parameters are described:
 
 A sample of setting parameters:
 
+
+**Code**
 
 ```
 ...

@@ -11,11 +11,11 @@ After purchasing a Stimulsoft product, you need to activate the license for the 
 ...
 function Start() {
 
-//Activation with using license code
-Stimulsoft.Base.StiLicense.Key = "Your activation code...";
-
-//Activation with using license file
-Stimulsoft.Base.StiLicense.loadFromFile("license.key");    
+    //Activation with using license code
+    Stimulsoft.Base.StiLicense.Key = "Your activation code...";
+        
+    //Activation with using license file
+    Stimulsoft.Base.StiLicense.loadFromFile("license.key");    
 }
 ...
 ```

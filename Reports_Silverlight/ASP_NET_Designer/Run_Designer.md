@@ -12,12 +12,14 @@ For running the Web report designer it is necessary to put non visual **StiWebDe
 ```
 
 
+**C#**
+
 ```csharp
 ...
 protected void Page_Load(object sender, EventArgs e)
 { 
-StiReport report = new StiReport();
-StiWebDesignerSL1.Report = myReport;
+    StiReport report = new StiReport();
+    StiWebDesignerSL1.Report = myReport;
 }
 ...
 ```
@@ -25,13 +27,15 @@ StiWebDesignerSL1.Report = myReport;
 For loading a report in the Web designer, the method of calling can be slightly modified:
 
 
+**C#**
+
 ```csharp
 ...
 protected void Page_Load(object sender, EventArgs e)
 {
-StiReport report = new StiReport();
-report.Load("D:\\SimpleList.mrt");
-StiWebDesignerSL1.Design(report);
+    StiReport report = new StiReport();
+    report.Load("D:\\SimpleList.mrt");
+    StiWebDesignerSL1.Design(report);
 }
 ...
 ```

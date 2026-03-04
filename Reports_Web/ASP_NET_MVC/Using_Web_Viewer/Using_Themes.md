@@ -8,8 +8,8 @@ The **HTML5 Viewer** component can change the appearance of visual controls. To 
 ```
 ...
 @Html.Stimulsoft().StiMvcViewer("MvcViewer1",
-new StiMvcViewerOptions() {
-Theme = StiTheme.Office2022WhiteTeal
+    new StiMvcViewerOptions() {
+        Theme = StiTheme.Office2022WhiteTeal
 })
 ...
 ```
@@ -28,15 +28,15 @@ By default, the viewer has only the top toolbar on which all the report controls
 ```
 ...
 @Html.Stimulsoft().StiMvcViewer("MvcViewer1",
-new StiMvcViewerOptions() {
-Appearance =
-{
-ScrollbarsMode = true
-},
-Toolbar =
-{
-DisplayMode = StiToolbarDisplayMode.Separated
-}
+    new StiMvcViewerOptions() {
+        Appearance =
+        {
+            ScrollbarsMode = true
+        },
+        Toolbar =
+        {
+            DisplayMode = StiToolbarDisplayMode.Separated
+        }
 })
 ...
 ```
@@ -52,20 +52,20 @@ In addition, it is possible to set the appearance parameters for the main elemen
 ```
 ...
 @Html.Stimulsoft().StiMvcViewer("MvcViewer1",
-new StiMvcViewerOptions() {
-Appearance =
-{
-BackgroundColor = Color.White,
-PageBorderColor = Color.Blue,
-ShowPageShadow = true
-},
-Toolbar =
-{
-BackgroundColor = Color.White,
-BorderColor = Color.Gray,
-FontColor = Color.Black,
-FontFamily = "Arial"
-}
+    new StiMvcViewerOptions() {
+        Appearance =
+        {
+            BackgroundColor = Color.White,
+            PageBorderColor = Color.Blue,
+            ShowPageShadow = true
+        },
+        Toolbar =
+        {
+            BackgroundColor = Color.White,
+            BorderColor = Color.Gray,
+            FontColor = Color.Black,
+            FontFamily = "Arial"
+        }
 })
 ...
 ```

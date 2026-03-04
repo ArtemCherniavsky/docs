@@ -17,12 +17,12 @@ The report viewer has a special event the **OnViewerEvent**, which will be invok
 
 @code
 {
-private void OnViewerEvent(StiReportDataEventArgs args)
-{
-var action = args.Action;
-var report = args.Report;
-var parameters = args.RequestParams;
-}
+    private void OnViewerEvent(StiReportDataEventArgs args)
+    {
+        var action = args.Action;
+        var report = args.Report;
+        var parameters = args.RequestParams;
+    }
 }
 ```
 

@@ -8,8 +8,8 @@ The **Flash Viewer** component provides the ability to send reports by email. To
 ```
 ...
 <cc1:StiWebViewerFx ID="StiWebViewerFx1" runat="server"
-ShowSendEmailButton="true"
-OnEmailReport="StiWebViewerFx1_EmailReport">
+    ShowSendEmailButton="true"
+    OnEmailReport="StiWebViewerFx1_EmailReport">
 </cc1:StiWebViewerFx>
 ...
 ```
@@ -21,26 +21,26 @@ OnEmailReport="StiWebViewerFx1_EmailReport">
 ...
 protected void StiWebViewerFx1_EmailReport(object sender, StiEmailReportEventArgs e)
 {
-StiExportFormat format = e.Format;
-StiReport report = e.Report;
-StiExportSettings settings = e.Settings;
-StiEmailOptions options = e.Options;
-
-// Passed from the viewer, can be checked and changed
-// options.AddressTo = "";
-// options.Subject = "";
-// options.Body = "";
-
-// Should be filled here
-options.AddressFrom = "admin_address@test.com";
-options.Host = "smtp.test.com";
-options.Port = 465;
-options.UserName = "admin_address@test.com";
-options.Password = "admin_password";
-
-// options.CC.Add("email@test.com");
-// options.BCC.Add("email@test.com");
-// options.EnableSsl = true;
+    StiExportFormat format = e.Format;
+    StiReport report = e.Report;
+    StiExportSettings settings = e.Settings;
+    StiEmailOptions options = e.Options;
+    
+    // Passed from the viewer, can be checked and changed
+    // options.AddressTo = "";
+    // options.Subject = "";
+    // options.Body = "";
+    
+    // Should be filled here
+    options.AddressFrom = "admin_address@test.com";
+    options.Host = "smtp.test.com";
+    options.Port = 465;
+    options.UserName = "admin_address@test.com";
+    options.Password = "admin_password";
+    
+    // options.CC.Add("email@test.com");
+    // options.BCC.Add("email@test.com");
+    // options.EnableSsl = true;
 }
 ...
 ```
@@ -64,9 +64,9 @@ The **Flash Viewer** component allows you to set the recipient's email address, 
 ```
 ...
 <cc1:StiWebViewerFx ID="StiWebViewerFx1" runat="server"
-DefaultEmailAddress="recipient_address@gmail.com"
-ShowSendEmailButton="true"
-OnEmailReport="StiWebViewerFx1_EmailReport">
+    DefaultEmailAddress="recipient_address@gmail.com"
+    ShowSendEmailButton="true"
+    OnEmailReport="StiWebViewerFx1_EmailReport">
 </cc1:StiWebViewerFx>
 ...
 ```

@@ -18,7 +18,7 @@ To save the edited report on the server-side, you need to set the **OnSaveReport
 ```
 ...
 <cc1:StiWebDesigner ID="StiWebDesigner1" runat="server"
-OnSaveReport="StiWebDesigner1_SaveReport">
+    OnSaveReport="StiWebDesigner1_SaveReport">
 </cc1:StiWebDesigner>
 ...
 ```
@@ -30,10 +30,10 @@ OnSaveReport="StiWebDesigner1_SaveReport">
 ...
 protected void StiWebDesigner1_SaveReport(object sender, StiReportDataEventArgs e)
 {
-StiReport report = e.Report;
-    
-// Save the report template
-// ...
+    StiReport report = e.Report;
+        
+    // Save the report template
+    // ...
 }
 ...
 ```
@@ -47,13 +47,13 @@ By default, after saving the report, the designer continues working without disp
 ...
 protected void StiWebDesigner1_SaveReport(object sender, StiReportDataEventArgs e)
 {
-StiReport report = e.Report;
+    StiReport report = e.Report;
+        
+    // Save the report template
+    // ...
     
-// Save the report template
-// ...
-
-e.ErrorCode = 123;
-//e.ErrorString = "Some message after saving";
+    e.ErrorCode = 123;
+    //e.ErrorString = "Some message after saving";
 }
 ...
 ```
@@ -67,11 +67,11 @@ You can get a report name from the designer save dialog or an original report na
 ...
 protected void StiWebDesigner1_SaveReport(object sender, StiSaveReportEventArgs e)
 {
-//Report name from the designer save dialog
-var reportName = e.FileName;
-
-//Original report name from properties
-var reportName = e.Report.ReportName;
+    //Report name from the designer save dialog
+    var reportName = e.FileName;
+    
+    //Original report name from properties
+    var reportName = e.Report.ReportName;
 }
 ...
 ```
@@ -102,7 +102,7 @@ The **HTML5 Designer** component provides the ability to change the behavior of 
 ```
 ...
 <cc1:StiWebDesigner ID="StiWebDesigner1" runat="server"
-OnSaveReportAs="StiWebDesigner1_SaveReportAs">
+    OnSaveReportAs="StiWebDesigner1_SaveReportAs">
 </cc1:StiWebDesigner>
 ...
 ```
@@ -114,10 +114,10 @@ OnSaveReportAs="StiWebDesigner1_SaveReportAs">
 ...
 protected void StiWebDesigner1_SaveReportAs(object sender, StiReportDataEventArgs e)
 {
-StiReport report = e.Report;
-    
-// Save the report template
-// ...
+    StiReport report = e.Report;
+        
+    // Save the report template
+    // ...
 }
 ...
 ```
@@ -133,8 +133,8 @@ The report is saved in the background mode without reloading the page in the web
 ```
 ...
 <cc1:StiWebDesigner ID="StiWebDesigner1" runat="server"
-OnSaveReportAs="StiWebDesigner1_SaveReportAs"
-SaveReportAsMode="Visible">
+    OnSaveReportAs="StiWebDesigner1_SaveReportAs"
+    SaveReportAsMode="Visible">
 </cc1:StiWebDesigner>
 ...
 ```

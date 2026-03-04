@@ -15,13 +15,13 @@ If the platform is already installed, it is enough to specify the path to the di
 ```php
 
 <?php
-use Stimulsoft\StiNodeJs;
+    use Stimulsoft\StiNodeJs;
 
-$nodejs = new StiNodeJs();
-
-//$nodejs->binDirectory = "C:\\Program Files\\nodejs";
-//$nodejs->binDirectory = "/usr/bin/nodejs";
-//$nodejs->workingDirectory = "";
+    $nodejs = new StiNodeJs();
+    
+    //$nodejs->binDirectory = "C:\\Program Files\\nodejs";
+    //$nodejs->binDirectory = "/usr/bin/nodejs";
+    //$nodejs->workingDirectory = "";
 ?>
 ```
 
@@ -36,15 +36,15 @@ If the platform and packages aren’t installed, special methods can be used to 
 ```php
 
 <?php
-use Stimulsoft\StiNodeJs;
+    use Stimulsoft\StiNodeJs;
 
-$nodejs = new StiNodeJs();
+    $nodejs = new StiNodeJs();
 
-$result = $nodejs->installNodeJS();
-if ($result)
-$result = $nodejs->updatePackages();
-
-$message = $result ? 'The installation was successful.' : $nodejs->error;
+    $result = $nodejs->installNodeJS();
+    if ($result)
+        $result = $nodejs->updatePackages();
+    
+    $message = $result ? 'The installation was successful.' : $nodejs->error;
 ?>
 ```
 
@@ -67,8 +67,8 @@ Example of loading and building a report template, and subsequently saving the b
 ```php
 
 <?php
-use Stimulsoft\Report\Enums\StiEngineType;
-use Stimulsoft\Report\StiReport;$report = new StiReport();$report->engine = StiEngineType::ServerNodeJS; $report->loadFile('reports/SimpleList.mrt', true);$report->render();$report->saveDocument('reports/SimpleList.mdc');
+    use Stimulsoft\Report\Enums\StiEngineType;
+    use Stimulsoft\Report\StiReport;$report = new StiReport();$report->engine = StiEngineType::ServerNodeJS; $report->loadFile('reports/SimpleList.mrt', true);$report->render();$report->saveDocument('reports/SimpleList.mdc');
 ?>
 ```
 
@@ -83,14 +83,14 @@ Any errors that occur when working with Node.js packages, as well as when buildi
 ```php
 
 <?php
-use Stimulsoft\Report\Enums\StiEngineType;
-use Stimulsoft\Report\StiReport;$report = new StiReport();$report->engine = StiEngineType::ServerNodeJS; $report->loadFile('reports/SimpleList.mrt', true);$report->render();
-if (!$report) {
-// The main text of the error as a string.
-$error = $report->nodejs->error;
-// The full error text as an array of strings.
-$errorStack = $report->nodejs->errorStack;
-}
+    use Stimulsoft\Report\Enums\StiEngineType;
+    use Stimulsoft\Report\StiReport;$report = new StiReport();$report->engine = StiEngineType::ServerNodeJS; $report->loadFile('reports/SimpleList.mrt', true);$report->render();
+    if (!$report) {
+        // The main text of the error as a string.
+        $error = $report->nodejs->error;
+        // The full error text as an array of strings.
+        $errorStack = $report->nodejs->errorStack;
+    }
 ?>
 ```
 

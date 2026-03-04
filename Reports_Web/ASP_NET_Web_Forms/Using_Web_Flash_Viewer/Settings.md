@@ -8,13 +8,13 @@
 ```
 ...
 <cc1:StiWebViewerFx ID="StiWebViewerFx1" runat="server"
-ShowPrintButton="false"
-ShowSendEmailButton="true"
-ShowTooltips="false"
-ShowExportToDbf="false"
-ShowExportToDif="false"
-Zoom="75"
-Theme="Office2022">
+    ShowPrintButton="false"
+    ShowSendEmailButton="true"
+    ShowTooltips="false"
+    ShowExportToDbf="false"
+    ShowExportToDif="false"
+    Zoom="75"
+    Theme="Office2022">
 </cc1:StiWebViewerFx>
 ...
 ```
@@ -26,13 +26,13 @@ Theme="Office2022">
 ...
 protected void Page_Load(object sender, EventArgs e)
 { 
-StiWebViewerFx1.ShowPrintButton = false;
-StiWebViewerFx1.ShowSendEmailButton = true;
-StiWebViewerFx1.ShowTooltips = false;
-StiWebViewerFx1.ShowExportToDbf = false;
-StiWebViewerFx1.ShowExportToDif = false;
-StiWebViewerFx1.Zoom = 75;
-StiWebViewerFx1.Theme = StiViewerFxTheme.Office2022;
+    StiWebViewerFx1.ShowPrintButton = false;
+    StiWebViewerFx1.ShowSendEmailButton = true;
+    StiWebViewerFx1.ShowTooltips = false;
+    StiWebViewerFx1.ShowExportToDbf = false;
+    StiWebViewerFx1.ShowExportToDif = false;
+    StiWebViewerFx1.Zoom = 75;
+    StiWebViewerFx1.Theme = StiViewerFxTheme.Office2022;
 }
 ...
 ```

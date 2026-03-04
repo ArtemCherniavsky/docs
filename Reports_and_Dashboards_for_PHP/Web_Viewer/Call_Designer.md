@@ -8,18 +8,18 @@ The viewer can invoke the report designer. A special button labeled **Design** o
 ```php
 
 <?php
-use Stimulsoft\Viewer\StiViewer;
-
-$viewer = new StiViewer();
-$viewer->options->toolbar->showDesignButton = true;
-$viewer->onDesignReport = 'designReport';
-$viewer->process();
+    use Stimulsoft\Viewer\StiViewer;
+    
+    $viewer = new StiViewer();
+    $viewer->options->toolbar->showDesignButton = true;
+    $viewer->onDesignReport = 'designReport';
+    $viewer->process();
 ?>
 
 <script>
-function designReport(args) {
-window.open("designer.php?fileName=" + args.fileName);
-}
+    function designReport(args) {
+        window.open("designer.php?fileName=" + args.fileName);
+    }
 </script>
 ```
 

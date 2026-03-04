@@ -74,14 +74,14 @@ designer.onCreateReport += 'createReport'
 ```html
 
 <script>
-function createReport(args) {
-let dataSet = new Stimulsoft.System.Data.DataSet("Demo");
-dataSet.readJsonFile("/static/data/Demo.json");
-
-let report = args.report;
-report.regData(dataSet.dataSetName, "", dataSet);
-report.dictionary.synchronize();
-}
+    function createReport(args) {
+        let dataSet = new Stimulsoft.System.Data.DataSet("Demo");
+        dataSet.readJsonFile("/static/data/Demo.json");
+        
+        let report = args.report;
+        report.regData(dataSet.dataSetName, "", dataSet);
+        report.dictionary.synchronize();
+    }
 </script>
 ```
 

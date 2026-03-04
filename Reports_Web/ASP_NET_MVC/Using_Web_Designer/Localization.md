@@ -8,8 +8,8 @@ The **HTML5 Designer** component supports the complete localization of its inter
 ```
 ...
 @Html.Stimulsoft().StiMvcDesigner("MvcDesigner1",
-new StiMvcDesignerOptions() {
-Localization = "~/Content/Localization/en.xml"
+    new StiMvcDesignerOptions() {
+        Localization = "~/Content/Localization/en.xml"
 })
 ...
 ```
@@ -22,9 +22,9 @@ The interface of the report designer allows you to select the necessary localiza
 ```
 ...
 @Html.Stimulsoft().StiMvcDesigner("MvcDesigner1",
-new StiMvcDesignerOptions() {
-Localization = "~/Content/Localization/en.xml",
-LocalizationDirectory = "~/Content/Localization"
+    new StiMvcDesignerOptions() {
+        Localization = "~/Content/Localization/en.xml",
+        LocalizationDirectory = "~/Content/Localization"
 })
 ...
 ```

@@ -28,8 +28,8 @@ To use the components in a web project, simply include the automatic script load
 ```php
 
 <?php
-require_once 'vendor/autoload.php';
-
+    require_once 'vendor/autoload.php';
+    
 ...
 ?>
 ```
@@ -45,29 +45,29 @@ Example of displaying a report in the viewer on an HTML page:
 ```php
 
 <?php
-require_once 'vendor/autoload.php';
-
-use Stimulsoft\Report\StiReport;
-use Stimulsoft\Viewer\StiViewer;
-
-$viewer = new StiViewer();
-$viewer->process();
-
-$report = new StiReport();
-$report->loadFile('reports/SimpleList.mrt'); 
-$viewer->report = $report;
+    require_once 'vendor/autoload.php';
+    
+    use Stimulsoft\Report\StiReport;
+    use Stimulsoft\Viewer\StiViewer;
+    
+    $viewer = new StiViewer();
+    $viewer->process();
+    
+    $report = new StiReport();
+    $report->loadFile('reports/SimpleList.mrt'); 
+    $viewer->report = $report;
 ?>
 
 <html>
 <head>
-<?php
-$viewer->javascript->renderHtml();
-?>
+    <?php
+        $viewer->javascript->renderHtml();
+    ?>
 </head>
 <body>
-<?php
-$viewer->renderHtml();
-?>
+    <?php
+        $viewer->renderHtml();
+    ?>
 </body>
 </html>
 ```
@@ -99,19 +99,19 @@ Example of a simplified viewer display without using an HTML page template:
 ```php
 
 <?php
-require_once 'vendor/autoload.php';
-
-use Stimulsoft\Report\StiReport;
-use Stimulsoft\Viewer\StiViewer;
-
-$viewer = new StiViewer();
-$viewer->process();
-
-$report = new StiReport();
-$report->loadFile('reports/SimpleList.mrt'); 
-$viewer->report = $report;
-
-$viewer->printHtml();
+    require_once 'vendor/autoload.php';
+    
+    use Stimulsoft\Report\StiReport;
+    use Stimulsoft\Viewer\StiViewer;
+    
+    $viewer = new StiViewer();
+    $viewer->process();
+    
+    $report = new StiReport();
+    $report->loadFile('reports/SimpleList.mrt'); 
+    $viewer->report = $report;
+    
+    $viewer->printHtml();
 ?>
 ```
 

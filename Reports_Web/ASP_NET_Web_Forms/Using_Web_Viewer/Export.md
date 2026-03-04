@@ -19,7 +19,7 @@ To perform any actions, a special **OnExportReport** event is assigned before th
 ```
 ...
 <cc1:StiWebViewer ID="StiWebViewer1" runat="server"
-OnExportReport="StiWebViewer1_ExportReport">
+    OnExportReport="StiWebViewer1_ExportReport">
 </cc1:StiWebViewer>
 ...
 ```
@@ -31,9 +31,9 @@ OnExportReport="StiWebViewer1_ExportReport">
 ...
 protected void StiWebViewer1_ExportReport(object sender, StiExportReportEventArgs e)
 {
-StiExportFormat format = e.Format;
-StiReport report = e.Report;
-StiExportSettings settings = e.Settings;
+    StiExportFormat format = e.Format;
+    StiReport report = e.Report;
+    StiExportSettings settings = e.Settings;
 }
 ...
 ```
@@ -46,7 +46,7 @@ To perform any actions with an already exported report, the **OnExportReportResp
 ```
 ...
 <cc1:StiWebViewer ID="StiWebViewer1" runat="server"
-OnExportReportResponse="StiWebViewer1_ExportReportResponse">
+    OnExportReportResponse="StiWebViewer1_ExportReportResponse">
 </cc1:StiWebViewer>
 ...
 ```
@@ -58,10 +58,10 @@ OnExportReportResponse="StiWebViewer1_ExportReportResponse">
 ...
 protected void StiWebViewer1_ExportReportResponse(object sender, StiExportReportResponseEventArgs e)
 {
-StiExportFormat format = e.Format;
-string contentType = e.ContentType;
-string fileName = e.FileName;
-Stream stream = e.Stream;
+    StiExportFormat format = e.Format;
+    string contentType = e.ContentType;
+    string fileName = e.FileName;
+    Stream stream = e.Stream;
 }
 ...
 ```
@@ -78,9 +78,9 @@ Each report export format of the **HTML5 Viewer** component has a lot of setting
 ...
 protected void Page_Load(object sender, EventArgs e)
 {
-StiWebViewer1.DefaultExportSettings.ExportToPdf.ImageQuality = 0.75f;
-StiWebViewer1.DefaultExportSettings.ExportToPdf.ImageFormat = StiImageFormat.Color;
-StiWebViewer1.DefaultExportSettings.ExportToHtml.ExportMode = StiHtmlExportMode.Div;
+    StiWebViewer1.DefaultExportSettings.ExportToPdf.ImageQuality = 0.75f;
+    StiWebViewer1.DefaultExportSettings.ExportToPdf.ImageFormat = StiImageFormat.Color;
+    StiWebViewer1.DefaultExportSettings.ExportToHtml.ExportMode = StiHtmlExportMode.Div;
 }
 ...
 ```
@@ -93,7 +93,7 @@ When calling the required export through the Viewer menu, the Export Settings di
 ```
 ...
 <cc1:StiWebViewer ID="StiWebViewer1" runat="server"
-StoreExportSettings="false">
+    StoreExportSettings="false">
 </cc1:StiWebViewer>
 ...
 ```
@@ -106,7 +106,7 @@ Also, if required, you can completely hide export dialogs. Exporting will always
 ```
 ...
 <cc1:StiWebViewer ID="StiWebViewer1" runat="server"
-ShowExportDialog="false">
+    ShowExportDialog="false">
 </cc1:StiWebViewer>
 ...
 ```
@@ -119,35 +119,35 @@ The **HTML5 Viewer** component contains 30+ export formats, and sometimes you ne
 ```
 ...
 <cc1:StiWebViewer ID="StiWebViewer1" runat="server"
-ShowExportToDocument="true"
-ShowExportToPdf="true"
-ShowExportToXps="true"
-ShowExportToPowerPoint="true"
-ShowExportToHtml="true"
-ShowExportToHtml5="true"
-ShowExportToMht="true"
-ShowExportToText="true"
-ShowExportToRtf="true"
-ShowExportToWord2007="true"
-ShowExportToOpenDocumentWriter="true"
-ShowExportToExcel="true"
-ShowExportToExcelXml="true"
-ShowExportToExcel2007="true"
-ShowExportToOpenDocumentCalc="true"
-ShowExportToCsv="true"
-ShowExportToDbf="true"
-ShowExportToXml="true"
-ShowExportToDif="true"
-ShowExportToSylk="true"
-ShowExportToImageBmp="true"
-ShowExportToImageGif="true"
-ShowExportToImageJpeg="true"
-ShowExportToImagePcx="true"
-ShowExportToImagePng="true"
-ShowExportToImageTiff="true"
-ShowExportToImageMetafile="true"
-ShowExportToImageSvg="true"
-ShowExportToImageSvgz="true">
+    ShowExportToDocument="true"
+    ShowExportToPdf="true"
+    ShowExportToXps="true"
+    ShowExportToPowerPoint="true"
+    ShowExportToHtml="true"
+    ShowExportToHtml5="true"
+    ShowExportToMht="true"
+    ShowExportToText="true"
+    ShowExportToRtf="true"
+    ShowExportToWord2007="true"
+    ShowExportToOpenDocumentWriter="true"
+    ShowExportToExcel="true"
+    ShowExportToExcelXml="true"
+    ShowExportToExcel2007="true"
+    ShowExportToOpenDocumentCalc="true"
+    ShowExportToCsv="true"
+    ShowExportToDbf="true"
+    ShowExportToXml="true"
+    ShowExportToDif="true"
+    ShowExportToSylk="true"
+    ShowExportToImageBmp="true"
+    ShowExportToImageGif="true"
+    ShowExportToImageJpeg="true"
+    ShowExportToImagePcx="true"
+    ShowExportToImagePng="true"
+    ShowExportToImageTiff="true"
+    ShowExportToImageMetafile="true"
+    ShowExportToImageSvg="true"
+    ShowExportToImageSvgz="true">
 </cc1:StiWebViewer>
 ...
 ```
@@ -160,7 +160,7 @@ The **HTML5 Viewer** component can completely disable the export menu. To do thi
 ```
 ...
 <cc1:StiWebViewer ID="StiWebViewer1" runat="server"
-ShowSaveButton="false">
+    ShowSaveButton="false">
 </cc1:StiWebViewer>
 ...
 ```

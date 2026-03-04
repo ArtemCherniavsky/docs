@@ -8,13 +8,13 @@
 ```
 ...
 <cc1:StiWebViewer ID="StiWebViewer1" runat="server"
-ShowPrintButton="false"
-ScrollbarsMode="true"
-ShowTooltips="false"
-ShowExportToDbf="false"
-ShowExportToDif="false"
-Zoom="75"
-Theme="Office2022WhiteTeal">
+    ShowPrintButton="false"
+    ScrollbarsMode="true"
+    ShowTooltips="false"
+    ShowExportToDbf="false"
+    ShowExportToDif="false"
+    Zoom="75"
+    Theme="Office2022WhiteTeal">
 </cc1:StiWebViewer>
 ...
 ```
@@ -26,14 +26,14 @@ Theme="Office2022WhiteTeal">
 ...
 protected void Page_Load(object sender, EventArgs e)
 { 
-StiWebViewer1.ShowPrintButton = false;
-StiWebViewer1.ScrollbarsMode = true;
-StiWebViewer1.ShowTooltips = false;
-StiWebViewer1.ShowExportToDbf = false;
-StiWebViewer1.ShowExportToDif = false;
-StiWebViewer1.Zoom = 75;
-StiWebViewer1.Theme = StiTheme.Office2022WhiteTeal;
-StiWebViewer1.ReportDisplayMode = StiReportDisplayMode.Auto;
+    StiWebViewer1.ShowPrintButton = false;
+    StiWebViewer1.ScrollbarsMode = true;
+    StiWebViewer1.ShowTooltips = false;
+    StiWebViewer1.ShowExportToDbf = false;
+    StiWebViewer1.ShowExportToDif = false;
+    StiWebViewer1.Zoom = 75;
+    StiWebViewer1.Theme = StiTheme.Office2022WhiteTeal;
+    StiWebViewer1.ReportDisplayMode = StiReportDisplayMode.Auto;
 }
 ...
 ```

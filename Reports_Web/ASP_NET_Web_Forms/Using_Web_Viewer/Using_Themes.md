@@ -8,7 +8,7 @@ In the **HTML5 Viewer** component, you can change the appearance of visual contr
 ```
 ...
 <cc1:StiWebViewer ID="StiWebViewer1" runat="server"
-Theme="Office2022WhiteTeal">
+    Theme="Office2022WhiteTeal">
 </cc1:StiWebViewer>
 ...
 ```
@@ -26,8 +26,8 @@ By default, the viewer has only the top toolbar on which all the report controls
 ```
 ...
 <cc1:StiWebViewer ID="StiWebViewer1" runat="server"
-ToolbarDisplayMode="Separated"
-ScrollbarsMode="true">
+    ToolbarDisplayMode="Separated"
+    ScrollbarsMode="true">
 </cc1:StiWebViewer>
 ...
 ```
@@ -43,13 +43,13 @@ In addition, it is possible to set the appearance parameters for the main elemen
 ```
 ...
 <cc1:StiWebViewer ID="StiWebViewer1" runat="server"
-BackgroundColor="White"
-ShowPageShadow="true"
-PageBorderColor="Gray"
-ToolbarBackgroundColor="Empty"
-ToolbarBorderColor="Empty"
-ToolbarFontColor="Empty"
-ToolbarFontFamily="Arial">
+    BackgroundColor="White"
+    ShowPageShadow="true"
+    PageBorderColor="Gray"
+    ToolbarBackgroundColor="Empty"
+    ToolbarBorderColor="Empty"
+    ToolbarFontColor="Empty"
+    ToolbarFontFamily="Arial">
 </cc1:StiWebViewer>
 ...
 ```

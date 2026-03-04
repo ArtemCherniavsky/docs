@@ -43,13 +43,13 @@ designer.onPreviewReport += 'previewReport'
 ```html
 
 <script>
-function previewReport(args) {
-let dataSet = new Stimulsoft.System.Data.DataSet("Demo");
-dataSet.readJsonFile("/static/data/Demo.json");
-
-let report = args.report;
-report.regData(dataSet.dataSetName, "", dataSet);
-}
+    function previewReport(args) {
+        let dataSet = new Stimulsoft.System.Data.DataSet("Demo");
+        dataSet.readJsonFile("/static/data/Demo.json");
+        
+        let report = args.report;
+        report.regData(dataSet.dataSetName, "", dataSet);
+    }
 </script>
 ```
 

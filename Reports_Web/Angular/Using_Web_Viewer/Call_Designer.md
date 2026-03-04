@@ -9,21 +9,21 @@ The **Angular Viewer** component has the ability to call the report designer. Th
 ...
 public IActionResult InitViewer()
 {
-var requestParams = StiAngularViewer.GetRequestParams(this);
-var options = new StiAngularViewerOptions();
-options.Actions.ViewerEvent = "ViewerEvent";
-options.Actions.DesignReport = "DesignReport";
-options.Toolbar.ShowDesignButton = true;
-
-return StiAngularViewer.ViewerDataResult(requestParams, options);
+    var requestParams = StiAngularViewer.GetRequestParams(this);
+    var options = new StiAngularViewerOptions();
+    options.Actions.ViewerEvent = "ViewerEvent";
+    options.Actions.DesignReport = "DesignReport";
+    options.Toolbar.ShowDesignButton = true;
+    
+    return StiAngularViewer.ViewerDataResult(requestParams, options);
 }
 
 public IActionResult DesignReport()
 {
-StiReport report = StiAngularViewer.GetReportObject(this);
-ViewBag.ReportName = report.ReportName;
-
-return View("Designer");
+    StiReport report = StiAngularViewer.GetReportObject(this);
+    ViewBag.ReportName = report.ReportName;
+    
+    return View("Designer");
 }
 ...
 ```

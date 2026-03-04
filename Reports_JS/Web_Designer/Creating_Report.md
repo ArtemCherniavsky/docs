@@ -48,11 +48,11 @@ You can also create a new report using the main menu of the designer. The **onCr
 ```html
 ...
 designer.onCreateReport = function (args) {
-var dataSet = new Stimulsoft.System.Data.DataSet("SimpleDataSet");
-dataSet.readJsonFile("Data/Demo.json");
-
-args.report.regData(dataSet.dataSetName, "", dataSet);
-args.report.dictionary.synchronize();
+    var dataSet = new Stimulsoft.System.Data.DataSet("SimpleDataSet");
+    dataSet.readJsonFile("Data/Demo.json");
+    
+    args.report.regData(dataSet.dataSetName, "", dataSet);
+    args.report.dictionary.synchronize();
 }
 ...
 ```

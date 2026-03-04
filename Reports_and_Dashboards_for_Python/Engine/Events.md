@@ -32,13 +32,13 @@ report.render()
 ```html
 
 <script>
-function prepareVariables(args) {
-let variables = args.variables;
-}
+    function prepareVariables(args) {
+        let variables = args.variables;
+    }
 
-function afterRender(args) {
-alert("The report rendering is completed.");
-}
+    function afterRender(args) {
+        alert("The report rendering is completed.");
+    }
 </script>
 ```
 

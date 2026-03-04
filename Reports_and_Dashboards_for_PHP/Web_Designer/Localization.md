@@ -8,11 +8,11 @@ The designer fully supports localization of its interface. To localize the inter
 ```php
 
 <?php
-use Stimulsoft\Designer\StiDesigner; 
-
-$designer = new StiDesigner();
-$designer->options->localization = 'de.xml';
-$designer->printHtml();
+    use Stimulsoft\Designer\StiDesigner; 
+    
+    $designer = new StiDesigner();
+    $designer->options->localization = 'de.xml';
+    $designer->printHtml();
 ?>
 ```
 
@@ -27,11 +27,11 @@ All available localization XML files can be found in the resources of the instal
 ```php
 
 <?php
-use Stimulsoft\Designer\StiDesigner; 
-
-$designer = new StiDesigner();
-$designer->options->localization = '/resources/loc/de.xml';
-$designer->printHtml();
+    use Stimulsoft\Designer\StiDesigner; 
+    
+    $designer = new StiDesigner();
+    $designer->options->localization = '/resources/loc/de.xml';
+    $designer->printHtml();
 ?>
 ```
 
@@ -46,14 +46,14 @@ Example of adding additional localizations located in the component resources:
 ```php
 
 <?php
-use Stimulsoft\Designer\StiDesigner; 
-
-$designer = new StiDesigner();
-$designer->options->localization = 'de.xml';
-$designer->options->addLocalization('fr.xml');
-$designer->options->addLocalization('es.xml');
-$designer->options->addLocalization('pt.xml');
-$designer->printHtml();
+    use Stimulsoft\Designer\StiDesigner; 
+    
+    $designer = new StiDesigner();
+    $designer->options->localization = 'de.xml';
+    $designer->options->addLocalization('fr.xml');
+    $designer->options->addLocalization('es.xml');
+    $designer->options->addLocalization('pt.xml');
+    $designer->printHtml();
 ?>
 ```
 

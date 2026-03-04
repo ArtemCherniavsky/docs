@@ -32,15 +32,15 @@ report.render()
 ```html
 
 <script>
-function beforeRender(args) {
-let report = args.report;
-
-let variableString = report.dictionary.variables.getByName("VariableString");
-variableString.value = "Text value";
-
-let variableInt = report.dictionary.variables.getByName("VariableInt");
-variableInt.value = "20";
-}
+    function beforeRender(args) {
+        let report = args.report;
+        
+        let variableString = report.dictionary.variables.getByName("VariableString");
+        variableString.value = "Text value";
+        
+        let variableInt = report.dictionary.variables.getByName("VariableInt");
+        variableInt.value = "20";
+    }
 </script>
 ```
 
@@ -64,18 +64,18 @@ Direct access to report variables from the Python server side is not supported.
 ```html
 
 <script>
-function prepareVariables(args) {       
-args.variables = [{
-name: "VariableString",
-type: "String",
-value: "Text value"
-},
-{
-name: "VariableInt",
-type: "Int32",
-value: 20
-}];
-}
+    function prepareVariables(args) {       
+        args.variables = [{
+            name: "VariableString",
+            type: "String",
+            value: "Text value"
+        },
+        {
+            name: "VariableInt",
+            type: "Int32",
+            value: 20
+        }];
+    }
 </script>
 ```
 

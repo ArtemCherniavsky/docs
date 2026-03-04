@@ -17,10 +17,10 @@ To save the editable report on the server side, you need to set the **SaveReport
 ```
 ...
 @Html.StiNetCoreDesigner(new StiNetCoreDesignerOptions() {
-Actions =
-{
-SaveReport = "SaveReport"
-}
+    Actions =
+    {
+        SaveReport = "SaveReport"
+    }
 })
 ...
 ```
@@ -32,12 +32,12 @@ SaveReport = "SaveReport"
 ...
 public IActionResult SaveReport()
 {
-StiReport report = StiNetCoreDesigner.GetReportObject(this);
+    StiReport report = StiNetCoreDesigner.GetReportObject(this);
+        
+    // Save the report template
+    // ...
     
-// Save the report template
-// ...
-
-return StiNetCoreDesigner.SaveReportResult(this);
+    return StiNetCoreDesigner.SaveReportResult(this);
 }
 ...
 ```
@@ -51,15 +51,15 @@ This action returns a response to the client side of the designer about the resu
 ...
 public IActionResult SaveReport()
 {
-StiReport report = StiNetCoreDesigner.GetReportObject(this);
+    StiReport report = StiNetCoreDesigner.GetReportObject(this);
+        
+    // Save the report template
+    // ...
     
-// Save the report template
-// ...
-
-// Completion of the report saving with message dialog box
-return StiNetCoreDesigner.SaveReportResult(this, "Some message after saving");
-//return Content("{"infoMessage":"Some info message after saving"}");
-//return Content("{\"warningMessage\":\"Some info message after saving\"}");
+    // Completion of the report saving with message dialog box
+    return StiNetCoreDesigner.SaveReportResult(this, "Some message after saving");
+    //return Content("{"infoMessage":"Some info message after saving"}");
+    //return Content("{\"warningMessage\":\"Some info message after saving\"}");
 }
 ...
 ```
@@ -73,16 +73,16 @@ You can get a report name from the designer save dialog or an original report na
 ...
 public IActionResult SaveReport()
 {
-var requestParams = StiNetCoreDesigner.GetRequestParams();
-var report = StiNetCoreDesigner.GetReportObject();
-
-//Report name from designer save dialog
-var savingReportName = requestParams.Designer.FileName; 
-
-//Original report name from properties
-var originalReportName = report.ReportName; 
-
-return StiNetCoreDesigner.SaveReportResult(this, "Some message after saving");
+    var requestParams = StiNetCoreDesigner.GetRequestParams();
+    var report = StiNetCoreDesigner.GetReportObject();
+    
+    //Report name from designer save dialog
+    var savingReportName = requestParams.Designer.FileName; 
+    
+    //Original report name from properties
+    var originalReportName = report.ReportName; 
+    
+    return StiNetCoreDesigner.SaveReportResult(this, "Some message after saving");
 }
 ...
 ```
@@ -108,10 +108,10 @@ The **HTML5 Designer** component provides the ability to change the behavior of 
 ```
 ...
 @Html.StiNetCoreDesigner(new StiNetCoreDesignerOptions() {
-Actions =
-{
-SaveReportAs = "SaveReportAs"
-}
+    Actions =
+    {
+        SaveReportAs = "SaveReportAs"
+    }
 })
 ...
 ```
@@ -123,12 +123,12 @@ SaveReportAs = "SaveReportAs"
 ...
 public IActionResult SaveReportAs()
 {
-StiReport report = StiNetCoreDesigner.GetReportObject(this);
+    StiReport report = StiNetCoreDesigner.GetReportObject(this);
+        
+    // Save the report template
+    // ...
     
-// Save the report template
-// ...
-
-return StiNetCoreDesigner.SaveReportResult(this);
+    return StiNetCoreDesigner.SaveReportResult(this);
 }
 ...
 ```
@@ -142,11 +142,11 @@ Use the following code to get the report name from the Save dialog.
 
 public IActionResult SaveReport()
 {
-StiReport report = StiNetCoreDesigner.GetReportObject(this);
-var requestParams = StiNetCoreDesigner.GetRequestParams(this);
-var reportName = requestParams.Designer.FileName;
-                   
-return StiNetCoreDesigner.SaveReportResult(this);
+    StiReport report = StiNetCoreDesigner.GetReportObject(this);
+    var requestParams = StiNetCoreDesigner.GetRequestParams(this);
+    var reportName = requestParams.Designer.FileName;
+                       
+    return StiNetCoreDesigner.SaveReportResult(this);
 }
 ```
 
@@ -160,14 +160,14 @@ The report is saved in the background mode without reloading the page in the web
 ```
 ...
 @Html.StiNetCoreDesigner(new StiNetCoreDesignerOptions() {
-Actions =
-{
-SaveReportAs = "SaveReportAs"
-},
-Behavior =
-{
-SaveReportAsMode = StiSaveMode.Visible
-}
+    Actions =
+    {
+        SaveReportAs = "SaveReportAs"
+    },
+    Behavior =
+    {
+        SaveReportAsMode = StiSaveMode.Visible
+    }
 })
 ...
 ```

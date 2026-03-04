@@ -25,10 +25,10 @@ If necessary, the same actions can be performed in a client-side JavaScript even
 ```html
 
 <script>
-function beginProcessData(args) {
-if (args.connection == "MyJsonConnection")
-args.pathData = "Data/Demo.json";
-}
+    function beginProcessData(args) {
+        if (args.connection == "MyJsonConnection")
+            args.pathData = "Data/Demo.json";
+    }
 </script>
 ```
 
@@ -71,9 +71,9 @@ report.render()
 ```html
 
 <script>
-function endProcessData(args) {
-let dataSet = args.dataSet;
-}
+    function endProcessData(args) {
+        let dataSet = args.dataSet;
+    }
 </script>
 ```
 
@@ -100,6 +100,8 @@ report = StiReport()report.handler.allowFileDataAdapters = False
 It is possible to use variables in the form of expressions (as well as using expressions) when specifying the path to the file data source. A variable or expression is defined within curly braces. Multiple expressions can be used anywhere in the file path, for example:
 
 
+**File Data Source**
+
 ```
 
 https://localhost/data/{VariableJsonFileName}.json
@@ -119,21 +121,21 @@ You can also use data retrieved from OData repositories for creating reports. In
 ```html
 
 <script>
-function beginProcessData(args) {
-let report = args.report;
-
-// Authorization using a user account
-let oDataDatabase = new Stimulsoft.Report.Dictionary.StiODataDatabase("OData", "OData", "https://services.odata.org/V4/Northwind/Northwind.svc;AddressBearer=adress;UserName=UserName;Password=Password;Client_Id=Your Client ID", false, null);
-
-// Authorization using a user token
-let oDataDatabase = new Stimulsoft.Report.Dictionary.StiODataDatabase("OData", "OData", "https://services.odata.org/V4/Northwind/Northwind.svc;Token=Enter your token", false, null);
-
-report.dictionary.databases.add(oDataDatabase);
-report.dictionary.synchronize();
-
-// Query with data filter
-var productsDataSource = report.dictionary.dataSources.getByName("Products");
-if (productsDataSource != null) productsDataSource.sqlCommand = "Products?filter=ProductID eq 2";
-}
+    function beginProcessData(args) {
+        let report = args.report;
+        
+        // Authorization using a user account
+        let oDataDatabase = new Stimulsoft.Report.Dictionary.StiODataDatabase("OData", "OData", "https://services.odata.org/V4/Northwind/Northwind.svc;AddressBearer=adress;UserName=UserName;Password=Password;Client_Id=Your Client ID", false, null);
+        
+        // Authorization using a user token
+        let oDataDatabase = new Stimulsoft.Report.Dictionary.StiODataDatabase("OData", "OData", "https://services.odata.org/V4/Northwind/Northwind.svc;Token=Enter your token", false, null);
+        
+        report.dictionary.databases.add(oDataDatabase);
+        report.dictionary.synchronize();
+        
+        // Query with data filter
+        var productsDataSource = report.dictionary.dataSources.getByName("Products");
+        if (productsDataSource != null) productsDataSource.sqlCommand = "Products?filter=ProductID eq 2";
+    }
 </script>
 ```

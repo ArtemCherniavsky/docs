@@ -9,15 +9,15 @@ Data to a report can be connected in various ways. The easiest way is to store c
 ...
 public ActionResult GetReport()
 {
-DataSet ds = new DataSet();
-ds.ReadXml(Server.MapPath("~/Content/Data/Demo.xml"));
-
-StiReport report = new StiReport();
-report.Load(Server.MapPath("~/Content/TwoSimpleLists.mrt"));
-report.Dictionary.Databases.Clear();
-report.RegData("Demo", ds);
-
-return StiMvcViewerFx.GetReportResult(report);
+    DataSet ds = new DataSet();
+    ds.ReadXml(Server.MapPath("~/Content/Data/Demo.xml"));
+    
+    StiReport report = new StiReport();
+    report.Load(Server.MapPath("~/Content/TwoSimpleLists.mrt"));
+    report.Dictionary.Databases.Clear();
+    report.RegData("Demo", ds);
+    
+    return StiMvcViewerFx.GetReportResult(report);
 }
 ...
 ```
@@ -33,19 +33,19 @@ The connection parameters to the SQL data source, as well as to any other ones, 
 ...
 public ActionResult GetReport()
 {
-OracleConnection connection = new OracleConnection("Data Source=Oracle8i;Integrated Security=yes");
-connection.Open();
-OracleDataAdapter adapter = new OracleDataAdapter();
-adapter.SelectCommand = new OracleCommand("SELECT * FROM Products", connection);
- 
-DataSet dataSet = new DataSet("productsDataSet");
-adapter.Fill(dataSet, "Products");
- 
-StiReport report = new StiReport();
-report.Load(Server.MapPath("~/Content/SqlSampleReport.mrt"));
-report.RegData("Products", dataSet);
-
-return StiMvcViewerFx.GetReportResult(report);
+    OracleConnection connection = new OracleConnection("Data Source=Oracle8i;Integrated Security=yes");
+    connection.Open();
+    OracleDataAdapter adapter = new OracleDataAdapter();
+    adapter.SelectCommand = new OracleCommand("SELECT * FROM Products", connection);
+     
+    DataSet dataSet = new DataSet("productsDataSet");
+    adapter.Fill(dataSet, "Products");
+     
+    StiReport report = new StiReport();
+    report.Load(Server.MapPath("~/Content/SqlSampleReport.mrt"));
+    report.RegData("Products", dataSet);
+    
+    return StiMvcViewerFx.GetReportResult(report);
 }
 ...
 ```
@@ -96,14 +96,14 @@ Connecting to XML and JSON data sources can be stored in the report template. If
 ...
 public ActionResult GetReport()
 {
-DataSet data = new DataSet();
-data.ReadXml(Server.MapPath("~/Content/Data/Demo.xml"));
-
-StiReport report = new StiReport();
-report.Load(Server.MapPath("~/Content/SimpleList.mrt"));
-report.RegData(data);
-
-return StiMvcViewerFx.GetReportResult(report);
+    DataSet data = new DataSet();
+    data.ReadXml(Server.MapPath("~/Content/Data/Demo.xml"));
+    
+    StiReport report = new StiReport();
+    report.Load(Server.MapPath("~/Content/SimpleList.mrt"));
+    report.RegData(data);
+    
+    return StiMvcViewerFx.GetReportResult(report);
 }
 ...
 ```
@@ -115,13 +115,13 @@ return StiMvcViewerFx.GetReportResult(report);
 ...
 public ActionResult GetReport()
 {
-DataSet data = StiJsonToDataSetConverterV2.GetDataSetFromFile(Server.MapPath("~/Content/Data/Demo.json"));
-
-StiReport report = new StiReport();
-report.Load(Server.MapPath("~/Content/SimpleList.mrt"));
-report.RegData(data);
-
-return StiMvcViewerFx.GetReportResult(report);
+    DataSet data = StiJsonToDataSetConverterV2.GetDataSetFromFile(Server.MapPath("~/Content/Data/Demo.json"));
+    
+    StiReport report = new StiReport();
+    report.Load(Server.MapPath("~/Content/SimpleList.mrt"));
+    report.RegData(data);
+    
+    return StiMvcViewerFx.GetReportResult(report);
 }
 ...
 ```

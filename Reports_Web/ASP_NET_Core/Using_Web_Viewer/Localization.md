@@ -8,7 +8,7 @@ The **HTML5 Viewer** component supports the complete localization of its interfa
 ```
 ...
 @Html.StiNetCoreViewer(new StiNetCoreViewerOptions() {
-Localization = "Localization/en.xml"
+    Localization = "Localization/en.xml"
 })
 ...
 ```

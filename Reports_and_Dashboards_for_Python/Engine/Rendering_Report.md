@@ -40,13 +40,13 @@ report.render()
 ```html
 
 <script>
-function onBeforeRender(args) {
-var dataSet = new Stimulsoft.System.Data.DataSet("SimpleDataSet");
-dataSet.readJsonFile("Demo.json");
-
-var report = args.report;
-report.regData(dataSet.dataSetName, "", dataSet);
-}
+    function onBeforeRender(args) {
+        var dataSet = new Stimulsoft.System.Data.DataSet("SimpleDataSet");
+        dataSet.readJsonFile("Demo.json");
+        
+        var report = args.report;
+        report.regData(dataSet.dataSetName, "", dataSet);
+    }
 </script>
 ```
 
@@ -71,9 +71,9 @@ report.render()
 ```html
 
 <script>
-function afterRender(args) {
-alert("The report rendering is completed.");
-}
+    function afterRender(args) {
+        alert("The report rendering is completed.");
+    }
 </script>
 ```
 

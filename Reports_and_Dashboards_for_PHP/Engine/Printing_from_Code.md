@@ -8,13 +8,13 @@ The report generator provides the ability to print a report from code. You can u
 ```php
 
 <?php
-use Stimulsoft\Report\StiReport;
-
-$report = new StiReport();
-$report->loadFile('reports/SimpleList.mrt');
-$report->render();
-$report->print();
-$report->printHtml();
+    use Stimulsoft\Report\StiReport;
+    
+    $report = new StiReport();
+    $report->loadFile('reports/SimpleList.mrt');
+    $report->render();
+    $report->print();
+    $report->printHtml();
 ?>
 ```
 
@@ -32,7 +32,7 @@ By default, all pages of the built report will be printed. There’s also an opt
 
 ```php
 <?php
-$report->print(5);
-$report->print('1,3-8');
+    $report->print(5);
+    $report->print('1,3-8');
 ?>
 ```

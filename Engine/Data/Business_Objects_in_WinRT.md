@@ -8,12 +8,14 @@ In order to pass the business objects in UWP, you should use the following metho
 The method of saving the structure of the dictionary file *.dct, for further opening it in the report designer and creating a report. In this case, only the structure of the **Dictionary** is remained. The structure contains a description of business objects. Here is the code that implements this method:
 
 
+**C#**
+
 ```csharp
 ...
 var picker = new Windows.Storage.Pickers.FileSavePicker(); picker.FileTypeChoices.Add("Files Dictionary (*.dct)", new System.Collections.Generic.List<string>() { ".dct" });picker.SuggestedFileName = "ReportDictionary1";picker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.ComputerFolder;var storageFile = await picker.PickSaveFileAsync();if (storageFile != null){
-StiReport report = new StiReport();
-report.RegBusinessObject("Categories", "Categories", GetData()); 
-report.Dictionary.SynchronizeBusinessObjects(3); await report.Dictionary.SaveAsync(storageFile); 
+    StiReport report = new StiReport();
+    report.RegBusinessObject("Categories", "Categories", GetData()); 
+    report.Dictionary.SynchronizeBusinessObjects(3); await report.Dictionary.SaveAsync(storageFile); 
 }
 ...
 ```
@@ -27,7 +29,7 @@ The method of saving to a file ***.mrt**, with the structure of the report dicti
 ```
 ...
 var picker = new Windows.Storage.Pickers.FileSavePicker();picker.FileTypeChoices.Add("Files report (*.mrt)", new System.Collections.Generic.List<string>() { ".mrt" });picker.SuggestedFileName = "Report1";picker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.ComputerFolder;var storageFile = await picker.PickSaveFileAsync();if (storageFile != null){
-StiReport report = new StiReport();report.RegBusinessObject("Categories", "Categories", GetData()); report.Dictionary.SynchronizeBusinessObjects(3); await report.SaveAsync(storageFile);
+    StiReport report = new StiReport();report.RegBusinessObject("Categories", "Categories", GetData()); report.Dictionary.SynchronizeBusinessObjects(3); await report.SaveAsync(storageFile);
 }
 ...
 ```
@@ -50,14 +52,18 @@ The picture above shows that the report template is created. Since it was create
 Filling the business object in this example, will be done from the installed database. First, we need to create a connection to this database in Visual Studio. After this, you should specify the filling code of the business object. Filling the actual business object data directly before the report. Here is the code to fill the business object:
 
 
+**Xaml**
+
 ```
 ...
 <Page>
-<viewerRT:StiViewerControl x:Name="viewerControl" />
+    <viewerRT:StiViewerControl x:Name="viewerControl" />
 </Page>
 ...
 ```
 
+
+**C#**
 
 ```csharp
 ...
@@ -67,14 +73,14 @@ await report.LoadAsync(file);
 
 using (NorthwindDataContext context = new NorthwindDataContext())
 {
-var categories =
-from c in context.Categories
-select new { c.CategoryID, c.CategoryName, c.Description };
+    var categories =
+        from c in context.Categories
+        select new { c.CategoryID, c.CategoryName, c.Description };
 
-report.RegBusinessObject("Categories", categories);
-await report.RenderAsync();
+    report.RegBusinessObject("Categories", categories);
+    await report.RenderAsync();
 
-viewerControl.Report = report;
+    viewerControl.Report = report;
 }
 ...
 ```

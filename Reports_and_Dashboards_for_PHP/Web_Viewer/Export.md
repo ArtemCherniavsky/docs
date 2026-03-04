@@ -52,22 +52,22 @@ Example of performing actions on the client JavaScript before exporting a report
 ```php
 
 <?php
-use Stimulsoft\Viewer\StiViewer;
-
-$viewer = new StiViewer();
-$viewer->onBeginExportReport = 'beginExportReport';
-$viewer->process();
+    use Stimulsoft\Viewer\StiViewer;
+    
+    $viewer = new StiViewer();
+    $viewer->onBeginExportReport = 'beginExportReport';
+    $viewer->process();
 ?>
 
 ...
 
 <script>
-function beginExportReport(args) {
-if (args.format == Stimulsoft.Report.StiExportFormat.Pdf) {
-args.settings.creatorString = 'My Company Name';
-args.settings.embeddedFonts = false;
-}
-}
+    function beginExportReport(args) {
+        if (args.format == Stimulsoft.Report.StiExportFormat.Pdf) {
+            args.settings.creatorString = 'My Company Name';
+            args.settings.embeddedFonts = false;
+        }
+    }
 </script>
 ```
 
@@ -79,23 +79,23 @@ Example of performing actions on the server PHP side before exporting a report:
 ```php
 
 <?php
-use Stimulsoft\Viewer\StiViewer;
-use Stimulsoft\Events\StiExportEventArgs;
-use Stimulsoft\Export\Enums\StiExportFormat;
-use Stimulsoft\Export\StiPdfExportSettings;
-
-$viewer = new StiViewer();
-$viewer->onBeginExportReport = function (StiReportEventArgs $args) {
-$args->fileName = "MyExportedFileName.$args->fileExtension";
+    use Stimulsoft\Viewer\StiViewer;
+    use Stimulsoft\Events\StiExportEventArgs;
+    use Stimulsoft\Export\Enums\StiExportFormat;
+    use Stimulsoft\Export\StiPdfExportSettings;
     
-if ($args->format == StiExportFormat::Pdf) {
-/** @var StiPdfExportSettings $settings */
-$settings = $args->settings;
-$settings->creatorString = 'My Company Name';
-$settings->embeddedFonts = false;
-}  
-};
-$viewer->process();
+    $viewer = new StiViewer();
+    $viewer->onBeginExportReport = function (StiReportEventArgs $args) {
+        $args->fileName = "MyExportedFileName.$args->fileExtension";
+        
+        if ($args->format == StiExportFormat::Pdf) {
+            /** @var StiPdfExportSettings $settings */
+            $settings = $args->settings;
+            $settings->creatorString = 'My Company Name';
+            $settings->embeddedFonts = false;
+        }  
+    };
+    $viewer->process();
 ?>
 ```
 
@@ -117,22 +117,22 @@ Example of performing actions on the client JavaScript side after exporting a re
 ```php
 
 <?php
-use Stimulsoft\Viewer\StiViewer;
-
-$viewer = new StiViewer();
-$viewer->onEndExportReport = 'endExportReport';
-$viewer->process();
+    use Stimulsoft\Viewer\StiViewer;
+    
+    $viewer = new StiViewer();
+    $viewer->onEndExportReport = 'endExportReport';
+    $viewer->process();
 ?>
 
 ...
 
 <script>
-function endExportReport(args) {
-if (args.format == Stimulsoft.Report.StiExportFormat.Html) {
-let fileName = args.fileName;
-let htmlText = args.data;
-}
-}
+    function endExportReport(args) {
+        if (args.format == Stimulsoft.Report.StiExportFormat.Html) {
+            let fileName = args.fileName;
+            let htmlText = args.data;
+        }
+    }
 </script>
 ```
 
@@ -144,18 +144,18 @@ Example of performing actions on the server PHP side after exporting a report:
 ```php
 
 <?php
-use Stimulsoft\Viewer\StiViewer;
-use Stimulsoft\Events\StiExportEventArgs;
-use Stimulsoft\Export\Enums\StiExportFormat;
-
-$viewer = new StiViewer();
-$viewer->onEndExportReport = function (StiReportEventArgs $args) {
-$fileName = $args->fileName; 
-if ($args->format == StiExportFormat::Pdf) {
-$htmlText = base64_decode($args->data);
-}  
-};
-$viewer->process();
+    use Stimulsoft\Viewer\StiViewer;
+    use Stimulsoft\Events\StiExportEventArgs;
+    use Stimulsoft\Export\Enums\StiExportFormat;
+    
+    $viewer = new StiViewer();
+    $viewer->onEndExportReport = function (StiReportEventArgs $args) {
+        $fileName = $args->fileName; 
+        if ($args->format == StiExportFormat::Pdf) {
+            $htmlText = base64_decode($args->data);
+        }  
+    };
+    $viewer->process();
 ?>
 ```
 
@@ -176,12 +176,12 @@ Sometimes it is necessary to disable unused report export formats and leave only
 ```php
 
 <?php
-use Stimulsoft\Viewer\StiViewer;
-
-$viewer = new StiViewer();
-$viewer->options->exports->showExportToDocument = false;
-$viewer->options->exports->showExportToWord = false;
-$viewer->options->exports->showExportToCsv = false;
+    use Stimulsoft\Viewer\StiViewer;
+    
+    $viewer = new StiViewer();
+    $viewer->options->exports->showExportToDocument = false;
+    $viewer->options->exports->showExportToWord = false;
+    $viewer->options->exports->showExportToCsv = false;
 ?>
 ```
 
@@ -193,10 +193,10 @@ Additionally, you can completely disable the export dialog windows, and exportin
 ```php
 
 <?php
-use Stimulsoft\Viewer\StiViewer;
-
-$viewer = new StiViewer();
-$viewer->options->exports->showExportDialog = false;
+    use Stimulsoft\Viewer\StiViewer;
+    
+    $viewer = new StiViewer();
+    $viewer->options->exports->showExportDialog = false;
 ?>
 ```
 

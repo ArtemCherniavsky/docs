@@ -95,14 +95,14 @@ To export a report, you need to use the `exportDocument()` method of the report 
 ```php
 
 <?php
-use Stimulsoft\Export\Enums\StiExportFormat;
-use Stimulsoft\Report\StiReport;
-
-$report = new StiReport();
-$report->loadFile('reports/SimpleList.mrt');
-$report->render();
-$report->exportDocument(StiExportFormat::Pdf);
-$report->printHtml();
+    use Stimulsoft\Export\Enums\StiExportFormat;
+    use Stimulsoft\Report\StiReport;
+    
+    $report = new StiReport();
+    $report->loadFile('reports/SimpleList.mrt');
+    $report->render();
+    $report->exportDocument(StiExportFormat::Pdf);
+    $report->printHtml();
 ?>
 ```
 
@@ -152,7 +152,7 @@ After exporting the report, the resulting data stream will be sent to the browse
 ```php
 
 <?php
-$report->exportDocument(StiExportFormat::Pdf, null, true);
+    $report->exportDocument(StiExportFormat::Pdf, null, true);
 ?>
 ```
 
@@ -168,15 +168,15 @@ Example of exporting a report to text format on the server-side:
 ```php
 
 <?php
-use Stimulsoft\Export\Enums\StiExportFormat;
-use Stimulsoft\Report\Enums\StiEngineType;
-use Stimulsoft\Report\StiReport;
-
-$report = new StiReport();
-$report->engine = StiEngineType::ServerNodeJS;
-$report->loadFile('reports/SimpleList.mrt');
-$report->render();
-$result = $report->exportDocument(StiExportFormat::Text);
+    use Stimulsoft\Export\Enums\StiExportFormat;
+    use Stimulsoft\Report\Enums\StiEngineType;
+    use Stimulsoft\Report\StiReport;
+    
+    $report = new StiReport();
+    $report->engine = StiEngineType::ServerNodeJS;
+    $report->loadFile('reports/SimpleList.mrt');
+    $report->render();
+    $result = $report->exportDocument(StiExportFormat::Text);
 ?>
 ```
 
@@ -194,16 +194,16 @@ Example of exporting a report to Adobe PDF format on the server-side and saving 
 ```php
 
 <?php
-use Stimulsoft\Export\Enums\StiExportFormat;
-use Stimulsoft\Report\Enums\StiEngineType;
-use Stimulsoft\Report\StiReport;
-
-$report = new StiReport();
-$report->engine = StiEngineType::ServerNodeJS;
-$report->loadFile('reports/SimpleList.mrt');
-$report->render();
-$exportedFilePath = 'reports/SimpleList.pdf';
-$result = $report->exportDocument(StiExportFormat::Pdf, null, false, $exportedFilePath);
+    use Stimulsoft\Export\Enums\StiExportFormat;
+    use Stimulsoft\Report\Enums\StiEngineType;
+    use Stimulsoft\Report\StiReport;
+    
+    $report = new StiReport();
+    $report->engine = StiEngineType::ServerNodeJS;
+    $report->loadFile('reports/SimpleList.mrt');
+    $report->render();
+    $exportedFilePath = 'reports/SimpleList.pdf';
+    $result = $report->exportDocument(StiExportFormat::Pdf, null, false, $exportedFilePath);
 ?>
 ```
 
@@ -249,22 +249,22 @@ Example of exporting a report to Adobe PDF format on the server-side, specifying
 ```php
 
 <?php
-use Stimulsoft\Export\Enums\StiExportFormat;
-use Stimulsoft\Export\StiPdfExportSettings;
-use Stimulsoft\Report\Enums\StiEngineType;
-use Stimulsoft\Report\StiReport;
-
-$report = new StiReport();
-$report->engine = StiEngineType::ServerNodeJS;
-$report->loadFile('reports/SimpleList.mrt');
-$report->render();
-
-$settings = new StiPdfExportSettings();
-$settings->creatorString = 'My Company Name';
-$settings->keywordsString = 'SimpleList PHP Report Export';
-$settings->embeddedFonts = false;
-
-$result = $report->exportDocument(StiExportFormat::Pdf, $settings);
+    use Stimulsoft\Export\Enums\StiExportFormat;
+    use Stimulsoft\Export\StiPdfExportSettings;
+    use Stimulsoft\Report\Enums\StiEngineType;
+    use Stimulsoft\Report\StiReport;
+    
+    $report = new StiReport();
+    $report->engine = StiEngineType::ServerNodeJS;
+    $report->loadFile('reports/SimpleList.mrt');
+    $report->render();
+    
+    $settings = new StiPdfExportSettings();
+    $settings->creatorString = 'My Company Name';
+    $settings->keywordsString = 'SimpleList PHP Report Export';
+    $settings->embeddedFonts = false;
+    
+    $result = $report->exportDocument(StiExportFormat::Pdf, $settings);
 ?>
 ```
 

@@ -20,31 +20,31 @@ The **Flash Viewer** component provides the ability to print the report in vario
 ...
 private StiReport LoadSimpleList()
 {
-DataSet dataSet = new DataSet();
-dataSet.ReadXml(StiNetCoreHelper.MapPath(this, "Reports/Demo.xml"));
-
-StiReport report = new StiReport();
-report.Load(StiNetCoreHelper.MapPath(this, "Reports/SimpleList.mrt"));
-report.RegData(dataSet);
-
-return report;
+    DataSet dataSet = new DataSet();
+    dataSet.ReadXml(StiNetCoreHelper.MapPath(this, "Reports/Demo.xml"));
+    
+    StiReport report = new StiReport();
+    report.Load(StiNetCoreHelper.MapPath(this, "Reports/SimpleList.mrt"));
+    report.RegData(dataSet);
+    
+    return report;
 }
 
 public IActionResult PrintReport()
 {
-StiReport report = LoadSimpleList();
-
-return StiNetCoreReportResponse.PrintAsPdf(report);
-//return StiNetCoreReportResponse.PrintAsHtml(report);
+    StiReport report = LoadSimpleList();
+    
+    return StiNetCoreReportResponse.PrintAsPdf(report);
+    //return StiNetCoreReportResponse.PrintAsHtml(report);
 }
 
 public IActionResult ExportReport()
 {
-StiReport report = LoadSimpleList();
-
-return StiNetCoreReportResponse.ResponseAsPdf(report);
-//return StiNetCoreReportResponse.ResponseAsExcel2007(report);
-//return StiNetCoreReportResponse.ResponseAsText(report);
+    StiReport report = LoadSimpleList();
+    
+    return StiNetCoreReportResponse.ResponseAsPdf(report);
+    //return StiNetCoreReportResponse.ResponseAsExcel2007(report);
+    //return StiNetCoreReportResponse.ResponseAsText(report);
 }
 ...
 ```

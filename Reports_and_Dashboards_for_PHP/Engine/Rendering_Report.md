@@ -8,14 +8,14 @@ To build a loaded report, you should call the `render()` function on the report 
 ```php
 
 <?php
-use Stimulsoft\Report\StiReport;
-use Stimulsoft\Export\Enums\StiExportFormat;
+    use Stimulsoft\Report\StiReport;
+    use Stimulsoft\Export\Enums\StiExportFormat;
 
-$report = new StiReport();
-$report->loadFile('reports/SimpleList.mrt');
-$report->render();
-$report->exportDocument(StiExportFormat::Pdf);
-$report->printHtml();
+    $report = new StiReport();
+    $report->loadFile('reports/SimpleList.mrt');
+    $report->render();
+    $report->exportDocument(StiExportFormat::Pdf);
+    $report->printHtml();
 ?>
 ```
 
@@ -31,24 +31,24 @@ To perform any actions with the report before building it using JavaScript, you 
 
 
 <?php
-use Stimulsoft\Report\StiReport;
+    use Stimulsoft\Report\StiReport;
 
-$report = new StiReport();
-$report->onBeforeRender = 'beforeRender'; 
-$report->loadFile('reports/SimpleList.mrt');
-$report->render();
+    $report = new StiReport();
+    $report->onBeforeRender = 'beforeRender'; 
+    $report->loadFile('reports/SimpleList.mrt');
+    $report->render();
 ?>
 
 ...
 
 <script>
-function beforeRender(args) {
-let dataSet = new Stimulsoft.System.Data.DataSet("SimpleDataSet");
-dataSet.readJsonFile("Demo.json");
+    function beforeRender(args) {
+        let dataSet = new Stimulsoft.System.Data.DataSet("SimpleDataSet");
+        dataSet.readJsonFile("Demo.json");
 
-let report = args.report;
-report.regData(dataSet.dataSetName, "", dataSet);
-}
+        let report = args.report;
+        report.regData(dataSet.dataSetName, "", dataSet);
+    }
 </script>
 ```
 
@@ -63,20 +63,20 @@ To perform any actions after building the report using JavaScript, you can defin
 ```php
 
 <?php
-use Stimulsoft\Report\StiReport;
+    use Stimulsoft\Report\StiReport;
 
-$report = new StiReport();
-$report->onAfterRender = 'afterRender'; 
-$report->loadFile('reports/SimpleList.mrt');
-$report->render();
+    $report = new StiReport();
+    $report->onAfterRender = 'afterRender'; 
+    $report->loadFile('reports/SimpleList.mrt');
+    $report->render();
 ?>
 
 ...
 
 <script>
-function afterRender(args) {
-alert("The report rendering is completed.");
-}
+    function afterRender(args) {
+        alert("The report rendering is completed.");
+    }
 </script>
 ```
 

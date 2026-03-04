@@ -8,7 +8,7 @@ In the **HTML5 Designer** component, you can change the appearance of visual con
 ```
 ...
 <cc1:StiWebDesigner ID="StiWebDesigner1" runat="server"
-Theme="Office2022WhiteTeal">
+    Theme="Office2022WhiteTeal">
 </cc1:StiWebDesigner>
 ...
 ```

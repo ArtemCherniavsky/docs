@@ -18,9 +18,9 @@ To work with reports with parameters, no additional viewer settings are required
 ```html
 ...
 viewer.onInteraction = function (args) {
-if (args.action == "Variables") {
-var variables = args.variables;
-}
+    if (args.action == "Variables") {
+        var variables = args.variables;
+    }
 }
 ...
 ```

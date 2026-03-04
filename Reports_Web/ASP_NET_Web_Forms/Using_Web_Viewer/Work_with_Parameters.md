@@ -17,7 +17,7 @@ To perform any action before applying parameters, a special **OnInteraction** ev
 ```
 ...
 <cc1:StiWebViewer ID="StiWebViewer1" runat="server"
-OnInteraction="StiWebViewer1_Interaction">
+    OnInteraction="StiWebViewer1_Interaction">
 </cc1:StiWebViewer>
 ...
 ```
@@ -29,11 +29,11 @@ OnInteraction="StiWebViewer1_Interaction">
 ...
 protected void StiWebViewer1_Interaction(object sender, StiReportDataEventArgs e)
 {
-if (e.Action == StiAction.Variables)
-{
-// The values of the variables passed from the client
-Hashtable variables = e.RequestParams.Interaction.Variables;
-}
+    if (e.Action == StiAction.Variables)
+    {
+        // The values of the variables passed from the client
+        Hashtable variables = e.RequestParams.Interaction.Variables;
+    }
 }
 ...
 ```
@@ -46,7 +46,7 @@ When working with parameters is not required, you can disable this feature. For 
 ```
 ...
 <cc1:StiWebViewer ID="StiWebViewer1" runat="server"
-ShowParametersButton="false">
+    ShowParametersButton="false">
 </cc1:StiWebViewer>
 ...
 ```

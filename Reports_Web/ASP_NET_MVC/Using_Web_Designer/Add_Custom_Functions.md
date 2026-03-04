@@ -13,31 +13,31 @@ You can add a custom function to the Dictionary in the report designer when inte
 ...
 public static string MyFunc(string value)
 {
-return value.ToUpper();
+    return value.ToUpper();
 }
 ...
 static DesignerController()
 {
-var ParamNames = new string[1];
-var ParamTypes = new Type[1];
-var ParamDescriptions = new string[1];
-
-ParamNames[0] = "value";
-ParamDescriptions[0] = "Descriptions";
-ParamTypes[0] = typeof(string);
-
-// How to add my function
-StiFunctions.AddFunction(
-"MyCategory",
-"MyFunc",
-"MyFunc",
-"Description",
-typeof(DesignerController),
-typeof(string),
-"Return Description",
-ParamTypes,
-ParamNames,
-ParamDescriptions);
+    var ParamNames = new string[1];
+    var ParamTypes = new Type[1];
+    var ParamDescriptions = new string[1];
+    
+    ParamNames[0] = "value";
+    ParamDescriptions[0] = "Descriptions";
+    ParamTypes[0] = typeof(string);
+    
+    // How to add my function
+    StiFunctions.AddFunction(
+    "MyCategory",
+    "MyFunc",
+    "MyFunc",
+    "Description",
+    typeof(DesignerController),
+    typeof(string),
+    "Return Description",
+    ParamTypes,
+    ParamNames,
+    ParamDescriptions);
 }
 ...
 ```

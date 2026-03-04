@@ -13,7 +13,7 @@ To save the edited report on the server-side, you need to use the special **OnSa
 ```
 ...
 <cc1:StiWebDesignerFx ID="StiWebDesignerFx1" runat="server"
-OnSaveReport="StiWebDesignerFx1_SaveReport">
+    OnSaveReport="StiWebDesignerFx1_SaveReport">
 </cc1:StiWebDesignerFx>
 ...
 ```
@@ -25,10 +25,10 @@ OnSaveReport="StiWebDesignerFx1_SaveReport">
 ...
 protected void StiWebDesignerFx1_SaveReport(object sender, StiReportDataEventArgs e)
 {
-StiReport report = e.Report;
-    
-// Save the report template
-// ...
+    StiReport report = e.Report;
+        
+    // Save the report template
+    // ...
 }
 ...
 ```
@@ -42,14 +42,14 @@ By default, after saving the report, the designer continues to work without disp
 ...
 protected void StiWebDesignerFx1_SaveReport(object sender, StiReportDataEventArgs e)
 {
-StiReport report = e.Report;
+    StiReport report = e.Report;
+        
+    // Save the report template
+    // ...
     
-// Save the report template
-// ...
-
-e.ErrorCode = 0;
-//e.ErrorCore = 123;
-//e.ErrorString = "Some message after saving";
+    e.ErrorCode = 0;
+    //e.ErrorCore = 123;
+    //e.ErrorString = "Some message after saving";
 }
 ...
 ```
@@ -72,13 +72,13 @@ The **Flash Designer** component allows you to correct a report on the server-si
 ...
 protected void StiWebDesignerFx1_SaveReport(object sender, StiReportDataEventArgs e)
 {
-StiReport report = e.Report;
-report.ReportAuthor = "Stimulsoft";
+    StiReport report = e.Report;
+    report.ReportAuthor = "Stimulsoft";
+        
+    // Save the report template
+    // ...
     
-// Save the report template
-// ...
-
-e.SendReportToClient = true;
+    e.SendReportToClient = true;
 }
 ...
 ```
@@ -99,7 +99,7 @@ The **Flash Designer** component provides the ability to change the behavior of 
 ```
 ...
 <cc1:StiWebDesignerFx ID="StiWebDesignerFx1" runat="server"
-OnSaveReportAs="StiWebDesignerFx1_SaveReportAs">
+    OnSaveReportAs="StiWebDesignerFx1_SaveReportAs">
 </cc1:StiWebDesignerFx>
 ...
 ```
@@ -111,10 +111,10 @@ OnSaveReportAs="StiWebDesignerFx1_SaveReportAs">
 ...
 protected void StiWebDesignerFx1_SaveReportAs(object sender, StiReportDataEventArgs e)
 {
-StiReport report = e.Report;
-    
-// Save the report template
-// ...
+    StiReport report = e.Report;
+        
+    // Save the report template
+    // ...
 }
 ...
 ```
@@ -130,8 +130,8 @@ The report is saved in the background mode without reloading the page in the web
 ```
 ...
 <cc1:StiWebDesignerFx ID="StiWebDesignerFx1" runat="server"
-OnSaveReportAs="StiWebDesignerFx1_SaveReportAs"
-SaveReportAsMode="Visible">
+    OnSaveReportAs="StiWebDesignerFx1_SaveReportAs"
+    SaveReportAsMode="Visible">
 </cc1:StiWebDesignerFx>
 ...
 ```
@@ -148,16 +148,16 @@ Since the designer has the functionality to create a new report, then, when you 
 ...
 protected void StiWebDesignerFx1_SaveReport(object sender, StiReportDataEventArgs e)
 {
-StiReport report = e.Report;
-    
-if (e.IsNewReport)
-{
-// Save the new report
-}
-else
-{
-// Save the edited report
-}
+    StiReport report = e.Report;
+        
+    if (e.IsNewReport)
+    {
+        // Save the new report
+    }
+    else
+    {
+        // Save the edited report
+    }
 }
 ...
 ```
@@ -175,8 +175,8 @@ The **Flash Designer** component provides the ability to automatically save a re
 ```
 ...
 <cc1:StiWebDesignerFx ID="StiWebDesignerFx1" runat="server"
-OnSaveReport="StiWebDesignerFx1_SaveReport"
-AutoSaveInterval="3">
+    OnSaveReport="StiWebDesignerFx1_SaveReport"
+    AutoSaveInterval="3">
 </cc1:StiWebDesignerFx>
 ...
 ```
@@ -188,15 +188,15 @@ AutoSaveInterval="3">
 ...
 protected void StiWebDesignerFx1_SaveReport(object sender, StiReportDataEventArgs e)
 {
-StiReport report = e.Report;
+    StiReport report = e.Report;
+        
+    if (e.IsAutoSave)
+    {
+        // ...
+    }
     
-if (e.IsAutoSave)
-{
-// ...
-}
-
-// Save the report template
-// ...
+    // Save the report template
+    // ...
 }
 ...
 ```

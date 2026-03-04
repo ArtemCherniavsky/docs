@@ -12,7 +12,7 @@ Sets the time in minutes that the server will store the rendered report since th
 ```
 ...
 <cc1:StiWebViewer ID="StiWebViewer1" runat="server"
-CacheTimeout="10">
+    CacheTimeout="10">
 </cc1:StiWebViewer>
 ...
 ```
@@ -24,7 +24,7 @@ CacheTimeout="10">
 ...
 protected void Page_Load(object sender, EventArgs e)
 { 
-StiWebViewer1.CacheTimeout = 10;
+    StiWebViewer1.CacheTimeout = 10;
 }
 ...
 ```
@@ -41,7 +41,7 @@ Sets the time to wait for a response from the server in seconds, after which an 
 ```
 ...
 <cc1:StiWebViewer ID="StiWebViewer1" runat="server"
-RequestTimeout="10">
+    RequestTimeout="10">
 </cc1:StiWebViewer>
 ...
 ```
@@ -53,7 +53,7 @@ RequestTimeout="10">
 ...
 protected void Page_Load(object sender, EventArgs e)
 { 
-StiWebViewer1.RequestTimeout = 30;
+    StiWebViewer1.RequestTimeout = 30;
 }
 ...
 ```
@@ -72,12 +72,12 @@ Below is an example of code that you may use to set the query timeout for the al
 ...
 protected void Page_Load(object sender, EventArgs e)
 { 
-
-StiReport report = new StiReport();
-report.Load(Server.MapPath("Report.mrt"));
-((StiSqlSource)report.Dictionary.DataSources["DataSourceName"]).CommandTimeout = 1000;
-
-StiWebViewer1.Report = report;
+    
+    StiReport report = new StiReport();
+    report.Load(Server.MapPath("Report.mrt"));
+    ((StiSqlSource)report.Dictionary.DataSources["DataSourceName"]).CommandTimeout = 1000;
+    
+    StiWebViewer1.Report = report;
 }
 ...
 ```

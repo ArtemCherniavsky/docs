@@ -56,16 +56,16 @@ Leave unchanged the remaining web.xml blocks, which defines the servlets require
 
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Stimulsoft Reports.Fx for Java</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Stimulsoft Reports.Fx for Java</title>
 </head>
 <body>
 <h1 align="center">My first report!</h1>
 <stidesignerfx:iframe
-width="100%" height="90%" align="middle"
-styleClass="" frameborder="0" styleId=""
-marginheight="4" marginwidth="10" name="stiviewer"
-scrolling="no" style="" title="report"/>
+    width="100%" height="90%" align="middle"
+    styleClass="" frameborder="0" styleId=""
+    marginheight="4" marginwidth="10" name="stiviewer"
+    scrolling="no" style="" title="report"/>
 </body>
 </html>
 ...
@@ -118,12 +118,12 @@ Set the value of a variableStr attribute as a string in the following format: "V
 
 <html>
 <head>
-<title>Report</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Report</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 
 <body>
-<stidesignerfx:button value="Run the report designer" report="MyFirstReport.mrt" variableStr="MyVar=stidesignerfx" />
+    <stidesignerfx:button value="Run the report designer" report="MyFirstReport.mrt" variableStr="MyVar=stidesignerfx" />
 </body>
 </html>
 ...
@@ -148,16 +148,16 @@ It is also possible to pass parameters to a report as a Map <String, String>. Re
 </head>
 <body>
 <%
-Map<String, String>variableMap= new HashMap<String, String>();
-variableMap.put("Variable1", "var1");
-variableMap.put("Variable2", "var2");
-request.setAttribute("myMap", variableMap);
+    Map<String, String>variableMap= new HashMap<String, String>();
+    variableMap.put("Variable1", "var1");
+    variableMap.put("Variable2", "var2");
+    request.setAttribute("myMap", variableMap);
 %>
 <stidesignerfx:iframe report="MyFirstReport.mrt" variableMap="myMap"
-width="100%" height="100%" align="right"
-styleClass="" frameborder="0" styleId=""
-marginheight="1" marginwidth="1" name="stidesignerfx"
-scrolling="no" style="" title="report" />
+    width="100%" height="100%" align="right"
+    styleClass="" frameborder="0" styleId=""
+    marginheight="1" marginwidth="1" name="stidesignerfx"
+    scrolling="no" style="" title="report" />
 
 </body>
 </html>

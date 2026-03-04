@@ -36,14 +36,14 @@ You don't need additional settings of the Viewer for print functions to work. If
 
 @code
 {
-//Options object
-private StiBlazorViewerOptions Options;
-
-private void OnPrintReport(StiPrintReportEventArgs args)
-{
-// Some code before print
-// ...
-}
+    //Options object
+    private StiBlazorViewerOptions Options;
+    
+    private void OnPrintReport(StiPrintReportEventArgs args)
+    {
+        // Some code before print
+        // ...
+    }
 }
 ```
 
@@ -70,16 +70,16 @@ The menu with print options is displayed when selecting a report print in the Vi
 
 @code
 {
-//Options object
-private StiBlazorViewerOptions Options;
+    //Options object
+    private StiBlazorViewerOptions Options;
 
-protected override void OnInitialized()
-{
-base.OnInitialized();
-
-Options = new StiBlazorViewerOptions();
-Options.Toolbar.PrintDestination = StiPrintDestination.Default;
-}
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        
+        Options = new StiBlazorViewerOptions();
+        Options.Toolbar.PrintDestination = StiPrintDestination.Default;
+    }
 }
 ```
 
@@ -96,15 +96,15 @@ The HTML5 component has a feature, which allows you to disable report printing. 
 
 @code
 {
-//Options object
-private StiBlazorViewerOptions Options;
+    //Options object
+    private StiBlazorViewerOptions Options;
 
-protected override void OnInitialized()
-{
-base.OnInitialized();
-
-Options = new StiBlazorViewerOptions();
-Options.Toolbar.ShowPrintButton = true;
-}
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        
+        Options = new StiBlazorViewerOptions();
+        Options.Toolbar.ShowPrintButton = true;
+    }
 }
 ```

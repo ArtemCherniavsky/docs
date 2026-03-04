@@ -23,15 +23,15 @@ Data for rendering a report can be connected in various ways. The easiest way is
 ...
 protected void Page_Load(object sender, EventArgs e)
 {
-DataSet ds = new DataSet();
-ds.ReadXml(Server.MapPath("Reports/Demo.xml"));
-
-StiReport report = new StiReport();
-report.Load(Server.MapPath("Reports/TwoSimpleLists.mrt"));
-report.Dictionary.Databases.Clear();
-report.RegData("Demo", ds);
+    DataSet ds = new DataSet();
+    ds.ReadXml(Server.MapPath("Reports/Demo.xml"));
     
-StiWebViewer1.Report = report;
+    StiReport report = new StiReport();
+    report.Load(Server.MapPath("Reports/TwoSimpleLists.mrt"));
+    report.Dictionary.Databases.Clear();
+    report.RegData("Demo", ds);
+        
+    StiWebViewer1.Report = report;
 }
 ...
 ```
@@ -44,7 +44,7 @@ To connect report data, you can use the special **OnGetReportData** event, which
 ```
 ...
 <cc1:StiWebViewer ID="StiWebViewer1" runat="server"
-OnGetReportData="StiWebViewer1_GetReportData">
+    OnGetReportData="StiWebViewer1_GetReportData">
 </cc1:StiWebViewer>
 ...
 ```
@@ -56,9 +56,9 @@ OnGetReportData="StiWebViewer1_GetReportData">
 ...
 protected void StiWebViewer1_GetReportData(object sender, StiReportDataEventArgs e)
 {    
-DataSet dataSet = new DataSet();
-dataSet.ReadXml(Server.MapPath("Reports/Demo.xml"));
-e.Report.RegData(dataSet);
+    DataSet dataSet = new DataSet();
+    dataSet.ReadXml(Server.MapPath("Reports/Demo.xml"));
+    e.Report.RegData(dataSet);
 }
 ...
 ```
@@ -73,7 +73,7 @@ The connection parameters to the SQL data source and any other ones can be store
 ```
 ...
 <cc1:StiWebViewer ID="StiWebViewer1" runat="server"
-OnGetReportData="StiWebViewer1_GetReportData">
+    OnGetReportData="StiWebViewer1_GetReportData">
 </cc1:StiWebViewer>
 ...
 ```
@@ -85,15 +85,15 @@ OnGetReportData="StiWebViewer1_GetReportData">
 ...
 protected void StiWebViewer1_GetReportData(object sender, StiReportDataEventArgs e)
 {    
-OracleConnection connection = new OracleConnection("Data Source=Oracle8i;Integrated Security=yes");
-connection.Open();
-OracleDataAdapter adapter = new OracleDataAdapter();
-adapter.SelectCommand = new OracleCommand("SELECT * FROM Products", connection);
- 
-DataSet dataSet = new DataSet("productsDataSet");
-adapter.Fill(dataSet, "Products");
- 
-e.Report.RegData("Products", dataSet);
+    OracleConnection connection = new OracleConnection("Data Source=Oracle8i;Integrated Security=yes");
+    connection.Open();
+    OracleDataAdapter adapter = new OracleDataAdapter();
+    adapter.SelectCommand = new OracleCommand("SELECT * FROM Products", connection);
+     
+    DataSet dataSet = new DataSet("productsDataSet");
+    adapter.Fill(dataSet, "Products");
+     
+    e.Report.RegData("Products", dataSet);
 }
 ...
 ```
@@ -110,14 +110,14 @@ Below is an example of code that you may use to change the connection string for
 ...
 protected void Page_Load(object sender, EventArgs e)
 { 
-
-StiReport report = new StiReport();
-report.Load(Server.MapPath("Report.mrt"));
-((StiSqlDatabase)report.Dictionary.Databases["Connection"]).ConnectionString = @"Data Source=server;Integrated Security=True;Initial Catalog=DataBase";
-((StiSqlSource)report.Dictionary.DataSources["DataSourceName"]).SqlCommand = "select * from Table where Column = 100";
-((StiSqlSource)report.Dictionary.DataSources["DataSourceName"]).CommandTimeout = 1000;
-
-StiWebViewer1.Report = report;
+    
+    StiReport report = new StiReport();
+    report.Load(Server.MapPath("Report.mrt"));
+    ((StiSqlDatabase)report.Dictionary.Databases["Connection"]).ConnectionString = @"Data Source=server;Integrated Security=True;Initial Catalog=DataBase";
+    ((StiSqlSource)report.Dictionary.DataSources["DataSourceName"]).SqlCommand = "select * from Table where Column = 100";
+    ((StiSqlSource)report.Dictionary.DataSources["DataSourceName"]).CommandTimeout = 1000;
+    
+    StiWebViewer1.Report = report;
 }
 ...
 ```
@@ -136,22 +136,22 @@ You can also use data for designing reports and dashboards obtained from OData s
 ...
 protected void Page_Load(object sender, EventArgs e)
 { 
+    
+    var report = new StiReport();
+    
+    //Authorization using a user account        
+    var oDataDatabase = new StiODataDatabase("OData", "OData", @"https://services.odata.org/V4/Northwind/Northwind.svc;AddressBearer=adress;UserName=UserName;Password=Password;Client_Id=Your Client ID", false, null);
+    
+    //Authorization using a user token        
+    var oDataDatabase = new StiODataDatabase("OData", "OData", @"https://services.odata.org/V4/Northwind/Northwind.svc;Token=Enter your token", false, null);
+    
+    report.Dictionary.Databases.Add(oDataDatabase);
+    oDataDatabase.Synchronize(report);
+    
+    //Query with data filter
+    ((StiSqlSource)report.Dictionary.DataSources["Products"]).SqlCommand = "Products?$filter=ProductID eq 2";
 
-var report = new StiReport();
-
-//Authorization using a user account        
-var oDataDatabase = new StiODataDatabase("OData", "OData", @"https://services.odata.org/V4/Northwind/Northwind.svc;AddressBearer=adress;UserName=UserName;Password=Password;Client_Id=Your Client ID", false, null);
-
-//Authorization using a user token        
-var oDataDatabase = new StiODataDatabase("OData", "OData", @"https://services.odata.org/V4/Northwind/Northwind.svc;Token=Enter your token", false, null);
-
-report.Dictionary.Databases.Add(oDataDatabase);
-oDataDatabase.Synchronize(report);
-
-//Query with data filter
-((StiSqlSource)report.Dictionary.DataSources["Products"]).SqlCommand = "Products?$filter=ProductID eq 2";
-
-StiWebViewer1.Report = report;
+    StiWebViewer1.Report = report;
 }
 ...
 ```
@@ -192,7 +192,7 @@ Connecting to XML and JSON data sources can be stored in the report template. If
 ```
 ...
 <cc1:StiWebViewer ID="StiWebViewer1" runat="server"
-OnGetReportData="StiWebViewer1_GetReportData">
+    OnGetReportData="StiWebViewer1_GetReportData">
 </cc1:StiWebViewer>
 ...
 ```
@@ -204,10 +204,10 @@ OnGetReportData="StiWebViewer1_GetReportData">
 ...
 protected void StiWebViewer1_GetReportData(object sender, StiReportDataEventArgs e)
 {    
-DataSet data = new DataSet();
-data.ReadXml(Server.MapPath("Data/Demo.xml"));
- 
-e.Report.RegData(data);
+    DataSet data = new DataSet();
+    data.ReadXml(Server.MapPath("Data/Demo.xml"));
+     
+    e.Report.RegData(data);
 }
 ...
 ```
@@ -219,9 +219,9 @@ e.Report.RegData(data);
 ...
 protected void StiWebViewer1_GetReportData(object sender, StiReportDataEventArgs e)
 {    
-DataSet data = StiJsonToDataSetConverterV2.GetDataSetFromFile(Server.MapPath("Data/Demo.json")); 
-
-e.Report.RegData(data);
+    DataSet data = StiJsonToDataSetConverterV2.GetDataSetFromFile(Server.MapPath("Data/Demo.json")); 
+    
+    e.Report.RegData(data);
 }
 ...
 ```

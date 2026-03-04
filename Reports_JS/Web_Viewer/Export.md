@@ -19,11 +19,11 @@ To perform any actions before exporting a report, a special **onBeginExportRepor
 ```html
 ...
 viewer.onBeginExportReport = function (event) {
-switch (event.format) {
-case Stimulsoft.Report.StiExportFormat.Html:
-event.settings.zoom = 2;  // Set zoom to 200%
-break;
-}
+    switch (event.format) {
+        case Stimulsoft.Report.StiExportFormat.Html:
+            event.settings.zoom = 2;  // Set zoom to 200%
+            break;
+    }
 }
 ...
 ```
@@ -77,7 +77,7 @@ var report = new Stimulsoft.Report.StiReport();
 report.loadFile("../reports/SimpleList.mrt");
 // Render report
 report.renderAsync(function(){
-report.exportDocument(Stimulsoft.Report.StiExportFormat.Pdf); // Export report to PDF format
+    report.exportDocument(Stimulsoft.Report.StiExportFormat.Pdf); // Export report to PDF format
 });
 ...
 ```

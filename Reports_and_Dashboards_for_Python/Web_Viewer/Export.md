@@ -48,12 +48,12 @@ viewer.onBeginExportReport += 'beginExportReport'
 ```html
 
 <script>
-function beginExportReport(args) {
-if (args.format == Stimulsoft.Report.StiExportFormat.Pdf) {
-args.settings.imageQuality = 0.90;
-args.settings.imageResolution = 200;
-}
-}
+    function beginExportReport(args) {
+        if (args.format == Stimulsoft.Report.StiExportFormat.Pdf) {
+            args.settings.imageQuality = 0.90;
+            args.settings.imageResolution = 200;
+        }
+    }
 </script>
 ```
 
@@ -87,11 +87,11 @@ viewer.onEndExportReport += 'endExportReport'
 ```html
 
 <script>
-function endExportReport(args) {
-if (args.format == Stimulsoft.Report.StiExportFormat.Html) {
-htmlText = args.data
-}
-}
+    function endExportReport(args) {
+        if (args.format == Stimulsoft.Report.StiExportFormat.Html) {
+            htmlText = args.data
+        }
+    }
 </script>
 ```
 

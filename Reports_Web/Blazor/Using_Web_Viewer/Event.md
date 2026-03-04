@@ -14,12 +14,12 @@ The **Blazor Viewer** component supports events which allows you to execute nece
 
 @code
 {
-private void OnViewerEvent(StiReportDataEventArgs args)
-{
-var action = args.Action;
-var report = args.Report;
-var parameters = args.RequestParams;
-}
+    private void OnViewerEvent(StiReportDataEventArgs args)
+    {
+        var action = args.Action;
+        var report = args.Report;
+        var parameters = args.RequestParams;
+    }
 }
 ```
 

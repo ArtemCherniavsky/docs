@@ -14,24 +14,24 @@ The **Blazor Viewer** setting is configured with the help of component propertie
 
 @code
 {
-//Options object
-private StiBlazorViewerOptions Options;
-
-protected override void OnInitialized()
-{
-base.OnInitialized();
-
-//Init options object
-Options = new StiBlazorViewerOptions();
-Options.Appearance.ScrollbarsMode = true;
-Options.Appearance.ShowTooltips = false;
-Options.Toolbar.DisplayMode = StiToolbarDisplayMode.Separated;
-Options.Appearance.ReportDisplayMode = StiReportDisplayMode.FromReport;
-Options.Exports.ShowExportToDbf = false;
-Options.Exports.ShowExportToDif = false;
-Options.Exports.DefaultSettings.ExportToPdf.CreatorString = "Company Name";
-Options.Exports.DefaultSettings.ExportToPdf.ImageQuality = 0.75f;
-}
+    //Options object
+    private StiBlazorViewerOptions Options;
+    
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        
+        //Init options object
+        Options = new StiBlazorViewerOptions();
+        Options.Appearance.ScrollbarsMode = true;
+        Options.Appearance.ShowTooltips = false;
+        Options.Toolbar.DisplayMode = StiToolbarDisplayMode.Separated;
+        Options.Appearance.ReportDisplayMode = StiReportDisplayMode.FromReport;
+        Options.Exports.ShowExportToDbf = false;
+        Options.Exports.ShowExportToDif = false;
+        Options.Exports.DefaultSettings.ExportToPdf.CreatorString = "Company Name";
+        Options.Exports.DefaultSettings.ExportToPdf.ImageQuality = 0.75f;
+    }
 }
 ```
 

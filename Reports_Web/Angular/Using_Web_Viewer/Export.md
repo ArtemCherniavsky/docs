@@ -14,20 +14,20 @@ The export function does not require additional settings for the viewer. If you 
 ...
 public IActionResult InitViewer()
 {
-var requestParams = StiAngularViewer.GetRequestParams(this);
-var options = new StiAngularViewerOptions();
-options.Actions.ViewerEvent = "ViewerEvent";
-options.Actions.ExportReport = "ExportReport";
-
-return StiAngularViewer.ViewerDataResult(requestParams, options);
+    var requestParams = StiAngularViewer.GetRequestParams(this);
+    var options = new StiAngularViewerOptions();
+    options.Actions.ViewerEvent = "ViewerEvent";
+    options.Actions.ExportReport = "ExportReport";
+            
+    return StiAngularViewer.ViewerDataResult(requestParams, options);
 }
 
 public IActionResult ExportReport()
 {
-// Some code before export
-// ...
-
-return StiAngularViewer.ExportReportResult(this);
+    // Some code before export
+    // ...
+    
+    return StiAngularViewer.ExportReportResult(this);
 }
 ...
 ```
@@ -43,15 +43,15 @@ Each report export format of the **Angular Viewer** component has a lot of setti
 ...
 public IActionResult InitViewer()
 {
-var requestParams = StiAngularViewer.GetRequestParams(this);
-var options = new StiAngularViewerOptions();
-options.Actions.ViewerEvent = "ViewerEvent";
-options.Exports.DefaultSettings.ExportToPdf.ImageQuality = 0.75f;
-options.Exports.DefaultSettings.ExportToPdf.ImageFormat = Stimulsoft.Report.Export.StiImageFormat.Color;
-options.Exports.DefaultSettings.ExportToHtml.ExportMode = Stimulsoft.Report.Export.StiHtmlExportMode.Div;
-options.Exports.DefaultSettings.ExportToHtml.UseEmbeddedImages = true;
-
-return StiAngularViewer.ViewerDataResult(requestParams, options);
+    var requestParams = StiAngularViewer.GetRequestParams(this);
+    var options = new StiAngularViewerOptions();
+    options.Actions.ViewerEvent = "ViewerEvent";
+    options.Exports.DefaultSettings.ExportToPdf.ImageQuality = 0.75f;
+    options.Exports.DefaultSettings.ExportToPdf.ImageFormat = Stimulsoft.Report.Export.StiImageFormat.Color;
+    options.Exports.DefaultSettings.ExportToHtml.ExportMode = Stimulsoft.Report.Export.StiHtmlExportMode.Div;
+    options.Exports.DefaultSettings.ExportToHtml.UseEmbeddedImages = true;
+    
+    return StiAngularViewer.ViewerDataResult(requestParams, options);
 }
 ...
 ```
@@ -65,12 +65,12 @@ If it is required, you can completely hide export dialogs. Exporting will always
 ...
 public IActionResult InitViewer()
 {
-var requestParams = StiAngularViewer.GetRequestParams(this);
-var options = new StiAngularViewerOptions();
-options.Actions.ViewerEvent = "ViewerEvent";
-options.Exports.ShowExportDialog = false;
-
-return StiAngularViewer.ViewerDataResult(requestParams, options);
+    var requestParams = StiAngularViewer.GetRequestParams(this);
+    var options = new StiAngularViewerOptions();
+    options.Actions.ViewerEvent = "ViewerEvent";
+    options.Exports.ShowExportDialog = false;
+    
+    return StiAngularViewer.ViewerDataResult(requestParams, options);
 }
 ...
 ```
@@ -84,40 +84,40 @@ The **Angular Viewer** component contains 30+ export formats, and sometimes you 
 ...
 public IActionResult InitViewer()
 {
-var requestParams = StiAngularViewer.GetRequestParams(this);
-var options = new StiAngularViewerOptions();
-options.Actions.ViewerEvent = "ViewerEvent";
-options.Exports.ShowExportToDocument = true;
-options.Exports.ShowExportToPdf = true;
-options.Exports.ShowExportToXps = true;
-options.Exports.ShowExportToPowerPoint = true;
-options.Exports.ShowExportToHtml = true;
-options.Exports.ShowExportToHtml5 = true;
-options.Exports.ShowExportToMht = true;
-options.Exports.ShowExportToText = true;
-options.Exports.ShowExportToRtf = true;
-options.Exports.ShowExportToWord2007 = true;
-options.Exports.ShowExportToOpenDocumentWriter = true;
-options.Exports.ShowExportToExcel = true;
-options.Exports.ShowExportToExcelXml = true;
-options.Exports.ShowExportToExcel2007 = true;
-options.Exports.ShowExportToOpenDocumentCalc = true;
-options.Exports.ShowExportToCsv = true;
-options.Exports.ShowExportToDbf = true;
-options.Exports.ShowExportToXml = true;
-options.Exports.ShowExportToDif = true;
-options.Exports.ShowExportToSylk = true;
-options.Exports.ShowExportToImageBmp = true;
-options.Exports.ShowExportToImageGif = true;
-options.Exports.ShowExportToImageJpeg = true;
-options.Exports.ShowExportToImagePcx = true;
-options.Exports.ShowExportToImagePng = true;
-options.Exports.ShowExportToImageTiff = true;
-options.Exports.ShowExportToImageMetafile = true;
-options.Exports.ShowExportToImageSvg = true;
-options.Exports.ShowExportToImageSvgz = true;   
-
-return StiAngularViewer.ViewerDataResult(requestParams, options);
+    var requestParams = StiAngularViewer.GetRequestParams(this);
+    var options = new StiAngularViewerOptions();
+    options.Actions.ViewerEvent = "ViewerEvent";
+    options.Exports.ShowExportToDocument = true;
+    options.Exports.ShowExportToPdf = true;
+    options.Exports.ShowExportToXps = true;
+    options.Exports.ShowExportToPowerPoint = true;
+    options.Exports.ShowExportToHtml = true;
+    options.Exports.ShowExportToHtml5 = true;
+    options.Exports.ShowExportToMht = true;
+    options.Exports.ShowExportToText = true;
+    options.Exports.ShowExportToRtf = true;
+    options.Exports.ShowExportToWord2007 = true;
+    options.Exports.ShowExportToOpenDocumentWriter = true;
+    options.Exports.ShowExportToExcel = true;
+    options.Exports.ShowExportToExcelXml = true;
+    options.Exports.ShowExportToExcel2007 = true;
+    options.Exports.ShowExportToOpenDocumentCalc = true;
+    options.Exports.ShowExportToCsv = true;
+    options.Exports.ShowExportToDbf = true;
+    options.Exports.ShowExportToXml = true;
+    options.Exports.ShowExportToDif = true;
+    options.Exports.ShowExportToSylk = true;
+    options.Exports.ShowExportToImageBmp = true;
+    options.Exports.ShowExportToImageGif = true;
+    options.Exports.ShowExportToImageJpeg = true;
+    options.Exports.ShowExportToImagePcx = true;
+    options.Exports.ShowExportToImagePng = true;
+    options.Exports.ShowExportToImageTiff = true;
+    options.Exports.ShowExportToImageMetafile = true;
+    options.Exports.ShowExportToImageSvg = true;
+    options.Exports.ShowExportToImageSvgz = true;   
+    
+    return StiAngularViewer.ViewerDataResult(requestParams, options);
 }
 ...
 ```
@@ -131,12 +131,12 @@ The **Angular Viewer** component can completely disable the export menu. To do t
 ...
 public IActionResult InitViewer()
 {
-var requestParams = StiAngularViewer.GetRequestParams(this);
-var options = new StiAngularViewerOptions();
-options.Actions.ViewerEvent = "ViewerEvent";
-options.Toolbar.ShowSaveButton = false;   
-
-return StiAngularViewer.ViewerDataResult(requestParams, options);
+    var requestParams = StiAngularViewer.GetRequestParams(this);
+    var options = new StiAngularViewerOptions();
+    options.Actions.ViewerEvent = "ViewerEvent";
+    options.Toolbar.ShowSaveButton = false;   
+    
+    return StiAngularViewer.ViewerDataResult(requestParams, options);
 }
 ...
 ```

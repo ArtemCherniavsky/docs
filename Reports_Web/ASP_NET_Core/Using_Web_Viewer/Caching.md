@@ -19,9 +19,9 @@ You need to connect modules to work with a session or cache on the server-side t
 ...
 public void ConfigureServices(IServiceCollection services)
 {
-services.AddMemoryCache();
-services.AddSession();
-services.AddMvc();
+    services.AddMemoryCache();
+    services.AddSession();
+    services.AddMvc();
 }
 ...
 ```
@@ -66,46 +66,46 @@ The **HTML5 Viewer** component provides the ability to define your methods of wo
 ...
 public class ViewerController : Controller
 {
-public class StiMyCacheHelper : StiCacheHelper
-{
-public override StiReport GetReport(string guid)
-{
-string path = System.IO.Path.Combine(this.HttpContext.Server.MapPath("CacheFiles"), guid);
-if (System.IO.File.Exists(path))
-{
-StiReport report = new StiReport();
-string packedReport = System.IO.File.ReadAllText(path);
-if (guid.EndsWith("template")) report.LoadPackedReportFromString(packedReport);
-else report.LoadPackedDocumentFromString(packedReport);
-
-return report;
-}
-return null;
-
-//return base.GetReport(guid);
-}
-
-public override void SaveReport(StiReport report, string guid)
-{
-string packedReport = guid.EndsWith("template") ? report.SavePackedReportToString() : report.SavePackedDocumentToString();
-string path = System.IO.Path.Combine(this.HttpContext.Server.MapPath("CacheFiles"), guid);
-System.IO.File.WriteAllText(path, packedReport);
-
-//base.SaveReport(report, guid);
-}
-
-public override void RemoveReport(string guid)
-{
-var path = Path.Combine(HttpContext.Server.MapPath("CacheFiles"), guid);
-if (File.Exists(path))
-File.Delete(path);
-}
-}
-
-static ViewerController()
-{
-StiNetCoreViewer.CacheHelper = new StiMyCacheHelper();
-}
+    public class StiMyCacheHelper : StiCacheHelper
+    {
+        public override StiReport GetReport(string guid)
+        {
+            string path = System.IO.Path.Combine(this.HttpContext.Server.MapPath("CacheFiles"), guid);
+            if (System.IO.File.Exists(path))
+            {
+                StiReport report = new StiReport();
+                string packedReport = System.IO.File.ReadAllText(path);
+                if (guid.EndsWith("template")) report.LoadPackedReportFromString(packedReport);
+                else report.LoadPackedDocumentFromString(packedReport);
+                
+                return report;
+            }
+            return null;
+            
+            //return base.GetReport(guid);
+        }
+    
+        public override void SaveReport(StiReport report, string guid)
+        {
+            string packedReport = guid.EndsWith("template") ? report.SavePackedReportToString() : report.SavePackedDocumentToString();
+            string path = System.IO.Path.Combine(this.HttpContext.Server.MapPath("CacheFiles"), guid);
+            System.IO.File.WriteAllText(path, packedReport);
+            
+            //base.SaveReport(report, guid);
+        }
+        
+        public override void RemoveReport(string guid)
+        {
+            var path = Path.Combine(HttpContext.Server.MapPath("CacheFiles"), guid);
+            if (File.Exists(path))
+                File.Delete(path);
+        }
+    }
+    
+    static ViewerController()
+    {
+        StiNetCoreViewer.CacheHelper = new StiMyCacheHelper();
+    }
 }
 ...
 ```

@@ -14,26 +14,26 @@ Data for report rendering can be connected in various ways. The easiest way is t
 
 @code
 {
-//Report object to use in viewer
-private StiReport Report;
+    //Report object to use in viewer
+    private StiReport Report;
+    
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        
+        //Load new data from XML file
+        var data = new System.Data.DataSet();
+        data.ReadXml("Data/Demo.xml");
 
-protected override void OnInitialized()
-{
-base.OnInitialized();
-
-//Load new data from XML file
-var data = new System.Data.DataSet();
-data.ReadXml("Data/Demo.xml");
-
-//Create and load report template
-var report = new StiReport();
-report.Load("Reports/TwoSimpleLists.mrt");
-report.Dictionary.Databases.Clear();
-report.RegData("Demo", data);
-
-//Assing report object to viewer
-Report = report;
-}
+        //Create and load report template
+        var report = new StiReport();
+        report.Load("Reports/TwoSimpleLists.mrt");
+        report.Dictionary.Databases.Clear();
+        report.RegData("Demo", data);
+        
+        //Assing report object to viewer
+        Report = report;
+    }
 }
 ```
 
@@ -58,30 +58,30 @@ The connection parameters to the SQL data source and any other ones can be store
 
 @code
 {
-//Report object to use in viewer
-private StiReport Report;
+    //Report object to use in viewer
+    private StiReport Report;
+    
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        
+        OracleConnection connection = new OracleConnection("Data Source=Oracle8i;Integrated Security=yes");
+        connection.Open();
+        
+        OracleDataAdapter adapter = new OracleDataAdapter();
+        adapter.SelectCommand = new OracleCommand("SELECT * FROM Products", connection);
+         
+        var dataSet = new DataSet("productsDataSet");
+        adapter.Fill(dataSet, "Products");
 
-protected override void OnInitialized()
-{
-base.OnInitialized();
+        var report = new StiReport();
+        report.Load("Reports/TwoSimpleLists.mrt");
+        report.Dictionary.Databases.Clear();
+        report.RegData("Products", dataSet);
 
-OracleConnection connection = new OracleConnection("Data Source=Oracle8i;Integrated Security=yes");
-connection.Open();
-
-OracleDataAdapter adapter = new OracleDataAdapter();
-adapter.SelectCommand = new OracleCommand("SELECT * FROM Products", connection);
- 
-var dataSet = new DataSet("productsDataSet");
-adapter.Fill(dataSet, "Products");
-
-var report = new StiReport();
-report.Load("Reports/TwoSimpleLists.mrt");
-report.Dictionary.Databases.Clear();
-report.RegData("Products", dataSet);
-
-//Assing report object to viewer
-Report = report;
-}
+        //Assing report object to viewer
+        Report = report;
+    }
 }
 ```
 
@@ -102,22 +102,22 @@ Below is an example of code that you may use to change the connection string for
 
 @code
 {
-//Report object to use in viewer
-private StiReport Report;
-
-protected override void OnInitialized()
-{
-base.OnInitialized();
-
-var report = new StiReport();
-report.Load("Reports/Report.mrt");
-((StiSqlDatabase)report.Dictionary.Databases["Connection"]).ConnectionString = @"Data Source=server;Integrated Security=True;Initial Catalog=DataBase";
-((StiSqlSource)report.Dictionary.DataSources["DataSourceName"]).SqlCommand = "select * from Table where Column = 100";
-((StiSqlSource)report.Dictionary.DataSources["DataSourceName"]).CommandTimeout = 1000;
-
-//Assing report object to viewer
-Report = report;
-}
+    //Report object to use in viewer
+    private StiReport Report;
+    
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        
+        var report = new StiReport();
+        report.Load("Reports/Report.mrt");
+        ((StiSqlDatabase)report.Dictionary.Databases["Connection"]).ConnectionString = @"Data Source=server;Integrated Security=True;Initial Catalog=DataBase";
+        ((StiSqlSource)report.Dictionary.DataSources["DataSourceName"]).SqlCommand = "select * from Table where Column = 100";
+        ((StiSqlSource)report.Dictionary.DataSources["DataSourceName"]).CommandTimeout = 1000;
+        
+        //Assing report object to viewer
+        Report = report;
+    }
 }
 ```
 
@@ -140,30 +140,30 @@ You can also use data for designing reports and dashboards obtained from OData s
 
 @code
 {
-//Report object to use in viewer
-private StiReport Report;
-
-protected override void OnInitialized()
-{
-base.OnInitialized();
-
-var report = new StiReport();
-
-//Authorization using a user account        
-var oDataDatabase = new StiODataDatabase("OData", "OData", @"https://services.odata.org/V4/Northwind/Northwind.svc;AddressBearer=adress;UserName=UserName;Password=Password;Client_Id=Your Client ID", false, null);
-
-//Authorization using a user token        
-var oDataDatabase = new StiODataDatabase("OData", "OData", @"https://services.odata.org/V4/Northwind/Northwind.svc;Token=Enter your token", false, null);
-
-report.Dictionary.Databases.Add(oDataDatabase);
-oDataDatabase.Synchronize(report);
-
-//Query with data filter
-((StiSqlSource)report.Dictionary.DataSources["Products"]).SqlCommand = "Products?$filter=ProductID eq 2";
-
-//Assing report object to viewer
-Report = report;
-}
+    //Report object to use in viewer
+    private StiReport Report;
+    
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        
+        var report = new StiReport();
+        
+        //Authorization using a user account        
+        var oDataDatabase = new StiODataDatabase("OData", "OData", @"https://services.odata.org/V4/Northwind/Northwind.svc;AddressBearer=adress;UserName=UserName;Password=Password;Client_Id=Your Client ID", false, null);
+        
+        //Authorization using a user token        
+        var oDataDatabase = new StiODataDatabase("OData", "OData", @"https://services.odata.org/V4/Northwind/Northwind.svc;Token=Enter your token", false, null);
+        
+        report.Dictionary.Databases.Add(oDataDatabase);
+        oDataDatabase.Synchronize(report);
+        
+        //Query with data filter
+        ((StiSqlSource)report.Dictionary.DataSources["Products"]).SqlCommand = "Products?$filter=ProductID eq 2";
+        
+        //Assing report object to viewer
+        Report = report;
+    }
 }
 ```
 
@@ -209,25 +209,25 @@ You can keep connections to the XML and the JSON data resources in a report temp
 
 @code
 {
-private StiReport Report;
-
-protected override void OnInitialized()
-{
-base.OnInitialized();
-
-//Load new data from XML file
-var dataSet = new System.Data.DataSet();
-dataSet.ReadXml("Data/Demo.xml");
-
-var report = new StiReport();
-report.Load("Reports/SimpleList.mrt");
-
-//Register data for the report
-report.RegData("Demo", dataSet);
-
-//Assing report object to viewer
-Report = report;
-}
+    private StiReport Report;
+    
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        
+        //Load new data from XML file
+        var dataSet = new System.Data.DataSet();
+        dataSet.ReadXml("Data/Demo.xml");
+        
+        var report = new StiReport();
+        report.Load("Reports/SimpleList.mrt");
+        
+        //Register data for the report
+        report.RegData("Demo", dataSet);
+        
+        //Assing report object to viewer
+        Report = report;
+    }
 }
 ```
 
@@ -243,24 +243,24 @@ Report = report;
 
 @code
 {
-private StiReport Report;
-
-protected override void OnInitialized()
-{
-base.OnInitialized();
-
-//Load new data from JSON file
-var dataSet = StiJsonToDataSetConverterV2.GetDataSetFromFile("Data/Demo.json");
-
-var report = new StiReport();
-report.Load("Reports/SimpleList.mrt");
-
-//Register data for the report
-report.RegData(dataSet);
-
-//Assing report object to viewer
-Report = report;
-}
+    private StiReport Report;
+    
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        
+        //Load new data from JSON file
+        var dataSet = StiJsonToDataSetConverterV2.GetDataSetFromFile("Data/Demo.json");
+        
+        var report = new StiReport();
+        report.Load("Reports/SimpleList.mrt");
+        
+        //Register data for the report
+        report.RegData(dataSet);
+        
+        //Assing report object to viewer
+        Report = report;
+    }
 }
 ```
 

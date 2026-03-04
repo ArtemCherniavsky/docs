@@ -8,10 +8,10 @@ The **HTML5 Viewer** component has two modes for displaying reports - with and w
 ```
 ...
 @Html.StiNetCoreViewer(new StiNetCoreViewerOptions() {
-Appearance =
-{
-ScrollbarsMode = true
-}
+    Appearance =
+    {
+        ScrollbarsMode = true
+    }
 })
 ...
 ```
@@ -31,10 +31,10 @@ The **HTML5 Viewer** component provides the full-screen report and dashboard mod
 ```
 ...
 @Html.StiNetCoreViewer(new StiNetCoreViewerOptions() {
-Appearance =
-{
-FullScreenMode = true
-}
+    Appearance =
+    {
+        FullScreenMode = true
+    }
 })
 ...
 ```
@@ -50,10 +50,10 @@ The **HTML5 Viewer** component has three modes to display reports - page-by-page
 ```
 ...
 @Html.StiNetCoreViewer(new StiNetCoreViewerOptions() {
-Toolbar =
-{
-ViewMode = StiWebViewMode.SinglePage
-}
+    Toolbar =
+    {
+        ViewMode = StiWebViewMode.SinglePage
+    }
 })
 ...
 ```
@@ -74,10 +74,10 @@ The **HTML5 Viewer** component supports interaction on a regular PC display and 
 ```
 ...
 @Html.StiNetCoreViewer(new StiNetCoreViewerOptions() {
-Appearance =
-{
-InterfaceType = StiInterfaceType.Auto
-}
+    Appearance =
+    {
+        InterfaceType = StiInterfaceType.Auto
+    }
 })
 ...
 ```

@@ -17,11 +17,11 @@ To work with reports with parameters, no additional viewer settings are required
 ```
 ...
 @Html.Stimulsoft().StiMvcViewer("MvcViewer1", 
-new StiMvcViewerOptions() {
-Actions =
-{
-Interaction = "ViewerInteraction"
-}
+    new StiMvcViewerOptions() {
+        Actions =
+        {
+            Interaction = "ViewerInteraction"
+        }
 })
 ...
 ```
@@ -33,10 +33,10 @@ Interaction = "ViewerInteraction"
 ...
 public ActionResult ViewerInteraction()
 {
-// Some code before any interaction
-// ...
-
-return StiMvcViewer.InteractionResult();
+    // Some code before any interaction
+    // ...
+    
+    return StiMvcViewer.InteractionResult();
 }
 ...
 ```
@@ -50,13 +50,13 @@ This action is called during any interactive actions of the viewer. If you need 
 ...
 public ActionResult ViewerInteraction()
 {
-StiRequestParams requestParams = StiMvcViewer.GetRequestParams();
-if (requestParams.Action == StiAction.Variables)
-{
-// Some code before apply parameters
-}
-
-return StiMvcViewer.InteractionResult();
+    StiRequestParams requestParams = StiMvcViewer.GetRequestParams();
+    if (requestParams.Action == StiAction.Variables)
+    {
+        // Some code before apply parameters
+    }
+    
+    return StiMvcViewer.InteractionResult();
 }
 ...
 ```
@@ -69,11 +69,11 @@ If you do not need to work with parameters, you can completely disable this feat
 ```
 ...
 @Html.Stimulsoft().StiMvcViewer("MvcViewer1", 
-new StiMvcViewerOptions() {
-Toolbar =
-{
-ShowParametersButton = false
-}
+    new StiMvcViewerOptions() {
+        Toolbar =
+        {
+            ShowParametersButton = false
+        }
 })
 ...
 ```

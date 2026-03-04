@@ -8,24 +8,24 @@ The **Flash Viewer** is configured using the properties in the **StiNetCoreViewe
 ```
 ...
 @Html.StiNetCoreViewerFx(new StiNetCoreViewerFxOptions() {
-Theme = StiViewerFxTheme.Office2022,
-Localization = "Localization/en.xml",
-Actions =
-{
-GetReport = "GetReport",
-ViewerEvent = "ViewerEvent"
-},
-Appearance =
-{
-BackgroundColor = System.Drawing.Color.LightGray,
-ShowTooltipsHelp = false
-},
-Exports =
-{
-ShowExportDialog = true,
-ShowExportToDbf = false,
-ShowExportToDif = false   
-}
+    Theme = StiViewerFxTheme.Office2022,
+    Localization = "Localization/en.xml",
+    Actions =
+    {
+        GetReport = "GetReport",
+        ViewerEvent = "ViewerEvent"
+    },
+    Appearance =
+    {
+        BackgroundColor = System.Drawing.Color.LightGray,
+        ShowTooltipsHelp = false
+    },
+    Exports =
+    {
+        ShowExportDialog = true,
+        ShowExportToDbf = false,
+        ShowExportToDif = false   
+    }
 })
 ...
 ```

@@ -71,7 +71,7 @@ You can create a **StiDesigner** object using the **Stimulsoft.Designer.StiDesig
 ```html
 ...
 <script type="text/javascript">
-var designer = new Stimulsoft.Designer.StiDesigner(null, "StiDesigner", false);
+    var designer = new Stimulsoft.Designer.StiDesigner(null, "StiDesigner", false);
 </script>
 ...
 ```
@@ -86,10 +86,10 @@ And the subsequent output of the designer in the current DIV element.
 ...
 <div>Page content</div>
 <div>
-<script type="text/javascript">
-// Render the report designer in this place
-designer.renderHtml();
-</script>
+    <script type="text/javascript">
+        // Render the report designer in this place
+        designer.renderHtml();
+    </script>
 </div>
 ...
 ```
@@ -103,8 +103,8 @@ As an argument of the **renderHtml(id)** designer output method, it is allowed t
 ```html
 ...
 <script type="text/javascript" >
-var designer = new Stimulsoft.Designer.StiDesigner(null, "StiDesigner", false);
-designer.renderHtml("content");
+    var designer = new Stimulsoft.Designer.StiDesigner(null, "StiDesigner", false);
+    designer.renderHtml("content");
 </script>
 ...
 ```

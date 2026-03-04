@@ -48,9 +48,9 @@ To perform any actions, a special **OnPrintReport** event is assigned before the
 ...
 protected void StiWebViewer1_PrintReport(object sender, StiPrintReportEventArgs e)
 {
-StiPrintAction action = e.PrintAction;
-StiReport report = e.Report;
-StiExportSettings settings = e.Settings;
+    StiPrintAction action = e.PrintAction;
+    StiReport report = e.Report;
+    StiExportSettings settings = e.Settings;
 }
 ...
 ```
@@ -74,7 +74,7 @@ If you choose to print a report in the viewer panel, a menu with printing option
 ```
 ...
 <cc1:StiWebViewer ID="StiWebViewer1" runat="server"
-PrintDestination="Default">
+    PrintDestination="Default">
 </cc1:StiWebViewer>
 ...
 ```

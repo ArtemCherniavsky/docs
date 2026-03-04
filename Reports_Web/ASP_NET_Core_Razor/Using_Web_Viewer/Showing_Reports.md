@@ -17,11 +17,11 @@ To display a report, you should add the **StiNetCoreViewer** component to a page
 ```
 ...
 @Html.StiNetCoreViewer(new StiNetCoreViewerOptions() {
-Actions =
-{
-GetReport = "GetReport",
-ViewerEvent = "ViewerEvent"
-}
+    Actions =
+    {
+        GetReport = "GetReport",
+        ViewerEvent = "ViewerEvent"
+    }
 })
 ...
 ```
@@ -33,24 +33,24 @@ ViewerEvent = "ViewerEvent"
 ...
 public IActionResult OnPostGetReport()
 {
-// Create the report object
-StiReport report = new StiReport();
+    // Create the report object
+    StiReport report = new StiReport();
 
-// Load report or dashboard
-report.Load(StiNetCoreHelper.MapPath(this, "Reports/SimpleList.mrt"));
-//report.Load(StiNetCoreHelper.MapPath(this, "Reports/Dashboard.mrt"));
-
-return StiNetCoreViewer.GetReportResult(this, report);
+    // Load report or dashboard
+    report.Load(StiNetCoreHelper.MapPath(this, "Reports/SimpleList.mrt"));
+    //report.Load(StiNetCoreHelper.MapPath(this, "Reports/Dashboard.mrt"));
+    
+    return StiNetCoreViewer.GetReportResult(this, report);
 }
 
 public IActionResult OnGetViewerEvent()
 {
-return StiNetCoreViewer.ViewerEventResult(this);
+    return StiNetCoreViewer.ViewerEventResult(this);
 }
 
 public IActionResult OnPostViewerEvent()
 {
-return StiNetCoreViewer.ViewerEventResult(this);
+    return StiNetCoreViewer.ViewerEventResult(this);
 }
 ...
 ```
@@ -74,10 +74,10 @@ If the report was not rendered before showing, the **HTML5 Viewer** component wi
 ...
 public IActionResult OnPostGetReport()
 {
-StiReport report = new StiReport();
-report.LoadDocument(StiNetCoreHelper.MapPath(this, "Reports/SimpleList.mdc"));
-
-return StiNetCoreViewer.GetReportResult(this, report);
+    StiReport report = new StiReport();
+    report.LoadDocument(StiNetCoreHelper.MapPath(this, "Reports/SimpleList.mdc"));
+    
+    return StiNetCoreViewer.GetReportResult(this, report);
 }
 ...
 ```
@@ -91,10 +91,10 @@ Since the dashboard is not a static document and requires data to work, the form
 ...
 public ActionResult OnPostGetReport()
 {
-StiReport report = new StiReport();
-report.Load(StiNetCoreHelper.MapPath("~/Reports/Snapshot.mrt"));
-
-return StiNetCoreViewer.GetReportResult(report);
+    StiReport report = new StiReport();
+    report.Load(StiNetCoreHelper.MapPath("~/Reports/Snapshot.mrt"));
+    
+    return StiNetCoreViewer.GetReportResult(report);
 }
 ...
 ```
@@ -110,10 +110,10 @@ You can connect custom fonts using the **StiFontCollection** class, having speci
 ...
 public class ViewerController : Controller
 {
-static ViewerController()
-{
-Stimulsoft.Base.StiFontCollection.AddFontFile(StiNetCoreHelper.MapPath(this, "/fonts/my-font/font-name.ttf"));
-}
+    static ViewerController()
+    {
+        Stimulsoft.Base.StiFontCollection.AddFontFile(StiNetCoreHelper.MapPath(this, "/fonts/my-font/font-name.ttf"));
+    }
 }
 ...
 ```

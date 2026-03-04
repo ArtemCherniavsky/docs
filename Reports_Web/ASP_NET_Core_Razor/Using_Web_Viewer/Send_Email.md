@@ -12,14 +12,14 @@ The **HTML5 Viewer** component provides the ability to send reports by email. To
 ```
 ...
 @Html.StiNetCoreViewer(new StiNetCoreViewerOptions() {
-Actions =
-{
-EmailReport = "EmailReport"
-},
-Toolbar =
-{
-ShowSendEmailButton = true
-}
+    Actions =
+    {
+        EmailReport = "EmailReport"
+    },
+    Toolbar =
+    {
+        ShowSendEmailButton = true
+    }
 })
 ...
 ```
@@ -31,25 +31,25 @@ ShowSendEmailButton = true
 ...
 public IActionResult OnPostEmailReport()
 {
-StiEmailOptions options = StiNetCoreViewer.GetEmailOptions(this);
-
-// Passed from the viewer, can be checked and changed
-// options.AddressTo = "";
-// options.Subject = "";
-// options.Body = "";
-
-// Should be filled here
-options.AddressFrom = "admin_address@test.com";
-options.Host = "smtp.test.com";
-options.Port = 465;
-options.UserName = "admin_address@test.com";
-options.Password = "admin_password";
-
-// options.CC.Add("email@test.com");
-// options.BCC.Add("email@test.com");
-// options.EnableSsl = true;
-
-return StiNetCoreViewer.EmailReportResult(this, options);
+    StiEmailOptions options = StiNetCoreViewer.GetEmailOptions(this);
+    
+    // Passed from the viewer, can be checked and changed
+    // options.AddressTo = "";
+    // options.Subject = "";
+    // options.Body = "";
+    
+    // Should be filled here
+    options.AddressFrom = "admin_address@test.com";
+    options.Host = "smtp.test.com";
+    options.Port = 465;
+    options.UserName = "admin_address@test.com";
+    options.Password = "admin_password";
+    
+    // options.CC.Add("email@test.com");
+    // options.BCC.Add("email@test.com");
+    // options.EnableSsl = true;
+    
+    return StiNetCoreViewer.EmailReportResult(this, options);
 }
 ...
 ```
@@ -70,12 +70,12 @@ The **HTML5 Viewer** component allows you to set default values for the send ema
 ```
 ...
 @Html.StiNetCoreViewer(new StiNetCoreViewerOptions() {
-Email =
-{
-DefaultEmailAddress = "recipient_address@gmail.com",
-DefaultEmailSubject = "New Invoice",
-DefaultEmailMessage = "Please check the new invoice in the attachment"
-}
+    Email =
+    {
+        DefaultEmailAddress = "recipient_address@gmail.com",
+        DefaultEmailSubject = "New Invoice",
+        DefaultEmailMessage = "Please check the new invoice in the attachment"
+    }
 })
 ...
 ```

@@ -24,32 +24,32 @@ The **HTML5 Viewer** provides the ability to print reports in various ways and e
 ...
 private StiReport LoadSimpleList()
 {
-DataSet dataSet = new DataSet();
-dataSet.ReadXml(Server.MapPath("Reports/Demo.xml"));
-
-StiReport report = new StiReport();
-report.Load(Server.MapPath("Reports/SimpleList.mrt"));
-report.RegData(dataSet);
-
-return report;
+    DataSet dataSet = new DataSet();
+    dataSet.ReadXml(Server.MapPath("Reports/Demo.xml"));
+    
+    StiReport report = new StiReport();
+    report.Load(Server.MapPath("Reports/SimpleList.mrt"));
+    report.RegData(dataSet);
+    
+    return report;
 }
 
 public ActionResult PrintReport()
 {
-StiReport report = LoadSimpleList();
-
-return StiMvcReportResponse.PrintAsPdf(report);
-//return StiMvcReportResponse.PrintAsHtml(report);
+    StiReport report = LoadSimpleList();
+    
+    return StiMvcReportResponse.PrintAsPdf(report);
+    //return StiMvcReportResponse.PrintAsHtml(report);
 }
 
 public ActionResult ExportReport()
 {
-StiReport report = LoadSimpleList();
-
-return StiMvcReportResponse.ResponseAsPdf(report);
-//return StiMvcReportResponse.ResponseAsExcel2007(report);
-//return StiMvcReportResponse.ResponseAsText(report);
-//StiMvcReportResponse.ResponseAsJson(report);
+    StiReport report = LoadSimpleList();
+    
+    return StiMvcReportResponse.ResponseAsPdf(report);
+    //return StiMvcReportResponse.ResponseAsExcel2007(report);
+    //return StiMvcReportResponse.ResponseAsText(report);
+    //StiMvcReportResponse.ResponseAsJson(report);
 }
 ...
 ```

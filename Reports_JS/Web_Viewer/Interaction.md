@@ -33,16 +33,16 @@ For the work with dynamic sorting, folding and detailing of reports, no addition
 ```html
 ...
 viewer.onInteraction = function (args) {
-switch (args.action) {
-case "Sorting":
-break;
+    switch (args.action) {
+        case "Sorting":
+            break;
 
-case "DrillDown":
-break;
+        case "DrillDown":
+            break;
 
-case "Collapsing":
-break;
-}
+        case "Collapsing":
+            break;
+    }
 }
 ...
 ```

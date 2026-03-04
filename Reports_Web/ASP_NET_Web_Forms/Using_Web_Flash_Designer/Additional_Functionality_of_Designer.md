@@ -11,7 +11,7 @@ It is possible to view the C#/VB.Net code of an editable report template in a se
 ```
 ...
 <cc1:StiWebDesignerFx ID="StiWebDesignerFx1" runat="server"
-ShowCodeTab="true">
+    ShowCodeTab="true">
 </cc1:StiWebDesignerFx>
 ...
 ```
@@ -32,7 +32,7 @@ The main menu of the **Flash Designer** component contains the **Exit** item, wh
 ```
 ...
 <cc1:StiWebDesignerFx ID="StiWebDesignerFx1" runat="server"
-OnExit="StiWebDesignerFx1_Exit">
+    OnExit="StiWebDesignerFx1_Exit">
 </cc1:StiWebDesignerFx>
 ...
 ```
@@ -44,7 +44,7 @@ OnExit="StiWebDesignerFx1_Exit">
 ...
 protected void StiWebDesignerFx1_Exit(object sender, StiReportDataEventArgs e)
 {
-this.Response.Redirect("Home.aspx");
+    this.Response.Redirect("Home.aspx");
 }
 ...
 ```
@@ -57,7 +57,7 @@ In the **OnExit** event of the designer, you implement transferring to the requi
 ```
 ...
 <cc1:StiWebDesignerFx ID="StiWebDesignerFx1" runat="server"
-ExitUrl="http://www.stimulsoft.com">
+    ExitUrl="http://www.stimulsoft.com">
 </cc1:StiWebDesignerFx>
 ...
 ```

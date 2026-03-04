@@ -8,8 +8,8 @@ The **Flash Viewer** component has the ability to call the report designer. The 
 ```
 ...
 <cc1:StiWebViewerFx ID="StiWebViewerFx1" runat="server"
-ShowDesignButton="true"
-OnDesignReport="StiWebViewerFx1_DesignReport">
+    ShowDesignButton="true"
+    OnDesignReport="StiWebViewerFx1_DesignReport">
 </cc1:StiWebViewerFx>
 ...
 ```
@@ -21,8 +21,8 @@ OnDesignReport="StiWebViewerFx1_DesignReport">
 ...
 protected void StiWebViewerFx1_DesignReport(object sender, StiReportDataEventArgs e)
 {
-StiReport report = e.Report;
-this.Response.Redirect("Designer.aspx?report=" + report.ReportName);
+    StiReport report = e.Report;
+    this.Response.Redirect("Designer.aspx?report=" + report.ReportName);
 }
 ...
 ```

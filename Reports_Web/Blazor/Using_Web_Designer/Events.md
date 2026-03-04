@@ -14,31 +14,31 @@
 
 @code
 {
-//Report object to use in designer
-private StiReport Report;
-
-protected override void OnInitialized()
-{
-base.OnInitialized();
-
-//Create empty report object
-var report = new StiReport();
-
-//Load report template
-report.Load("Reports/TwoSimpleLists.mrt");
-
-//Assing report object to designer
-Report = report;
-}
-
-private void OnPreviewReport(StiReportDataEventArgs args)
-{
-//Load new data from XML file
-var data = new System.Data.DataSet();
-data.ReadXml("Data/Demo1.xml");
-
-args.Report.RegData(data);
-}
+    //Report object to use in designer
+    private StiReport Report;
+    
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        
+        //Create empty report object
+        var report = new StiReport();
+        
+        //Load report template
+        report.Load("Reports/TwoSimpleLists.mrt");
+        
+        //Assing report object to designer
+        Report = report;
+    }
+    
+    private void OnPreviewReport(StiReportDataEventArgs args)
+    {
+        //Load new data from XML file
+        var data = new System.Data.DataSet();
+        data.ReadXml("Data/Demo1.xml");
+        
+        args.Report.RegData(data);
+    }
 }
 ```
 

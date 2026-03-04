@@ -19,11 +19,11 @@ Additional viewer settings are not required for working reports with parameters.
 
 @code
 {
-private void OnInteraction(StiReportDataEventArgs args)
-{
-// Some code before any interaction
-// ...
-}
+    private void OnInteraction(StiReportDataEventArgs args)
+    {
+        // Some code before any interaction
+        // ...
+    }
 }
 ```
 
@@ -41,13 +41,13 @@ This event is triggered for any interactive viewer actions. If you need to make 
 
 @code
 {
-private void OnInteraction(StiReportDataEventArgs args)
-{
-if (args.Action == StiAction.Variables)
-{
-// Some code before apply parameters
-}
-}
+    private void OnInteraction(StiReportDataEventArgs args)
+    {
+        if (args.Action == StiAction.Variables)
+        {
+            // Some code before apply parameters
+        }
+    }
 }
 ```
 
@@ -65,17 +65,17 @@ If the work with parameters is requested, you can disable this feature. The **Sh
 
 @code
 {
-//Options object
-private StiBlazorViewerOptions Options;
-
-protected override void OnInitialized()
-{
-base.OnInitialized();
-
-//Init options object
-Options = new StiBlazorViewerOptions();
-Options.Toolbar.ShowParametersButton = false;
-}
+    //Options object
+    private StiBlazorViewerOptions Options;
+    
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        
+        //Init options object
+        Options = new StiBlazorViewerOptions();
+        Options.Toolbar.ShowParametersButton = false;
+    }
 }
 ```
 

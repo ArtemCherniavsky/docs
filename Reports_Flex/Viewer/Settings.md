@@ -3,6 +3,8 @@
 It is possible to setup user interface, i.e. it is possible to hide some buttons or panels. On the picture above only 4 buttons of 9 are shown. The code below shows how to get this result:
 
 
+**Code**
+
 ```
 ...
 StiOptions.viewer.toolbar.showOpenButton = false;
@@ -58,6 +60,8 @@ On the View Page toolbar:
 
 Also it is possible to disable the Zoom panel, see the following:
 
+
+**Code**
 
 ```
 ...

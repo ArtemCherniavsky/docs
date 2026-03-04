@@ -18,10 +18,10 @@ Returns the report object with which the viewer is currently working. It is poss
 ...
 public ActionResult ViewerInteraction()
 {
-StiReport report = StiMvcViewer.GetReportObject();
-report.ReportName = "MyReportName";
-
-return StiMvcViewer.InteractionResult(report);
+    StiReport report = StiMvcViewer.GetReportObject();
+    report.ReportName = "MyReportName";
+    
+    return StiMvcViewer.InteractionResult(report);
 }
 ...
 ```
@@ -38,9 +38,9 @@ Returns values for URLs with which the viewer page was opened. Thus, it is possi
 ...
 public ActionResult ViewerInteraction()
 {
-RouteValueDictionary routeValues = StiMvcViewer.GetRouteValues();
-
-return StiMvcViewer.InteractionResult();
+    RouteValueDictionary routeValues = StiMvcViewer.GetRouteValues();
+    
+    return StiMvcViewer.InteractionResult();
 }
 ...
 ```
@@ -54,7 +54,7 @@ You can also get values of URL parameters by parameter name, specifying it as th
 ...
 public ActionResult ViewerInteraction(string id)
 {
-return StiMvcViewer.InteractionResult();
+    return StiMvcViewer.InteractionResult();
 }
 ...
 ```
@@ -71,9 +71,9 @@ Returns the values of the form that initiated (opened by the POST request) a pag
 ...
 public ActionResult ViewerInteraction()
 {
-NameValueCollection formValues = StiMvcViewer.GetFormValues();
-
-return StiMvcViewer.InteractionResult();
+    NameValueCollection formValues = StiMvcViewer.GetFormValues();
+    
+    return StiMvcViewer.InteractionResult();
 }
 ...
 ```
@@ -86,11 +86,11 @@ By default, this feature is disabled to optimize requests of the client-side of 
 ```
 ...
 @Html.Stimulsoft().StiMvcViewer("MvcViewer1", 
-new StiMvcViewerOptions() {
-Server =
-{
-PassFormValues = true
-}
+    new StiMvcViewerOptions() {
+        Server =
+        {
+            PassFormValues = true
+        }
 })
 ...
 ```
@@ -107,18 +107,18 @@ Returns all parameters of the current state of the viewer passed to the server-s
 ...
 public ActionResult ExportReport()
 {
-StiRequestParams requestParams = StiMvcViewer.GetRequestParams();
-if (requestParams.ExportFormat == StiExportFormat.Pdf)
-{
-StiReport report = StiMvcViewer.GetReportObject();
+    StiRequestParams requestParams = StiMvcViewer.GetRequestParams();
+    if (requestParams.ExportFormat == StiExportFormat.Pdf)
+    {
+        StiReport report = StiMvcViewer.GetReportObject();
+        
+        // Some action with report for the PDF export
+        // ...
 
-// Some action with report for the PDF export
-// ...
+        return StiMvcViewer.ExportReportResult(report);
+    }
 
-return StiMvcViewer.ExportReportResult(report);
-}
-
-return StiMvcViewer.ExportReportResult();
+    return StiMvcViewer.ExportReportResult();
 }
 ...
 ```
@@ -133,14 +133,14 @@ You can change the values of some parameters. After making changes, for the corr
 ...
 public ActionResult ViewerInteraction()
 {
-StiRequestParams requestParams = StiMvcViewer.GetRequestParams();
-if (requestParams.Action == StiAction.Variables)
-{
-requestParams.Interaction.Variables["Variable1"] = "MyValue";
-return StiMvcViewer.InteractionResult(requestParams);
-}
+    StiRequestParams requestParams = StiMvcViewer.GetRequestParams();
+    if (requestParams.Action == StiAction.Variables)
+    {
+        requestParams.Interaction.Variables["Variable1"] = "MyValue";
+        return StiMvcViewer.InteractionResult(requestParams);
+    }
 
-return StiMvcViewer.InteractionResult();
+    return StiMvcViewer.InteractionResult();
 }
 ...
 ```
@@ -157,16 +157,16 @@ Returns all the parameters of the current report export. The type of the paramet
 ...
 public ActionResult ExportReport()
 {
-StiExportSettings settings = StiMvcViewer.GetExportSettings();
-if (settings.GetExportFormat() == StiExportFormat.Pdf)
-{
-StiPdfExportSettings pdfSettings = (StiPdfExportSettings)settings;
-pdfSettings.EmbeddedFonts = true;
-pdfSettings.AllowEditable = StiPdfAllowEditable.No;
-return StiMvcViewer.ExportReportResult(settings);
-}
+    StiExportSettings settings = StiMvcViewer.GetExportSettings();
+    if (settings.GetExportFormat() == StiExportFormat.Pdf)
+    {
+        StiPdfExportSettings pdfSettings = (StiPdfExportSettings)settings;
+        pdfSettings.EmbeddedFonts = true;
+        pdfSettings.AllowEditable = StiPdfAllowEditable.No;
+        return StiMvcViewer.ExportReportResult(settings);
+    }
 
-return StiMvcViewer.ExportReportResult();
+    return StiMvcViewer.ExportReportResult();
 }
 ...
 ```

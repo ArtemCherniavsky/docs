@@ -12,21 +12,21 @@ To trigger a JavaScript event, you need to add the function name as a string to 
 ```php
 
 <?php
-use Stimulsoft\Report\StiReport;
-
-$report = new StiReport();
-$report->onAfterRender = 'afterRender'; 
-$report->loadFile('reports/SimpleList.mrt');
-$report->render();
+    use Stimulsoft\Report\StiReport;
+    
+    $report = new StiReport();
+    $report->onAfterRender = 'afterRender'; 
+    $report->loadFile('reports/SimpleList.mrt');
+    $report->render();
 ?>
 
 ...
 
 <script>
-function afterRender(args) {
-let pagesCount = args.report.renderedPages.count;
-alert("The report is rendered, pages: " + pagesCount);
-}
+    function afterRender(args) {
+        let pagesCount = args.report.renderedPages.count;
+        alert("The report is rendered, pages: " + pagesCount);
+    }
 </script>
 ```
 
@@ -50,14 +50,14 @@ When using the Node.js platform for working with reports, there is no possibilit
 ```php
 
 <?php
-use Stimulsoft\Report\Enums\StiEngineType; 
-use Stimulsoft\Report\StiReport;
-
-$report = new StiReport();
-$report->engine = StiEngineType::ServerNodeJS;
-$report->onBeforeRender = 'args.report.dictionary.clear();'; 
-$report->loadFile('reports/SimpleList.mrt', true);
-$report->render();
+    use Stimulsoft\Report\Enums\StiEngineType; 
+    use Stimulsoft\Report\StiReport;
+    
+    $report = new StiReport();
+    $report->engine = StiEngineType::ServerNodeJS;
+    $report->onBeforeRender = 'args.report.dictionary.clear();'; 
+    $report->loadFile('reports/SimpleList.mrt', true);
+    $report->render();
 ?>
 ```
 
@@ -76,16 +76,16 @@ To trigger a PHP event, you need to add the function name as a variable or the f
 ```php
 
 <?php
-use Stimulsoft\Events\StiDataEventArgs;
-use Stimulsoft\Report\StiReport;
-
-$report = new StiReport();
-$report->onBeginProcessData = function (StiDataEventArgs $args) {
-args->connectionString = str_replace('Pwd=;', 'Pwd=******;', args->connectionString); 
-};
-
-$report->loadFile('reports/SimpleList.mrt', true);
-$report->render();
+    use Stimulsoft\Events\StiDataEventArgs;
+    use Stimulsoft\Report\StiReport;
+    
+    $report = new StiReport();
+    $report->onBeginProcessData = function (StiDataEventArgs $args) {
+        args->connectionString = str_replace('Pwd=;', 'Pwd=******;', args->connectionString); 
+    };
+    
+    $report->loadFile('reports/SimpleList.mrt', true);
+    $report->render();
 ?>
 ```
 
@@ -103,12 +103,12 @@ In a PHP server-side event, there is an option to return a textual message about
 ```php
 
 <?php
-$report->onBeginProcessData = function (StiDataEventArgs $args) {
+    $report->onBeginProcessData = function (StiDataEventArgs $args) {
 ...
-return StiResult::getError('Error message');
-// return StiResult::getSuccess('Info message');
-// return 'Info message';
-};
+        return StiResult::getError('Error message');
+        // return StiResult::getSuccess('Info message');
+        // return 'Info message';
+    };
 ?>
 ```
 
@@ -135,26 +135,26 @@ Here’s an example of modifying an SQL query on the client-side using JavaScrip
 ```php
 
 <?php
-use Stimulsoft\Events\StiDataEventArgs;
-use Stimulsoft\Report\StiReport;
-
-function beginProcessData(StiDataEventArgs $args) {
-$args->connectionString = str_replace('Pwd=;', 'Pwd=******;', $args->connectionString);
-};
-
-$report = new StiReport();
-$report->onBeginProcessData->append('beginProcessData'); 
-$report->onBeginProcessData->append(beginProcessData);
-$report->loadFile('reports/SimpleList.mrt');
-$report->render();
+    use Stimulsoft\Events\StiDataEventArgs;
+    use Stimulsoft\Report\StiReport;
+    
+    function beginProcessData(StiDataEventArgs $args) {
+        $args->connectionString = str_replace('Pwd=;', 'Pwd=******;', $args->connectionString);
+    };
+    
+    $report = new StiReport();
+    $report->onBeginProcessData->append('beginProcessData'); 
+    $report->onBeginProcessData->append(beginProcessData);
+    $report->loadFile('reports/SimpleList.mrt');
+    $report->render();
 ?>
 
 ...
 
 <script>
-function beginProcessData(args) {
-args.queryString = args.queryString.replace("TableName", "Products");
-}
+    function beginProcessData(args) {
+        args.queryString = args.queryString.replace("TableName", "Products");
+    }
 </script>
 ```
 
@@ -175,11 +175,11 @@ However, if encryption isn’t necessary, or if you need to display the original
 ```php
 
 <?php
-use Stimulsoft\Report\StiReport;
-
-$report = new StiReport();
-$report->handler->encryptData = false;
-$report->process();
+    use Stimulsoft\Report\StiReport;
+    
+    $report = new StiReport();
+    $report->handler->encryptData = false;
+    $report->process();
 ?>
 ```
 
@@ -193,10 +193,10 @@ There’s a feature that allows the automatic transfer of all GET request parame
 ```php
 
 <?php
-use Stimulsoft\Report\StiReport;
-
-$report = new StiReport();
-$report->handler->passQueryParameters = true;
-$report->process();
+    use Stimulsoft\Report\StiReport;
+    
+    $report = new StiReport();
+    $report->handler->passQueryParameters = true;
+    $report->process();
 ?>
 ```

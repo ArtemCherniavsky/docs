@@ -13,11 +13,11 @@ To save the edited report on the server-side, you need to set the **SaveReport**
 ```
 ...
 @Html.Stimulsoft().StiMvcDesignerFx("MvcDesignerFx1", 
-new StiMvcDesignerFxOptions() {
-Actions =
-{
-SaveReport = "SaveReport"
-}
+    new StiMvcDesignerFxOptions() {
+        Actions =
+        {
+            SaveReport = "SaveReport"
+        }
 })
 ...
 ```
@@ -29,12 +29,12 @@ SaveReport = "SaveReport"
 ...
 public ActionResult SaveReport()
 {
-StiReport report = StiMvcDesignerFx.GetReportObject();
+    StiReport report = StiMvcDesignerFx.GetReportObject();
+        
+    // Save the report template
+    // ...
     
-// Save the report template
-// ...
-
-return StiMvcDesignerFx.SaveReportResult();
+    return StiMvcDesignerFx.SaveReportResult();
 }
 ...
 ```
@@ -48,22 +48,22 @@ This action returns a response to the client-side of the designer about the resu
 ...
 public ActionResult SaveReport()
 {
-StiReport report = StiMvcDesignerFx.GetReportObject();
+    StiReport report = StiMvcDesignerFx.GetReportObject();
+        
+    // Save the report template
+    // ...
     
-// Save the report template
-// ...
-
-// Completion of the report saving without any dialog box
-return StiMvcDesignerFx.SaveReportResult();
-
-// Completion of the report saving with dialog box
-//return StiMvcDesignerFx.SaveReportResult(true);
-
-// Completion of the report saving with error dialog box
-//return StiMvcDesignerFx.SaveReportResult(123);
-
-// Completion of the report saving with message dialog box
-//return StiMvcDesignerFx.SaveReportResult("Some message after saving");
+    // Completion of the report saving without any dialog box
+    return StiMvcDesignerFx.SaveReportResult();
+    
+    // Completion of the report saving with dialog box
+    //return StiMvcDesignerFx.SaveReportResult(true);
+    
+    // Completion of the report saving with error dialog box
+    //return StiMvcDesignerFx.SaveReportResult(123);
+    
+    // Completion of the report saving with message dialog box
+    //return StiMvcDesignerFx.SaveReportResult("Some message after saving");
 }
 ...
 ```
@@ -89,13 +89,13 @@ The **Flash Designer** component allows you to correct the report on the server-
 ...
 public ActionResult SaveReport()
 {
-StiReport report = StiMvcDesignerFx.GetReportObject();
-report.ReportAuthor = "Stimulsoft";
+    StiReport report = StiMvcDesignerFx.GetReportObject();
+    report.ReportAuthor = "Stimulsoft";
+        
+    // Save the report template
+    // ...
     
-// Save the report template
-// ...
-
-return StiMvcDesignerFx.SaveReportResult(report);
+    return StiMvcDesignerFx.SaveReportResult(report);
 }
 ...
 ```
@@ -116,11 +116,11 @@ The **Flash Designer** component provides the ability to change the behavior of 
 ```
 ...
 @Html.Stimulsoft().StiMvcDesignerFx("MvcDesignerFx1", 
-new StiMvcDesignerFxOptions() {
-Actions =
-{
-SaveReportAs = "SaveReportAs"
-}
+    new StiMvcDesignerFxOptions() {
+        Actions =
+        {
+            SaveReportAs = "SaveReportAs"
+        }
 })
 ...
 ```
@@ -132,12 +132,12 @@ SaveReportAs = "SaveReportAs"
 ...
 public ActionResult SaveReportAs()
 {
-StiReport report = StiMvcDesignerFx.GetReportObject();
+    StiReport report = StiMvcDesignerFx.GetReportObject();
+        
+    // Save the report template
+    // ...
     
-// Save the report template
-// ...
-
-return StiMvcDesignerFx.SaveReportResult();
+    return StiMvcDesignerFx.SaveReportResult();
 }
 ...
 ```
@@ -153,15 +153,15 @@ The report is saved in the background mode without reloading the page in the web
 ```
 ...
 @Html.Stimulsoft().StiMvcDesignerFx("MvcDesignerFx1", 
-new StiMvcDesignerFxOptions() {
-Actions =
-{
-SaveReportAs = "SaveReportAs"
-},
-Behavior =
-{
-SaveReportAsMode = StiSaveMode.Visible
-}
+    new StiMvcDesignerFxOptions() {
+        Actions =
+        {
+            SaveReportAs = "SaveReportAs"
+        },
+        Behavior =
+        {
+            SaveReportAsMode = StiSaveMode.Visible
+        }
 })
 ...
 ```
@@ -178,19 +178,19 @@ Since the designer has the ability to create a new report, then, when you save i
 ...
 public ActionResult SaveReport()
 {
-StiReport report = StiMvcDesignerFx.GetReportObject();
-StiRequestParams requestParams = StiMvcDesignerFx.GetRequestParams();
+    StiReport report = StiMvcDesignerFx.GetReportObject();
+    StiRequestParams requestParams = StiMvcDesignerFx.GetRequestParams();
+        
+    if (requestParams.Designer.IsNewReport)
+    {
+        // Save the new report
+    }
+    else
+    {
+        // Save the edited report
+    }
     
-if (requestParams.Designer.IsNewReport)
-{
-// Save the new report
-}
-else
-{
-// Save the edited report
-}
-
-return StiMvcDesignerFx.SaveReportResult();
+    return StiMvcDesignerFx.SaveReportResult();
 }
 ...
 ```
@@ -208,15 +208,15 @@ The **Flash Designer** component provides the ability to automatically save a re
 ```
 ...
 @Html.Stimulsoft().StiMvcDesignerFx("MvcDesignerFx1", 
-new StiMvcDesignerFxOptions() {
-Actions =
-{
-SaveReport = "SaveReport"
-},
-Behavior =
-{
-AutoSaveInterval = 3
-}
+    new StiMvcDesignerFxOptions() {
+        Actions =
+        {
+            SaveReport = "SaveReport"
+        },
+        Behavior =
+        {
+            AutoSaveInterval = 3
+        }
 })
 ...
 ```

@@ -57,14 +57,14 @@ def viewer():
 <html>
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Showing a Report in the Viewer</title>
-
-{{ viewerJavaScript|safe }}
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Showing a Report in the Viewer</title>
+    
+    {{ viewerJavaScript|safe }}
 </head>
 
 <body>
-{{ viewerHtml|safe }}
+    {{ viewerHtml|safe }}
 </body>
 
 </html>

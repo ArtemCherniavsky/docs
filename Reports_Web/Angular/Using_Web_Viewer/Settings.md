@@ -9,22 +9,22 @@ The **Angular Viewer** is configured using properties that are located in the **
 ...
 public IActionResult InitViewer()
 {
-var requestParams = StiAngularViewer.GetRequestParams(this);
-var options = new StiAngularViewerOptions();
-
-options.Theme = StiViewerTheme.Office2022WhiteTeal;
-options.Localization = "Localization/en.xml";
-options.Actions.GetReport = "GetReport";
-options.Actions.ViewerEvent = "ViewerEvent";
-options.Appearance.InterfaceType = StiInterfaceType.Auto;
-options.Appearance.ScrollbarsMode = true;
-options.Appearance.ShowTooltips = false;
-options.Exports.DefaultSettings.ExportToPdf.CreatorString = "Company Name";
-options.Exports.DefaultSettings.ExportToPdf.ImageQuality = 0.75f;
-options.Exports.ShowExportToDbf = false;
-options.Exports.ShowExportToDif = false;
-
-return StiAngularViewer.ViewerDataResult(requestParams, options);
+    var requestParams = StiAngularViewer.GetRequestParams(this);
+    var options = new StiAngularViewerOptions();
+    
+    options.Theme = StiViewerTheme.Office2022WhiteTeal;
+    options.Localization = "Localization/en.xml";
+    options.Actions.GetReport = "GetReport";
+    options.Actions.ViewerEvent = "ViewerEvent";
+    options.Appearance.InterfaceType = StiInterfaceType.Auto;
+    options.Appearance.ScrollbarsMode = true;
+    options.Appearance.ShowTooltips = false;
+    options.Exports.DefaultSettings.ExportToPdf.CreatorString = "Company Name";
+    options.Exports.DefaultSettings.ExportToPdf.ImageQuality = 0.75f;
+    options.Exports.ShowExportToDbf = false;
+    options.Exports.ShowExportToDif = false;
+    
+    return StiAngularViewer.ViewerDataResult(requestParams, options);
 }
 ...
 ```

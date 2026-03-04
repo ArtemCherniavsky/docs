@@ -16,21 +16,21 @@ Here’s an example of performing actions on the client JavaScript side before a
 ```php
 
 <?php
-use Stimulsoft\Viewer\StiViewer;
-
-$viewer = new StiViewer();
-$viewer->onInteraction = 'interaction';
-$viewer->process();
+    use Stimulsoft\Viewer\StiViewer;
+    
+    $viewer = new StiViewer();
+    $viewer->onInteraction = 'interaction';
+    $viewer->process();
 ?>
 
 ...
 
 <script>
-function interaction(args) {
-if (args.action == "Variables") {
-let variables = args.variables;
-}
-}
+    function interaction(args) {
+        if (args.action == "Variables") {
+            let variables = args.variables;
+        }
+    }
 </script>
 ```
 
@@ -42,8 +42,8 @@ The collection of variables is an object containing all the variables on the par
 ```php
 
 var variables = {
-VariableString: "Text value",
-VariableInt: 20
+    VariableString: "Text value",
+    VariableInt: 20
 }
 ```
 
@@ -60,10 +60,10 @@ If you don’t need to work with variables in the viewer, you can completely dis
 ```php
 
 <?php
-use Stimulsoft\Viewer\StiViewer;
-
-$viewer = new StiViewer();
-$viewer->options->toolbar->showParametersButton = false;
+    use Stimulsoft\Viewer\StiViewer;
+    
+    $viewer = new StiViewer();
+    $viewer->options->toolbar->showParametersButton = false;
 ?>
 ```
 

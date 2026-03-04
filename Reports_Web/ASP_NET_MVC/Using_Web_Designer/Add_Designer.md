@@ -12,12 +12,12 @@ To edit a report template, you need to add the **StiMvcDesigner** component to t
 ```
 ...
 @Html.Stimulsoft().StiMvcDesigner("MvcDesigner1", 
-new StiMvcDesignerOptions() {
-Actions =
-{
-GetReport = "GetReport",
-DesignerEvent = "DesignerEvent"
-}
+    new StiMvcDesignerOptions() {
+        Actions =
+        {
+            GetReport = "GetReport",
+            DesignerEvent = "DesignerEvent"
+        }
 })
 ...
 ```
@@ -29,16 +29,16 @@ DesignerEvent = "DesignerEvent"
 ...
 public ActionResult GetReport()
 {
-StiReport report = new StiReport();
-report.Load(Server.MapPath("~/Content/SimpleList.mrt"));
-//report.Load(Server.MapPath("~/Content/Dashboard.mrt"));
-
-return StiMvcDesigner.GetReportResult(report);
+    StiReport report = new StiReport();
+    report.Load(Server.MapPath("~/Content/SimpleList.mrt"));
+    //report.Load(Server.MapPath("~/Content/Dashboard.mrt"));
+    
+    return StiMvcDesigner.GetReportResult(report);
 }
 
 public ActionResult DesignerEvent()
 {
-return StiMvcDesigner.DesignerEventResult();
+    return StiMvcDesigner.DesignerEventResult();
 }
 ...
 ```

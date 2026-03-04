@@ -19,15 +19,15 @@ Data for rendering a report can be connected in various ways. The easiest way is
 ...
 protected void Page_Load(object sender, EventArgs e)
 {
-DataSet ds = new DataSet();
-ds.ReadXml(Server.MapPath("Reports/Demo.xml"));
-
-StiReport report = new StiReport();
-report.Load(Server.MapPath("Reports/TwoSimpleLists.mrt"));
-report.Dictionary.Databases.Clear();
-report.RegData("Demo", ds);
-
-StiWebViewerFx1.Report = report;
+    DataSet ds = new DataSet();
+    ds.ReadXml(Server.MapPath("Reports/Demo.xml"));
+    
+    StiReport report = new StiReport();
+    report.Load(Server.MapPath("Reports/TwoSimpleLists.mrt"));
+    report.Dictionary.Databases.Clear();
+    report.RegData("Demo", ds);
+    
+    StiWebViewerFx1.Report = report;
 }
 ...
 ```
@@ -40,7 +40,7 @@ To connect report data, you can use the special **OnGetReportData** event, which
 ```
 ...
 <cc1:StiWebViewerFx ID="StiWebViewerFx1" runat="server"
-OnGetReportData="StiWebViewerFx1_GetReportData">
+    OnGetReportData="StiWebViewerFx1_GetReportData">
 </cc1:StiWebViewerFx>
 ...
 ```
@@ -52,9 +52,9 @@ OnGetReportData="StiWebViewerFx1_GetReportData">
 ...
 protected void StiWebViewerFx1_GetReportData(object sender, StiReportDataEventArgs e)
 {    
-DataSet dataSet = new DataSet();
-dataSet.ReadXml(Server.MapPath("Reports/Demo.xml"));
-e.Report.RegData(dataSet);
+    DataSet dataSet = new DataSet();
+    dataSet.ReadXml(Server.MapPath("Reports/Demo.xml"));
+    e.Report.RegData(dataSet);
 }
 ...
 ```
@@ -69,7 +69,7 @@ The connection parameters to the SQL data source, as well as to any other ones, 
 ```
 ...
 <cc1:StiWebViewerFx ID="StiWebViewerFx1" runat="server"
-OnGetReportData="StiWebViewerFx1_GetReportData">
+    OnGetReportData="StiWebViewerFx1_GetReportData">
 </cc1:StiWebViewerFx>
 ...
 ```
@@ -81,15 +81,15 @@ OnGetReportData="StiWebViewerFx1_GetReportData">
 ...
 protected void StiWebViewerFx1_GetReportData(object sender, StiReportDataEventArgs e)
 {  
-OracleConnection connection = new OracleConnection("Data Source=Oracle8i;Integrated Security=yes");
-connection.Open();
-OracleDataAdapter adapter = new OracleDataAdapter();
-adapter.SelectCommand = new OracleCommand("SELECT * FROM Products", connection);
- 
-DataSet dataSet = new DataSet("productsDataSet");
-adapter.Fill(dataSet, "Products");
- 
-e.Report.RegData("Products", dataSet);
+    OracleConnection connection = new OracleConnection("Data Source=Oracle8i;Integrated Security=yes");
+    connection.Open();
+    OracleDataAdapter adapter = new OracleDataAdapter();
+    adapter.SelectCommand = new OracleCommand("SELECT * FROM Products", connection);
+     
+    DataSet dataSet = new DataSet("productsDataSet");
+    adapter.Fill(dataSet, "Products");
+     
+    e.Report.RegData("Products", dataSet);
 }
 ...
 ```
@@ -139,7 +139,7 @@ Connecting to XML and JSON data sources can be stored in the report template. If
 ```
 ...
 <cc1:StiWebViewerFx ID="StiWebViewerFx1" runat="server"
-OnGetReportData="StiWebViewerFx1_GetReportData">
+    OnGetReportData="StiWebViewerFx1_GetReportData">
 </cc1:StiWebViewerFx>
 ...
 ```
@@ -151,10 +151,10 @@ OnGetReportData="StiWebViewerFx1_GetReportData">
 ...
 protected void StiWebViewerFx1_GetReportData(object sender, StiReportDataEventArgs e)
 { 
-DataSet data = new DataSet();
-data.ReadXml(Server.MapPath("Data/Demo.xml"));
- 
-e.Report.RegData(data);
+    DataSet data = new DataSet();
+    data.ReadXml(Server.MapPath("Data/Demo.xml"));
+     
+    e.Report.RegData(data);
 }
 ...
 ```
@@ -166,9 +166,9 @@ e.Report.RegData(data);
 ...
 protected void StiWebViewerFx1_GetReportData(object sender, StiReportDataEventArgs e)
 {
-DataSet data = StiJsonToDataSetConverterV2.GetDataSetFromFile(Server.MapPath("Data/Demo.json")); 
-
-e.Report.RegData(data);
+    DataSet data = StiJsonToDataSetConverterV2.GetDataSetFromFile(Server.MapPath("Data/Demo.json")); 
+    
+    e.Report.RegData(data);
 }
 ...
 ```

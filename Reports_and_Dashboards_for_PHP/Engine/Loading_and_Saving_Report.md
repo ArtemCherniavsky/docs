@@ -26,11 +26,11 @@ Example of loading a report from a file on the server-side from a private direct
 ```php
 
 <?php
-use Stimulsoft\Report\StiReport;
-
-$report = new StiReport();
-$report->loadFile('reports/SimpleList.mrt', true);
-$report->render();
+    use Stimulsoft\Report\StiReport;
+    
+    $report = new StiReport();
+    $report->loadFile('reports/SimpleList.mrt', true);
+    $report->render();
 ?>
 ```
 
@@ -47,21 +47,21 @@ An example of saving a built report as a string for future use:
 ```php
 
 <?php
-use Stimulsoft\Report\StiReport;
-
-$report = new StiReport();
-$report->onAfterRender = 'afterRender';
-$report->loadFile('reports/SimpleList.mrt', true);
-$report->render();
+    use Stimulsoft\Report\StiReport;
+    
+    $report = new StiReport();
+    $report->onAfterRender = 'afterRender';
+    $report->loadFile('reports/SimpleList.mrt', true);
+    $report->render();
 ?>
 
 ...
 
 <script>
-function afterRender(args) {
-let reportJson = args.report.saveDocumentToJsonString();
+    function afterRender(args) {
+        let reportJson = args.report.saveDocumentToJsonString();
 ...
-}
+    }
 </script>
 ```
 
@@ -84,14 +84,14 @@ An example of saving a built report as a file on the server-side:
 ```php
 
 <?php
-use Stimulsoft\Report\Enums\StiEngineType;
-use Stimulsoft\Report\StiReport;
-
-$report = new StiReport();
-$report->engine = StiEngineType::ServerNodeJS; 
-$report->loadFile('reports/SimpleList.mrt', true);
-$report->render();
-$report->saveDocument('reports/SimpleList.mdc');
+    use Stimulsoft\Report\Enums\StiEngineType;
+    use Stimulsoft\Report\StiReport;
+    
+    $report = new StiReport();
+    $report->engine = StiEngineType::ServerNodeJS; 
+    $report->loadFile('reports/SimpleList.mrt', true);
+    $report->render();
+    $report->saveDocument('reports/SimpleList.mdc');
 ?>
 ```
 

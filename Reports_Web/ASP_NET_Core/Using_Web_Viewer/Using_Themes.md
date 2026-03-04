@@ -8,7 +8,7 @@ The **HTML5 Viewer** component can change the appearance of visual controls. To 
 ```
 ...
 @Html.StiNetCoreViewer(new StiNetCoreViewerOptions() {
-Theme = StiViewerTheme.Office2022WhiteTeal
+    Theme = StiViewerTheme.Office2022WhiteTeal
 })
 ...
 ```
@@ -26,14 +26,14 @@ By default, the viewer has only the top toolbar on which all the report controls
 ```
 ...
 @Html.StiNetCoreViewer(new StiNetCoreViewerOptions() {
-Appearance =
-{
-ScrollbarsMode = true
-},
-Toolbar =
-{
-DisplayMode = StiToolbarDisplayMode.Separated
-}
+    Appearance =
+    {
+        ScrollbarsMode = true
+    },
+    Toolbar =
+    {
+        DisplayMode = StiToolbarDisplayMode.Separated
+    }
 })
 ...
 ```
@@ -49,19 +49,19 @@ In addition, it is possible to set the appearance parameters for the main elemen
 ```
 ...
 @Html.StiNetCoreViewer(new StiNetCoreViewerOptions() {
-Appearance =
-{
-BackgroundColor = Color.White,
-PageBorderColor = Color.Blue,
-ShowPageShadow = true
-},
-Toolbar =
-{
-BackgroundColor = Color.White,
-BorderColor = Color.Gray,
-FontColor = Color.Black,
-FontFamily = "Arial"
-}
+    Appearance =
+    {
+        BackgroundColor = Color.White,
+        PageBorderColor = Color.Blue,
+        ShowPageShadow = true
+    },
+    Toolbar =
+    {
+        BackgroundColor = Color.White,
+        BorderColor = Color.Gray,
+        FontColor = Color.Black,
+        FontFamily = "Arial"
+    }
 })
 ...
 ```

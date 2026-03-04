@@ -16,17 +16,17 @@ You are allowed to change the path to the data file. In this case, after the eve
 ```php
 
 <?php
-use Stimulsoft\Report\StiReport;
-use Stimulsoft\Events\StiDataEventArgs;
+    use Stimulsoft\Report\StiReport;
+    use Stimulsoft\Events\StiDataEventArgs;
 
-$report = new StiReport();
-$report->onBeginProcessData = function (StiDataEventArgs $args) {
-if ($args->connection == "MyJsonConnection")
-$args->pathData = "Data/Demo.json";
-};
-
-$report->render();
-$report->process();
+    $report = new StiReport();
+    $report->onBeginProcessData = function (StiDataEventArgs $args) {
+        if ($args->connection == "MyJsonConnection")
+            $args->pathData = "Data/Demo.json";
+    };
+    
+    $report->render();
+    $report->process();
 ?>
 ```
 
@@ -54,16 +54,16 @@ To view or modify the loaded data before connecting it and generating the report
 ```php
 
 <?php
-use Stimulsoft\Report\StiReport;
-use Stimulsoft\Events\StiDataEventArgs;
+    use Stimulsoft\Report\StiReport;
+    use Stimulsoft\Events\StiDataEventArgs;
 
-$report = new StiReport();
-$report->onEndProcessData = function (StiDataEventArgs $args) {
-$data = $args->result->data;
-};
-
-$report->render();
-$report->process();
+    $report = new StiReport();
+    $report->onEndProcessData = function (StiDataEventArgs $args) {
+        $data = $args->result->data;
+    };
+    
+    $report->render();
+    $report->process();
 ?>
 ```
 
@@ -92,6 +92,8 @@ $report = new StiReport();$report->handler->allowFileDataAdapters = false;?>
 
 It is possible to use variables or expressions when specifying the path to the file data source. Variables or expressions are defined in curly braces. You can use multiple expressions anywhere in the data file path, for example:
 
+
+**File Data Source**
 
 ```
 

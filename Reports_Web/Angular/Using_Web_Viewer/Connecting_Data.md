@@ -9,15 +9,15 @@ Data to a report can be connected in various ways. The easiest way is to store c
 ...
 public IActionResult GetReport()
 {
-DataSet ds = new DataSet();
-ds.ReadXml(StiAngularHelper.MapPath(this, "Data/Demo.xml"));
-
-StiReport report = new StiReport();
-report.Load(StiAngularHelper.MapPath(this, "Reports/TwoSimpleLists.mrt"));
-report.Dictionary.Databases.Clear();
-report.RegData("Demo", ds);
-
-return StiAngularViewer.GetReportResult(this, report);
+    DataSet ds = new DataSet();
+    ds.ReadXml(StiAngularHelper.MapPath(this, "Data/Demo.xml"));
+    
+    StiReport report = new StiReport();
+    report.Load(StiAngularHelper.MapPath(this, "Reports/TwoSimpleLists.mrt"));
+    report.Dictionary.Databases.Clear();
+    report.RegData("Demo", ds);
+    
+    return StiAngularViewer.GetReportResult(this, report);
 }
 ...
 ```
@@ -31,12 +31,12 @@ Data for the report can be connected not only when the report is loaded. For exa
 ...
 public IActionResult InitViewer()
 {
-var requestParams = StiAngularViewer.GetRequestParams(this);
-var options = new StiAngularViewerOptions();
-options.Actions.ViewerEvent = "ViewerEvent";
-options.Actions.Interaction = "ViewerInteraction";
-
-return StiAngularViewer.ViewerDataResult(requestParams, options);
+    var requestParams = StiAngularViewer.GetRequestParams(this);
+    var options = new StiAngularViewerOptions();
+    options.Actions.ViewerEvent = "ViewerEvent";
+    options.Actions.Interaction = "ViewerInteraction";
+    
+    return StiAngularViewer.ViewerDataResult(requestParams, options);
 }
 ...
 ```
@@ -48,13 +48,13 @@ return StiAngularViewer.ViewerDataResult(requestParams, options);
 ...
 public IActionResult ViewerInteraction()
 { 
-DataSet data = new DataSet();
-data.ReadXml(StiAngularHelper.MapPath(this, "Data/Demo.xml"));
-
-StiReport report = StiAngularViewer.GetReportObject(this);
-report.RegData("Demo", data);
-
-return StiAngularViewer.InteractionResult(this, report);
+    DataSet data = new DataSet();
+    data.ReadXml(StiAngularHelper.MapPath(this, "Data/Demo.xml"));
+    
+    StiReport report = StiAngularViewer.GetReportObject(this);
+    report.RegData("Demo", data);
+    
+    return StiAngularViewer.InteractionResult(this, report);
 }
 ...
 ```
@@ -68,19 +68,19 @@ If you want to connect new data only for a certain interactive action of the vie
 ...
 public IActionResult ViewerInteraction()
 {
-StiRequestParams requestParams = StiAngularViewer.GetRequestParams(this);
-if (requestParams.Action == StiAction.Variables)
-{
-DataSet data = new DataSet();
-data.ReadXml(StiAngularHelper.MapPath(this, "Data/Demo.xml"));
-
-StiReport report = StiAngularViewer.GetReportObject(this);
-report.RegData("Demo", data);
-
-return StiAngularViewer.InteractionResult(this, report);
-}
-
-return StiAngularViewer.InteractionResult(this);
+    StiRequestParams requestParams = StiAngularViewer.GetRequestParams(this);
+    if (requestParams.Action == StiAction.Variables)
+    {
+        DataSet data = new DataSet();
+        data.ReadXml(StiAngularHelper.MapPath(this, "Data/Demo.xml"));
+        
+        StiReport report = StiAngularViewer.GetReportObject(this);
+        report.RegData("Demo", data);
+        
+        return StiAngularViewer.InteractionResult(this, report);
+    }
+    
+    return StiAngularViewer.InteractionResult(this);
 }
 ...
 ```
@@ -96,19 +96,19 @@ The connection parameters to the SQL data source, as well as to any other ones, 
 ...
 public IActionResult GetReport()
 {
-OracleConnection connection = new OracleConnection("Data Source=Oracle8i;Integrated Security=yes");
-connection.Open();
-OracleDataAdapter adapter = new OracleDataAdapter();
-adapter.SelectCommand = new OracleCommand("SELECT * FROM Products", connection);
- 
-DataSet dataSet = new DataSet("productsDataSet");
-adapter.Fill(dataSet, "Products");
- 
-StiReport report = new StiReport();
-report.Load(StiAngularHelper.MapPath(this, "Reports/SqlSampleReport.mrt"));
-report.RegData("Products", dataSet);
-
-return StiAngularViewer.GetReportResult(this, report);
+    OracleConnection connection = new OracleConnection("Data Source=Oracle8i;Integrated Security=yes");
+    connection.Open();
+    OracleDataAdapter adapter = new OracleDataAdapter();
+    adapter.SelectCommand = new OracleCommand("SELECT * FROM Products", connection);
+     
+    DataSet dataSet = new DataSet("productsDataSet");
+    adapter.Fill(dataSet, "Products");
+     
+    StiReport report = new StiReport();
+    report.Load(StiAngularHelper.MapPath(this, "Reports/SqlSampleReport.mrt"));
+    report.RegData("Products", dataSet);
+    
+    return StiAngularViewer.GetReportResult(this, report);
 }
 ...
 ```
@@ -125,14 +125,14 @@ Below is an example of code that you may use to change the connection string for
 ...
 public IActionResult GetReport()
 { 
-
-StiReport report = new StiReport();
-report.Load(StiAngularHelper.MapPath("Report.mrt"));
-((StiSqlDatabase)report.Dictionary.Databases["Connection"]).ConnectionString = @"Data Source=server;Integrated Security=True;Initial Catalog=DataBase";
-((StiSqlSource)report.Dictionary.DataSources["DataSourceName"]).SqlCommand = "select * from Table where Column = 100";
-((StiSqlSource)report.Dictionary.DataSources["DataSourceName"]).CommandTimeout = 1000;
-
-return StiAngularViewer.GetReportResult(this, report);
+    
+    StiReport report = new StiReport();
+    report.Load(StiAngularHelper.MapPath("Report.mrt"));
+    ((StiSqlDatabase)report.Dictionary.Databases["Connection"]).ConnectionString = @"Data Source=server;Integrated Security=True;Initial Catalog=DataBase";
+    ((StiSqlSource)report.Dictionary.DataSources["DataSourceName"]).SqlCommand = "select * from Table where Column = 100";
+    ((StiSqlSource)report.Dictionary.DataSources["DataSourceName"]).CommandTimeout = 1000;
+    
+    return StiAngularViewer.GetReportResult(this, report);
 }
 ...
 ```
@@ -183,14 +183,14 @@ Connecting to XML and JSON data sources can be stored in the report template. If
 ...
 public IActionResult GetReport()
 {
-DataSet data = new DataSet();
-data.ReadXml(StiAngularHelper.MapPath(this, "Data/Demo.xml"));
-
-StiReport report = new StiReport();
-report.Load(StiAngularHelper.MapPath(this, "Reports/SimpleList.mrt"));
-report.RegData(data);
-
-return StiAngularViewer.GetReportResult(this, report);
+    DataSet data = new DataSet();
+    data.ReadXml(StiAngularHelper.MapPath(this, "Data/Demo.xml"));
+    
+    StiReport report = new StiReport();
+    report.Load(StiAngularHelper.MapPath(this, "Reports/SimpleList.mrt"));
+    report.RegData(data);
+    
+    return StiAngularViewer.GetReportResult(this, report);
 }
 ...
 ```
@@ -202,13 +202,13 @@ return StiAngularViewer.GetReportResult(this, report);
 ...
 public IActionResult GetReport()
 {
-DataSet data = StiJsonToDataSetConverterV2.GetDataSetFromFile(StiAngularHelper.MapPath(this, "Data/Demo.json"));
-
-StiReport report = new StiReport();
-report.Load(StiAngularHelper.MapPath(this, "Reports/SimpleList.mrt"));
-report.RegData(data);
-
-return StiAngularViewer.GetReportResult(this, report);
+    DataSet data = StiJsonToDataSetConverterV2.GetDataSetFromFile(StiAngularHelper.MapPath(this, "Data/Demo.json"));
+    
+    StiReport report = new StiReport();
+    report.Load(StiAngularHelper.MapPath(this, "Reports/SimpleList.mrt"));
+    report.RegData(data);
+    
+    return StiAngularViewer.GetReportResult(this, report);
 }
 ...
 ```

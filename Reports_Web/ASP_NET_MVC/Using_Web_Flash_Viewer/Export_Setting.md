@@ -13,11 +13,11 @@ The export function does not require additional settings for the viewer. If you 
 ```
 ...
 @Html.Stimulsoft().StiMvcViewerFx("MvcViewerFx1",
-new StiMvcViewerFxOptions() {
-Actions =
-{
-ExportReport = "ExportReport"
-}
+    new StiMvcViewerFxOptions() {
+        Actions =
+        {
+            ExportReport = "ExportReport"
+        }
 })
 ...
 ```
@@ -29,10 +29,10 @@ ExportReport = "ExportReport"
 ...
 public ActionResult ExportReport()
 {
-// Some code before export
-// ...
-
-return StiMvcViewerFx.ExportReportResult();
+    // Some code before export
+    // ...
+    
+    return StiMvcViewerFx.ExportReportResult();
 }
 ...
 ```
@@ -47,39 +47,39 @@ The **Flash Viewer** component contains 30+ export formats, and sometimes you ne
 ```
 ...
 @Html.Stimulsoft().StiMvcViewerFx("MvcViewerFx1", 
-new StiMvcViewerFxOptions() {
-Exports =
-{
-ShowExportToDocument = true,
-ShowExportToPdf = true,
-ShowExportToXps = true,
-ShowExportToPowerPoint = true,
-ShowExportToHtml = true,
-ShowExportToHtml5 = true,
-ShowExportToMht = true,
-ShowExportToText = true,
-ShowExportToRtf = true,
-ShowExportToWord2007 = true,
-ShowExportToOpenDocumentWriter = true,
-ShowExportToExcel = true,
-ShowExportToExcelXml = true,
-ShowExportToExcel2007 = true,
-ShowExportToOpenDocumentCalc = true,
-ShowExportToCsv = true,
-ShowExportToDbf = true,
-ShowExportToXml = true,
-ShowExportToDif = true,
-ShowExportToSylk = true,
-ShowExportToImageBmp = true,
-ShowExportToImageGif = true,
-ShowExportToImageJpeg = true,
-ShowExportToImagePcx = true,
-ShowExportToImagePng = true,
-ShowExportToImageTiff = true,
-ShowExportToImageMetafile = true,
-ShowExportToImageSvg = true,
-ShowExportToImageSvgz = true
-}
+    new StiMvcViewerFxOptions() {
+        Exports =
+        {
+            ShowExportToDocument = true,
+            ShowExportToPdf = true,
+            ShowExportToXps = true,
+            ShowExportToPowerPoint = true,
+            ShowExportToHtml = true,
+            ShowExportToHtml5 = true,
+            ShowExportToMht = true,
+            ShowExportToText = true,
+            ShowExportToRtf = true,
+            ShowExportToWord2007 = true,
+            ShowExportToOpenDocumentWriter = true,
+            ShowExportToExcel = true,
+            ShowExportToExcelXml = true,
+            ShowExportToExcel2007 = true,
+            ShowExportToOpenDocumentCalc = true,
+            ShowExportToCsv = true,
+            ShowExportToDbf = true,
+            ShowExportToXml = true,
+            ShowExportToDif = true,
+            ShowExportToSylk = true,
+            ShowExportToImageBmp = true,
+            ShowExportToImageGif = true,
+            ShowExportToImageJpeg = true,
+            ShowExportToImagePcx = true,
+            ShowExportToImagePng = true,
+            ShowExportToImageTiff = true,
+            ShowExportToImageMetafile = true,
+            ShowExportToImageSvg = true,
+            ShowExportToImageSvgz = true
+        }
 })
 ...
 ```
@@ -92,11 +92,11 @@ Also, if required, you can completely hide export dialogs. Exporting will always
 ```
 ...
 @Html.Stimulsoft().StiMvcViewerFx("MvcViewerFx1", 
-new StiMvcViewerFxOptions() {
-Exports =
-{
-ShowExportDialog = false
-}
+    new StiMvcViewerFxOptions() {
+        Exports =
+        {
+            ShowExportDialog = false
+        }
 })
 ...
 ```
@@ -109,11 +109,11 @@ The **Flash Viewer** component can completely disable the export menu. To do thi
 ```
 ...
 @Html.Stimulsoft().StiMvcViewerFx("MvcViewerFx1", 
-new StiMvcViewerFxOptions() {
-Toolbar =
-{
-ShowSaveButton = false
-}
+    new StiMvcViewerFxOptions() {
+        Toolbar =
+        {
+            ShowSaveButton = false
+        }
 })
 ...
 ```

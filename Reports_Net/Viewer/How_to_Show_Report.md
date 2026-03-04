@@ -7,6 +7,8 @@
 Just call only one method to show a report:
 
 
+**C#**
+
 ```csharp
 ...
 StiReport report = new StiReport();
@@ -15,6 +17,8 @@ report.Show();
 ...
 ```
 
+
+**VB.NET**
 
 ```vbnet
 ...

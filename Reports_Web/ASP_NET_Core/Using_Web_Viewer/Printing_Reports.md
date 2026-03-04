@@ -34,10 +34,10 @@ The print function does not require additional settings for the viewer. If you n
 ```
 ...
 @Html.StiNetCoreViewer(new StiNetCoreViewerOptions() {
-Actions =
-{
-PrintReport = "PrintReport"
-}
+    Actions =
+    {
+        PrintReport = "PrintReport"
+    }
 })
 ...
 ```
@@ -49,10 +49,10 @@ PrintReport = "PrintReport"
 ...
 public IActionResult PrintReport()
 {
-// Some code before print
-// ...
-
-return StiNetCoreViewer.PrintReportResult(this);
+    // Some code before print
+    // ...
+    
+    return StiNetCoreViewer.PrintReportResult(this);
 }
 ...
 ```
@@ -75,10 +75,10 @@ If you choose printing a report in the viewer panel, a menu with printing option
 ```
 ...
 @Html.StiNetCoreViewer(new StiNetCoreViewerOptions() {
-Toolbar =
-{
-PrintDestination = StiPrintDestination.Default
-}
+    Toolbar =
+    {
+        PrintDestination = StiPrintDestination.Default
+    }
 })
 ...
 ```
@@ -91,10 +91,10 @@ The **HTML5 Viewer** component is able to completely disable report printing. To
 ```
 ...
 @Html.StiNetCoreViewer(new StiNetCoreViewerOptions() {
-Toolbar =
-{
-ShowPrintButton = false
-}
+    Toolbar =
+    {
+        ShowPrintButton = false
+    }
 })
 ...
 ```

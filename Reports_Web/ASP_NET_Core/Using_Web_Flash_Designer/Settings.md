@@ -8,29 +8,29 @@ The **Flash Designer** configuration is done using properties that are located i
 ```
 ...
 @Html.StiNetCoreDesignerFx(new StiNetCoreDesignerFxOptions() {
-Theme = StiDesignerFxTheme.Office2022,
-Localization = "Localization/en.xml",
-LocalizationDirectory = "Localization",
-Actions =
-{
-GetReport = "GetReport",
-PreviewReport = "PreviewReport",
-SaveReport = "SaveReport",
-ExportReport = "ExportReport"
-},
-Behavior =
-{
-AutoSaveInterval = 3
-},
-PreviewToolbar =
-{
-ShowSendEmailButton = true
-},
-Print =
-{
-AutoPageOrientation = true,
-AutoPageScale = true   
-}
+    Theme = StiDesignerFxTheme.Office2022,
+    Localization = "Localization/en.xml",
+    LocalizationDirectory = "Localization",
+    Actions =
+    {
+        GetReport = "GetReport",
+        PreviewReport = "PreviewReport",
+        SaveReport = "SaveReport",
+        ExportReport = "ExportReport"
+    },
+    Behavior =
+    {
+        AutoSaveInterval = 3
+    },
+    PreviewToolbar =
+    {
+        ShowSendEmailButton = true
+    },
+    Print =
+    {
+        AutoPageOrientation = true,
+        AutoPageScale = true   
+    }
 })
 ...
 ```

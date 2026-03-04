@@ -8,14 +8,14 @@ The **Flash Viewer** component provides the ability to send reports by email. To
 ```
 ...
 @Html.StiNetCoreViewerFx(new StiNetCoreViewerFxOptions() {
-Actions =
-{
-EmailReport = "EmailReport"
-},
-Toolbar =
-{
-ShowSendEmailButton = true
-}
+    Actions =
+    {
+        EmailReport = "EmailReport"
+    },
+    Toolbar =
+    {
+        ShowSendEmailButton = true
+    }
 })
 ...
 ```
@@ -27,25 +27,25 @@ ShowSendEmailButton = true
 ...
 public IActionResult EmailReport()
 {
-StiEmailOptions options = StiNetCoreViewerFx.GetEmailOptions(this);
-
-// Passed from the viewer, can be checked and changed
-// options.AddressTo = "";
-// options.Subject = "";
-// options.Body = "";
-
-// Should be filled here
-options.AddressFrom = "admin_address@test.com";
-options.Host = "smtp.test.com";
-options.Port = 465;
-options.UserName = "admin_address@test.com";
-options.Password = "admin_password";
-
-// options.CC.Add("email@test.com");
-// options.BCC.Add("email@test.com");
-// options.EnableSsl = true;
-
-return StiNetCoreViewerFx.EmailReportResult(this, options);
+    StiEmailOptions options = StiNetCoreViewerFx.GetEmailOptions(this);
+    
+    // Passed from the viewer, can be checked and changed
+    // options.AddressTo = "";
+    // options.Subject = "";
+    // options.Body = "";
+    
+    // Should be filled here
+    options.AddressFrom = "admin_address@test.com";
+    options.Host = "smtp.test.com";
+    options.Port = 465;
+    options.UserName = "admin_address@test.com";
+    options.Password = "admin_password";
+    
+    // options.CC.Add("email@test.com");
+    // options.BCC.Add("email@test.com");
+    // options.EnableSsl = true;
+    
+    return StiNetCoreViewerFx.EmailReportResult(this, options);
 }
 ...
 ```
@@ -66,10 +66,10 @@ The **Flash Viewer** component allows you to set the recipient's email address, 
 ```
 ...
 @Html.StiNetCoreViewerFx(new StiNetCoreViewerFxOptions() {
-Email =
-{
-DefaultEmailAddress = "recipient_address@gmail.com"
-}
+    Email =
+    {
+        DefaultEmailAddress = "recipient_address@gmail.com"
+    }
 })
 ...
 ```

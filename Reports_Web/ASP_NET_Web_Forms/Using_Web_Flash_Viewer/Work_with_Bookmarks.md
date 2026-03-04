@@ -13,7 +13,7 @@ If you do not need to work with report bookmarks, you can completely disable thi
 ```
 ...
 <cc1:StiWebViewerFx ID="StiWebViewerFx1" runat="server"
-ShowBookmarksButton="false">
+    ShowBookmarksButton="false">
 </cc1:StiWebViewerFx>
 ...
 ```

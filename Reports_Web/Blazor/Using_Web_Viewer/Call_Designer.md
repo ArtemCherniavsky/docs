@@ -15,23 +15,23 @@ The **Blazor** **Viewer** component has the ability to call the report designer.
 
 @code
 {
-//Report object to use in viewer
-private StiReport Report;
+    //Report object to use in viewer
+    private StiReport Report;
  
-protected override void OnInitialized()
-{
-base.OnInitialized();
- 
-var report = new StiReport();
-report.Load("Reports/TwoSimpleLists.mrt");
-Report = report;
-}
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+         
+        var report = new StiReport();
+        report.Load("Reports/TwoSimpleLists.mrt");
+        Report = report;
+    }
 
-protected void OnDesignReport(StiReportDataEventArgs args)
-{
-//Redirect to the Designer page
-NavigationManager.NavigateTo("Designer?report=" + args.Report.ReportName);
-}
+    protected void OnDesignReport(StiReportDataEventArgs args)
+    {
+        //Redirect to the Designer page
+        NavigationManager.NavigateTo("Designer?report=" + args.Report.ReportName);
+    }
 }
 ```
 

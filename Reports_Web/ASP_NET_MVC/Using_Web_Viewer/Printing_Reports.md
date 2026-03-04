@@ -34,11 +34,11 @@ The print function does not require additional settings for the viewer. Before p
 ```
 ...
 @Html.Stimulsoft().StiMvcViewer("MvcViewer1", 
-new StiMvcViewerOptions() {
-Actions =
-{
-PrintReport = "PrintReport"
-}
+    new StiMvcViewerOptions() {
+        Actions =
+        {
+            PrintReport = "PrintReport"
+        }
 })
 ...
 ```
@@ -50,10 +50,10 @@ PrintReport = "PrintReport"
 ...
 public ActionResult PrintReport()
 {
-// Some code before print
-// ...
-
-return StiMvcViewer.PrintReportResult();
+    // Some code before print
+    // ...
+    
+    return StiMvcViewer.PrintReportResult();
 }
 ...
 ```
@@ -76,11 +76,11 @@ If you choose to print a report in the viewer panel, a menu with printing option
 ```
 ...
 @Html.Stimulsoft().StiMvcViewer("MvcViewer1", 
-new StiMvcViewerOptions() {
-Toolbar =
-{
-PrintDestination = StiPrintDestination.Default
-}
+    new StiMvcViewerOptions() {
+        Toolbar =
+        {
+            PrintDestination = StiPrintDestination.Default
+        }
 })
 ...
 ```
@@ -93,11 +93,11 @@ The **HTML5 Viewer** component can completely disable report printing. To do thi
 ```
 ...
 @Html.Stimulsoft().StiMvcViewer("MvcViewer1", 
-new StiMvcViewerOptions() {
-Toolbar =
-{
-ShowPrintButton = false
-}
+    new StiMvcViewerOptions() {
+        Toolbar =
+        {
+            ShowPrintButton = false
+        }
 })
 ...
 ```

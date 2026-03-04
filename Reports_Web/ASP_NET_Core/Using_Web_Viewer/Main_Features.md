@@ -19,10 +19,10 @@ All specified operations are performed in the AJAX mode without restarting the b
 ```
 ...
 @Html.StiNetCoreViewer(new StiNetCoreViewerOptions() {
-Actions =
-{
-ViewerEvent = "ViewerEvent"
-}
+    Actions =
+    {
+        ViewerEvent = "ViewerEvent"
+    }
 })
 ...
 ```
@@ -34,10 +34,10 @@ ViewerEvent = "ViewerEvent"
 ...
 public IActionResult ViewerEvent()
 {
-// Some code before viewer event
-// ...
-
-return StiNetCoreViewer.ViewerEventResult(this);
+    // Some code before viewer event
+    // ...
+    
+    return StiNetCoreViewer.ViewerEventResult(this);
 }
 ...
 ```

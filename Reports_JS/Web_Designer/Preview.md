@@ -16,10 +16,10 @@ Before previewing the report, it is possible to perform any necessary actions, f
 ```html
 ...
 designer.onPreviewReport = function (args) {
-var dataSet = new Stimulsoft.System.Data.DataSet("SimpleDataSet");
-dataSet.readJsonFile("Data/Demo.json");
-
-args.report.regData(dataSet.dataSetName, "", dataSet);
+    var dataSet = new Stimulsoft.System.Data.DataSet("SimpleDataSet");
+    dataSet.readJsonFile("Data/Demo.json");
+    
+    args.report.regData(dataSet.dataSetName, "", dataSet);
 }
 ...
 ```

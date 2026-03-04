@@ -88,10 +88,10 @@ viewer.onPrintReport += 'printReport'
 ```html
 
 <script>
-function printReport(args) {
-let printAction = args.printAction;
-let report = args.report;
-}
+    function printReport(args) {
+        let printAction = args.printAction;
+        let report = args.report;
+    }
 </script>
 ```
 

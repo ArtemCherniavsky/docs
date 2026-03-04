@@ -28,10 +28,10 @@ report.render()
 ```html
 
 <script>
-function afterRender(args) {
-let pagesCount = args.report.renderedPages.count;
-alert("The report is rendered, pages: " + pagesCount);
-}
+    function afterRender(args) {
+        let pagesCount = args.report.renderedPages.count;
+        alert("The report is rendered, pages: " + pagesCount);
+    }
 </script>
 ```
 
@@ -158,9 +158,9 @@ report.render()
 ```html
 
 <script>
-function beginProcessData(args) {
-args.queryString = args.queryString.replace('TableName', 'Products')
-}
+    function beginProcessData(args) {
+        args.queryString = args.queryString.replace('TableName', 'Products')
+    }
 </script>
 ```
 

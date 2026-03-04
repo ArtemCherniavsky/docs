@@ -12,7 +12,7 @@
 ```
 ...
 <cc1:StiWebViewer ID="StiWebViewer1" runat="server"
-OnExportReport="StiWebViewer1_ExportReport">
+    OnExportReport="StiWebViewer1_ExportReport">
 </cc1:StiWebViewer>
 ...
 ```
@@ -24,13 +24,13 @@ OnExportReport="StiWebViewer1_ExportReport">
 ...
 protected void StiWebViewer1_ExportReport(object sender, StiExportReportEventArgs e)
 {
-if (e.Format == StiExportFormat.Pdf)
-{
-StiPdfExportSettings pdfSettings = e.Settings as StiPdfExportSettings;
-pdfSettings.ImageQuality = 50;
-pdfSettings.ImageResolution = 50;
-pdfSettings.ImageCompressionMethod = StiPdfImageCompressionMethod.Jpeg;
-}
+    if (e.Format == StiExportFormat.Pdf)
+    {
+        StiPdfExportSettings pdfSettings = e.Settings as StiPdfExportSettings;
+        pdfSettings.ImageQuality = 50;
+        pdfSettings.ImageResolution = 50;
+        pdfSettings.ImageCompressionMethod = StiPdfImageCompressionMethod.Jpeg;
+    }
 }
 ...
 ```

@@ -17,11 +17,11 @@ Before previewing the report, it is possible to perform any necessary actions, f
 ```
 ...
 @Html.Stimulsoft().StiMvcDesigner("MvcDesigner1", 
-new StiMvcDesignerOptions() {
-Actions =
-{
-PreviewReport = "PreviewReport"
-}
+    new StiMvcDesignerOptions() {
+        Actions =
+        {
+            PreviewReport = "PreviewReport"
+        }
 })
 ...
 ```
@@ -33,16 +33,16 @@ PreviewReport = "PreviewReport"
 ...
 public ActionResult PreviewReport()
 {
-StiReport report = StiMvcDesigner.GetActionReportObject();
-//var Dashboard = StiMvcDesigner.GetActionReportObject();
-
-DataSet data = new DataSet("Demo");
-data.ReadXml(Server.MapPath("~/Content/Data/Demo.xml"));
-report.RegData(data);
-//Dashboard.RegData(data);
-
-return StiMvcDesigner.PreviewReportResult(report);
-//return StiMvcDesigner.PreviewReportResult(Dashboard);
+    StiReport report = StiMvcDesigner.GetActionReportObject();
+    //var Dashboard = StiMvcDesigner.GetActionReportObject();
+    
+    DataSet data = new DataSet("Demo");
+    data.ReadXml(Server.MapPath("~/Content/Data/Demo.xml"));
+    report.RegData(data);
+    //Dashboard.RegData(data);
+    
+    return StiMvcDesigner.PreviewReportResult(report);
+    //return StiMvcDesigner.PreviewReportResult(Dashboard);
 }
 ...
 ```
@@ -55,11 +55,11 @@ If you need to make actions on your report immediately before displaying the rep
 ```
 ...
 @Html.Stimulsoft().StiMvcDesigner("MvcDesigner1", 
-new StiMvcDesignerOptions() {
-Actions =
-{
-GetPreviewReport = "GetPreviewReport"
-}
+    new StiMvcDesignerOptions() {
+        Actions =
+        {
+            GetPreviewReport = "GetPreviewReport"
+        }
 })
 ...
 ```
@@ -71,17 +71,17 @@ GetPreviewReport = "GetPreviewReport"
 ...
 public ActionResult GetPreviewReport()
 {
-StiReport report = StiMvcDesigner.GetActionReportObject();
-//var Dashboard = StiMvcDesigner.GetActionReportObject();
-
-DataSet data = new DataSet("Demo");
-data.ReadXml(Server.MapPath("~/Content/Data/Demo.xml"));
-report.RegData(data);
-//Dashboard.RegData(data);
-//report.IsRendered = false;
-
-return StiMvcDesigner.PreviewReportResult(report);
-//return StiMvcDesigner.PreviewReportResult(Dashboard);
+    StiReport report = StiMvcDesigner.GetActionReportObject();
+    //var Dashboard = StiMvcDesigner.GetActionReportObject();
+    
+    DataSet data = new DataSet("Demo");
+    data.ReadXml(Server.MapPath("~/Content/Data/Demo.xml"));
+    report.RegData(data);
+    //Dashboard.RegData(data);
+    //report.IsRendered = false;
+    
+    return StiMvcDesigner.PreviewReportResult(report);
+    //return StiMvcDesigner.PreviewReportResult(Dashboard);
 }
 ...
 ```

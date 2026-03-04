@@ -34,10 +34,10 @@ report.render()
 ```html
 
 <script>
-function beginProcessData(args) {
-if (args.dataSource == "MyDataSource")
-args.queryString = "SELECT * FROM ProductsTable";
-}
+    function beginProcessData(args) {
+        if (args.dataSource == "MyDataSource")
+            args.queryString = "SELECT * FROM ProductsTable";
+    }
 </script>
 ```
 
@@ -81,16 +81,16 @@ report.render()
 ```html
 
 <script>
-function endProcessData(args) {
-args.result = {
-columns: ["id", "username", "phone"],
-types: ["int", "string", "string"],
-rows: [
-[1, "Mario Pontes", "555-6874"],
-[2, "Helen Bennett", "555-2376"]
-]
-};
-}
+    function endProcessData(args) {
+        args.result = {
+            columns: ["id", "username", "phone"],
+            types: ["int", "string", "string"],
+            rows: [
+                [1, "Mario Pontes", "555-6874"],
+                [2, "Helen Bennett", "555-2376"]
+            ]
+        };
+    }
 </script>
 ```
 
@@ -112,6 +112,8 @@ All data from the SQL query execution result can be changed both on the JavaScri
 If necessary, you can use parameters in an SQL query. To do this, add parameters to a special collection in the data source and set the required type and default value for each parameter. After that, the parameters can be used in the SQL query as follows:
 
 
+**SQL Data Source**
+
 ```
 
 SELECT * FROM @Parameter1 WHERE UserID = @Parameter2
@@ -126,15 +128,15 @@ All parameter values ​​are stored in the data source itself as a collection.
 
 args.parameters = [
    {
-name: "ParameterString",
-type: 752,
-typeName: "Text",
-value: "Text value"
+        name: "ParameterString",
+        type: 752,
+        typeName: "Text",
+        value: "Text value"
   },
    {
-name: "ParameterInt",
-type: 3,
-typeName: "Int32",
+        name: "ParameterInt",
+        type: 3,
+        typeName: "Int32",
      value: 20
    }
 ];

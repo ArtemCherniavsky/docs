@@ -8,14 +8,14 @@ The **Flash Viewer** component has the ability to call the report designer. The 
 ```
 ...
 @Html.StiNetCoreViewer(new StiNetCoreViewerOptions() {
-Actions =
-{
-DesignReport = "DesignReport"
-},
-Toolbar =
-{
-ShowDesignButton = true
-}
+    Actions =
+    {
+        DesignReport = "DesignReport"
+    },
+    Toolbar =
+    {
+        ShowDesignButton = true
+    }
 })
 ...
 ```
@@ -27,7 +27,7 @@ ShowDesignButton = true
 ...
 public IActionResult DesignReport()
 {
-return View("Designer");
+    return View("Designer");
 }
 ...
 ```

@@ -13,10 +13,10 @@ Before previewing the report, it is possible to perform any necessary actions, f
 ```
 ...
 @Html.StiNetCoreDesignerFx(new StiNetCoreDesignerFxOptions() {
-Actions =
-{
-PreviewReport = "PreviewReport"
-}
+    Actions =
+    {
+        PreviewReport = "PreviewReport"
+    }
 })
 ...
 ```
@@ -28,13 +28,13 @@ PreviewReport = "PreviewReport"
 ...
 public IActionResult PreviewReport()
 {
-StiReport report = StiNetCoreDesignerFx.GetReportObject(this);
-
-DataSet data = new DataSet("Demo");
-data.ReadXml(StiNetCoreHelper.MapPath(this, "Data/Demo.xml"));
-report.RegData(data);
-
-return StiNetCoreDesignerFx.PreviewReportResult(this, report);
+    StiReport report = StiNetCoreDesignerFx.GetReportObject(this);
+    
+    DataSet data = new DataSet("Demo");
+    data.ReadXml(StiNetCoreHelper.MapPath(this, "Data/Demo.xml"));
+    report.RegData(data);
+    
+    return StiNetCoreDesignerFx.PreviewReportResult(this, report);
 }
 ...
 ```

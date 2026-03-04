@@ -17,10 +17,10 @@ Before previewing the report, it is possible to perform any necessary actions, f
 ```
 ...
 @Html.StiNetCoreDesigner(new StiNetCoreDesignerOptions() {
-Actions =
-{
-PreviewReport = "PreviewReport"
-}
+    Actions =
+    {
+        PreviewReport = "PreviewReport"
+    }
 })
 ...
 ```
@@ -32,13 +32,13 @@ PreviewReport = "PreviewReport"
 ...
 public IActionResult PreviewReport()
 {
-StiReport report = StiNetCoreDesigner.GetActionReportObject(this);
-
-DataSet data = new DataSet("Demo");
-data.ReadXml(StiNetCoreHelper.MapPath(this, "Data/Demo.xml"));
-report.RegData(data);
-
-return StiNetCoreDesigner.PreviewReportResult(this, report);
+    StiReport report = StiNetCoreDesigner.GetActionReportObject(this);
+    
+    DataSet data = new DataSet("Demo");
+    data.ReadXml(StiNetCoreHelper.MapPath(this, "Data/Demo.xml"));
+    report.RegData(data);
+    
+    return StiNetCoreDesigner.PreviewReportResult(this, report);
 }
 ...
 ```
@@ -51,10 +51,10 @@ If you need to make actions on your report immediately before displaying the rep
 ```
 ...
 @Html.StiNetCoreDesigner(new StiNetCoreDesignerOptions() {
-Actions =
-{
-GetPreviewReport = "GetPreviewReport"
-}
+    Actions =
+    {
+        GetPreviewReport = "GetPreviewReport"
+    }
 })
 ...
 ```
@@ -66,14 +66,14 @@ GetPreviewReport = "GetPreviewReport"
 ...
 public IActionResult GetPreviewReport()
 {
-StiReport report = StiNetCoreDesigner.GetActionReportObject(this);
-
-DataSet data = new DataSet("Demo");
-data.ReadXml(StiNetCoreHelper.MapPath(this, "Data/Demo.xml"));
-report.RegData(data);
-//report.IsRendered = false;
-
-return StiNetCoreDesigner.PreviewReportResult(this, report);
+    StiReport report = StiNetCoreDesigner.GetActionReportObject(this);
+    
+    DataSet data = new DataSet("Demo");
+    data.ReadXml(StiNetCoreHelper.MapPath(this, "Data/Demo.xml"));
+    report.RegData(data);
+    //report.IsRendered = false;
+    
+    return StiNetCoreDesigner.PreviewReportResult(this, report);
 }
 ...
 ```

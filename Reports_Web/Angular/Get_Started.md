@@ -65,38 +65,38 @@ using Stimulsoft.Report.Angular;
 using Stimulsoft.Report.Web;
 
 namespace AngularViewer.Controllers
-{
-[Controller]
-public class ViewerController : Controller
-{
+    {
+    [Controller]
+    public class ViewerController : Controller
+    {
 
-//Specify viewer options
-[HttpPost]
-public IActionResult InitViewer()
-{
-var requestParams = StiAngularViewer.GetRequestParams(this);
-var options = new StiAngularViewerOptions();
-options.Actions.ViewerEvent = "ViewerEvent";
-return StiAngularViewer.ViewerDataResult(requestParams, options);
-}
+        //Specify viewer options
+        [HttpPost]
+        public IActionResult InitViewer()
+        {
+            var requestParams = StiAngularViewer.GetRequestParams(this);
+            var options = new StiAngularViewerOptions();
+            options.Actions.ViewerEvent = "ViewerEvent";
+            return StiAngularViewer.ViewerDataResult(requestParams, options);
+        }
 
-//ViewerEvent() that will process viewer requests.
-[HttpPost]
-public IActionResult ViewerEvent()
-{
-var requestParams = StiAngularViewer.GetRequestParams(this);
+        //ViewerEvent() that will process viewer requests.
+        [HttpPost]
+        public IActionResult ViewerEvent()
+        {
+            var requestParams = StiAngularViewer.GetRequestParams(this);
 
-if (requestParams.Action == StiAction.GetReport)
-{
-var report = StiReport.CreateNewReport();
-var path = StiAngularHelper.MapPath(this, $"Reports/MasterDetail.mrt");
-report.Load(path);
-return StiAngularViewer.GetReportResult(this, report);
-}
+            if (requestParams.Action == StiAction.GetReport)
+            {
+                var report = StiReport.CreateNewReport();
+                var path = StiAngularHelper.MapPath(this, $"Reports/MasterDetail.mrt");
+                report.Load(path);
+                return StiAngularViewer.GetReportResult(this, report);
+            }
 
-return StiAngularViewer.ProcessRequestResult(this);
-}
-}
+            return StiAngularViewer.ProcessRequestResult(this);
+        }
+    }
 }
 ...
 ```
@@ -158,18 +158,18 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 
 @NgModule({
-declarations: [
-AppComponent
-],
-imports: [
-BrowserModule,
-StimulsoftViewerModule
-HttpClientModule,
-BrowserAnimationsModule,
-FormsModule
-],
-providers: [],
-bootstrap: [AppComponent]
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule,
+        StimulsoftViewerModule
+        HttpClientModule,
+        BrowserAnimationsModule,
+        FormsModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
 ...
@@ -183,9 +183,9 @@ export class AppModule { }
 ```html
 ...
 <stimulsoft-viewer-angular
-[requestUrl]="'http://localhost:60801/Viewer/{action}'"
-[action]="'InitViewer'"
-[height]="'600px'"
+    [requestUrl]="'http://localhost:60801/Viewer/{action}'"
+    [action]="'InitViewer'"
+    [height]="'600px'"
 ></stimulsoft-viewer-angular>
 ...
 ```

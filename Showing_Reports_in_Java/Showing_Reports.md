@@ -7,6 +7,8 @@
 Add the **StiViewerFx** component on the required component (for example on JFx):
 
 
+**Jfx**
+
 ```
 ...
 StiViewerFx viewerfx = new StiViewerFx(parentFrame);
@@ -17,6 +19,8 @@ fx.add(viewerfx);
 where the **JFrameparentFrame** is a main Frame of the application. For better showing **StiViewerFx**, the parent component must have **BoxLayoutManager**. For loading and showing the report use the following method:
 
 
+**Jfx**
+
 ```
 ...
 viewerfx.getStiViewModel().loadDocumentFile(documentFile, showProgress);
@@ -25,6 +29,8 @@ viewerfx.getStiViewModel().loadDocumentFile(documentFile, showProgress);
 
 where the argument **documentFile** is a file of **mdc** documents, and the boolean value **showProgress** provides the ability to define whether to show the loading progress of the document (if it is set to true then the process is displayed, if false - it is not displayed.) It is also possible to display a report in the form of a dialog box, you can use the method:
 
+
+**Jfx**
 
 ```
 ...

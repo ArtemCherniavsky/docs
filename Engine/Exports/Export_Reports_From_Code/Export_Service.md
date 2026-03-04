@@ -3,6 +3,8 @@
 The way to create the export service is shown below. See the code:
 
 
+**C#**
+
 ```csharp
 ...
 StiPdfExportService service = new StiPdfExportService();
@@ -14,6 +16,8 @@ service.ExportPdf(report, stream, settings);
 
 If you exported from the WinForms Viewer, then you should notice, than for each export the special form for setting parameters of export is shown. This form can be called from the code. The code below how to do it for the export to the **PDF**:
 
+
+**C#**
 
 ```csharp
 ...
@@ -31,6 +35,8 @@ This code will call the dialog form for setting parameters of export. If a user 
 The export service of a report contains yet another ability. The report can be sent via Email. For example:
 
 
+**C#**
+
 ```csharp
 ...
 bool sendEMail = true;
@@ -40,6 +46,8 @@ service.Export(report, "MyReport.pdf", sendEMail);
 
 This code will call the dialog form for setting parameters of reports, and if a user clicks "OK", then the reporting tool will call the Email client and will create a new Email Email, the exported report will be attached to the Email Email. The code above requires connection of the following names from the **Stimulsoft.Report.dll** assemblies:
 
+
+**C#**
 
 ```csharp
 ...

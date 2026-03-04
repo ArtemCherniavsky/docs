@@ -28,11 +28,11 @@ To show a report, you should add the **StiWebViewer** component to the ASPX page
 ...
 protected void Page_Load(object sender, EventArgs e)
 {
-StiReport report = new StiReport();
-report.Load(Server.MapPath("Reports/SimpleList.mrt"));
-// report.Load(Server.MapPath("Reports/Dashboard.mrt"));
-    
-StiWebViewer1.Report = report;
+    StiReport report = new StiReport();
+    report.Load(Server.MapPath("Reports/SimpleList.mrt"));
+    // report.Load(Server.MapPath("Reports/Dashboard.mrt"));
+        
+    StiWebViewer1.Report = report;
 }
 ...
 ```
@@ -48,7 +48,7 @@ Also, the **HTML5 Viewer** has a special **OnGetReport** event that you can use 
 ```
 ...
 <cc1:StiWebViewer ID="StiWebViewer1" runat="server"
-OnGetReport="StiWebViewer1_GetReport">
+    OnGetReport="StiWebViewer1_GetReport">
 </cc1:StiWebViewer>
 ...
 ```
@@ -60,10 +60,10 @@ OnGetReport="StiWebViewer1_GetReport">
 ...
 protected void StiWebViewer1_GetReport(object sender, StiReportDataEventArgs e)
 {
-StiReport report = new StiReport();
-report.Load(Server.MapPath("Reports/SimpleList.mrt"));
-
-e.Report = report;
+    StiReport report = new StiReport();
+    report.Load(Server.MapPath("Reports/SimpleList.mrt"));
+    
+    e.Report = report;
 }
 ...
 ```
@@ -82,10 +82,10 @@ If the report is not rendered before showing, the **HTML5 Viewer** component wil
 ...
 protected void StiWebViewer1_GetReport(object sender, StiReportDataEventArgs e)
 {
-StiReport report = new StiReport();
-report.LoadDocument(Server.MapPath("Reports/SimpleList.mdc"));
-
-e.Report = report;
+    StiReport report = new StiReport();
+    report.LoadDocument(Server.MapPath("Reports/SimpleList.mdc"));
+    
+    e.Report = report;
 }
 ...
 ```
@@ -97,7 +97,7 @@ e.Report = report;
 ...
 protected void StiWebViewer1_GetReport(object sender, StiReportDataEventArgs e)
 {
-e.Report = new StiReportCompiledClass();
+    e.Report = new StiReportCompiledClass();
 }
 ...
 ```
@@ -111,10 +111,10 @@ Since the dashboard is not a static document and requires data to work, the form
 ...
 protected void StiWebViewer1_GetReport(object sender, StiReportDataEventArgs e)
 {
-StiReport report = new StiReport();
-report.Load(Server.MapPath("Reports/Snapshot.mrt"));
-
-e.Report = report;
+    StiReport report = new StiReport();
+    report.Load(Server.MapPath("Reports/Snapshot.mrt"));
+    
+    e.Report = report;
 }
 ...
 ```
@@ -130,10 +130,10 @@ You can load custom fonts using the **StiFontCollection** class, having specifie
 ...
 public partial class _Default : Page
 {
-static _Default()
-{
-Stimulsoft.Base.StiFontCollection.AddFontFile(Server.MapPath("fonts/my-font/font-name.ttf"));
-}
+    static _Default()
+    {
+        Stimulsoft.Base.StiFontCollection.AddFontFile(Server.MapPath("fonts/my-font/font-name.ttf"));
+    }
 }
 ...
 ```

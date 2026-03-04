@@ -13,15 +13,15 @@ Data to a report can be connected in various ways. The easiest way is to store c
 ...
 public IActionResult OnPostGetReport()
 {
-DataSet ds = new DataSet();
-ds.ReadXml(StiNetCoreHelper.MapPath(this, "Data/Demo.xml"));
-
-StiReport report = new StiReport();
-report.Load(StiNetCoreHelper.MapPath(this, "Reports/TwoSimpleLists.mrt"));
-report.Dictionary.Databases.Clear();
-report.RegData("Demo", ds);
-
-return StiNetCoreViewer.GetReportResult(this, report);
+    DataSet ds = new DataSet();
+    ds.ReadXml(StiNetCoreHelper.MapPath(this, "Data/Demo.xml"));
+    
+    StiReport report = new StiReport();
+    report.Load(StiNetCoreHelper.MapPath(this, "Reports/TwoSimpleLists.mrt"));
+    report.Dictionary.Databases.Clear();
+    report.RegData("Demo", ds);
+    
+    return StiNetCoreViewer.GetReportResult(this, report);
 }
 ...
 ```
@@ -34,12 +34,12 @@ Data for the report can be connected not only when the report is loaded. For exa
 ```
 ...
 @Html.StiNetCoreViewer(new StiNetCoreViewerOptions() {
-Actions =
-{
-GetReport = "GetReport",
-ViewerEvent = "ViewerEvent",
-Interaction = "ViewerInteraction"
-}
+    Actions =
+    {
+        GetReport = "GetReport",
+        ViewerEvent = "ViewerEvent",
+        Interaction = "ViewerInteraction"
+    }
 })
 ...
 ```
@@ -51,13 +51,13 @@ Interaction = "ViewerInteraction"
 ...
 public IActionResult OnPostViewerInteraction()
 { 
-DataSet data = new DataSet();
-data.ReadXml(StiNetCoreHelper.MapPath(this, "Data/Demo.xml"));
-
-StiReport report = StiNetCoreViewer.GetReportObject(this);
-report.RegData("Demo", data);
-
-return StiNetCoreViewer.InteractionResult(this, report);
+    DataSet data = new DataSet();
+    data.ReadXml(StiNetCoreHelper.MapPath(this, "Data/Demo.xml"));
+    
+    StiReport report = StiNetCoreViewer.GetReportObject(this);
+    report.RegData("Demo", data);
+    
+    return StiNetCoreViewer.InteractionResult(this, report);
 }
 ...
 ```
@@ -71,19 +71,19 @@ If you want to connect new data only for a certain interactive action of the vie
 ...
 public IActionResult OnPostViewerInteraction()
 {
-StiRequestParams requestParams = StiNetCoreViewer.GetRequestParams(this);
-if (requestParams.Action == StiAction.Variables)
-{
-DataSet data = new DataSet();
-data.ReadXml(StiNetCoreHelper.MapPath(this, "Data/Demo.xml"));
-
-StiReport report = StiNetCoreViewer.GetReportObject(this);
-report.RegData("Demo", data);
-
-return StiNetCoreViewer.InteractionResult(this, report);
-}
-
-return StiNetCoreViewer.InteractionResult(this);
+    StiRequestParams requestParams = StiNetCoreViewer.GetRequestParams(this);
+    if (requestParams.Action == StiAction.Variables)
+    {
+        DataSet data = new DataSet();
+        data.ReadXml(StiNetCoreHelper.MapPath(this, "Data/Demo.xml"));
+        
+        StiReport report = StiNetCoreViewer.GetReportObject(this);
+        report.RegData("Demo", data);
+        
+        return StiNetCoreViewer.InteractionResult(this, report);
+    }
+    
+    return StiNetCoreViewer.InteractionResult(this);
 }
 ...
 ```
@@ -99,19 +99,19 @@ The connection parameters to the SQL data source and any other ones can be store
 ...
 public IActionResult OnPostGetReport()
 {
-OracleConnection connection = new OracleConnection("Data Source=Oracle8i;Integrated Security=yes");
-connection.Open();
-OracleDataAdapter adapter = new OracleDataAdapter();
-adapter.SelectCommand = new OracleCommand("SELECT * FROM Products", connection);
- 
-DataSet dataSet = new DataSet("productsDataSet");
-adapter.Fill(dataSet, "Products");
- 
-StiReport report = new StiReport();
-report.Load(StiNetCoreHelper.MapPath(this, "Reports/SqlSampleReport.mrt"));
-report.RegData("Products", dataSet);
-
-return StiNetCoreViewer.GetReportResult(this, report);
+    OracleConnection connection = new OracleConnection("Data Source=Oracle8i;Integrated Security=yes");
+    connection.Open();
+    OracleDataAdapter adapter = new OracleDataAdapter();
+    adapter.SelectCommand = new OracleCommand("SELECT * FROM Products", connection);
+     
+    DataSet dataSet = new DataSet("productsDataSet");
+    adapter.Fill(dataSet, "Products");
+     
+    StiReport report = new StiReport();
+    report.Load(StiNetCoreHelper.MapPath(this, "Reports/SqlSampleReport.mrt"));
+    report.RegData("Products", dataSet);
+    
+    return StiNetCoreViewer.GetReportResult(this, report);
 }
 ...
 ```
@@ -128,14 +128,14 @@ Below is an example of code that you may use to change the connection string for
 ...
 public IActionResult OnPostGetReport()
 { 
-
-StiReport report = new StiReport();
-report.Load(StiNetCoreHelper.MapPath("Report.mrt"));
-((StiSqlDatabase)report.Dictionary.Databases["Connection"]).ConnectionString = @"Data Source=server;Integrated Security=True;Initial Catalog=DataBase";
-((StiSqlSource)report.Dictionary.DataSources["DataSourceName"]).SqlCommand = "select * from Table where Column = 100";
-((StiSqlSource)report.Dictionary.DataSources["DataSourceName"]).CommandTimeout = 1000;
-
-return StiNetCoreViewer.GetReportResult(this, report);
+    
+    StiReport report = new StiReport();
+    report.Load(StiNetCoreHelper.MapPath("Report.mrt"));
+    ((StiSqlDatabase)report.Dictionary.Databases["Connection"]).ConnectionString = @"Data Source=server;Integrated Security=True;Initial Catalog=DataBase";
+    ((StiSqlSource)report.Dictionary.DataSources["DataSourceName"]).SqlCommand = "select * from Table where Column = 100";
+    ((StiSqlSource)report.Dictionary.DataSources["DataSourceName"]).CommandTimeout = 1000;
+    
+    return StiNetCoreViewer.GetReportResult(this, report);
 }
 ...
 ```
@@ -154,22 +154,22 @@ You can also use data for designing reports and dashboards obtained from OData s
 ...
 public IActionResult OnPostGetReport()
 { 
+    
+    var report = new StiReport();
+    
+    //Authorization using a user account        
+    var oDataDatabase = new StiODataDatabase("OData", "OData", @"https://services.odata.org/V4/Northwind/Northwind.svc;AddressBearer=adress;UserName=UserName;Password=Password;Client_Id=Your Client ID", false, null);
+    
+    //Authorization using a user token        
+    var oDataDatabase = new StiODataDatabase("OData", "OData", @"https://services.odata.org/V4/Northwind/Northwind.svc;Token=Enter your token", false, null);
+    
+    report.Dictionary.Databases.Add(oDataDatabase);
+    oDataDatabase.Synchronize(report);
+    
+    //Query with data filter
+    ((StiSqlSource)report.Dictionary.DataSources["Products"]).SqlCommand = "Products?$filter=ProductID eq 2";
 
-var report = new StiReport();
-
-//Authorization using a user account        
-var oDataDatabase = new StiODataDatabase("OData", "OData", @"https://services.odata.org/V4/Northwind/Northwind.svc;AddressBearer=adress;UserName=UserName;Password=Password;Client_Id=Your Client ID", false, null);
-
-//Authorization using a user token        
-var oDataDatabase = new StiODataDatabase("OData", "OData", @"https://services.odata.org/V4/Northwind/Northwind.svc;Token=Enter your token", false, null);
-
-report.Dictionary.Databases.Add(oDataDatabase);
-oDataDatabase.Synchronize(report);
-
-//Query with data filter
-((StiSqlSource)report.Dictionary.DataSources["Products"]).SqlCommand = "Products?$filter=ProductID eq 2";
-
-return StiNetCoreViewer.GetReportResult(this, report);
+    return StiNetCoreViewer.GetReportResult(this, report);
 }
 ...
 ```
@@ -211,14 +211,14 @@ Connecting to XML and JSON data sources can be stored in the report template. If
 ...
 public IActionResult OnPostGetReport()
 {
-DataSet data = new DataSet();
-data.ReadXml(StiNetCoreHelper.MapPath(this, "Data/Demo.xml"));
-
-StiReport report = new StiReport();
-report.Load(StiNetCoreHelper.MapPath(this, "Reports/SimpleList.mrt"));
-report.RegData(data);
-
-return StiNetCoreViewer.GetReportResult(this, report);
+    DataSet data = new DataSet();
+    data.ReadXml(StiNetCoreHelper.MapPath(this, "Data/Demo.xml"));
+    
+    StiReport report = new StiReport();
+    report.Load(StiNetCoreHelper.MapPath(this, "Reports/SimpleList.mrt"));
+    report.RegData(data);
+    
+    return StiNetCoreViewer.GetReportResult(this, report);
 }
 ...
 ```
@@ -230,13 +230,13 @@ return StiNetCoreViewer.GetReportResult(this, report);
 ...
 public IActionResult OnPostGetReport()
 {
-DataSet data = StiJsonToDataSetConverterV2.GetDataSetFromFile(StiNetCoreHelper.MapPath(this, "Data/Demo.json"));
-
-StiReport report = new StiReport();
-report.Load(StiNetCoreHelper.MapPath(this, "Reports/SimpleList.mrt"));
-report.RegData(data);
-
-return StiNetCoreViewer.GetReportResult(this, report);
+    DataSet data = StiJsonToDataSetConverterV2.GetDataSetFromFile(StiNetCoreHelper.MapPath(this, "Data/Demo.json"));
+    
+    StiReport report = new StiReport();
+    report.Load(StiNetCoreHelper.MapPath(this, "Reports/SimpleList.mrt"));
+    report.RegData(data);
+    
+    return StiNetCoreViewer.GetReportResult(this, report);
 }
 ...
 ```

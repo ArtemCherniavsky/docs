@@ -13,10 +13,10 @@ If you do not need to work with report bookmarks, you can completely disable thi
 ```
 ...
 @Html.StiNetCoreViewerFx(new StiNetCoreViewerFxOptions() {
-Toolbar =
-{
-ShowBookmarksButton = false
-}
+    Toolbar =
+    {
+        ShowBookmarksButton = false
+    }
 })
 ...
 ```

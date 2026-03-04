@@ -76,18 +76,18 @@ viewer.onInteraction += 'interaction'
 ```html
 
 <script>
-function interaction(args) {
-switch (args.action) {
-case "Sorting":
-break;
-
-case "DrillDown":
-break;
-
-case "Collapsing":
-break;
-}
-}
+    function interaction(args) {
+        switch (args.action) {
+            case "Sorting":
+                break;
+            
+            case "DrillDown":
+                break;
+            
+            case "Collapsing":
+                break;
+        }
+    }
 </script>
 ```
 
@@ -99,28 +99,28 @@ The arguments include corresponding parameter collections: `sortingParameters`, 
 ```html
 
 <script>
-let sortingParameters = {
-ComponentName: "Text10;false",
-DataBand: "DataBand1;DESC;CompanyName"
-};
+    let sortingParameters = {
+        ComponentName: "Text10;false",
+        DataBand: "DataBand1;DESC;CompanyName"
+    };
  
-let collapsingParameters = {
-CollapsingStates: {
-GroupHeaderBand1: {
-keys: [1],
-values: [false]
-},
-ComponentName: "GroupHeaderBand1"
-};
+    let collapsingParameters = {
+        CollapsingStates: {
+            GroupHeaderBand1: {
+                keys: [1],
+                values: [false]
+            },
+            ComponentName: "GroupHeaderBand1"
+        };
  
-let drillDownParameters = [{
-ComponentIndex: "1"
-DrillDownMode: null
-ElementIndex: "6"
-PageGuid: "b916d048d3f446dc97c356d4ff47f48f"
-PageIndex: "0"
-ReportFile: null
-}];
+    let drillDownParameters = [{
+        ComponentIndex: "1"
+        DrillDownMode: null
+        ElementIndex: "6"
+        PageGuid: "b916d048d3f446dc97c356d4ff47f48f"
+        PageIndex: "0"
+        ReportFile: null
+    }];
 </script>
 ```
 

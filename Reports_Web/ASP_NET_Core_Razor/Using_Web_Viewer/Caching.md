@@ -50,42 +50,42 @@ The **HTML5 Viewer** component provides the ability to define your methods of wo
 ...
 public class IndexModel : PageModel
 {
-public class StiMyCacheHelper : StiCacheHelper
-{
-public override StiReport GetReport(string guid)
-{
-var path = Path.Combine(HttpContext.Server.MapPath("CacheFiles"), guid);
-if (File.Exists(path))
-{
-StiReport report = new StiReport();
-var packedReport = File.ReadAllText(path);
-if (guid.EndsWith(GUID_ReportTemplate)) report.LoadPackedReportFromString(packedReport);
-else report.LoadPackedDocumentFromString(packedReport);
-
-return report;
-}
-return null;
-}
-
-public override void SaveReport(StiReport report, string guid)
-{
-var packedReport = guid.EndsWith(GUID_ReportTemplate) ? report.SavePackedReportToString() : report.SavePackedDocumentToString();
-var path = Path.Combine(HttpContext.Server.MapPath("CacheFiles"), guid);
-File.WriteAllText(path, packedReport);
-}
-
-public override void RemoveReport(string guid)
-{
-var path = Path.Combine(HttpContext.Server.MapPath("CacheFiles"), guid);
-if (File.Exists(path))
-File.Delete(path);
-}
-}
-
-static IndexModel()
-{
-StiNetCoreViewer.CacheHelper = new StiMyCacheHelper();
-}
+    public class StiMyCacheHelper : StiCacheHelper
+    {
+        public override StiReport GetReport(string guid)
+        {
+            var path = Path.Combine(HttpContext.Server.MapPath("CacheFiles"), guid);
+            if (File.Exists(path))
+            {
+                StiReport report = new StiReport();
+                var packedReport = File.ReadAllText(path);
+                if (guid.EndsWith(GUID_ReportTemplate)) report.LoadPackedReportFromString(packedReport);
+                else report.LoadPackedDocumentFromString(packedReport);
+                
+                return report;
+            }
+            return null;
+        }
+        
+        public override void SaveReport(StiReport report, string guid)
+        {
+            var packedReport = guid.EndsWith(GUID_ReportTemplate) ? report.SavePackedReportToString() : report.SavePackedDocumentToString();
+            var path = Path.Combine(HttpContext.Server.MapPath("CacheFiles"), guid);
+            File.WriteAllText(path, packedReport);
+        }
+        
+        public override void RemoveReport(string guid)
+        {
+            var path = Path.Combine(HttpContext.Server.MapPath("CacheFiles"), guid);
+            if (File.Exists(path))
+                File.Delete(path);
+        }
+    }
+        
+    static IndexModel()
+    {
+        StiNetCoreViewer.CacheHelper = new StiMyCacheHelper();
+    }
 }
 ...
 ```

@@ -26,11 +26,11 @@ To work with dynamic sorting, collapsing, and drill-down reports, no additional 
 ```
 ...
 @Html.Stimulsoft().StiMvcViewer("MvcViewer1", 
-new StiMvcViewerOptions() {
-Actions =
-{
-Interaction = "ViewerInteraction"
-}
+    new StiMvcViewerOptions() {
+        Actions =
+        {
+            Interaction = "ViewerInteraction"
+        }
 })
 ...
 ```
@@ -42,10 +42,10 @@ Interaction = "ViewerInteraction"
 ...
 public ActionResult ViewerInteraction()
 {
-// Some code before any interaction
-// ...
-
-return StiMvcViewer.InteractionResult();
+    // Some code before any interaction
+    // ...
+    
+    return StiMvcViewer.InteractionResult();
 }
 ...
 ```
@@ -65,20 +65,20 @@ To get the type of action, you can use the parameters of the viewer. The viewer 
 ...
 public ActionResult ViewerInteraction()
 {
-StiRequestParams requestParams = StiMvcViewer.GetRequestParams();
-switch (requestParams.Action)
-{
-case StiAction.Sorting:
-break;
-
-case StiAction.DrillDown:
-break;
-
-case StiAction.Collapsing:
-break;
-}
-
-return StiMvcViewer.InteractionResult();
+    StiRequestParams requestParams = StiMvcViewer.GetRequestParams();
+    switch (requestParams.Action)
+    {
+        case StiAction.Sorting:
+            break;
+        
+        case StiAction.DrillDown:
+            break;
+        
+        case StiAction.Collapsing:
+            break;
+    }
+    
+    return StiMvcViewer.InteractionResult();
 }
 ...
 ```

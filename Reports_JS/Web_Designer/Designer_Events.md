@@ -304,11 +304,11 @@ Asynchronous event Is called after a new report is created. The event handler ar
 ```html
 ...
 designer.onCreateReport = function (args) {
-var report = args.report;
-   
-var database = new Stimulsoft.Report.Dictionary.StiJsonDatabase("DemoData", "http://localhost/Demo.json");
-report.dictionary.databases.add(database);
-report.dictionary.synchronize();
+    var report = args.report;
+       
+    var database = new Stimulsoft.Report.Dictionary.StiJsonDatabase("DemoData", "http://localhost/Demo.json");
+    report.dictionary.databases.add(database);
+    report.dictionary.synchronize();
 }
 ...
 ```
@@ -334,9 +334,9 @@ Asynchronous event is called before user click button for opening a report. The 
 ...
 //Call custom callback() function for loading template to designer
 designer.onOpenReport = (args, callback) => {
-args.async = true;
-args.report = anotherReport;
-callback();
+    args.async = true;
+    args.report = anotherReport;
+    callback();
 }
 ...
 ```
@@ -362,18 +362,18 @@ Asynchronous event is called before user click button for opening a report befor
 ...
 //Add image to report resource when it has been opening
 designer.onOpenedReport = (args, callback) => {
-args.async = true;
-var xhr = new XMLHttpRequest();
-xhr.open('GET', "Url to image");
-xhr.onload = function () {
-var imageData = xhr.response;
-       
-var resource = new Stimulsoft.Report.Dictionary.StiResource("ImageName");
-resource.content = imageData;
-args.report.dictionary.resources.add(resource);
-callback();
-};
-xhr.send();
+    args.async = true;
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', "Url to image");
+    xhr.onload = function () {
+        var imageData = xhr.response;
+               
+        var resource = new Stimulsoft.Report.Dictionary.StiResource("ImageName");
+        resource.content = imageData;
+        args.report.dictionary.resources.add(resource);
+        callback();
+    };
+    xhr.send();
 }
 ...
 ```
@@ -396,7 +396,7 @@ The event is called after the report is assigned to the designer. The event hand
 ```html
 ...
 designer.onAssignedReport = (args) => {
-console.log("The report was assigned to the designer")
+    console.log("The report was assigned to the designer")
 }
 ...
 ```
@@ -424,9 +424,9 @@ Asynchronous event is called before saving the report. The event handler argumen
 ...
 //Remove report resources before saving
 designer.onSaveReport = (args, callback) => {
-var report = args.report.clone();
-report.dictionary.resources.clear();
-args.report = report;
+    var report = args.report.clone();
+    report.dictionary.resources.clear();
+    args.report = report;
 }
 ...
 ```
@@ -454,9 +454,9 @@ Asynchronous event is called before saving the report if user click **Save As** 
 ...
 //Stop and redefinition the save method
 designer.onSaveAsReport = (args, callback) => {
-args.preventDefault = true;
-var jsonString = args.report.saveToJsonString();
-// save report
+    args.preventDefault = true;
+    var jsonString = args.report.saveToJsonString();
+    // save report
 }
 ...
 ```
@@ -531,7 +531,7 @@ Asynchronous event is called after a report is closed, before the report has bee
 ```html
 ...
 designer.onCloseReport = function (args) {
-console.log("The report was closed")
+    console.log("The report was closed")
 }
 ...
 ```

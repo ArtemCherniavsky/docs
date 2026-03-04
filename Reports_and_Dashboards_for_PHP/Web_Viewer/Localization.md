@@ -8,10 +8,10 @@ The viewer fully supports localization of its interface. To localize the interfa
 ```php
 
 <?php
-use Stimulsoft\Viewer\StiViewer;
-
-$viewer = new StiViewer();
-$viewer->options->localization = 'de.xml';
+    use Stimulsoft\Viewer\StiViewer;
+    
+    $viewer = new StiViewer();
+    $viewer->options->localization = 'de.xml';
 ?>
 ```
 
@@ -26,9 +26,9 @@ All available localization XML files are located in the resources of the install
 ```php
 
 <?php
-use Stimulsoft\Viewer\StiViewer;
-
-$viewer = new StiViewer();
-$viewer->options->localization = '/resources/loc/de.xml';
+    use Stimulsoft\Viewer\StiViewer;
+    
+    $viewer = new StiViewer();
+    $viewer->options->localization = '/resources/loc/de.xml';
 ?>
 ```

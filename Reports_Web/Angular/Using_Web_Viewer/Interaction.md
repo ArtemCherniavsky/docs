@@ -27,20 +27,20 @@ To work with dynamic sorting, collapsing and drill-down reports, no additional v
 ...
 public IActionResult InitViewer()
 {
-var requestParams = StiAngularViewer.GetRequestParams(this);
-var options = new StiAngularViewerOptions();
-options.Actions.ViewerEvent = "ViewerEvent";
-options.Actions.Interaction = "ViewerInteraction";
-
-return StiAngularViewer.ViewerDataResult(requestParams, options);
+    var requestParams = StiAngularViewer.GetRequestParams(this);
+    var options = new StiAngularViewerOptions();
+    options.Actions.ViewerEvent = "ViewerEvent";
+    options.Actions.Interaction = "ViewerInteraction";
+    
+    return StiAngularViewer.ViewerDataResult(requestParams, options);
 }
 
 public IActionResult ViewerInteraction()
 {
-// Some code before any interaction
-// ...
-
-return StiAngularViewer.InteractionResult(this);
+    // Some code before any interaction
+    // ...
+    
+    return StiAngularViewer.InteractionResult(this);
 }
 ...
 ```
@@ -60,20 +60,20 @@ To get the type of action, you can use the parameters of the viewer. The viewer 
 ...
 public IActionResult ViewerInteraction()
 {
-StiRequestParams requestParams = StiAngularViewer.GetRequestParams(this);
-switch (requestParams.Action)
-{
-case StiAction.Sorting:
-break;
-
-case StiAction.DrillDown:
-break;
-
-case StiAction.Collapsing:
-break;
-}
-
-return StiAngularViewer.InteractionResult(this);
+    StiRequestParams requestParams = StiAngularViewer.GetRequestParams(this);
+    switch (requestParams.Action)
+    {
+        case StiAction.Sorting:
+            break;
+        
+        case StiAction.DrillDown:
+            break;
+        
+        case StiAction.Collapsing:
+            break;
+    }
+    
+    return StiAngularViewer.InteractionResult(this);
 }
 ...
 ```

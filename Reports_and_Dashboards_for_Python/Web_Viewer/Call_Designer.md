@@ -19,9 +19,9 @@ viewer.onDesignReport += 'designReport'
 ```html
 
 <script>
-function designReport(args) {
-window.location.href = "/designer?report=" + args.fileName;
-}
+    function designReport(args) {
+        window.location.href = "/designer?report=" + args.fileName;
+    }
 </script>
 ```
 

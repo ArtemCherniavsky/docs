@@ -35,12 +35,12 @@ If you choose to print a report on the panel of the viewer, a print dialog with 
 ```
 ...
 @Html.StiNetCoreViewerFx(new StiNetCoreViewerFxOptions() {
-Print =
-{
-AllowDefaultPrint = false,
-AllowPrintToHtml = false,
-AllowPrintToPdf = true
-}
+    Print =
+    {
+        AllowDefaultPrint = false,
+        AllowPrintToHtml = false,
+        AllowPrintToPdf = true
+    }
 })
 ...
 ```
@@ -53,10 +53,10 @@ The **Flash Viewer** component can disable the embedded report printing dialog. 
 ```
 ...
 @Html.StiNetCoreViewerFx(new StiNetCoreViewerFxOptions() {
-Print =
-{
-ShowPrintDialog = false
-}
+    Print =
+    {
+        ShowPrintDialog = false
+    }
 })
 ...
 ```
@@ -69,10 +69,10 @@ Also, the **Flash Viewer** component has the ability to completely disable repor
 ```
 ...
 @Html.StiNetCoreViewerFx(new StiNetCoreViewerFxOptions() {
-Toolbar =
-{
-ShowPrintButton = false
-}
+    Toolbar =
+    {
+        ShowPrintButton = false
+    }
 })
 ...
 ```
@@ -85,12 +85,12 @@ When printing in **Default** mode, the **Flash Viewer** component allows you to 
 ```
 ...
 @Html.StiNetCoreViewerFx(new StiNetCoreViewerFxOptions() {
-Print =
-{
-AutoPageOrientation = true,
-AutoPageScale = true,
-PrintAsBitmap = true
-}
+    Print =
+    {
+        AutoPageOrientation = true,
+        AutoPageScale = true,
+        PrintAsBitmap = true
+    }
 })
 ...
 ```

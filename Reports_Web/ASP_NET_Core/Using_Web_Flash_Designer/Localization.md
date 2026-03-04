@@ -8,7 +8,7 @@ The **Flash Designer** component supports the complete localization of its inter
 ```
 ...
 @Html.StiNetCoreDesignerFx(new StiNetCoreDesignerFxOptions() {
-Localization = "Localization/en.xml"
+    Localization = "Localization/en.xml"
 })
 ...
 ```
@@ -21,11 +21,11 @@ If you need to control loading the localization, you need to define a special ac
 ```
 ...
 @Html.StiNetCoreDesignerFx(new StiNetCoreDesignerFxOptions() {
-Actions =
-{
-GetLocalization = "GetLocalization"
-},
-Localization = "Localization/en.xml"
+    Actions =
+    {
+        GetLocalization = "GetLocalization"
+    },
+    Localization = "Localization/en.xml"
 })
 ...
 ```
@@ -37,9 +37,9 @@ Localization = "Localization/en.xml"
 ...
 public IActionResult GetLocalization()
 {
-return StiNetCoreDesignerFx.GetLocalizationResult(this);
-//return StiNetCoreDesignerFx.GetLocalizationResult(this, path);
-//return StiNetCoreDesignerFx.GetLocalizationResult(this, xml);
+    return StiNetCoreDesignerFx.GetLocalizationResult(this);
+    //return StiNetCoreDesignerFx.GetLocalizationResult(this, path);
+    //return StiNetCoreDesignerFx.GetLocalizationResult(this, xml);
 }
 ...
 ```
@@ -52,8 +52,8 @@ The interface of the report designer allows you to select the necessary localiza
 ```
 ...
 @Html.StiNetCoreDesignerFx(new StiNetCoreDesignerFxOptions() {
-Localization = "Localization/en.xml",
-LocalizationDirectory = "Localization"
+    Localization = "Localization/en.xml",
+    LocalizationDirectory = "Localization"
 })
 ...
 ```

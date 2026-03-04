@@ -9,12 +9,12 @@ The **Angular Viewer** component supports the complete localization of its inter
 ...
 public IActionResult InitViewer()
 {
-var requestParams = StiAngularViewer.GetRequestParams(this);
-var options = new StiAngularViewerOptions();
-options.Actions.ViewerEvent = "ViewerEvent";
-options.Localization = "Localization/en.xml";
-
-return StiAngularViewer.ViewerDataResult(requestParams, options);
+    var requestParams = StiAngularViewer.GetRequestParams(this);
+    var options = new StiAngularViewerOptions();
+    options.Actions.ViewerEvent = "ViewerEvent";
+    options.Localization = "Localization/en.xml";
+    
+    return StiAngularViewer.ViewerDataResult(requestParams, options);
 }
 ...
 ```

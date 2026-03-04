@@ -9,19 +9,19 @@ The main features of the viewer include the following operations: displaying the
 ...
 public IActionResult InitViewer()
 {
-var requestParams = StiAngularViewer.GetRequestParams(this);            
-var options = new StiAngularViewerOptions();
-options.Actions.ViewerEvent = "ViewerEvent";
-
-return StiAngularViewer.ViewerDataResult(requestParams, options);
+    var requestParams = StiAngularViewer.GetRequestParams(this);            
+    var options = new StiAngularViewerOptions();
+    options.Actions.ViewerEvent = "ViewerEvent";
+    
+    return StiAngularViewer.ViewerDataResult(requestParams, options);
 }
 
 public IActionResult ViewerEvent()
 {
-// Some code before viewer event
-// ...
-
-return StiAngularViewer.ViewerEventResult(this);
+    // Some code before viewer event
+    // ...
+    
+    return StiAngularViewer.ViewerEventResult(this);
 }
 ...
 ```

@@ -13,11 +13,11 @@ Before previewing the report, it is possible to perform any necessary actions, f
 ```
 ...
 @Html.Stimulsoft().StiMvcDesignerFx("MvcDesignerFx1", 
-new StiMvcDesignerFxOptions() {
-Actions =
-{
-PreviewReport = "PreviewReport"
-}
+    new StiMvcDesignerFxOptions() {
+        Actions =
+        {
+            PreviewReport = "PreviewReport"
+        }
 })
 ...
 ```
@@ -29,13 +29,13 @@ PreviewReport = "PreviewReport"
 ...
 public ActionResult PreviewReport()
 {
-StiReport report = StiMvcDesignerFx.GetReportObject();
-
-DataSet data = new DataSet("Demo");
-data.ReadXml(Server.MapPath("~/Content/Data/Demo.xml"));
-report.RegData(data);
-
-return StiMvcDesignerFx.PreviewReportResult(report);
+    StiReport report = StiMvcDesignerFx.GetReportObject();
+    
+    DataSet data = new DataSet("Demo");
+    data.ReadXml(Server.MapPath("~/Content/Data/Demo.xml"));
+    report.RegData(data);
+    
+    return StiMvcDesignerFx.PreviewReportResult(report);
 }
 ...
 ```

@@ -74,30 +74,30 @@ Request and response sample:
 ```html
 ...
 request = {
-command: "ExecuteQuery",
-connectionString: "Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password=myPassword;",
-queryString: "select * from table1",
-database: "MS SQL"
+    command: "ExecuteQuery",
+    connectionString: "Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password=myPassword;",
+    queryString: "select * from table1",
+    database: "MS SQL"
 }
 
 response = {
-success: true,
+    success: true,
 
-rows: [
-["value1", 1, false],
-["value2", 1, true]
-["value3", 2, false]
-],
-columns: [
-"Column1_name",
-"Column2_name",
-"Column3_name"
-],
-types:[
-"string",
-"int",
-"boolean"
-]
+    rows: [
+        ["value1", 1, false],
+        ["value2", 1, true]
+        ["value3", 2, false]
+    ],
+    columns: [
+        "Column1_name",
+        "Column2_name",
+        "Column3_name"
+    ],
+    types:[
+        "string",
+        "int",
+        "boolean"
+    ]
 }
 ...
 ```
@@ -165,21 +165,21 @@ The sample of a request and response when receiving a schema:
 ```html
 ...
 request = {
-command: "RetrieveSchema"
+    command: "RetrieveSchema"
 }
 
 response = {
-success: true,
+    success: true,
     
-types:{
-Table1: {
-Column1: "string",
-Column2: "number"
-},
-Table2: {
-Column1: "string"
-}
-}
+    types:{
+        Table1: {
+            Column1: "string",
+            Column2: "number"
+        },
+        Table2: {
+            Column1: "string"
+        }
+    }
 }
 ...
 ```
@@ -192,25 +192,25 @@ The sample of a request and response when getting data:
 ```html
 ...
 request = {
-command: "RetrieveData",
-queryString: "Table1"
+    command: "RetrieveData",
+    queryString: "Table1"
 }
 response = {
-success: true,
+    success: true,
    
-rows: [
-["value1", 1],
-["value2", 1]
-["value3", 2]
-],
-columns:[
-"Column1",
-"Column2"
-],
-types:[
-"string",
-"number"
-]
+    rows: [
+        ["value1", 1],
+        ["value2", 1]
+        ["value3", 2]
+    ],
+    columns:[
+        "Column1",
+        "Column2"
+    ],
+    types:[
+        "string",
+        "number"
+    ]
 }
 ...
 ```
@@ -276,14 +276,14 @@ Also, you can specify user HTTP headers for data sources. It can be done in the 
 ...
 // In `onBeginProcessData` event handler add custom HTTP headers
 report.onBeginProcessData = function (args) {
-if (
-args.database === "JSON" &&
-args.command === "GetData" &&
-args.pathData && args.pathData.include("/reports/ProtectedDemo.json")
-) {
-// Add custom header to pass through backend server protection
-args.headers.push({key: "X-Auth-Token", value: "*YOUR TOKEN*"});
-}
+    if (
+        args.database === "JSON" &&
+        args.command === "GetData" &&
+        args.pathData && args.pathData.include("/reports/ProtectedDemo.json")
+    ) {
+        // Add custom header to pass through backend server protection
+        args.headers.push({key: "X-Auth-Token", value: "*YOUR TOKEN*"});
+    }
 };
 ...
 ```

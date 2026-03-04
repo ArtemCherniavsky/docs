@@ -15,35 +15,35 @@ The **Blazor Viewer** provides the ability to print reports in various ways and 
 
 @code
 {
-private StiReport LoadSimpleList()
-{
-var dataSet = new System.Data.DataSet();
-dataSet.ReadXml("Data/Demo.xml");
-
-var report = new StiReport();
-report.Load("Reports/SimpleList.mrt");
-report.RegData(dataSet);
-
-return report;
-}
-
-protected void OnClickPrintButton()
-{
-var report = LoadSimpleList();
-
-StiReportResponse.PrintAsPdf(report);
-//StiReportResponse.PrintAsHtml(report);
-}
-
-protected void OnClickExportButton()
-{
-var report = LoadSimpleList();
-
-StiReportResponse.ResponseAsPdf(report);
-//StiReportResponse.ResponseAsExcel2007(report);
-//StiReportResponse.ResponseAsPng(report);
-//StiNetCoreReportResponse.ResponseAsJson(report);
-}
+    private StiReport LoadSimpleList()
+    {
+        var dataSet = new System.Data.DataSet();
+        dataSet.ReadXml("Data/Demo.xml");
+        
+        var report = new StiReport();
+        report.Load("Reports/SimpleList.mrt");
+        report.RegData(dataSet);
+        
+        return report;
+    }
+    
+    protected void OnClickPrintButton()
+    {
+        var report = LoadSimpleList();
+        
+        StiReportResponse.PrintAsPdf(report);
+        //StiReportResponse.PrintAsHtml(report);
+    }
+    
+    protected void OnClickExportButton()
+    {
+        var report = LoadSimpleList();
+        
+        StiReportResponse.ResponseAsPdf(report);
+        //StiReportResponse.ResponseAsExcel2007(report);
+        //StiReportResponse.ResponseAsPng(report);
+        //StiNetCoreReportResponse.ResponseAsJson(report);
+    }
 }
 ```
 
@@ -60,8 +60,8 @@ If the **Razor** page does not have components for working with reports (viewer 
 
 protected override Task OnInitializedAsync()
 {
-StiBlazorHelper.Initialize(JSRuntime);
-
-return base.OnInitializedAsync();
+    StiBlazorHelper.Initialize(JSRuntime);
+    
+    return base.OnInitializedAsync();
 }
 ```

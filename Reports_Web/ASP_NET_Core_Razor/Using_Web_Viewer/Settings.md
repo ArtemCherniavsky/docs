@@ -8,32 +8,32 @@ The **HTML5 Viewer** is configured using properties that are located in the **St
 ```
 ...
 @Html.StiNetCoreViewer(new StiNetCoreViewerOptions() {
-Theme = StiViewerTheme.Office2022WhiteTeal,
-Localization = "Localization/en.xml",
-Actions =
-{
-GetReport = "GetReport",
-ViewerEvent = "ViewerEvent"
-},
-Appearance =
-{
-InterfaceType = StiInterfaceType.Auto,
-ScrollbarsMode = true,
-ShowTooltips = false
-},
-Exports =
-{
-DefaultSettings = 
-{
-ExportToPdf = 
-{
-CreatorString = "Company Name",
-ImageQuality = 0.75f
-}
-},
-ShowExportToDbf = false,
-ShowExportToDif = false   
-}
+    Theme = StiViewerTheme.Office2022WhiteTeal,
+    Localization = "Localization/en.xml",
+    Actions =
+    {
+        GetReport = "GetReport",
+        ViewerEvent = "ViewerEvent"
+    },
+    Appearance =
+    {
+        InterfaceType = StiInterfaceType.Auto,
+        ScrollbarsMode = true,
+        ShowTooltips = false
+    },
+    Exports =
+    {
+        DefaultSettings = 
+        {
+            ExportToPdf = 
+            {
+                CreatorString = "Company Name",
+                ImageQuality = 0.75f
+            }
+        },
+        ShowExportToDbf = false,
+        ShowExportToDif = false   
+    }
 })
 ...
 ```

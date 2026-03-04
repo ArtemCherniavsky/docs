@@ -32,11 +32,11 @@ Additional viewer settings are not required for the work with dynamic sorting, c
 
 @code
 {
-private void OnInteraction(StiReportDataEventArgs args)
-{
-// Some code before any interaction
-// ...
-}
+    private void OnInteraction(StiReportDataEventArgs args)
+    {
+        // Some code before any interaction
+        // ...
+    }
 }
 ```
 
@@ -60,19 +60,19 @@ The **Collapsing** **-** when using a report blocks collapsing.
 
 @code
 {
-private void OnInteraction(StiReportDataEventArgs args)
-{
-switch (args.Action)
-{
-case StiAction.Sorting:
-break;
-
-case StiAction.DrillDown:
-break;
-
-case StiAction.Collapsing:
-break;
-}
-}
+    private void OnInteraction(StiReportDataEventArgs args)
+    {
+        switch (args.Action)
+        {
+            case StiAction.Sorting:
+                break;
+            
+            case StiAction.DrillDown:
+                break;
+            
+            case StiAction.Collapsing:
+                break;
+        }
+    }
 }
 ```

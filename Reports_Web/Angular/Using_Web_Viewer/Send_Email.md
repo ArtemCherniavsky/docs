@@ -9,36 +9,36 @@ The **Angular Viewer** component provides the ability to send reports by email. 
 ...
 public IActionResult InitViewer()
 {
-var requestParams = StiAngularViewer.GetRequestParams(this);
-var options = new StiAngularViewerOptions();
-options.Actions.ViewerEvent = "ViewerEvent";
-options.Actions.EmailReport = "EmailReport";
-options.Toolbar.ShowSendEmailButton = true;
-
-return StiAngularViewer.ViewerDataResult(requestParams, options);
+    var requestParams = StiAngularViewer.GetRequestParams(this);
+    var options = new StiAngularViewerOptions();
+    options.Actions.ViewerEvent = "ViewerEvent";
+    options.Actions.EmailReport = "EmailReport";
+    options.Toolbar.ShowSendEmailButton = true;
+    
+    return StiAngularViewer.ViewerDataResult(requestParams, options);
 }
 
 public IActionResult EmailReport()
 {
-StiEmailOptions options = StiAngularViewer.GetEmailOptions(this);
-
-// Passed from the viewer, can be checked and changed
-// options.AddressTo = "";
-// options.Subject = "";
-// options.Body = "";
-
-// Should be filled here
-options.AddressFrom = "admin_address@test.com";
-options.Host = "smtp.test.com";
-options.Port = 465;
-options.UserName = "admin_address@test.com";
-options.Password = "admin_password";
-
-// options.CC.Add("email@test.com");
-// options.BCC.Add("email@test.com");
-// options.EnableSsl = true;
-
-return StiAngularViewer.EmailReportResult(this, options);
+    StiEmailOptions options = StiAngularViewer.GetEmailOptions(this);
+    
+    // Passed from the viewer, can be checked and changed
+    // options.AddressTo = "";
+    // options.Subject = "";
+    // options.Body = "";
+    
+    // Should be filled here
+    options.AddressFrom = "admin_address@test.com";
+    options.Host = "smtp.test.com";
+    options.Port = 465;
+    options.UserName = "admin_address@test.com";
+    options.Password = "admin_password";
+    
+    // options.CC.Add("email@test.com");
+    // options.BCC.Add("email@test.com");
+    // options.EnableSsl = true;
+    
+    return StiAngularViewer.EmailReportResult(this, options);
 }
 ...
 ```
@@ -60,14 +60,14 @@ The **Angular Viewer** component allows you to set default values for the send e
 ...
 public IActionResult InitViewer()
 {
-var requestParams = StiAngularViewer.GetRequestParams(this);
-var options = new StiAngularViewerOptions();
-options.Actions.ViewerEvent = "ViewerEvent";
-options.Email.DefaultEmailAddress = "recipient_address@gmail.com";
-options.Email.DefaultEmailSubject = "New Invoice";
-options.Email.DefaultEmailMessage = "Please check the new invoice in the attachment";
-
-return StiAngularViewer.ViewerDataResult(requestParams, options);
+    var requestParams = StiAngularViewer.GetRequestParams(this);
+    var options = new StiAngularViewerOptions();
+    options.Actions.ViewerEvent = "ViewerEvent";
+    options.Email.DefaultEmailAddress = "recipient_address@gmail.com";
+    options.Email.DefaultEmailSubject = "New Invoice";
+    options.Email.DefaultEmailMessage = "Please check the new invoice in the attachment";
+    
+    return StiAngularViewer.ViewerDataResult(requestParams, options);
 }
 ...
 ```

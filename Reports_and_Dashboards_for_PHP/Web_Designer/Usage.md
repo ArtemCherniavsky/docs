@@ -28,8 +28,8 @@ To use the components in a web project, you only need to connect the automatic s
 ```php
 
 <?php
-require_once 'vendor/autoload.php';
-
+    require_once 'vendor/autoload.php';
+    
 ...
 ?>
 ```
@@ -45,29 +45,29 @@ Example of editing a report in the designer on an HTML page:
 ```php
 
 <?php
-require_once 'vendor/autoload.php';
-
-use Stimulsoft\Report\StiReport;
-use Stimulsoft\Designer\StiDesigner;
-
-$designer = new StiDesigner();
-$designer->process();
-
-$report = new StiReport();
-$report->loadFile('reports/SimpleList.mrt'); 
-$designer->report = $report;
+    require_once 'vendor/autoload.php';
+    
+    use Stimulsoft\Report\StiReport;
+    use Stimulsoft\Designer\StiDesigner;
+    
+    $designer = new StiDesigner();
+    $designer->process();
+    
+    $report = new StiReport();
+    $report->loadFile('reports/SimpleList.mrt'); 
+    $designer->report = $report;
 ?>
 
 <html>
 <head>
-<?php
-$designer->javascript->renderHtml();
-?>
+    <?php
+        $designer->javascript->renderHtml();
+    ?>
 </head>
 <body>
-<?php
-$designer->renderHtml();
-?>
+    <?php
+        $designer->renderHtml();
+    ?>
 </body>
 </html>
 ```
@@ -98,18 +98,18 @@ Example of simplified designer rendering without using an HTML page template:
 ```php
 
 <?php
-require_once 'vendor/autoload.php';
-
-use Stimulsoft\Report\StiReport;
-use Stimulsoft\Designer\StiDesigner;
-
-$designer = new StiDesigner();
-$designer->process();
-
-$report = new StiReport();
-$report->loadFile('reports/SimpleList.mrt'); 
-$designer->report = $report;
-$designer->printHtml();
+    require_once 'vendor/autoload.php';
+    
+    use Stimulsoft\Report\StiReport;
+    use Stimulsoft\Designer\StiDesigner;
+    
+    $designer = new StiDesigner();
+    $designer->process();
+    
+    $report = new StiReport();
+    $report->loadFile('reports/SimpleList.mrt'); 
+    $designer->report = $report;
+    $designer->printHtml();
 ?>
 ```
 

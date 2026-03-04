@@ -26,10 +26,10 @@ To work with dynamic sorting, collapsing, and drill-down reports, no additional 
 ```
 ...
 @Html.StiNetCoreViewer(new StiNetCoreViewerOptions() {
-Actions =
-{
-Interaction = "ViewerInteraction"
-}
+    Actions =
+    {
+        Interaction = "ViewerInteraction"
+    }
 })
 ...
 ```
@@ -41,10 +41,10 @@ Interaction = "ViewerInteraction"
 ...
 public IActionResult OnPostViewerInteraction()
 {
-// Some code before any interaction
-// ...
-
-return StiNetCoreViewer.InteractionResult(this);
+    // Some code before any interaction
+    // ...
+    
+    return StiNetCoreViewer.InteractionResult(this);
 }
 ...
 ```
@@ -64,20 +64,20 @@ To get the type of action, you can use the parameters of the viewer. The viewer 
 ...
 public IActionResult OnPostViewerInteraction()
 {
-StiRequestParams requestParams = StiNetCoreViewer.GetRequestParams(this);
-switch (requestParams.Action)
-{
-case StiAction.Sorting:
-break;
-
-case StiAction.DrillDown:
-break;
-
-case StiAction.Collapsing:
-break;
-}
-
-return StiNetCoreViewer.InteractionResult(this);
+    StiRequestParams requestParams = StiNetCoreViewer.GetRequestParams(this);
+    switch (requestParams.Action)
+    {
+        case StiAction.Sorting:
+            break;
+        
+        case StiAction.DrillDown:
+            break;
+        
+        case StiAction.Collapsing:
+            break;
+    }
+    
+    return StiNetCoreViewer.InteractionResult(this);
 }
 ...
 ```

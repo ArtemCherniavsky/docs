@@ -12,20 +12,20 @@ After purchasing a Stimulsoft product, you need to activate the license for the 
 //Activation with using license code
 public class HomeController : Controller
 {
-static HomeController()
-{
-Stimulsoft.Base.StiLicense.Key = "Your activation code...";
-}
+    static HomeController()
+    {
+        Stimulsoft.Base.StiLicense.Key = "Your activation code...";
+    }
 }
 
 //Activation with using license file
 public class HomeController : Controller
 {
-public HomeController(IHostingEnvironment hostEnvironment)
-{
-var path = Path.Combine(hostEnvironment.ContentRootPath, "Content\\license.key");
-Stimulsoft.Base.StiLicense.LoadFromFile(path);
-}
+    public HomeController(IHostingEnvironment hostEnvironment)
+    {
+        var path = Path.Combine(hostEnvironment.ContentRootPath, "Content\\license.key");
+        Stimulsoft.Base.StiLicense.LoadFromFile(path);
+    }
 ...
 ```
 

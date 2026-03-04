@@ -12,11 +12,11 @@ To edit a report template, you need to add the **StiNetCoreDesigner**  component
 ```
 ...
 @Html.StiNetCoreDesigner(new StiNetCoreDesignerOptions() {
-Actions =
-{
-GetReport = "GetReport",
-DesignerEvent = "DesignerEvent"
-}
+    Actions =
+    {
+        GetReport = "GetReport",
+        DesignerEvent = "DesignerEvent"
+    }
 })
 ...
 ```
@@ -28,16 +28,16 @@ DesignerEvent = "DesignerEvent"
 ...
 public IActionResult GetReport()
 {
-StiReport report = new StiReport();
-report.Load(StiNetCoreHelper.MapPath(this, "Reports/SimpleList.mrt"));
-//report.Load(StiNetCoreHelper.MapPath(this, "Reports/Dashboard.mrt"));
-
-return StiNetCoreDesigner.GetReportResult(this, report);
+    StiReport report = new StiReport();
+    report.Load(StiNetCoreHelper.MapPath(this, "Reports/SimpleList.mrt"));
+    //report.Load(StiNetCoreHelper.MapPath(this, "Reports/Dashboard.mrt"));
+    
+    return StiNetCoreDesigner.GetReportResult(this, report);
 }
 
 public IActionResult DesignerEvent()
 {
-return StiNetCoreDesigner.DesignerEventResult(this);
+    return StiNetCoreDesigner.DesignerEventResult(this);
 }
 ...
 ```

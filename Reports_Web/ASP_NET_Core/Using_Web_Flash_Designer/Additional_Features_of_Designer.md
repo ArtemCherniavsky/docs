@@ -11,14 +11,14 @@ If necessary, it is possible to view the C#/VB.Net code of an editable report te
 ```
 ...
 @Html.StiNetCoreDesignerFx(new StiNetCoreDesignerFxOptions() {
-Actions =
-{
-DesignerEvent = "DesignerEvent"
-},
-Toolbar =
-{
-ShowCodeTab = true
-}
+    Actions =
+    {
+        DesignerEvent = "DesignerEvent"
+    },
+    Toolbar =
+    {
+        ShowCodeTab = true
+    }
 })
 ...
 ```
@@ -30,7 +30,7 @@ ShowCodeTab = true
 ...
 public IActionResult DesignerEvent()
 {
-return StiNetCoreDesignerFx.DesignerEventResult(this);
+    return StiNetCoreDesignerFx.DesignerEventResult(this);
 }
 ...
 ```
@@ -51,10 +51,10 @@ The main menu of the **Flash Designer** component contains the **Exit** item, se
 ```
 ...
 @Html.StiNetCoreDesignerFx(new StiNetCoreDesignerFxOptions() {
-Actions =
-{
-Exit = "DesignerExit"
-}
+    Actions =
+    {
+        Exit = "DesignerExit"
+    }
 })
 ...
 ```
@@ -66,7 +66,7 @@ Exit = "DesignerExit"
 ...
 public IActionResult DesignerExit()
 {
-return View("MainPage");
+    return View("MainPage");
 }
 ...
 ```
@@ -79,10 +79,10 @@ In the **Exit** action method, you can jump to the required view. You can also s
 ```
 ...
 @Html.StiNetCoreDesignerFx(new StiNetCoreDesignerFxOptions() {
-Behavior =
-{
-ExitUrl = "https://www.stimulsoft.com"
-}
+    Behavior =
+    {
+        ExitUrl = "https://www.stimulsoft.com"
+    }
 })
 ...
 ```

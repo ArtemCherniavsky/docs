@@ -11,12 +11,12 @@ The preview window of the **HTML5 Designer** component has a fully functional in
 ```html
 ...
 designer.viewer.onBeginExportReport = function (event) {
-switch (event.format) {
-case Stimulsoft.Report.StiExportFormat.Html:
-event.settings.zoom = 2;  // Set zoom to 200%
-break;
-}
-console.log("exporting");
+    switch (event.format) {
+        case Stimulsoft.Report.StiExportFormat.Html:
+            event.settings.zoom = 2;  // Set zoom to 200%
+            break;
+    }
+    console.log("exporting");
 }
 ...
 ```

@@ -14,22 +14,22 @@ To edit a report, you should add the **StiBlazorDesigner** component to the **Ra
 
 @code
 {
-//Report object to use in designer
-private StiReport Report;
+    //Report object to use in designer
+    private StiReport Report;
+    
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        
+        //Create empty report object
+        var report = new StiReport();
 
-protected override void OnInitialized()
-{
-base.OnInitialized();
-
-//Create empty report object
-var report = new StiReport();
-
-//Load report template
-report.Load("Reports/TwoSimpleLists.mrt");
-
-//Assing report object to viewer
-Report = report; 
-}
+        //Load report template
+        report.Load("Reports/TwoSimpleLists.mrt");
+        
+        //Assing report object to viewer
+        Report = report; 
+    }
 }
 ```
 

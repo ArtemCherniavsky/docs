@@ -23,11 +23,11 @@ To edit a report template, you need to add the **StiWebDesigner** component to t
 ...
 protected void Page_Load(object sender, EventArgs e)
 {
-StiReport report = new StiReport();
-report.Load(Server.MapPath("Reports/SimpleList.mrt"));
-//report.Load(Server.MapPath("Reports/Dashboard.mrt"));
-    
-StiWebDesigner1.Report = report;
+    StiReport report = new StiReport();
+    report.Load(Server.MapPath("Reports/SimpleList.mrt"));
+    //report.Load(Server.MapPath("Reports/Dashboard.mrt"));
+        
+    StiWebDesigner1.Report = report;
 }
 ...
 ```
@@ -43,7 +43,7 @@ Also, **HTML5 Designer** has a special **OnGetReport** event that you can use to
 ```
 ...
 <cc1:StiWebDesigner ID="StiWebDesigner1" runat="server"
-OnGetReport="StiWebDesigner1_GetReport">
+    OnGetReport="StiWebDesigner1_GetReport">
 </cc1:StiWebDesigner>
 ...
 ```
@@ -55,10 +55,10 @@ OnGetReport="StiWebDesigner1_GetReport">
 ...
 protected void StiWebDesigner1_GetReport(object sender, StiReportDataEventArgs e)
 {
-StiReport report = new StiReport();
-report.Load(Server.MapPath("Reports/SimpleList.mrt"));
-
-e.Report = report;
+    StiReport report = new StiReport();
+    report.Load(Server.MapPath("Reports/SimpleList.mrt"));
+    
+    e.Report = report;
 }
 ...
 ```
@@ -76,7 +76,7 @@ By default, **HTML5 Designer** uses the entire area of the browser window to edi
 ```
 ...
 <cc1:StiWebDesigner ID="StiWebDesigner1" runat="server"
-Width="1000px" Height="800px">
+    Width="1000px" Height="800px">
 </cc1:StiWebDesigner>
 ...
 ```

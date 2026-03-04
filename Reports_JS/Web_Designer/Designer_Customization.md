@@ -29,7 +29,7 @@ buttonsGroupTable.addCell(customBigButton).style.padding = "2px";
 
 //customBigButton onclick event
 customBigButton.action = function () {
-alert("customButton was pressed!");
+    alert("customButton was pressed!");
 }
 
 //Add buttonsGroup and separator to customPanel
@@ -60,7 +60,7 @@ buttonCell.appendChild(customButton);
 toolBarRow.insertBefore(buttonCell, toolBarRow.childNodes[3]);
 
 customButton.action = function () {
-alert("Button clicked!");
+    alert("Button clicked!");
 }
 ...
 ```
@@ -93,7 +93,7 @@ var tabButton = designer.jsObject.TabButton("CustomTabButton", "PropertiesGridTa
 tabButton.style.margin = "0 0 0 3px";
 
 tabButton.action = function () {
-if (!this.isSelected) propertiesPanel.showContainer("Custom");
+    if (!this.isSelected) propertiesPanel.showContainer("Custom");
 }
 
 designer.jsObject.loc.Panels.Custom = "Custom Panel Name";

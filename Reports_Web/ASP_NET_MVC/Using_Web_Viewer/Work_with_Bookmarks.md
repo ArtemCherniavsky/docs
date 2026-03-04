@@ -13,11 +13,11 @@ By default, the bookmarks bar width is 180 pixels. The **HTML5 Viewer** componen
 ```
 ...
 @Html.Stimulsoft().StiMvcViewer("MvcViewer1", 
-new StiMvcViewerOptions() {
-Appearance =
-{
-BookmarksTreeWidth = 200
-}
+    new StiMvcViewerOptions() {
+        Appearance =
+        {
+            BookmarksTreeWidth = 200
+        }
 })
 ...
 ```
@@ -30,11 +30,11 @@ If work with report bookmarks is not required, you can disable this feature. For
 ```
 ...
 @Html.Stimulsoft().StiMvcViewer("MvcViewer1", 
-new StiMvcViewerOptions() {
-Toolbar =
-{
-ShowBookmarksButton = false
-}
+    new StiMvcViewerOptions() {
+        Toolbar =
+        {
+            ShowBookmarksButton = false
+        }
 })
 ...
 ```
@@ -52,11 +52,11 @@ When printing a report with bookmarks, the bookmark tree will be hidden. If you 
 ```
 ...
 @Html.Stimulsoft().StiMvcViewer("MvcViewer1", 
-new StiMvcViewerOptions() {
-Appearance =
-{
-BookmarksPrint = true
-}
+    new StiMvcViewerOptions() {
+        Appearance =
+        {
+            BookmarksPrint = true
+        }
 })
 ...
 ```

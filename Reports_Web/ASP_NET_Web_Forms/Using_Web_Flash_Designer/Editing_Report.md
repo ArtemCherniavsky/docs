@@ -19,10 +19,10 @@ To edit a report template, you need to add the **StiWebDesignerFx** component to
 ...
 protected void Page_Load(object sender, EventArgs e)
 {
-StiReport report = new StiReport();
-report.Load(Server.MapPath("Reports/SimpleList.mrt"));
-    
-StiWebDesignerFx1.Report = report;
+    StiReport report = new StiReport();
+    report.Load(Server.MapPath("Reports/SimpleList.mrt"));
+        
+    StiWebDesignerFx1.Report = report;
 }
 ...
 ```
@@ -38,7 +38,7 @@ Also **Flash Designer** has a special **OnGetReport** event that you can use to 
 ```
 ...
 <cc1:StiWebDesignerFx ID="StiWebDesignerFx1" runat="server"
-OnGetReport="StiWebDesignerFx1_GetReport">
+    OnGetReport="StiWebDesignerFx1_GetReport">
 </cc1:StiWebDesignerFx>
 ...
 ```
@@ -50,10 +50,10 @@ OnGetReport="StiWebDesignerFx1_GetReport">
 ...
 protected void StiWebDesignerFx1_GetReport(object sender, StiReportDataEventArgs e)
 {
-StiReport report = new StiReport();
-report.Load(Server.MapPath("Reports/SimpleList.mrt"));
-
-e.Report = report;
+    StiReport report = new StiReport();
+    report.Load(Server.MapPath("Reports/SimpleList.mrt"));
+    
+    e.Report = report;
 }
 ...
 ```
@@ -72,7 +72,7 @@ By default, **Flash Designer** uses the entire area of the browser window to edi
 ```
 ...
 <cc1:StiWebDesignerFx ID="StiWebDesignerFx1" runat="server"
-Width="1000px" Height="800px">
+    Width="1000px" Height="800px">
 </cc1:StiWebDesignerFx>
 ...
 ```
@@ -86,10 +86,10 @@ You can also use the special **Design()** method, which displays only the design
 ...
 protected void Page_Load(object sender, EventArgs e)
 {
-StiReport report = new StiReport();
-report.Load(Server.MapPath("Reports/SimpleList.mrt"));
-    
-StiWebDesignerFx1.Design(report);
+    StiReport report = new StiReport();
+    report.Load(Server.MapPath("Reports/SimpleList.mrt"));
+        
+    StiWebDesignerFx1.Design(report);
 }
 ...
 ```
@@ -103,15 +103,15 @@ If you do not specify a report in the **Design()** method, you can load it in th
 ...
 protected void Page_Load(object sender, EventArgs e)
 { 
-StiWebDesignerFx1.Design();
+    StiWebDesignerFx1.Design();
 }
 
 protected void StiWebDesignerFx1_GetReport(object sender, StiReportDataEventArgs e)
 {
-StiReport report = new StiReport();
-report.Load(Server.MapPath("Reports/SimpleList.mrt"));
-
-e.Report = report;
+    StiReport report = new StiReport();
+    report.Load(Server.MapPath("Reports/SimpleList.mrt"));
+    
+    e.Report = report;
 }
 ...
 ```
@@ -124,7 +124,7 @@ If it is required to hide the designer by default, and display it on the page af
 ```
 ...
 <cc1:StiWebDesignerFx ID="StiWebDesignerFx1" runat="server"
-Visible="False">
+    Visible="False">
 </cc1:StiWebDesignerFx>
 ...
 ```

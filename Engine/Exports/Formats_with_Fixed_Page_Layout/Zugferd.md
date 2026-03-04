@@ -19,6 +19,8 @@ ConformanceLevel COMFORT in ZUGFeRD 2.0 replaced by EN 16931.
 The following is a sample code for exporting a report using the **ZUGFeRD** format:
 
 
+**C#**
+
 ```csharp
 ...
 FileStream fileStream = new FileStream(@"d:\test.pdf", FileMode.Create);
@@ -27,17 +29,17 @@ byte[] buf = File.ReadAllBytes(@"d:\ZUGFeRD-invoice.xml");
 //for ZUGFeRD 1.0
 var pdfExportSettings = new StiPdfExportSettings()
 {
-ZUGFeRDComplianceMode = StiPdfZUGFeRDComplianceMode.V1,
-ZUGFeRDInvoiceData = buf,
-ZUGFeRDConformanceLevel = "COMFORT"    //BASIC, COMFORT, EXTENDED
+    ZUGFeRDComplianceMode = StiPdfZUGFeRDComplianceMode.V1,
+    ZUGFeRDInvoiceData = buf,
+    ZUGFeRDConformanceLevel = "COMFORT"    //BASIC, COMFORT, EXTENDED
 };
 
 //for ZUGFeRD 2.0
 var pdfExportSettings = new StiPdfExportSettings()
 {
-ZUGFeRDComplianceMode = StiPdfZUGFeRDComplianceMode.V2,
-ZUGFeRDInvoiceData = buf,
-ZUGFeRDConformanceLevel = "EN 16931"    //BASIC, EN 16931, EXTENDED
+    ZUGFeRDComplianceMode = StiPdfZUGFeRDComplianceMode.V2,
+    ZUGFeRDInvoiceData = buf,
+    ZUGFeRDConformanceLevel = "EN 16931"    //BASIC, EN 16931, EXTENDED
 };
 
 report.ExportDocument(StiExportFormat.Pdf, fileStream, pdfExportSettings);
@@ -47,6 +49,8 @@ fileStream.Close();
 
 Below is an example of code for exporting a report using the **ZUGFeRD** format, if you need to use an alternative **Description** for the XML file you should to the following:
 
+
+**C#**
 
 ```csharp
 ...

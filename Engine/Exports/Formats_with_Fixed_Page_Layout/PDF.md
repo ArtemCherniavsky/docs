@@ -21,6 +21,8 @@ Digital signature is a requisite of an electronic document used to protect this 
 The **StiPdfExportSettings** class is used to control digital signature. It has the following properties:
 
 
+**C#**
+
 ```csharp
 ...
 public bool UseDigitalSignature
@@ -33,6 +35,8 @@ public string SubjectNameString
 By default:
 
 
+**C#**
+
 ```csharp
 ...
 UseDigitalSignature = false;
@@ -44,6 +48,8 @@ SubjectNameString = string.Empty;
 
 A sample how to use these properties is shown below:
 
+
+**C#**
 
 ```csharp
 ...
@@ -64,21 +70,23 @@ report.ExportDocument(StiExportFormat.Pdf, "c:\\test.pdf", settings);
 In JavaScript, properties are the same as in C#, and they are located in the class `Stimulsoft.Report.Export.StiPdfExportSettings`. Example of usage:
 
 
+**JS**
+
 ```
 ...
 const report = new StiReport();
 report.Load("c:\\test.mrt");
 
 report.renderAsync(function () {
-const settings = new Stimulsoft.Report.Export.StiPdfExportSettings();
-settings.useDigitalSignature = true;
-settings.getCertificateFromCryptoUI = false;
-settings.useLocalMachineCertificates = true;
-settings.subjectNameString = "John Smith <johns@google.com>";
-
-report.exportDocumentAsync(function (data) {
-Stimulsoft.System.StiObject.saveAs(data, "Report.pdf", "application/pdf");
-}, Stimulsoft.Report.StiExportFormat.Pdf, null, settings);
+    const settings = new Stimulsoft.Report.Export.StiPdfExportSettings();
+    settings.useDigitalSignature = true;
+    settings.getCertificateFromCryptoUI = false;
+    settings.useLocalMachineCertificates = true;
+    settings.subjectNameString = "John Smith <johns@google.com>";
+    
+    report.exportDocumentAsync(function (data) {
+        Stimulsoft.System.StiObject.saveAs(data, "Report.pdf", "application/pdf");
+    }, Stimulsoft.Report.StiExportFormat.Pdf, null, settings);
 });
 ...
 ```
@@ -98,6 +106,8 @@ Key length.
 
 
 Using the StiPdfExportSettings class it is possible to set the encryption parameters from code. The following properties of this class are used:
+
+**C#**
 
 ```csharp
 ...
@@ -135,6 +145,8 @@ Bit256.
 By default the values set as follow:
 
 
+**C#**
+
 ```csharp
 ...
 PasswordInputUser = string.Empty;
@@ -146,6 +158,8 @@ KeyLength = StiPdfEncryptionKeyLength.Bit40;
 
 An example of using:
 
+
+**C#**
 
 ```csharp
 ...
@@ -166,21 +180,23 @@ report.ExportDocument(StiExportFormat.Pdf, "c:\\test.pdf", settings);
 In JavaScript, properties are the same as in C#, and they are located in the class `Stimulsoft.Report.Export.StiPdfExportSettings`. Example of usage:
 
 
+**JS**
+
 ```
 ...
 const report = new StiReport();
 report.Load("c:\\test.mrt");
 
 report.renderAsync(function () {
-const settings = new Stimulsoft.Report.Export.StiPdfExportSettings();
-settings.passwordInputUser = "user";
-settings.passwordInputOwner = "owner";
-settings.userAccessPrivileges = StiUserAccessPrivileges.PrintDocument;
-settings.keyLength = StiPdfEncryptionKeyLength.Bit256_r6;
+    const settings = new Stimulsoft.Report.Export.StiPdfExportSettings();
+    settings.passwordInputUser = "user";
+    settings.passwordInputOwner = "owner";
+    settings.userAccessPrivileges = StiUserAccessPrivileges.PrintDocument;
+    settings.keyLength = StiPdfEncryptionKeyLength.Bit256_r6;
 
-report.exportDocumentAsync(function (data) {
-Stimulsoft.System.StiObject.saveAs(data, "Report.pdf", "application/pdf");
-}, Stimulsoft.Report.StiExportFormat.Pdf, null, settings);
+    report.exportDocumentAsync(function (data) {
+        Stimulsoft.System.StiObject.saveAs(data, "Report.pdf", "application/pdf");
+    }, Stimulsoft.Report.StiExportFormat.Pdf, null, settings);
 });
 ...
 ```
@@ -194,6 +210,8 @@ By default all embedded fonts are optimized. Characters which are not used in a 
 If by some reasons the font optimization is not working correct it can be forcibly disabled using the static property:
 
 
+**C#**
+
 ```csharp
 ...
 StiOptions.Export.Pdf.ReduceFontFileSize = false;
@@ -205,6 +223,8 @@ StiOptions.Export.Pdf.ReduceFontFileSize = false;
 
 To enable the export of editable fields it is necessary to set the static property
 
+
+**C#**
 
 ```csharp
 ...

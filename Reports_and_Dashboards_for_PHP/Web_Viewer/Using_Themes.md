@@ -8,11 +8,11 @@ The viewer offers the ability to change the visual themes of the control element
 ```php
 
 <?php
-use Stimulsoft\Viewer\StiViewer;
-use Stimulsoft\Viewer\Enums\StiViewerTheme;
-
-$viewer = new StiViewer();
-$viewer->options->appearance->theme = StiViewerTheme::Office2022BlackGreen;
+    use Stimulsoft\Viewer\StiViewer;
+    use Stimulsoft\Viewer\Enums\StiViewerTheme;
+    
+    $viewer = new StiViewer();
+    $viewer->options->appearance->theme = StiViewerTheme::Office2022BlackGreen;
 ?>
 ```
 
@@ -38,12 +38,12 @@ By default, the viewer has only a top toolbar, which contains all the report con
 ```php
 
 <?php
-use Stimulsoft\Viewer\StiViewer;
-use Stimulsoft\Viewer\Enums\StiToolbarDisplayMode;
-
-$viewer = new StiViewer();
-$viewer->options->toolbar->displayMode = StiToolbarDisplayMode::Simple;
-$viewer->options->appearance->scrollbarsMode = true;
+    use Stimulsoft\Viewer\StiViewer;
+    use Stimulsoft\Viewer\Enums\StiToolbarDisplayMode;
+    
+    $viewer = new StiViewer();
+    $viewer->options->toolbar->displayMode = StiToolbarDisplayMode::Simple;
+    $viewer->options->appearance->scrollbarsMode = true;
 ?>
 ```
 
@@ -55,18 +55,18 @@ Additionally, you can customize the design of the viewer's core elements. For ex
 ```php
 
 <?php
-use Stimulsoft\Viewer\StiViewer;
-
-$viewer = new StiViewer();
-
-$viewer->options->appearance->backgroundColor = 'white';
-$viewer->options->appearance->pageBorderColor = 'red';
-$viewer->options->appearance->showPageShadow = false;
-
-$viewer->options->toolbar->backgroundColor = 'aqua';
-$viewer->options->toolbar->borderColor = 'darkgreen';
-$viewer->options->toolbar->fontColor = 'white';
-$viewer->options->toolbar->fontFamily = 'Arial';
+    use Stimulsoft\Viewer\StiViewer;
+    
+    $viewer = new StiViewer();
+    
+    $viewer->options->appearance->backgroundColor = 'white';
+    $viewer->options->appearance->pageBorderColor = 'red';
+    $viewer->options->appearance->showPageShadow = false;
+    
+    $viewer->options->toolbar->backgroundColor = 'aqua';
+    $viewer->options->toolbar->borderColor = 'darkgreen';
+    $viewer->options->toolbar->fontColor = 'white';
+    $viewer->options->toolbar->fontFamily = 'Arial';
 ?>
 ```
 

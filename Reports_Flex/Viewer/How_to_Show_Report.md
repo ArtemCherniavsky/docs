@@ -3,6 +3,8 @@
 Put the **Viewer.Fx** on the scene of a **Flex** application:
 
 
+**Code**
+
 ```
 ...
 <viewer:StiViewerFx id="viewerFx" Left="0" right="0" bottom="0" />
@@ -11,6 +13,8 @@ Put the **Viewer.Fx** on the scene of a **Flex** application:
 
 Create, load and assign a report:
 
+
+**Code**
 
 ```
 ...
@@ -27,6 +31,8 @@ viewerFx.report = report;
 
 Also, there is another way to show a report instead of placing **Viewer.Fx** on the scene of a Flex application:
 
+
+**Code**
 
 ```
 ...

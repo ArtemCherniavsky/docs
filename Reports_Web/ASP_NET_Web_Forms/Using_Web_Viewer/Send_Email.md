@@ -12,8 +12,8 @@ The **HTML5 Viewer** component provides the ability to send reports by email. To
 ```
 ...
 <cc1:StiWebViewer ID="StiWebViewer1" runat="server"
-ShowSendEmailButton="true"
-OnEmailReport="StiWebViewer1_EmailReport">
+    ShowSendEmailButton="true"
+    OnEmailReport="StiWebViewer1_EmailReport">
 </cc1:StiWebViewer>
 ...
 ```
@@ -25,26 +25,26 @@ OnEmailReport="StiWebViewer1_EmailReport">
 ...
 protected void StiWebViewer1_EmailReport(object sender, StiEmailReportEventArgs e)
 {
-StiExportFormat format = e.Format;
-StiReport report = e.Report;
-StiExportSettings settings = e.Settings;
-StiEmailOptions options = e.Options;
-
-// Passed from the viewer, can be checked and changed
-// options.AddressTo = "";
-// options.Subject = "";
-// options.Body = "";
-
-// Should be filled here
-options.AddressFrom = "admin_address@test.com";
-options.Host = "smtp.test.com";
-options.Port = 465;
-options.UserName = "admin_address@test.com";
-options.Password = "admin_password";
-
-// options.CC.Add("email@test.com");
-// options.BCC.Add("email@test.com");
-// options.EnableSsl = true;
+    StiExportFormat format = e.Format;
+    StiReport report = e.Report;
+    StiExportSettings settings = e.Settings;
+    StiEmailOptions options = e.Options;
+    
+    // Passed from the viewer, can be checked and changed
+    // options.AddressTo = "";
+    // options.Subject = "";
+    // options.Body = "";
+    
+    // Should be filled here
+    options.AddressFrom = "admin_address@test.com";
+    options.Host = "smtp.test.com";
+    options.Port = 465;
+    options.UserName = "admin_address@test.com";
+    options.Password = "admin_password";
+    
+    // options.CC.Add("email@test.com");
+    // options.BCC.Add("email@test.com");
+    // options.EnableSsl = true;
 }
 ...
 ```
@@ -68,12 +68,12 @@ The **HTML5 Viewer** component allows you to set default values for the send ema
 ```
 ...
 <cc1:StiWebViewer ID="StiWebViewer1" runat="server"
-DefaultEmailAddress="recipient_address@gmail.com"
-DefaultEmailSubject="New Invoice"
-DefaultEmailMessage="Please check the new invoice in the attachment"
-
-ShowSendEmailButton="true"
-OnEmailReport="StiWebViewer1_EmailReport">
+    DefaultEmailAddress="recipient_address@gmail.com"
+    DefaultEmailSubject="New Invoice"
+    DefaultEmailMessage="Please check the new invoice in the attachment"
+    
+    ShowSendEmailButton="true"
+    OnEmailReport="StiWebViewer1_EmailReport">
 </cc1:StiWebViewer>
 ...
 ```

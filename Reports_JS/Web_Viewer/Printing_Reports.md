@@ -73,7 +73,7 @@ options.toolbar.showPrintButton = false;
 var report = new Stimulsoft.Report.StiReport();
 report.loadFile("SimpleList.mrt");
 report.renderAsync(function(){
-report.print();
+    report.print();
 });
 ...
 ```

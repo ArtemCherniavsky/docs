@@ -12,9 +12,9 @@
 ```
 ...
 <cc1:StiWebDesigner ID="StiWebDesigner1" runat="server"
-OnGetReport="StiWebDesigner1_GetReport"
-OnCreateReport="StiWebDesigner1_CreateReport"
-OnSaveReport="StiWebDesigner1_SaveReport">
+    OnGetReport="StiWebDesigner1_GetReport"
+    OnCreateReport="StiWebDesigner1_CreateReport"
+    OnSaveReport="StiWebDesigner1_SaveReport">
 </cc1:StiWebDesigner>
 ...
 ```
@@ -26,32 +26,32 @@ OnSaveReport="StiWebDesigner1_SaveReport">
 ...
 protected void StiWebDesigner1_GetReport(object sender, StiReportDataEventArgs e)
 {
-StiReport report = new StiReport();
-report.Load(Server.MapPath("Reports/SimpleList.mrt"));
-
-e.Report = report;
+    StiReport report = new StiReport();
+    report.Load(Server.MapPath("Reports/SimpleList.mrt"));
+    
+    e.Report = report;
 }
 
 protected void StiWebDesigner1_CreateReport(object sender, StiReportDataEventArgs e)
 {
-DataSet data = new DataSet();
-data.ReadXmlSchema(Server.MapPath("Data/Demo.xsd"));
-data.ReadXml(Server.MapPath("Data/Demo.xml"));
-
-e.Report.RegData(data);
-e.Report.Dictionary.Synchronize();
+    DataSet data = new DataSet();
+    data.ReadXmlSchema(Server.MapPath("Data/Demo.xsd"));
+    data.ReadXml(Server.MapPath("Data/Demo.xml"));
+    
+    e.Report.RegData(data);
+    e.Report.Dictionary.Synchronize();
 }
 
 protected void StiWebDesigner1_SaveReport(object sender, StiReportDataEventArgs e)
 {
-try
-{
-e.Report.Save(Server.MapPath("Reports/" + e.Report.ReportName + ".mrt"));
-}
-catch (Exception ex)
-{
-e.ErrorString = ex.Message;
-}
+    try
+    {
+        e.Report.Save(Server.MapPath("Reports/" + e.Report.ReportName + ".mrt"));
+    }
+    catch (Exception ex)
+    {
+        e.ErrorString = ex.Message;
+    }
 }
 ...
 ```

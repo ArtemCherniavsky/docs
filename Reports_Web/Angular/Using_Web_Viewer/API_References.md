@@ -8,7 +8,7 @@ You can using Angular Viewer API. **StiAngularViewer** contains api object that 
 ```typescript
 ...
 export class AppComponent {
-@ViewChild('viewer') viewer: StimulsoftViewerComponent;...
+    @ViewChild('viewer') viewer: StimulsoftViewerComponent;...
 }
 ...
 ```
@@ -24,16 +24,16 @@ Zoom is {{ viewer.api.zoom }}<br />
 Current page {{ viewer.api.currentPage + 1 }}<br />
 <input type="button" (click)="viewer.api.zoom = 50" value="Zomm to 50%" />
 <input
-type="button"
-(click)="viewer.api.export('Pdf', { ImageResolution: 200 })"
-value="Export to PDF"
+    type="button"
+    (click)="viewer.api.export('Pdf', { ImageResolution: 200 })"
+    value="Export to PDF"
 />
 
 <stimulsoft-viewer-angular
-#viewer
-[requestUrl]="'http://localhost:60801/Viewer/{action}'"
-[action]="'InitViewer'"
-[height]="'600px'"
+    #viewer
+    [requestUrl]="'http://localhost:60801/Viewer/{action}'"
+    [action]="'InitViewer'"
+    [height]="'600px'"
 ></stimulsoft-viewer-angular>
 ...
 ```

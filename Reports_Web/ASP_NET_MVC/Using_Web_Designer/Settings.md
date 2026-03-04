@@ -8,34 +8,34 @@ The **HTML5 Designer** configuration is done using properties that are located i
 ```
 ...
 @Html.Stimulsoft().StiMvcDesigner("MvcDesigner1", 
-new StiMvcDesignerOptions() {
-Theme = Stimulsoft.Report.Web.StiDesignerTheme.Office2022WhiteTeal,
-Localization = "~/Content/Localization/en.xml",
-Actions =
-{
-GetReport = "GetReport",
-PreviewReport = "PreviewReport",
-SaveReport = "SaveReport",
-DesignerEvent = "DesignerEvent"
-},
-Appearance =
-{
-InterfaceType = StiInterfaceType.Auto,
-ShowTooltipsHelp = false,
-ShowDialogsHelp = false,
-DefaultUnit = Stimulsoft.Report.StiReportUnitType.Centimeters
-},
-Dictionary =
-{
-PermissionBusinessObjects = Stimulsoft.Report.Web.StiDesignerPermissions.None,
-PermissionDataConnections = Stimulsoft.Report.Web.StiDesignerPermissions.View
-},
-Bands =
-{
-ShowChildBand = false,
-ShowEmptyBand = false,
-ShowOverlayBand = false
-}
+    new StiMvcDesignerOptions() {
+        Theme = Stimulsoft.Report.Web.StiDesignerTheme.Office2022WhiteTeal,
+        Localization = "~/Content/Localization/en.xml",
+        Actions =
+        {
+            GetReport = "GetReport",
+            PreviewReport = "PreviewReport",
+            SaveReport = "SaveReport",
+            DesignerEvent = "DesignerEvent"
+        },
+        Appearance =
+        {
+            InterfaceType = StiInterfaceType.Auto,
+            ShowTooltipsHelp = false,
+            ShowDialogsHelp = false,
+            DefaultUnit = Stimulsoft.Report.StiReportUnitType.Centimeters
+        },
+        Dictionary =
+        {
+            PermissionBusinessObjects = Stimulsoft.Report.Web.StiDesignerPermissions.None,
+            PermissionDataConnections = Stimulsoft.Report.Web.StiDesignerPermissions.View
+        },
+        Bands =
+        {
+            ShowChildBand = false,
+            ShowEmptyBand = false,
+            ShowOverlayBand = false
+        }
 })
 ...
 ```

@@ -13,7 +13,7 @@ Before previewing the report, it is possible to perform any necessary actions, f
 ```
 ...
 <cc1:StiWebDesignerFx ID="StiWebDesignerFx1" runat="server"
-OnPreviewReport="StiWebDesignerFx1_PreviewReport">
+    OnPreviewReport="StiWebDesignerFx1_PreviewReport">
 </cc1:StiWebDesignerFx>
 ...
 ```
@@ -25,9 +25,9 @@ OnPreviewReport="StiWebDesignerFx1_PreviewReport">
 ...
 protected void StiWebDesignerFx1_PreviewReport(object sender, StiReportDataEventArgs e)
 {
-DataSet data = new DataSet("Demo");
-data.ReadXml(Server.MapPath("Data/Demo.xml"));
-e.Report.RegData(data);
+    DataSet data = new DataSet("Demo");
+    data.ReadXml(Server.MapPath("Data/Demo.xml"));
+    e.Report.RegData(data);
 }
 ...
 ```

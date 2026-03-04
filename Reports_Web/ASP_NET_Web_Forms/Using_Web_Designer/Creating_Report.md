@@ -12,7 +12,7 @@ To run the designer with a new (empty) report, no action is required. When the c
 ```
 ...
 <cc1:StiWebDesigner ID="StiWebDesigner1" runat="server"
-OnGetReport="StiWebDesigner1_GetReport">
+    OnGetReport="StiWebDesigner1_GetReport">
 </cc1:StiWebDesigner>
 ...
 ```
@@ -24,8 +24,8 @@ OnGetReport="StiWebDesigner1_GetReport">
 ...
 protected void StiWebDesigner1_GetReport(object sender, StiReportDataEventArgs e)
 {
-e.Report = new StiReport();
-//var newDashboard = StiReport.CreateNewDashboard();
+    e.Report = new StiReport();
+    //var newDashboard = StiReport.CreateNewDashboard();
 }
 ...
 ```
@@ -38,7 +38,7 @@ You can also create a new report using the main menu of the designer. The **OnCr
 ```
 ...
 <cc1:StiWebDesigner ID="StiWebDesigner1" runat="server"
-OnCreateReport="StiWebDesigner1_CreateReport">
+    OnCreateReport="StiWebDesigner1_CreateReport">
 </cc1:StiWebDesigner>
 ...
 ```
@@ -50,19 +50,19 @@ OnCreateReport="StiWebDesigner1_CreateReport">
 ...
 protected void StiWebDesigner1_CreateReport(object sender, StiReportDataEventArgs e)
 {
-StiReport report = new StiReport();
-//var newDashboard = StiReport.CreateNewDashboard();
+    StiReport report = new StiReport();
+    //var newDashboard = StiReport.CreateNewDashboard();
 
-// Register data for the new report, if necessary
-DataSet data = new DataSet("Demo");
-data.ReadXml(Server.MapPath("Data/Demo.xml"));
-report.RegData(data);
-//newDashboard.RegData(data);
-report.Dictionary.Synchronize();
-//newDashboard.Dictionary.Synchronize();
-
-e.Report = report;
-//e.Report = newDashboard;
+    // Register data for the new report, if necessary
+    DataSet data = new DataSet("Demo");
+    data.ReadXml(Server.MapPath("Data/Demo.xml"));
+    report.RegData(data);
+    //newDashboard.RegData(data);
+    report.Dictionary.Synchronize();
+    //newDashboard.Dictionary.Synchronize();
+    
+    e.Report = report;
+    //e.Report = newDashboard;
 }
 ...
 ```

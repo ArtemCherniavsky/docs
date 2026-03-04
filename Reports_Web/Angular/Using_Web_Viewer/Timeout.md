@@ -13,12 +13,12 @@ Sets the time in minutes that the server will store the rendered report since th
 ...
 public IActionResult InitViewer()
 {
-var requestParams = StiAngularViewer.GetRequestParams(this);
-var options = new StiAngularViewerOptions();
-options.Actions.ViewerEvent = "ViewerEvent";
-options.Server.CacheTimeout = 10;
-
-return StiAngularViewer.ViewerDataResult(requestParams, options);
+    var requestParams = StiAngularViewer.GetRequestParams(this);
+    var options = new StiAngularViewerOptions();
+    options.Actions.ViewerEvent = "ViewerEvent";
+    options.Server.CacheTimeout = 10;
+    
+    return StiAngularViewer.ViewerDataResult(requestParams, options);
 }
 ...
 ```
@@ -36,12 +36,12 @@ Sets the time to wait for a response from the server in seconds, after which an 
 ...
 public IActionResult InitViewer()
 {
-var requestParams = StiAngularViewer.GetRequestParams(this);
-var options = new StiAngularViewerOptions();
-options.Actions.ViewerEvent = "ViewerEvent";
-options.Server.RequestTimeout = 30;
-
-return StiAngularViewer.ViewerDataResult(requestParams, options);
+    var requestParams = StiAngularViewer.GetRequestParams(this);
+    var options = new StiAngularViewerOptions();
+    options.Actions.ViewerEvent = "ViewerEvent";
+    options.Server.RequestTimeout = 30;
+    
+    return StiAngularViewer.ViewerDataResult(requestParams, options);
 }
 ...
 ```
@@ -60,26 +60,26 @@ Below is an example of code that you may use to set the query timeout for the al
 ...
 public IActionResult InitViewer()
 {
-var requestParams = StiAngularViewer.GetRequestParams(this);
-var options = new StiAngularViewerOptions();
-options.Actions.ViewerEvent = "ViewerEvent";
-options.Actions.GetReport = "GetReport";
-
-return StiAngularViewer.ViewerDataResult(requestParams, options);
+    var requestParams = StiAngularViewer.GetRequestParams(this);
+    var options = new StiAngularViewerOptions();
+    options.Actions.ViewerEvent = "ViewerEvent";
+    options.Actions.GetReport = "GetReport";
+    
+    return StiAngularViewer.ViewerDataResult(requestParams, options);
 }
 
 public IActionResult GetReport()
 {
-StiReport report = new StiReport();
-report.Load(Server.MapPath("Report.mrt"));
-((StiSqlSource)report.Dictionary.DataSources["DataSourceName"]).CommandTimeout = 1000;
-
-return StiNetCoreViewer.GetReportResult(this, report);
+    StiReport report = new StiReport();
+    report.Load(Server.MapPath("Report.mrt"));
+    ((StiSqlSource)report.Dictionary.DataSources["DataSourceName"]).CommandTimeout = 1000;
+    
+    return StiNetCoreViewer.GetReportResult(this, report);
 }
 
 public IActionResult ViewerEvent()
 {
-return StiNetCoreViewer.ViewerEventResult(this);
+    return StiNetCoreViewer.ViewerEventResult(this);
 }
 ...
 ```

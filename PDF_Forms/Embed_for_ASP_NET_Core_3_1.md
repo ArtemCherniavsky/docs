@@ -11,29 +11,29 @@
 
 public void ConfigureServices(IServiceCollection services)
 {       
-services.AddControllers();
+    services.AddControllers();
 }
 
 public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 {
-if (env.IsDevelopment())
-{
-app.UseDeveloperExceptionPage();
-}
+    if (env.IsDevelopment())
+    {
+        app.UseDeveloperExceptionPage();
+    }
 
-app.UseDefaultFiles();
-app.UseStaticFiles();
+    app.UseDefaultFiles();
+    app.UseStaticFiles();
+    
+    app.UseRouting();
 
-app.UseRouting();
+    app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
-app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
-
-app.UseEndpoints(endpoints =>
-{
-endpoints.MapControllerRoute(
-name: "default",
-pattern: "{controller=Forms}/{action=Action}");
-});
+    app.UseEndpoints(endpoints =>
+    {
+        endpoints.MapControllerRoute(
+            name: "default",
+            pattern: "{controller=Forms}/{action=Action}");
+    });
 }
 ```
 
@@ -47,37 +47,37 @@ pattern: "{controller=Forms}/{action=Action}");
 
 public class FormsController : Controller
 {        
-[HttpPost]
-public IActionResult Action()
-{
-try
-{
-var data = JObject.Parse(this.HttpContext.Request.Form["data"]);
-var action = data["action"].ToString();
-switch (action)
-{
-case "Initialize":
-var initData = StiWebForm.Initialize(data, null);
-return Json(initData.Content);               
-
-default:
-var result = StiWebForm.ProcessRequest(data);
-return result.ContentType switch
-{
-"application/pdf" => new FileContentResult(result.Content as byte[], result.ContentType),
-_ => Json(result.Content),
-};
-}
-}
-catch (Exception e)
-{
-return new ContentResult()
-{
-Content = e.Message,
-ContentType = "text/plain"
-};    
-}
-}
+    [HttpPost]
+    public IActionResult Action()
+    {
+        try
+        {
+            var data = JObject.Parse(this.HttpContext.Request.Form["data"]);
+            var action = data["action"].ToString();
+            switch (action)
+            {
+                case "Initialize":
+                    var initData = StiWebForm.Initialize(data, null);
+                    return Json(initData.Content);               
+            
+                default:
+                    var result = StiWebForm.ProcessRequest(data);
+                    return result.ContentType switch
+                    {
+                        "application/pdf" => new FileContentResult(result.Content as byte[], result.ContentType),
+                        _ => Json(result.Content),
+                    };
+            }
+        }
+        catch (Exception e)
+        {
+            return new ContentResult()
+            {
+                Content = e.Message,
+                ContentType = "text/plain"
+            };    
+        }
+    }
 }
 ```
 
@@ -112,26 +112,26 @@ ng new sti-forms-designer --routing false --style css
 ```json
 
 "build": {
-"options": {
-"styles": [
-"src/styles.css",
-"node_modules/primeicons/primeicons.css",
-"node_modules/primeng/resources/primeng.min.css",
-"node_modules/stimulsoft-forms/theme.css"
-]},
-
-"configurations": {
-"production": {
-"budgets": [
-{
-"type": "initial",
-"maximumWarning": "500kb",
-"maximumError": "5mb"
-}]
-}   
-}
-}
-}
+    "options": {
+        "styles": [
+            "src/styles.css",
+            "node_modules/primeicons/primeicons.css",
+            "node_modules/primeng/resources/primeng.min.css",
+            "node_modules/stimulsoft-forms/theme.css"
+        ]},
+        
+        "configurations": {
+            "production": {
+                "budgets": [
+                    {
+                        "type": "initial",
+                        "maximumWarning": "500kb",
+                        "maximumError": "5mb"
+                    }]
+                }   
+            }
+        }
+    }
 }
 ```
 
@@ -153,19 +153,19 @@ import { AppComponent } from './app.component';
 
 
 @NgModule({
-declarations: [
-AppComponent
-],
-imports: [
-BrowserModule,
-HttpClientModule,
-FormsModule,
-BrowserAnimationsModule,
-DropdownModule,
-StimulsoftFormsModule
-],
-providers: [],
-bootstrap: [AppComponent]
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        DropdownModule,
+        StimulsoftFormsModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 ```
 
@@ -180,23 +180,23 @@ import { Component } from '@angular/core';
 import { StimulsoftFormsService } from 'stimulsoft-forms';
 
 @Component({
-selector: 'app-root',
-template: `
-<stimulsoft-forms
-[requestUrl]="'http://localhost:7536/Forms/Action'" /*URL to Forms controller, you can find this url in launchSettings.json file of the project*/
-[form]="form" /*StiForm object to use to create form object using StimulsoftFormsService*/
-[style.width]="'100%'"
-[style.height]="'100%'">
-</stimulsoft-forms>
+    selector: 'app-root',
+    template: `
+        <stimulsoft-forms
+            [requestUrl]="'http://localhost:7536/Forms/Action'" /*URL to Forms controller, you can find this url in launchSettings.json file of the project*/
+            [form]="form" /*StiForm object to use to create form object using StimulsoftFormsService*/
+            [style.width]="'100%'"
+            [style.height]="'100%'">
+        </stimulsoft-forms>
 `
 })
 
 export class AppComponent {
-public form!: any;
+    public form!: any;
 
-constructor(public formService: StimulsoftFormsService) {
-this.form = this.formService.createElement("Form");
-}
+    constructor(public formService: StimulsoftFormsService) {
+        this.form = this.formService.createElement("Form");
+    }
 }
 ```
 
@@ -210,14 +210,14 @@ this.form = this.formService.createElement("Form");
 <!doctype html>
 <html lang="en" style="position: fixed;width:100%;height:100%">
 <head>
-<meta charset="utf-8">
-<title>StiFormsDesigner</title>
-<base href="/">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta charset="utf-8">
+    <title>StiFormsDesigner</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body style="width:100%;height:100%">
-<app-root></app-root>
+    <app-root></app-root>
 </body>
 </html>
 ```

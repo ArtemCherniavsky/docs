@@ -15,10 +15,10 @@ In any of the above actions, you can work with the report template, for example,
 ```
 ...
 @Html.StiNetCoreDesigner(new StiNetCoreDesignerOptions() {
-Actions =
-{
-ExportReport = "ExportReport"
-}
+    Actions =
+    {
+        ExportReport = "ExportReport"
+    }
 })
 ...
 ```
@@ -30,10 +30,10 @@ ExportReport = "ExportReport"
 ...
 public IActionResult OnPostExportReport()
 {
-StiReport report = StiNetCoreDesigner.GetActionReportObject(this);
-// ...
-
-return StiNetCoreDesigner.ExportReportResult(this, report);
+    StiReport report = StiNetCoreDesigner.GetActionReportObject(this);
+    // ...
+    
+    return StiNetCoreDesigner.ExportReportResult(this, report);
 }
 ...
 ```

@@ -8,8 +8,8 @@ The **Flash Designer** component supports the complete localization of its inter
 ```
 ...
 @Html.Stimulsoft().StiMvcDesignerFx("MvcDesignerFx1",
-new StiMvcDesignerFxOptions() {
-Localization = "~/Content/Localization/en.xml"
+    new StiMvcDesignerFxOptions() {
+        Localization = "~/Content/Localization/en.xml"
 })
 ...
 ```
@@ -22,12 +22,12 @@ If you need to control loading the localization, you need to define a special ac
 ```
 ...
 @Html.Stimulsoft().StiMvcDesignerFx("MvcDesignerFx1",
-new StiMvcDesignerFxOptions() {
-Actions =
-{
-GetLocalization = "GetLocalization"
-},
-Localization = "~/Content/Localization/en.xml"
+    new StiMvcDesignerFxOptions() {
+        Actions =
+        {
+            GetLocalization = "GetLocalization"
+        },
+        Localization = "~/Content/Localization/en.xml"
 })
 ...
 ```
@@ -39,9 +39,9 @@ Localization = "~/Content/Localization/en.xml"
 ...
 public ActionResult GetLocalization()
 {
-return StiMvcDesignerFx.GetLocalizationResult();
-//return StiMvcDesignerFx.GetLocalizationResult(path);
-//return StiMvcDesignerFx.GetLocalizationResult(xml);
+    return StiMvcDesignerFx.GetLocalizationResult();
+    //return StiMvcDesignerFx.GetLocalizationResult(path);
+    //return StiMvcDesignerFx.GetLocalizationResult(xml);
 }
 ...
 ```
@@ -54,9 +54,9 @@ The interface of the report designer allows you to select the necessary localiza
 ```
 ...
 @Html.Stimulsoft().StiMvcDesignerFx("MvcDesignerFx1",
-new StiMvcDesignerFxOptions() {
-Localization = "~/Content/Localization/en.xml",
-LocalizationDirectory = "~/Content/Localization"
+    new StiMvcDesignerFxOptions() {
+        Localization = "~/Content/Localization/en.xml",
+        LocalizationDirectory = "~/Content/Localization"
 })
 ...
 ```

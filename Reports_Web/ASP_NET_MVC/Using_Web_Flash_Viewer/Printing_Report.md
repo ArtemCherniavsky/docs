@@ -35,13 +35,13 @@ If you choose to print a report on the panel of the viewer, a print dialog with 
 ```
 ...
 @Html.Stimulsoft().StiMvcViewerFx("MvcViewerFx1",
-new StiMvcViewerFxOptions() {
-Print =
-{
-AllowDefaultPrint = false,
-AllowPrintToHtml = false,
-AllowPrintToPdf = true
-}
+    new StiMvcViewerFxOptions() {
+        Print =
+        {
+            AllowDefaultPrint = false,
+            AllowPrintToHtml = false,
+            AllowPrintToPdf = true
+        }
 })
 ...
 ```
@@ -54,11 +54,11 @@ The **Flash Viewer** component can disable the embedded report printing dialog. 
 ```
 ...
 @Html.Stimulsoft().StiMvcViewerFx("MvcViewerFx1",
-new StiMvcViewerFxOptions() {
-Print =
-{
-ShowPrintDialog = false
-}
+    new StiMvcViewerFxOptions() {
+        Print =
+        {
+            ShowPrintDialog = false
+        }
 })
 ...
 ```
@@ -71,11 +71,11 @@ Also, the **Flash Viewer** component has the ability to completely disable repor
 ```
 ...
 @Html.Stimulsoft().StiMvcViewerFx("MvcViewerFx1",
-new StiMvcViewerFxOptions() {
-Toolbar =
-{
-ShowPrintButton = false
-}
+    new StiMvcViewerFxOptions() {
+        Toolbar =
+        {
+            ShowPrintButton = false
+        }
 })
 ...
 ```
@@ -88,13 +88,13 @@ When printing in **Default** mode, the **Flash Viewer** component allows you to 
 ```
 ...
 @Html.Stimulsoft().StiMvcViewerFx("MvcViewerFx1",
-new StiMvcViewerFxOptions() {
-Print =
-{
-AutoPageOrientation = true,
-AutoPageScale = true,
-PrintAsBitmap = true
-}
+    new StiMvcViewerFxOptions() {
+        Print =
+        {
+            AutoPageOrientation = true,
+            AutoPageScale = true,
+            PrintAsBitmap = true
+        }
 })
 ...
 ```

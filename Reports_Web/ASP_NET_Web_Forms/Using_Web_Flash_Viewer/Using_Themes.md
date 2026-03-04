@@ -8,7 +8,7 @@ The **Flash Viewer** component can change the appearance of visual controls. To 
 ```
 ...
 <cc1:StiWebViewerFx ID="StiWebViewerFx1" runat="server"
-Theme="Office2022">
+    Theme="Office2022">
 </cc1:StiWebViewerFx>
 ...
 ```

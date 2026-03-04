@@ -13,10 +13,10 @@ The viewer offers two report display modes: with and without scrollbars. By defa
 ```php
 
 <?php
-use Stimulsoft\Viewer\StiViewer;
-
-$viewer = new StiViewer();
-$viewer->options->appearance->scrollbarsMode = true;
+    use Stimulsoft\Viewer\StiViewer;
+    
+    $viewer = new StiViewer();
+    $viewer->options->appearance->scrollbarsMode = true;
 ?>
 ```
 
@@ -37,10 +37,10 @@ The viewer supports full-screen mode for viewing reports and dashboards. By defa
 ```php
 
 <?php
-use Stimulsoft\Viewer\StiViewer;
-
-$viewer = new StiViewer();
-$viewer->options->appearance->fullScreenMode = true;
+    use Stimulsoft\Viewer\StiViewer;
+    
+    $viewer = new StiViewer();
+    $viewer->options->appearance->fullScreenMode = true;
 ?>
 ```
 
@@ -65,11 +65,11 @@ For example, to enable the continuous scroll mode:
 ```php
 
 <?php
-use Stimulsoft\Viewer\StiViewer;
-use Stimulsoft\Viewer\Enums\StiWebViewMode;
-
-$viewer = new StiViewer();
-$viewer->options->toolbar->viewMode = StiWebViewMode::Continuous;
+    use Stimulsoft\Viewer\StiViewer;
+    use Stimulsoft\Viewer\Enums\StiWebViewMode;
+    
+    $viewer = new StiViewer();
+    $viewer->options->toolbar->viewMode = StiWebViewMode::Continuous;
 ?>
 ```
 
@@ -93,10 +93,10 @@ For example, to completely disable mobile mode:
 ```php
 
 <?php
-use Stimulsoft\Viewer\StiViewer;
-use Stimulsoft\Viewer\Enums\StiInterfaceType;
-
-$viewer = new StiViewer();
-$viewer->options->appearance->interfaceType = StiInterfaceType::Mouse;
+    use Stimulsoft\Viewer\StiViewer;
+    use Stimulsoft\Viewer\Enums\StiInterfaceType;
+    
+    $viewer = new StiViewer();
+    $viewer->options->appearance->interfaceType = StiInterfaceType::Mouse;
 ?>
 ```

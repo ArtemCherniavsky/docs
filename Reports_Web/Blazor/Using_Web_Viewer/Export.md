@@ -19,11 +19,11 @@ If you need to make any actions before exporting a report, you can set the speci
 
 @code
 {
-private void OnExportReport(StiExportReportEventArgs args)
-{
-// Some code before export
-// ...
-}
+    private void OnExportReport(StiExportReportEventArgs args)
+    {
+        // Some code before export
+        // ...
+    }
 }
 ```
 
@@ -43,24 +43,24 @@ Each report export format of the Blazor Viewer has a lot of settings, and each s
 
 @code
 {
-//Options object
-private StiBlazorViewerOptions Options;
+    //Options object
+    private StiBlazorViewerOptions Options;
 
-protected override void OnInitialized()
-{
-base.OnInitialized();
-
-//Init options object
-Options = new StiBlazorViewerOptions();
-
-//PDF default settings
-Options.Exports.DefaultSettings.ExportToPdf.ImageQuality = 0.75f;
-Options.Exports.DefaultSettings.ExportToPdf.ImageFormat = Stimulsoft.Report.Export.StiImageFormat.Color;
-
-//HTML default settings
-Options.Exports.DefaultSettings.ExportToHtml.UseEmbeddedImages = true;
-Options.Exports.DefaultSettings.ExportToHtml.ExportMode = Stimulsoft.Report.Export.StiHtmlExportMode.Div;
-}
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        
+        //Init options object
+        Options = new StiBlazorViewerOptions();
+        
+        //PDF default settings
+        Options.Exports.DefaultSettings.ExportToPdf.ImageQuality = 0.75f;
+        Options.Exports.DefaultSettings.ExportToPdf.ImageFormat = Stimulsoft.Report.Export.StiImageFormat.Color;
+        
+        //HTML default settings
+        Options.Exports.DefaultSettings.ExportToHtml.UseEmbeddedImages = true;
+        Options.Exports.DefaultSettings.ExportToHtml.ExportMode = Stimulsoft.Report.Export.StiHtmlExportMode.Div;
+    }
 }
 ```
 
@@ -78,17 +78,17 @@ If required, you can completely hide the display of the export dialog windows. T
 
 @code
 {
-//Options object
-private StiBlazorViewerOptions Options;
-
-protected override void OnInitialized()
-{
-base.OnInitialized();
-
-//Init options object
-Options = new StiBlazorViewerOptions();
-Options.Exports.ShowExportDialog = false;
-}
+    //Options object
+    private StiBlazorViewerOptions Options;
+    
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        
+        //Init options object
+        Options = new StiBlazorViewerOptions();
+        Options.Exports.ShowExportDialog = false;
+    }
 }
 ```
 
@@ -106,37 +106,37 @@ The **Blazor Viewer** component contains about 20 various export formats, and so
 
 @code
 {
-//Options object
-private StiBlazorViewerOptions Options;
-
-protected override void OnInitialized()
-{
-base.OnInitialized();
-
-//Init options object
-Options = new StiBlazorViewerOptions();
-Options.Exports.ShowExportDialog = true;
-Options.Exports.ShowExportToDocument = true;
-Options.Exports.ShowExportToPdf = true;
-Options.Exports.ShowExportToXps = true;
-Options.Exports.ShowExportToPowerPoint = true;
-Options.Exports.ShowExportToHtml = true;
-Options.Exports.ShowExportToHtml5 = true;
-Options.Exports.ShowExportToMht = true;
-Options.Exports.ShowExportToText = true;
-Options.Exports.ShowExportToRtf = true;
-Options.Exports.ShowExportToWord2007 = true;
-Options.Exports.ShowExportToOpenDocumentWriter = true;
-Options.Exports.ShowExportToExcel = true;
-Options.Exports.ShowExportToExcelXml = true;
-Options.Exports.ShowExportToExcel2007 = true;
-Options.Exports.ShowExportToOpenDocumentCalc = true;
-Options.Exports.ShowExportToCsv = true;
-Options.Exports.ShowExportToDbf = true;
-Options.Exports.ShowExportToXml = true;
-Options.Exports.ShowExportToDif = true;
-Options.Exports.ShowExportToSylk = true;
-}
+    //Options object
+    private StiBlazorViewerOptions Options;
+    
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        
+        //Init options object
+        Options = new StiBlazorViewerOptions();
+        Options.Exports.ShowExportDialog = true;
+        Options.Exports.ShowExportToDocument = true;
+        Options.Exports.ShowExportToPdf = true;
+        Options.Exports.ShowExportToXps = true;
+        Options.Exports.ShowExportToPowerPoint = true;
+        Options.Exports.ShowExportToHtml = true;
+        Options.Exports.ShowExportToHtml5 = true;
+        Options.Exports.ShowExportToMht = true;
+        Options.Exports.ShowExportToText = true;
+        Options.Exports.ShowExportToRtf = true;
+        Options.Exports.ShowExportToWord2007 = true;
+        Options.Exports.ShowExportToOpenDocumentWriter = true;
+        Options.Exports.ShowExportToExcel = true;
+        Options.Exports.ShowExportToExcelXml = true;
+        Options.Exports.ShowExportToExcel2007 = true;
+        Options.Exports.ShowExportToOpenDocumentCalc = true;
+        Options.Exports.ShowExportToCsv = true;
+        Options.Exports.ShowExportToDbf = true;
+        Options.Exports.ShowExportToXml = true;
+        Options.Exports.ShowExportToDif = true;
+        Options.Exports.ShowExportToSylk = true;
+    }
 }
 ```
 
@@ -154,16 +154,16 @@ The **Blazor Viewer** component has a feature, which allows you to disable the r
 
 @code
 {
-//Options object
-private StiBlazorViewerOptions Options;
-
-protected override void OnInitialized()
-{
-base.OnInitialized();
-
-//Init options object
-Options = new StiBlazorViewerOptions();
-Options.Toolbar.ShowSaveButton = false;
-}
+    //Options object
+    private StiBlazorViewerOptions Options;
+    
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        
+        //Init options object
+        Options = new StiBlazorViewerOptions();
+        Options.Toolbar.ShowSaveButton = false;
+    }
 }
 ```

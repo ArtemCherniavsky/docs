@@ -15,27 +15,27 @@ Example of connecting data on the client-side using JavaScript for report previe
 ```php
 
 <?php
-use Stimulsoft\Report\StiReport;
-use Stimulsoft\Designer\StiDesigner;
-
-$designer = new StiDesigner();
-$designer->onPreviewReport = 'previewReport';
-$designer->process();
-
-$report = new StiReport();
-$report->loadFile('reports/SimpleList.mrt'); 
-$designer->report = $report;
+    use Stimulsoft\Report\StiReport;
+    use Stimulsoft\Designer\StiDesigner;
+    
+    $designer = new StiDesigner();
+    $designer->onPreviewReport = 'previewReport';
+    $designer->process();
+    
+    $report = new StiReport();
+    $report->loadFile('reports/SimpleList.mrt'); 
+    $designer->report = $report;
 ?>
 
 ...
 
 <script>
-function previewReport(args) {
-let dataSet = new Stimulsoft.System.Data.DataSet("SimpleDataSet");
-dataSet.readJsonFile("Data/Demo.json");
-
-args.report.regData(dataSet.dataSetName, "", dataSet);
-}
+    function previewReport(args) {
+        let dataSet = new Stimulsoft.System.Data.DataSet("SimpleDataSet");
+        dataSet.readJsonFile("Data/Demo.json");
+        
+        args.report.regData(dataSet.dataSetName, "", dataSet);
+    }
 </script>
 ```
 
@@ -47,21 +47,21 @@ Example of modifying report properties on the PHP server-side before report prev
 ```php
 
 <?php
-use Stimulsoft\Report\StiReport;
-use Stimulsoft\Designer\StiDesigner;
-
-$designer = new StiDesigner();
-$designer->onPreviewReport = function (StiReportEventArgs $args) {
-$args->report->ReportDescription = 'This is a report description from the PHP server-side.';
-};
-
-$designer->process();
-
-$report = new StiReport();
-$report->loadFile('reports/SimpleList.mrt'); 
-$designer->report = $report;
-
-$designer->printHtml();
+    use Stimulsoft\Report\StiReport;
+    use Stimulsoft\Designer\StiDesigner;
+    
+    $designer = new StiDesigner();
+    $designer->onPreviewReport = function (StiReportEventArgs $args) {
+        $args->report->ReportDescription = 'This is a report description from the PHP server-side.';
+    };
+    
+    $designer->process();
+    
+    $report = new StiReport();
+    $report->loadFile('reports/SimpleList.mrt'); 
+    $designer->report = $report;
+    
+    $designer->printHtml();
 ?>
 ```
 

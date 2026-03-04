@@ -17,24 +17,24 @@ Example of modifying a string and an integer value of selected variables on the 
 ```php
 
 <?php
-use Stimulsoft\Report\StiReport;
-
-$report = new StiReport();
-$report->onBeforeRender = 'beforeRender'; 
-$report->loadFile('reports/Variables.mrt');
-$report->render();
+    use Stimulsoft\Report\StiReport;
+    
+    $report = new StiReport();
+    $report->onBeforeRender = 'beforeRender'; 
+    $report->loadFile('reports/Variables.mrt');
+    $report->render();
 ?>
 
 <script>
-function beforeRender(args) {
-let report = args.report;
-
-let variableString = report.dictionary.variables.getByName("VariableString");
-variableString.value = "Text value";
-
-let variableInt = report.dictionary.variables.getByName("VariableInt");
-variableInt.value = "20";
-}
+    function beforeRender(args) {
+        let report = args.report;
+        
+        let variableString = report.dictionary.variables.getByName("VariableString");
+        variableString.value = "Text value";
+        
+        let variableInt = report.dictionary.variables.getByName("VariableInt");
+        variableInt.value = "20";
+    }
 </script>
 ```
 
@@ -58,18 +58,18 @@ On the JavaScript client-side, the collection of variables is represented as an 
 ```php
 
 <script>
-function prepareVariables(args) {      
-args.variables = [
-{
-name: "VariableString",
-type: "String",
-value: "Text value"
-},
-{
-name: "VariableInt",
-type: "Int32",
-value: 20
-}
+    function prepareVariables(args) {      
+        args.variables = [
+            {
+                name: "VariableString",
+                type: "String",
+                value: "Text value"
+            },
+            {
+                name: "VariableInt",
+                type: "Int32",
+                value: 20
+            }
     ]};
 </script>
 ```
@@ -82,23 +82,23 @@ Example of modifying a variable on the JavaScript client-side:
 ```php
 
 <?php
-use Stimulsoft\Report\StiReport;
-
-$report = new StiReport();
-$report->onPrepareVariables = 'prepareVariables'; 
-$report->loadFile('reports/Variables.mrt');
-$report->render();
+    use Stimulsoft\Report\StiReport;
+    
+    $report = new StiReport();
+    $report->onPrepareVariables = 'prepareVariables'; 
+    $report->loadFile('reports/Variables.mrt');
+    $report->render();
 ?>
 
 ...
 
 <script>
-function prepareVariables(args) {
-let variables = args.variables;
+    function prepareVariables(args) {
+        let variables = args.variables;
 
-variables.find(item => item.name == "VariableString").value = "Text value";
-variables.find(item => item.name == "VariableInt").value = 20;
-}
+        variables.find(item => item.name == "VariableString").value = "Text value";
+        variables.find(item => item.name == "VariableInt").value = 20;
+    }
 </script>
 ```
 
@@ -113,15 +113,15 @@ Example of modifying a variable on the PHP server-side:
 ```php
 
 <?php
-use Stimulsoft\Events\StiVariablesEventArgs;
-use Stimulsoft\Report\StiReport;
-
-$report = new StiReport();
-$report->onPrepareVariables = function (StiVariablesEventArgs $args) {
-$args->variables['VariableString']->value = 'Text value';
-$args->variables['VariableInt']->value = 20;
-};$report->loadFile('reports/Variables.mrt');
-$report->render();
+    use Stimulsoft\Events\StiVariablesEventArgs;
+    use Stimulsoft\Report\StiReport;
+    
+    $report = new StiReport();
+    $report->onPrepareVariables = function (StiVariablesEventArgs $args) {
+        $args->variables['VariableString']->value = 'Text value';
+        $args->variables['VariableInt']->value = 20;
+    };$report->loadFile('reports/Variables.mrt');
+    $report->render();
 ?>
 ```
 
@@ -188,11 +188,11 @@ The report generator has the ability to automatically assign values to variables
 ```php
 
 <?php
-use Stimulsoft\Report\StiReport;
-
-$report = new StiReport();    
-$report->handler->passQueryParametersToReport = true;
-$report->process();
+    use Stimulsoft\Report\StiReport;
+    
+    $report = new StiReport();    
+    $report->handler->passQueryParametersToReport = true;
+    $report->process();
 ?>
 ```
 

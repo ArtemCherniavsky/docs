@@ -9,12 +9,12 @@ The **Angular Viewer** component has two modes for displaying reports - with and
 ...
 public IActionResult InitViewer()
 {
-var requestParams = StiAngularViewer.GetRequestParams(this);
-var options = new StiAngularViewerOptions();
-options.Actions.ViewerEvent = "ViewerEvent";
-options.Appearance.ScrollbarsMode = true;
-
-return StiAngularViewer.ViewerDataResult(requestParams, options);
+    var requestParams = StiAngularViewer.GetRequestParams(this);
+    var options = new StiAngularViewerOptions();
+    options.Actions.ViewerEvent = "ViewerEvent";
+    options.Appearance.ScrollbarsMode = true;
+    
+    return StiAngularViewer.ViewerDataResult(requestParams, options);
 }
 ...
 ```
@@ -38,12 +38,12 @@ The **Angular Viewer** component provides the full-screen report mode. By defaul
 ...
 public IActionResult InitViewer()
 {
-var requestParams = StiAngularViewer.GetRequestParams(this);
-var options = new StiAngularViewerOptions();
-options.Actions.ViewerEvent = "ViewerEvent";
-options.Appearance. FullScreenMode = true;
-
-return StiAngularViewer.ViewerDataResult(requestParams, options);
+    var requestParams = StiAngularViewer.GetRequestParams(this);
+    var options = new StiAngularViewerOptions();
+    options.Actions.ViewerEvent = "ViewerEvent";
+    options.Appearance. FullScreenMode = true;
+    
+    return StiAngularViewer.ViewerDataResult(requestParams, options);
 }
 ...
 ```
@@ -87,12 +87,12 @@ public IActionResult InitViewer()
 ...
 public IActionResult InitViewer()
 {
-var requestParams = StiAngularViewer.GetRequestParams(this);
-var options = new StiAngularViewerOptions();
-options.Actions.ViewerEvent = "ViewerEvent";
-options.Appearance.InterfaceType = StiInterfaceType.Auto;
-
-return StiAngularViewer.ViewerDataResult(requestParams, options);
+    var requestParams = StiAngularViewer.GetRequestParams(this);
+    var options = new StiAngularViewerOptions();
+    options.Actions.ViewerEvent = "ViewerEvent";
+    options.Appearance.InterfaceType = StiInterfaceType.Auto;
+    
+    return StiAngularViewer.ViewerDataResult(requestParams, options);
 }
 ...
 ```

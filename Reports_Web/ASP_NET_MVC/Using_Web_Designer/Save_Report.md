@@ -17,11 +17,11 @@ To save the editable report on the server-side, you need to set the **SaveReport
 ```
 ...
 @Html.Stimulsoft().StiMvcDesigner("MvcDesigner1", 
-new StiMvcDesignerOptions() {
-Actions =
-{
-SaveReport = "SaveReport"
-}
+    new StiMvcDesignerOptions() {
+        Actions =
+        {
+            SaveReport = "SaveReport"
+        }
 })
 ...
 ```
@@ -33,12 +33,12 @@ SaveReport = "SaveReport"
 ...
 public ActionResult SaveReport()
 {
-StiReport report = StiMvcDesigner.GetReportObject();
+    StiReport report = StiMvcDesigner.GetReportObject();
+        
+    // Save the report template
+    // ...
     
-// Save the report template
-// ...
-
-return StiMvcDesigner.SaveReportResult();
+    return StiMvcDesigner.SaveReportResult();
 }
 ...
 ```
@@ -52,13 +52,13 @@ This action returns a response to the client-side of the designer about the resu
 ...
 public ActionResult SaveReport()
 {
-StiReport report = StiMvcDesigner.GetReportObject();
+    StiReport report = StiMvcDesigner.GetReportObject();
+        
+    // Save the report template
+    // ...
     
-// Save the report template
-// ...
-
-// Completion of the report saving with message dialog box
-return StiMvcDesigner.SaveReportResult("Some message after saving");
+    // Completion of the report saving with message dialog box
+    return StiMvcDesigner.SaveReportResult("Some message after saving");
 }
 ...
 ```
@@ -72,16 +72,16 @@ You can get a report name from the designer save dialog or an original report na
 ...
 public ActionResult SaveReport()
 {
-var requestParams = StiMvcDesigner.GetRequestParams();
-var report = StiMvcDesigner.GetReportObject();
-
-//Report name from designer save dialog
-var savingReportName = requestParams.Designer.FileName; 
-
-//Original report name from properties
-var originalReportName = report.ReportName; 
-
-return StiMvcDesigner.SaveReportResult();
+    var requestParams = StiMvcDesigner.GetRequestParams();
+    var report = StiMvcDesigner.GetReportObject();
+    
+    //Report name from designer save dialog
+    var savingReportName = requestParams.Designer.FileName; 
+    
+    //Original report name from properties
+    var originalReportName = report.ReportName; 
+    
+    return StiMvcDesigner.SaveReportResult();
 }
 ...
 ```
@@ -107,11 +107,11 @@ The **HTML5 Designer** component provides the ability to change the behavior of 
 ```
 ...
 @Html.Stimulsoft().StiMvcDesigner("MvcDesigner1", 
-new StiMvcDesignerOptions() {
-Actions =
-{
-SaveReportAs = "SaveReportAs"
-}
+    new StiMvcDesignerOptions() {
+        Actions =
+        {
+            SaveReportAs = "SaveReportAs"
+        }
 })
 ...
 ```
@@ -123,12 +123,12 @@ SaveReportAs = "SaveReportAs"
 ...
 public ActionResult SaveReportAs()
 {
-StiReport report = StiMvcDesigner.GetReportObject();
+    StiReport report = StiMvcDesigner.GetReportObject();
+        
+    // Save the report template
+    // ...
     
-// Save the report template
-// ...
-
-return StiMvcDesigner.SaveReportResult();
+    return StiMvcDesigner.SaveReportResult();
 }
 ...
 ```
@@ -143,15 +143,15 @@ The report is saved in the background mode without reloading the page in the web
 ```
 ...
 @Html.Stimulsoft().StiMvcDesigner("MvcDesigner1", 
-new StiMvcDesignerOptions() {
-Actions =
-{
-SaveReportAs = "SaveReportAs"
-},
-Behavior =
-{
-SaveReportAsMode = StiSaveMode.Visible
-}
+    new StiMvcDesignerOptions() {
+        Actions =
+        {
+            SaveReportAs = "SaveReportAs"
+        },
+        Behavior =
+        {
+            SaveReportAsMode = StiSaveMode.Visible
+        }
 })
 ...
 ```

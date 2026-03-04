@@ -19,17 +19,17 @@ By default, the width of the bookmark panel is 180 pixels; the **Blazor Viewer**
 
 @code
 {
-//Options object
-private StiBlazorViewerOptions Options;
-
-protected override void OnInitialized()
-{
-base.OnInitialized();
-
-//Init options object
-Options = new StiBlazorViewerOptions();
-Options.Appearance.BookmarksTreeWidth = 200;
-}
+    //Options object
+    private StiBlazorViewerOptions Options;
+    
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        
+        //Init options object
+        Options = new StiBlazorViewerOptions();
+        Options.Appearance.BookmarksTreeWidth = 200;
+    }
 }
 ```
 
@@ -47,17 +47,17 @@ If the work with report bookmarks is not requested, you can completely disable t
 
 @code
 {
-//Options object
-private StiBlazorViewerOptions Options;
-
-protected override void OnInitialized()
-{
-base.OnInitialized();
-
-//Init options object
-Options = new StiBlazorViewerOptions();
-Options.Toolbar.ShowBookmarksButton = false;
-}
+    //Options object
+    private StiBlazorViewerOptions Options;
+    
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        
+        //Init options object
+        Options = new StiBlazorViewerOptions();
+        Options.Toolbar.ShowBookmarksButton = false;
+    }
 }
 ```
 
@@ -80,18 +80,18 @@ When printing a report with bookmarks, the tree of bookmarks will be hidden. If 
 
 @code
 {
-//Options object
-private StiBlazorViewerOptions options;
-
-protected override void OnInitialized()
-{
-base.OnInitialized();
-
-Stimulsoft.Base.StiFontCollection.AddFontFile("Fonts/Microsoft Sans Serif.ttf", "Segoe UI");
-
-//Init options object
-options = new StiBlazorViewerOptions();
-options.Appearance.BookmarksPrint = true;
-}
+    //Options object
+    private StiBlazorViewerOptions options;
+    
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        
+        Stimulsoft.Base.StiFontCollection.AddFontFile("Fonts/Microsoft Sans Serif.ttf", "Segoe UI");
+        
+        //Init options object
+        options = new StiBlazorViewerOptions();
+        options.Appearance.BookmarksPrint = true;
+    }
 }
 ```

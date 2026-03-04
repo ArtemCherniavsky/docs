@@ -11,7 +11,7 @@ In any of the above actions, you can work with the report template, for example,
 ```
 ...
 <cc1:StiWebDesignerFx ID="StiWebDesignerFx1" runat="server"
-OnExportReport="StiWebDesignerFx1_ExportReport">
+    OnExportReport="StiWebDesignerFx1_ExportReport">
 </cc1:StiWebDesignerFx>
 ...
 ```
@@ -23,8 +23,8 @@ OnExportReport="StiWebDesignerFx1_ExportReport">
 ...
 protected void StiWebDesignerFx1_ExportReport(object sender, StiReportDataEventArgs e)
 {
-e.Report.ReportName = "MyReportName";
-e.Report.ReportAlias = "MyReportAlias";
+    e.Report.ReportName = "MyReportName";
+    e.Report.ReportAlias = "MyReportAlias";
 }
 ...
 ```

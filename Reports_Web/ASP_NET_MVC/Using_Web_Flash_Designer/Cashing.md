@@ -43,39 +43,39 @@ The **Flash Designer** component provides the ability to specify its own methods
 ...
 public class DesignerFxController : Controller
 {
-public class StiMyCacheHelper : StiCacheHelper
-{
-public override StiReport GetReport(string guid)
-{
-string path = System.IO.Path.Combine(System.Web.HttpContext.Current.Server.MapPath("~/"), "CacheFiles", guid);
-if (System.IO.File.Exists(path))
-{
-StiReport report = new StiReport();
-string packedReport = System.IO.File.ReadAllText(path);
-if (guid.EndsWith("template")) report.LoadPackedReportFromString(packedReport);
-else report.LoadPackedDocumentFromString(packedReport);
+    public class StiMyCacheHelper : StiCacheHelper
+    {
+        public override StiReport GetReport(string guid)
+        {
+            string path = System.IO.Path.Combine(System.Web.HttpContext.Current.Server.MapPath("~/"), "CacheFiles", guid);
+            if (System.IO.File.Exists(path))
+            {
+                StiReport report = new StiReport();
+                string packedReport = System.IO.File.ReadAllText(path);
+                if (guid.EndsWith("template")) report.LoadPackedReportFromString(packedReport);
+                else report.LoadPackedDocumentFromString(packedReport);
+                
+                return report;
+            }
+            return null;
 
-return report;
-}
-return null;
+            //return base.GetReport(guid);
+        }
 
-//return base.GetReport(guid);
-}
-
-public override void SaveReport(StiReport report, string guid)
-{
-string packedReport = guid.EndsWith("template") ? report.SavePackedReportToString() : report.SavePackedDocumentToString();
-string path = System.IO.Path.Combine(System.Web.HttpContext.Current.Server.MapPath("~/"), "CacheFiles", guid);
-System.IO.File.WriteAllText(path, packedReport);
-
-//base.SaveReport(report, guid);
-}
-}
+        public override void SaveReport(StiReport report, string guid)
+        {
+            string packedReport = guid.EndsWith("template") ? report.SavePackedReportToString() : report.SavePackedDocumentToString();
+            string path = System.IO.Path.Combine(System.Web.HttpContext.Current.Server.MapPath("~/"), "CacheFiles", guid);
+            System.IO.File.WriteAllText(path, packedReport);
+            
+            //base.SaveReport(report, guid);
+        }
+    }
         
-static DesignerFxController()
-{
-StiMvcDesignerFx.CacheHelper = new StiMyCacheHelper();
-}
+    static DesignerFxController()
+    {
+        StiMvcDesignerFx.CacheHelper = new StiMyCacheHelper();
+    }
 }
 ...
 ```

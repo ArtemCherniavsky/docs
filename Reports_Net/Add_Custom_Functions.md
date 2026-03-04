@@ -20,9 +20,9 @@ new[] { "A set of values" }).UseFullPath = false;
 ...
 public static decimal MySum(object value)
 {
-if (!ListExt.IsList(value))
-return Stimulsoft.Base.Helpers.StiValueHelper.TryToDecimal(value);
-return Stimulsoft.Data.Functions.Funcs.SkipNulls(ListExt.ToList(value)).TryCastToDecimal().Sum();
+    if (!ListExt.IsList(value))
+    return Stimulsoft.Base.Helpers.StiValueHelper.TryToDecimal(value);
+    return Stimulsoft.Data.Functions.Funcs.SkipNulls(ListExt.ToList(value)).TryCastToDecimal().Sum();
 }
 ...
 ```

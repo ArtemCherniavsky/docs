@@ -12,9 +12,9 @@ To activate from a code string, simply copy the encrypted license text from  [yo
 ```php
 
 <?php
-use Stimulsoft\StiLicense;
+    use Stimulsoft\StiLicense;
 
-StiLicense::setPrimaryKey('Your activation code...');
+    StiLicense::setPrimaryKey('Your activation code...');
 ?>
 ```
 
@@ -30,9 +30,9 @@ To activate using a license file, download the `license.key` file from  [your pe
 ```php
 
 <?php
-use Stimulsoft\StiLicense;
+    use Stimulsoft\StiLicense;
 
-StiLicense::setPrimaryFile('license.key');
+    StiLicense::setPrimaryFile('license.key');
 ?>
 ```
 
@@ -48,11 +48,11 @@ In some cases, you may need to activate the report generator separately from oth
 ```php
 
 <?php
-use Stimulsoft\Report\StiReport;
+    use Stimulsoft\Report\StiReport;
 
-$report = new StiReport();
-$report->license->setKey('Your activation code...');
-$report->license->setFile('license.key');
+    $report = new StiReport();
+    $report->license->setKey('Your activation code...');
+    $report->license->setFile('license.key');
 ?>
 ```
 
@@ -69,9 +69,9 @@ If the license is activated using a code string, it can be added conditionally. 
 ```php
 
 <?php
-use Stimulsoft\StiLicense;
-if (!empty($sessionID))
-StiLicense::setPrimaryFile('Your activation code...');
+    use Stimulsoft\StiLicense;
+    if (!empty($sessionID))
+        StiLicense::setPrimaryFile('Your activation code...');
 ?>
 ```
 
@@ -83,10 +83,10 @@ Also, we recommend you change the location and name of the license key file, for
 ```php
 
 <?php
-use Stimulsoft\Report\StiReport;
-
-$report = new StiReport();
-$report->license->setFile('private/a15fc0ef64e6.key');
+    use Stimulsoft\Report\StiReport;
+    
+    $report = new StiReport();
+    $report->license->setFile('private/a15fc0ef64e6.key');
 ?>
 ```
 
@@ -100,9 +100,9 @@ If the application components are used across multiple separate files, such as a
 ```php
 
 <?php
-use Stimulsoft\StiLicense;
-
-StiLicense::setPrimaryKey('Your activation code...');
+    use Stimulsoft\StiLicense;
+    
+    StiLicense::setPrimaryKey('Your activation code...');
 ?>
 ```
 
@@ -112,12 +112,12 @@ StiLicense::setPrimaryKey('Your activation code...');
 ```php
 
 <?php
-require_once 'license.php';
-
-use Stimulsoft\Report\StiReport;
-
-$report = new StiReport();
-
-...
+    require_once 'license.php';
+    
+    use Stimulsoft\Report\StiReport;
+    
+    $report = new StiReport();
+    
+    ...
 ?>
 ```

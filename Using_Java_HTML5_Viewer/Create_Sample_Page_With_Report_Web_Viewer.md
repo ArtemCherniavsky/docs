@@ -78,6 +78,8 @@ Leave unchanged the remaining **web.xml** blocks, which defines the servlets req
 It will display empty webviewer (because of empty StiReport object). Add taglib directives in the JSP. They will work with custom tags on the page.
 
 
+**Custom Stimulsoft tag**
+
 ```
 ...
 <%@ taglib uri="http://stimulsoft.com/webviewer" prefix="stiwebviewer"%>

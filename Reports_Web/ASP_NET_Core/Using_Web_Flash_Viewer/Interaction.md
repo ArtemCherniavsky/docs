@@ -8,10 +8,10 @@ The **Flash Viewer** component supports the dynamic sorting and drill-down of re
 ```
 ...
 @Html.StiNetCoreViewerFx(new StiNetCoreViewerFxOptions() {
-Actions =
-{
-GetReport = "GetReport"
-}
+    Actions =
+    {
+        GetReport = "GetReport"
+    }
 })
 ...
 ```
@@ -23,10 +23,10 @@ GetReport = "GetReport"
 ...
 public IActionResult GetReport()
 {
-StiReport report = new StiReport();
-report.Load(StiNetCoreHelper.MapPath(this, "Reports/ReportWithParameters.mrt"));
-
-return StiNetCoreViewerFx.GetReportResult(this, report);
+    StiReport report = new StiReport();
+    report.Load(StiNetCoreHelper.MapPath(this, "Reports/ReportWithParameters.mrt"));
+    
+    return StiNetCoreViewerFx.GetReportResult(this, report);
 }
 ...
 ```

@@ -23,12 +23,12 @@ designer.onSaveReport += 'saveReport'
 ```html
 
 <script>
-function saveReport(args) {
-let fileName = args.fileName;
-let report = args.report;
-
-let jsonReport = report.saveToJsonString();
-}
+    function saveReport(args) {
+        let fileName = args.fileName;
+        let report = args.report;
+        
+        let jsonReport = report.saveToJsonString();
+    }
 </script>
 ```
 
@@ -40,16 +40,16 @@ If the event is defined, after its completion, the designer continues to work wi
 ```html
 
 <script>
-function saveReport(args) {
-let fileName = args.fileName;
-let report = args.report;
-
-// Error message
-Stimulsoft.System.StiError.showError("An error occurred while saving the report.");
-
-// Info message
-Stimulsoft.System.StiError.showError("The report was saved successfully.", true, true);
-}
+    function saveReport(args) {
+        let fileName = args.fileName;
+        let report = args.report;
+        
+        // Error message
+        Stimulsoft.System.StiError.showError("An error occurred while saving the report.");
+        
+        // Info message
+        Stimulsoft.System.StiError.showError("The report was saved successfully.", true, true);
+    }
 </script>
 ```
 
@@ -75,9 +75,9 @@ designer.onSaveAsReport += 'saveAsReport'
 ```html
 
 <script>
-function saveAsReport(args) {
-args.preventDefault = true;
-}
+    function saveAsReport(args) {
+        args.preventDefault = true;
+    }
 </script>
 ```
 
@@ -89,13 +89,13 @@ If necessary, you can access the original report name or the name from the save 
 ```html
 
 <script>
-function saveAsReport(args) {
-// Report name from the designer save dialog
-var reportName1 = args.fileName;
-
-// Original report name from properties
-var reportName2 = args.report.reportName;
-}
+    function saveAsReport(args) {
+        // Report name from the designer save dialog
+        var reportName1 = args.fileName;
+        
+        // Original report name from properties
+        var reportName2 = args.report.reportName;
+    }
 </script>
 ```
 

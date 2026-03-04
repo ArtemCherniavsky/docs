@@ -9,14 +9,16 @@ You can preview the report in the window of the Web-designer by selecting the **
 Data are required to preview a rendered report. By default, data specified in the **Dictionary** of the edited report are taken. If it is necessary, they can be overridden. Below is a sample code with which overrides the data:
 
 
+**C#**
+
 ```csharp
 ...
 protected void StiWebDesignerSL1_GetPreviewDataSet(object sender, StiWebDesignerSL.StiPreviewDataSetEventArgs e)
 {
-DataSet data = new DataSet();
-data.ReadXml("D:\\Demo.xml");
-data.ReadXmlSchema("D:\\Demo.xsd");
-e.PreviewDataSet = data;
+    DataSet data = new DataSet();
+    data.ReadXml("D:\\Demo.xml");
+    data.ReadXmlSchema("D:\\Demo.xsd");
+    e.PreviewDataSet = data;
 }
 ...
 ```

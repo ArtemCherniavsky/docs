@@ -8,16 +8,16 @@ The preview window of the **Flash Designer** component is a fully functional int
 ```
 ...
 @Html.Stimulsoft().StiMvcDesignerFx("MvcDesignerFx1", 
-new StiMvcDesignerFxOptions() {
-Actions =
-{
-ExportReport = "ExportReport",
-EmailReport = "EmailReport"
-},
-PreviewToolbar =
-{
-ShowSendEmailButton = true
-}
+    new StiMvcDesignerFxOptions() {
+        Actions =
+        {
+            ExportReport = "ExportReport",
+            EmailReport = "EmailReport"
+        },
+        PreviewToolbar =
+        {
+            ShowSendEmailButton = true
+        }
 })
 ...
 ```
@@ -29,33 +29,33 @@ ShowSendEmailButton = true
 ...
 public ActionResult ExportReport()
 {
-StiReport report = StiMvcDesignerFx.GetReportObject();
-// ...
-
-return StiMvcDesignerFx.ExportReportResult(report);
+    StiReport report = StiMvcDesignerFx.GetReportObject();
+    // ...
+    
+    return StiMvcDesignerFx.ExportReportResult(report);
 }
 
 public ActionResult EmailReport()
 {
-StiEmailOptions options = StiMvcViewerFx.GetEmailOptions();
-
-// Passed from the viewer, can be checked and changed
-// options.AddressTo = "";
-// options.Subject = "";
-// options.Body = "";
-
-// Should be filled here
-options.AddressFrom = "admin_address@test.com";
-options.Host = "smtp.test.com";
-options.Port = 465;
-options.UserName = "admin_address@test.com";
-options.Password = "admin_password";
-
-// options.CC.Add("email@test.com");
-// options.BCC.Add("email@test.com");
-// options.EnableSsl = true;
-
-return StiMvcDesignerFx.EmailReportResult(options);
+    StiEmailOptions options = StiMvcViewerFx.GetEmailOptions();
+    
+    // Passed from the viewer, can be checked and changed
+    // options.AddressTo = "";
+    // options.Subject = "";
+    // options.Body = "";
+    
+    // Should be filled here
+    options.AddressFrom = "admin_address@test.com";
+    options.Host = "smtp.test.com";
+    options.Port = 465;
+    options.UserName = "admin_address@test.com";
+    options.Password = "admin_password";
+    
+    // options.CC.Add("email@test.com");
+    // options.BCC.Add("email@test.com");
+    // options.EnableSsl = true;
+    
+    return StiMvcDesignerFx.EmailReportResult(options);
 }
 ...
 ```

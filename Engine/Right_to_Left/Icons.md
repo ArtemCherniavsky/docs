@@ -30,6 +30,8 @@ The mode of displaying the Conditions icon depends on the value of the **Conditi
 Set the **ConditionsRightToLeft** property to true to change the position of the icon:
 
 
+**C#**
+
 ```csharp
 ...
 StiOptions.Viewer.Pins.ConditionsRightToLeft = true;
@@ -48,6 +50,8 @@ Change the value of the **EventsRightToLeft** property to change the location of
 
 Set the **EventsRightToLeft** property to true to change the location of the **Events** icon.
 
+
+**C#**
 
 ```csharp
 ...
@@ -68,6 +72,8 @@ The **InheritedRightToLeft** property is used to change the location of the Inhe
 If the **InheritedRightToLeft** property is set to **true**
 
 
+**C#**
+
 ```csharp
 ...
 StiOptions.Viewer.Pins.InheritedRightToLeft = true;
@@ -86,6 +92,8 @@ The **InteractionCollapsingRightToLeft** property is used to change the location
 
 If the **InteractionCollapsingRightToLeft** property is set to **true**
 
+
+**C#**
 
 ```csharp
 ...
@@ -106,6 +114,8 @@ The **InteractionSortRightToLeft** property is used to change the location of th
 If the **InteractionSortRightToLeft** property is set to **true**
 
 
+**C#**
+
 ```csharp
 ...
 StiOptions.Viewer.Pins.InteractionSortRightToLeft = true;
@@ -124,6 +134,8 @@ The **OrderAndQuickInfoRightToLeft** property is used to change the location of 
 
 If the **OrderAndQuickInfoRightToLeft** property is set to **true**:
 
+
+**C#**
 
 ```csharp
 ...
@@ -144,6 +156,8 @@ The **FiltersRightToLeft** property is used to change the location of the Filter
 If the **FiltersRightToLeft** property is set to **true**:
 
 
+**C#**
+
 ```csharp
 ...
 StiOptions.Viewer.Pins.FiltersRightToLeft = true;
@@ -162,6 +176,8 @@ The **QuickButtonsRightToLeft** property is used to change the location of the *
 
 If the **QuickButtonsRightToLeft** property is set to **true**:
 
+
+**C#**
 
 ```csharp
 ...

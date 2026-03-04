@@ -35,6 +35,8 @@ To edit the code, simply start typing in the appropriate place.
 Whilst Stimulsoft  Reports allows you to directly edit the report code, it is important to remember that it is impossible to make changes in the parts of the report code which are automatically updated - such changes will be lost when the next update takes place. The automatically updated report code is enclosed in Region preprocessor directives:
 
 
+**VB.NET**
+
 ```vbnet
 ...
 //At the beginning of the automatically updated code

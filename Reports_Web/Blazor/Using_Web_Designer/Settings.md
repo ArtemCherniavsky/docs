@@ -14,23 +14,23 @@ The **Blazor Designer** is configured with the help of the component properties.
 
 @code
 {
-//Options object
-private StiBlazorDesignerOptions Options;
-
-protected override void OnInitialized()
-{
-base.OnInitialized();
-
-//Init options object
-Options = new StiBlazorDesignerOptions();
-Options.FileMenu.Visible = false;
-Options.Dictionary.Visible = false;
-Options.Toolbar.ShowToolbar = false;
-Options.Components.ShowText = false;
-Options.Bands.ShowEmptyBand = false;
-Options.DashboardElements.ShowTableElement = false;
-Options.Behavior.SaveReportMode = StiSaveMode.Hidden;
-}
+    //Options object
+    private StiBlazorDesignerOptions Options;
+    
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        
+        //Init options object
+        Options = new StiBlazorDesignerOptions();
+        Options.FileMenu.Visible = false;
+        Options.Dictionary.Visible = false;
+        Options.Toolbar.ShowToolbar = false;
+        Options.Components.ShowText = false;
+        Options.Bands.ShowEmptyBand = false;
+        Options.DashboardElements.ShowTableElement = false;
+        Options.Behavior.SaveReportMode = StiSaveMode.Hidden;
+    }
 }
 ```
 

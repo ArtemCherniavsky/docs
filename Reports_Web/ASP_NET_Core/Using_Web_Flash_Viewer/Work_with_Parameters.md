@@ -13,10 +13,10 @@ To work with report parameters, no additional viewer settings are required. When
 ```
 ...
 @Html.StiNetCoreViewerFx(new StiNetCoreViewerFxOptions() {
-Actions =
-{
-GetReport = "GetReport"
-}
+    Actions =
+    {
+        GetReport = "GetReport"
+    }
 })
 ...
 ```
@@ -28,10 +28,10 @@ GetReport = "GetReport"
 ...
 public IActionResult GetReport()
 {
-StiReport report = new StiReport();
-report.Load(StiNetCoreHelper.MapPath(this, "Reports/ReportWithParameters.mrt"));
-
-return StiNetCoreViewerFx.GetReportResult(this, report);
+    StiReport report = new StiReport();
+    report.Load(StiNetCoreHelper.MapPath(this, "Reports/ReportWithParameters.mrt"));
+    
+    return StiNetCoreViewerFx.GetReportResult(this, report);
 }
 ...
 ```
@@ -44,10 +44,10 @@ When working with parameters is not required, you can disable this feature. For 
 ```
 ...
 @Html.StiNetCoreViewerFx(new StiNetCoreViewerFxOptions() {
-Toolbar =
-{
-ShowParametersButton = false
-}
+    Toolbar =
+    {
+        ShowParametersButton = false
+    }
 })
 ...
 ```

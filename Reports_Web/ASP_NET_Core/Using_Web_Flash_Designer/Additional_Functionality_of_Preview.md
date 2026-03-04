@@ -9,14 +9,14 @@ The preview window of the **Flash Designer** component is a fully functional int
 ...
 @Html.StiNetCoreDesignerFx(new StiNetCoreDesignerFxOptions() {
 Actions =
-{
-ExportReport = "ExportReport",
-EmailReport = "EmailReport"
-},
-PreviewToolbar =
-{
-ShowSendEmailButton = true
-}
+    {
+        ExportReport = "ExportReport",
+        EmailReport = "EmailReport"
+    },
+    PreviewToolbar =
+    {
+        ShowSendEmailButton = true
+    }
 })
 ...
 ```
@@ -28,33 +28,33 @@ ShowSendEmailButton = true
 ...
 public IActionResult ExportReport()
 {
-StiReport report = StiNetCoreDesignerFx.GetReportObject(this);
-// ...
-
-return StiNetCoreDesignerFx.ExportReportResult(this, report);
+    StiReport report = StiNetCoreDesignerFx.GetReportObject(this);
+    // ...
+    
+    return StiNetCoreDesignerFx.ExportReportResult(this, report);
 }
 
 public IActionResult EmailReport()
 {
-StiEmailOptions options = StiNetCoreViewerFx.GetEmailOptions(this);
-
-// Passed from the viewer, can be checked and changed
-// options.AddressTo = "";
-// options.Subject = "";
-// options.Body = "";
-
-// Should be filled here
-options.AddressFrom = "admin_address@test.com";
-options.Host = "smtp.test.com";
-options.Port = 465;
-options.UserName = "admin_address@test.com";
-options.Password = "admin_password";
-
-// options.CC.Add("email@test.com");
-// options.BCC.Add("email@test.com");
-// options.EnableSsl = true;
-
-return StiNetCoreDesignerFx.EmailReportResult(this, options);
+    StiEmailOptions options = StiNetCoreViewerFx.GetEmailOptions(this);
+    
+    // Passed from the viewer, can be checked and changed
+    // options.AddressTo = "";
+    // options.Subject = "";
+    // options.Body = "";
+    
+    // Should be filled here
+    options.AddressFrom = "admin_address@test.com";
+    options.Host = "smtp.test.com";
+    options.Port = 465;
+    options.UserName = "admin_address@test.com";
+    options.Password = "admin_password";
+    
+    // options.CC.Add("email@test.com");
+    // options.BCC.Add("email@test.com");
+    // options.EnableSsl = true;
+    
+    return StiNetCoreDesignerFx.EmailReportResult(this, options);
 }
 ...
 ```

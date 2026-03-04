@@ -11,19 +11,19 @@ To edit a report in the designer, you simply need to create an `StiReport` objec
 ```php
 
 <?php
-require_once 'vendor/autoload.php';
-
-use Stimulsoft\Report\StiReport;
-use Stimulsoft\Designer\StiDesigner;
-
-$designer = new StiDesigner();
-$designer->process();
-
-$report = new StiReport();
-$report->loadFile('reports/SimpleList.mrt'); 
-$designer->report = $report;
-
-$designer->printHtml();
+    require_once 'vendor/autoload.php';
+    
+    use Stimulsoft\Report\StiReport;
+    use Stimulsoft\Designer\StiDesigner;
+    
+    $designer = new StiDesigner();
+    $designer->process();
+    
+    $report = new StiReport();
+    $report->loadFile('reports/SimpleList.mrt'); 
+    $designer->report = $report;
+    
+    $designer->printHtml();
 ?>
 ```
 
@@ -45,28 +45,28 @@ Example of connecting data and synchronizing the data dictionary when creating a
 ```php
 
 <?php
-use Stimulsoft\Report\StiReport;
-use Stimulsoft\Designer\StiDesigner;
-
-$designer = new StiDesigner();
-$designer->onCreateReport = 'createReport';
-$designer->process();
-
-$report = new StiReport();
-$report->loadFile('reports/SimpleList.mrt'); 
-$designer->report = $report;
+    use Stimulsoft\Report\StiReport;
+    use Stimulsoft\Designer\StiDesigner;
+    
+    $designer = new StiDesigner();
+    $designer->onCreateReport = 'createReport';
+    $designer->process();
+    
+    $report = new StiReport();
+    $report->loadFile('reports/SimpleList.mrt'); 
+    $designer->report = $report;
 ?>
 
 ...
 
 <script>
-function createReport(args) {
-let dataSet = new Stimulsoft.System.Data.DataSet("SimpleDataSet");
-dataSet.readJsonFile("Data/Demo.json");
-
-args.report.regData(dataSet.dataSetName, "", dataSet);
-args.report.dictionary.synchronize();
-}
+    function createReport(args) {
+        let dataSet = new Stimulsoft.System.Data.DataSet("SimpleDataSet");
+        dataSet.readJsonFile("Data/Demo.json");
+        
+        args.report.regData(dataSet.dataSetName, "", dataSet);
+        args.report.dictionary.synchronize();
+    }
 </script>
 ```
 
@@ -81,16 +81,16 @@ If needed, the process of creating a new report can be controlled on the PHP ser
 ```php
 
 <?php
-use Stimulsoft\Designer\StiDesigner;
-use Stimulsoft\Events\StiReportEventArgs;
-
-$designer = new StiDesigner();
-$designer->onCreateReport = function (StiReportEventArgs $args) {
-$args->report->ReportAlias = 'New Report Alias';
-};
-
-$designer->process();
-$designer->printHtml();
+    use Stimulsoft\Designer\StiDesigner;
+    use Stimulsoft\Events\StiReportEventArgs;
+    
+    $designer = new StiDesigner();
+    $designer->onCreateReport = function (StiReportEventArgs $args) {
+        $args->report->ReportAlias = 'New Report Alias';
+    };
+    
+    $designer->process();
+    $designer->printHtml();
 ?>
 ```
 
@@ -102,17 +102,17 @@ Example of loading a pre-prepared template with pre-configured data connections:
 ```php
 
 <?php
-use Stimulsoft\Designer\StiDesigner;
-use Stimulsoft\Events\StiReportEventArgs;
-
-$designer = new StiDesigner();
-$designer->onCreateReport = function (StiReportEventArgs $args) {
-$reportJson = file_get_contents('reports/NewTemplateWithData.mrt');
-$args->setReportJson($reportJson);
-};
-
-$designer->process();
-$designer->printHtml();
+    use Stimulsoft\Designer\StiDesigner;
+    use Stimulsoft\Events\StiReportEventArgs;
+    
+    $designer = new StiDesigner();
+    $designer->onCreateReport = function (StiReportEventArgs $args) {
+        $reportJson = file_get_contents('reports/NewTemplateWithData.mrt');
+        $args->setReportJson($reportJson);
+    };
+    
+    $designer->process();
+    $designer->printHtml();
 ?>
 ```
 

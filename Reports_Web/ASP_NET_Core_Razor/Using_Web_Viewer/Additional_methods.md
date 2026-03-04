@@ -18,10 +18,10 @@ Returns the report object with which the viewer is currently working. It is poss
 ...
 public IActionResult OnPostViewerInteraction()
 {
-StiReport report = StiNetCoreViewer.GetReportObject(this);
-report.ReportName = "MyReportName";
-
-return StiNetCoreViewer.InteractionResult(this, report);
+    StiReport report = StiNetCoreViewer.GetReportObject(this);
+    report.ReportName = "MyReportName";
+    
+    return StiNetCoreViewer.InteractionResult(this, report);
 }
 ...
 ```
@@ -38,9 +38,9 @@ Returns the values of the form that initiated (opened by the POST request) a pag
 ...
 public IActionResult OnPostViewerInteraction()
 {
-NameValueCollection formValues = StiNetCoreViewer.GetFormValues(this);
-
-return StiNetCoreViewer.InteractionResult(this);
+    NameValueCollection formValues = StiNetCoreViewer.GetFormValues(this);
+    
+    return StiNetCoreViewer.InteractionResult(this);
 }
 ...
 ```
@@ -53,10 +53,10 @@ By default, this feature is disabled to optimize requests of the client-side of 
 ```
 ...
 @Html.StiNetCoreViewer(new StiNetCoreViewerOptions() {
-Server =
-{
-PassFormValues = true
-}
+    Server =
+    {
+        PassFormValues = true
+    }
 })
 ...
 ```
@@ -73,18 +73,18 @@ Returns all parameters of the current state of the viewer passed to the server-s
 ...
 public IActionResult OnPostExportReport()
 {
-StiRequestParams requestParams = StiNetCoreViewer.GetRequestParams(this);
-if (requestParams.ExportFormat == StiExportFormat.Pdf)
-{
-StiReport report = StiNetCoreViewer.GetReportObject(this);
-
-// Some action with report for the PDF export
-// ...
-
-return StiNetCoreViewer.ExportReportResult(this, report);
-}
-
-return StiNetCoreViewer.ExportReportResult(this);
+    StiRequestParams requestParams = StiNetCoreViewer.GetRequestParams(this);
+    if (requestParams.ExportFormat == StiExportFormat.Pdf)
+    {
+        StiReport report = StiNetCoreViewer.GetReportObject(this);
+        
+        // Some action with report for the PDF export
+        // ...
+        
+        return StiNetCoreViewer.ExportReportResult(this, report);
+    }
+    
+    return StiNetCoreViewer.ExportReportResult(this);
 }
 ...
 ```
@@ -99,14 +99,14 @@ You can change the values of some parameters. After making changes, for the corr
 ...
 public IActionResult OnPostViewerInteraction()
 {
-StiRequestParams requestParams = StiNetCoreViewer.GetRequestParams(this);
-if (requestParams.Action == StiAction.Variables)
-{
-requestParams.Interaction.Variables["Variable1"] = "MyValue";
-return StiNetCoreViewer.InteractionResult(this, requestParams);
-}
-
-return StiNetCoreViewer.InteractionResult(this);
+    StiRequestParams requestParams = StiNetCoreViewer.GetRequestParams(this);
+    if (requestParams.Action == StiAction.Variables)
+    {
+        requestParams.Interaction.Variables["Variable1"] = "MyValue";
+        return StiNetCoreViewer.InteractionResult(this, requestParams);
+    }
+    
+    return StiNetCoreViewer.InteractionResult(this);
 }
 ...
 ```
@@ -123,16 +123,16 @@ Returns all the parameters of the current report export. The type of the paramet
 ...
 public IActionResult OnPostExportReport()
 {
-StiExportSettings settings = StiNetCoreViewer.GetExportSettings(this);
-if (settings.GetExportFormat() == StiExportFormat.Pdf)
-{
-StiPdfExportSettings pdfSettings = (StiPdfExportSettings)settings;
-pdfSettings.EmbeddedFonts = true;
-pdfSettings.AllowEditable = StiPdfAllowEditable.No;
-return StiNetCoreViewer.ExportReportResult(this, settings);
-}
-
-return StiNetCoreViewer.ExportReportResult(this);
+    StiExportSettings settings = StiNetCoreViewer.GetExportSettings(this);
+    if (settings.GetExportFormat() == StiExportFormat.Pdf)
+    {
+        StiPdfExportSettings pdfSettings = (StiPdfExportSettings)settings;
+        pdfSettings.EmbeddedFonts = true;
+        pdfSettings.AllowEditable = StiPdfAllowEditable.No;
+        return StiNetCoreViewer.ExportReportResult(this, settings);
+    }
+    
+    return StiNetCoreViewer.ExportReportResult(this);
 }
 ...
 ```

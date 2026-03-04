@@ -45,44 +45,44 @@ The **HTML5 Designer** component provides the ability to specify its methods for
 ...
 public class DesignerController : Controller
 {
-public class StiMyCacheHelper : StiCacheHelper
-{
-public override object GetObject(string guid)
-{
-string path = System.IO.Path.Combine(System.Web.HttpContext.Current.Server.MapPath("~/"), "CacheFiles", guid);
-if (System.IO.File.Exists(path))
-{
-byte[] cacheData = System.IO.File.ReadAllBytes(path);
-return StiCacheHelper.GetObjectFromCacheData(cacheData);
-}
-return null;
-
-//return base.GetObject(guid);
-}
-
-public override void SaveObject(object obj, string guid)
-{
-byte[] cacheData = StiCacheHelper.GetCacheDataFromObject(obj);
-string path = System.IO.Path.Combine(System.Web.HttpContext.Current.Server.MapPath("~/"), "CacheFiles", guid);
-System.IO.File.WriteAllBytes(path, cacheData);
-
-//base.SaveObject(obj, guid);
-}
-
-public override void RemoveReport(string guid)
-{
-string path = System.IO.Path.Combine(System.Web.HttpContext.Current.Server.MapPath("~/"), "CacheFiles", guid);
-if (File.Exists(path))
-{
-File.Delete(path);
-}
-}
-}
-
-static DesignerController()
-{
-StiMvcDesigner.CacheHelper = new StiMyCacheHelper();
-}
+    public class StiMyCacheHelper : StiCacheHelper
+    {
+        public override object GetObject(string guid)
+        {
+            string path = System.IO.Path.Combine(System.Web.HttpContext.Current.Server.MapPath("~/"), "CacheFiles", guid);
+            if (System.IO.File.Exists(path))
+            {
+                byte[] cacheData = System.IO.File.ReadAllBytes(path);
+                return StiCacheHelper.GetObjectFromCacheData(cacheData);
+            }
+            return null;
+            
+            //return base.GetObject(guid);
+        }
+    
+        public override void SaveObject(object obj, string guid)
+        {
+            byte[] cacheData = StiCacheHelper.GetCacheDataFromObject(obj);
+            string path = System.IO.Path.Combine(System.Web.HttpContext.Current.Server.MapPath("~/"), "CacheFiles", guid);
+            System.IO.File.WriteAllBytes(path, cacheData);
+            
+            //base.SaveObject(obj, guid);
+        }
+        
+        public override void RemoveReport(string guid)
+        {
+            string path = System.IO.Path.Combine(System.Web.HttpContext.Current.Server.MapPath("~/"), "CacheFiles", guid);
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+            }
+        }
+    }
+    
+    static DesignerController()
+    {
+        StiMvcDesigner.CacheHelper = new StiMyCacheHelper();
+    }
 }
 ...
 ```

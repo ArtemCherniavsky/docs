@@ -12,10 +12,10 @@ Sets the time in minutes that the server will store the rendered report since th
 ```
 ...
 @Html.StiNetCoreDesigner(new StiNetCoreDesignerOptions() {
-Server =
-{
-CacheTimeout = 10
-}
+    Server =
+    {
+        CacheTimeout = 10
+    }
 })
 ...
 ```
@@ -32,10 +32,10 @@ Sets the time to wait for a response from the server in seconds, after which an 
 ```
 ...
 @Html.StiNetCoreDesigner(new StiNetCoreDesignerOptions() {
-Server =
-{
-RequestTimeout = 30
-}
+    Server =
+    {
+        RequestTimeout = 30
+    }
 })
 ...
 ```
@@ -53,11 +53,11 @@ Below is an example of code that you may use to set the query timeout for the al
 ```
 ...
 @Html.StiNetCoreDesigner(new StiNetCoreDesignerOptions() {
-Actions =
-{
-GetReport = "GetReport",
-DesignerEvent = "DesignerEvent"
-}
+    Actions =
+    {
+        GetReport = "GetReport",
+        DesignerEvent = "DesignerEvent"
+    }
 })
 ...
 ```
@@ -69,16 +69,16 @@ DesignerEvent = "DesignerEvent"
 ...
 public IActionResult GetReport()
 {
-StiReport report = new StiReport();
-report.Load(Server.MapPath("Report.mrt"));
-((StiSqlSource)report.Dictionary.DataSources["DataSourceName"]).CommandTimeout = 1000;
-
-return StiNetCoreDesigner.GetReportResult(this, report);
+    StiReport report = new StiReport();
+    report.Load(Server.MapPath("Report.mrt"));
+    ((StiSqlSource)report.Dictionary.DataSources["DataSourceName"]).CommandTimeout = 1000;
+    
+    return StiNetCoreDesigner.GetReportResult(this, report);
 }
 
 public IActionResult DesignerEvent()
 {
-return StiNetCoreDesigner.DesignerEventResult(this);
+    return StiNetCoreDesigner.DesignerEventResult(this);
 }
 ...
 ```

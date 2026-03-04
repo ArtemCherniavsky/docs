@@ -29,39 +29,39 @@ To do this, edit the **App.vue** file in the project's **src** folder. First, im
 
 ```
 <script setup lang="ts">
-import { onMounted } from "vue";
-import { Stimulsoft } from "stimulsoft-dashboards-js/Scripts/stimulsoft.designer.js";
-
-onMounted(() => {
-let designer = new Stimulsoft.Designer.StiDesigner(false, "StiDesigner", false);
-let report = new Stimulsoft.Report.StiReport();
-
-designer.report = report;
-designer.renderHtml("content");
-});
+    import { onMounted } from "vue";
+    import { Stimulsoft } from "stimulsoft-dashboards-js/Scripts/stimulsoft.designer.js";
+    
+    onMounted(() => {
+        let designer = new Stimulsoft.Designer.StiDesigner(false, "StiDesigner", false);
+        let report = new Stimulsoft.Report.StiReport();
+        
+        designer.report = report;
+        designer.renderHtml("content");
+    });
 </script>
 
 <template>
-<div id="app">
-<div>
-<h2 id="app-title">Stimulsoft Vue JS</h2>
-<div id="content"></div>
-</div>
-</div>
+    <div id="app">
+        <div>
+            <h2 id="app-title">Stimulsoft Vue JS</h2>
+            <div id="content"></div>
+        </div>
+    </div>
 </template>
 
 <style>
-#app {
-font-family: Avenir, Helvetica, Arial, sans-serif;
--webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
-color: #2c3e50;
-margin-top: 60px;
-}
-
-#app-title {
-text-align: center;
-}
+    #app {
+        font-family: Avenir, Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        color: #2c3e50;
+        margin-top: 60px;
+    }
+    
+    #app-title {
+        text-align: center;
+    }
 </style>
 ```
 

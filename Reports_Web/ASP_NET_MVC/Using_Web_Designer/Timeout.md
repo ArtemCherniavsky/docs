@@ -11,11 +11,11 @@ Sets the time in minutes that the server will store the rendered report since th
 
 ```
 ...@Html.Stimulsoft().StiMvcDesigner("MvcDesigner1", 
-new StiMvcDesignerOptions() {
-Server =
-{
-CacheTimeout = 10
-}
+    new StiMvcDesignerOptions() {
+        Server =
+        {
+            CacheTimeout = 10
+        }
 })
 ...
 ```
@@ -32,11 +32,11 @@ Sets the time to wait for a response from the server in seconds, after which an 
 ```
 ...
 @Html.Stimulsoft().StiMvcDesigner("MvcDesigner1", 
-new StiMvcDesignerOptions() {
-Server =
-{
-RequestTimeout = 30
-}
+    new StiMvcDesignerOptions() {
+        Server =
+        {
+            RequestTimeout = 30
+        }
 })
 ...
 ```
@@ -54,12 +54,12 @@ Below is an example of code that you may use to set the query timeout for the al
 ```
 ...
 @Html.Stimulsoft().StiMvcDesigner("MvcDesigner1", 
-new StiMvcDesignerOptions() {
-Actions =
-{
-GetReport = "GetReport",
-DesignerEvent = "DesignerEvent"
-}
+    new StiMvcDesignerOptions() {
+        Actions =
+        {
+            GetReport = "GetReport",
+            DesignerEvent = "DesignerEvent"
+        }
 })
 ...
 ```
@@ -71,17 +71,17 @@ DesignerEvent = "DesignerEvent"
 ...
 public ActionResult GetReport()
 { 
-
-StiReport report = new StiReport();
-report.Load(Server.MapPath("Report.mrt"));
-((StiSqlSource)report.Dictionary.DataSources["DataSourceName"]).CommandTimeout = 1000;
-
-return StiMvcDesigner.GetReportResult(report);
+    
+    StiReport report = new StiReport();
+    report.Load(Server.MapPath("Report.mrt"));
+    ((StiSqlSource)report.Dictionary.DataSources["DataSourceName"]).CommandTimeout = 1000;
+    
+    return StiMvcDesigner.GetReportResult(report);
 }
 
 public ActionResult DesignerEvent()
 {
-return StiMvcDesigner.DesignerEventResult();
+    return StiMvcDesigner.DesignerEventResult();
 }
 ...
 ```

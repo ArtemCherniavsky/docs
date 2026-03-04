@@ -19,10 +19,10 @@ To show a report, you need to add the **StiWebViewerFx** component to the ASPX p
 ...
 protected void Page_Load(object sender, EventArgs e)
 {
-StiReport report = new StiReport();
-report.Load(Server.MapPath("Reports/SimpleList.mrt"));
-    
-StiWebViewerFx1.Report = report;
+    StiReport report = new StiReport();
+    report.Load(Server.MapPath("Reports/SimpleList.mrt"));
+        
+    StiWebViewerFx1.Report = report;
 }
 ...
 ```
@@ -38,7 +38,7 @@ Also, the **Flash Viewer** has a special **OnGetReport** event that you can use 
 ```
 ...
 <cc1:StiWebViewerFx ID="StiWebViewerFx1" runat="server"
-OnGetReport="StiWebViewerFx1_GetReport">
+    OnGetReport="StiWebViewerFx1_GetReport">
 </cc1:StiWebViewerFx>
 ...
 ```
@@ -50,10 +50,10 @@ OnGetReport="StiWebViewerFx1_GetReport">
 ...
 protected void StiWebViewerFx1_GetReport(object sender, StiReportDataEventArgs e)
 {
-StiReport report = new StiReport();
-report.Load(Server.MapPath("Reports/SimpleList.mrt"));
-
-e.Report = report;
+    StiReport report = new StiReport();
+    report.Load(Server.MapPath("Reports/SimpleList.mrt"));
+    
+    e.Report = report;
 }
 ...
 ```
@@ -72,10 +72,10 @@ If the report was not rendered before showing, the **Flash Viewer** component wi
 ...
 protected void StiWebViewerFx1_GetReport(object sender, StiReportDataEventArgs e)
 {
-StiReport report = new StiReport();
-report.LoadDocument(Server.MapPath("Reports/SimpleList.mdc"));
-
-e.Report = report;
+    StiReport report = new StiReport();
+    report.LoadDocument(Server.MapPath("Reports/SimpleList.mdc"));
+    
+    e.Report = report;
 }
 ...
 ```
@@ -118,15 +118,15 @@ To display the viewer to the entire space of the browser window when you use the
 ...
 protected void Page_Load(object sender, EventArgs e)
 { 
-StiWebViewerFx1.View();
+    StiWebViewerFx1.View();
 }
 
 protected void StiWebViewerFx1_GetReport(object sender, StiReportDataEventArgs e)
 {
-StiReport report = new StiReport();
-report.Load(Server.MapPath("Reports/SimpleList.mrt"));
-
-e.Report = report;
+    StiReport report = new StiReport();
+    report.Load(Server.MapPath("Reports/SimpleList.mrt"));
+    
+    e.Report = report;
 }
 ...
 ```

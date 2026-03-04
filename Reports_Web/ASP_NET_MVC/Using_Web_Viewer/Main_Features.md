@@ -15,11 +15,11 @@ All specified operations are performed in the AJAX mode without restarting the b
 ```
 ...
 @Html.Stimulsoft().StiMvcViewer("MvcViewer1", 
-new StiMvcViewerOptions() {
-Actions =
-{
-ViewerEvent = "ViewerEvent"
-}
+    new StiMvcViewerOptions() {
+        Actions =
+        {
+            ViewerEvent = "ViewerEvent"
+        }
 })
 ...
 ```
@@ -31,10 +31,10 @@ ViewerEvent = "ViewerEvent"
 ...
 public ActionResult ViewerEvent()
 {
-// Some code before viewer event
-// ...
+    // Some code before viewer event
+    // ...
 
-return StiMvcViewer.ViewerEventResult();
+    return StiMvcViewer.ViewerEventResult();
 }
 ...
 ```

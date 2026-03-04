@@ -14,10 +14,10 @@ Returns the report object with which the viewer is currently working. It is poss
 ...
 public ActionResult ExportReport()
 {
-StiReport report = StiMvcViewerFx.GetReportObject();
-report.ReportName = "MyReportName";
-
-return StiMvcViewerFx.ExportReportResult(report);
+    StiReport report = StiMvcViewerFx.GetReportObject();
+    report.ReportName = "MyReportName";
+    
+    return StiMvcViewerFx.ExportReportResult(report);
 }
 ...
 ```
@@ -34,9 +34,9 @@ Returns values for URLs with which the viewer page was opened. Thus, it is possi
 ...
 public ActionResult ExportReport()
 {
-RouteValueDictionary routeValues = StiMvcViewerFx.GetRouteValues();
-
-return StiMvcViewerFx.ExportReportResult();
+    RouteValueDictionary routeValues = StiMvcViewerFx.GetRouteValues();
+    
+    return StiMvcViewerFx.ExportReportResult();
 }
 ...
 ```
@@ -50,7 +50,7 @@ You can also get values of URL parameters by parameter name, specifying it as th
 ...
 public ActionResult ExportReport(string id)
 {
-return StiMvcViewerFx.ExportReportResult();
+    return StiMvcViewerFx.ExportReportResult();
 }
 ...
 ```
@@ -67,16 +67,16 @@ Returns all parameters of the current state of the viewer passed to the server-s
 ...
 public ActionResult ExportReport()
 {
-StiRequestParams requestParams = StiMvcViewerFx.GetRequestParams();
-if (requestParams.ExportFormat == StiExportFormat.Pdf)
-{
-StiReport report = StiMvcViewerFx.GetReportObject();
-
-// Some action with report for the PDF export
-// ...
-
-return StiMvcViewerFx.ExportReportResult(report);
-}
+    StiRequestParams requestParams = StiMvcViewerFx.GetRequestParams();
+    if (requestParams.ExportFormat == StiExportFormat.Pdf)
+    {
+        StiReport report = StiMvcViewerFx.GetReportObject();
+        
+        // Some action with report for the PDF export
+        // ...
+        
+        return StiMvcViewerFx.ExportReportResult(report);
+    }
 
 return StiMvcViewerFx.ExportReportResult();
 }
@@ -95,10 +95,10 @@ Returns the name of the requested XML localization file in the **GetLocalization
 ...
 public ActionResult GetLocalization()
 {
-string name = StiMvcViewerFx.GetLocalizationName();
-string path = "~/Content/Localization/" + name;
-
-return StiMvcViewerFx.GetLocalizationResult(path);
+    string name = StiMvcViewerFx.GetLocalizationName();
+    string path = "~/Content/Localization/" + name;
+    
+    return StiMvcViewerFx.GetLocalizationResult(path);
 }
 ...
 ```
@@ -115,16 +115,16 @@ Returns all the parameters of the current report export. The type of the paramet
 ...
 public ActionResult ExportReport()
 {
-StiExportSettings settings = StiMvcViewerFx.GetExportSettings();
-if (settings.GetExportFormat() == StiExportFormat.Pdf)
-{
-StiPdfExportSettings pdfSettings = (StiPdfExportSettings)settings;
-pdfSettings.EmbeddedFonts = true;
-pdfSettings.AllowEditable = StiPdfAllowEditable.No;
-return StiMvcViewerFx.ExportReportResult(settings);
-}
-
-return StiMvcViewerFx.ExportReportResult();
+    StiExportSettings settings = StiMvcViewerFx.GetExportSettings();
+    if (settings.GetExportFormat() == StiExportFormat.Pdf)
+    {
+        StiPdfExportSettings pdfSettings = (StiPdfExportSettings)settings;
+        pdfSettings.EmbeddedFonts = true;
+        pdfSettings.AllowEditable = StiPdfAllowEditable.No;
+        return StiMvcViewerFx.ExportReportResult(settings);
+    }
+    
+    return StiMvcViewerFx.ExportReportResult();
 }
 ...
 ```

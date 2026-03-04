@@ -23,32 +23,32 @@
 ...
 private StiReport LoadSimpleList()
 {
-DataSet dataSet = new DataSet();
-dataSet.ReadXml(Server.MapPath("Reports/Demo.xml"));
-
-StiReport report = new StiReport();
-report.Load(Server.MapPath("Reports/SimpleList.mrt"));
-report.RegData(dataSet);
-
-return report;
+    DataSet dataSet = new DataSet();
+    dataSet.ReadXml(Server.MapPath("Reports/Demo.xml"));
+    
+    StiReport report = new StiReport();
+    report.Load(Server.MapPath("Reports/SimpleList.mrt"));
+    report.RegData(dataSet);
+    
+    return report;
 }
 
 protected void Button1_Click(object sender, EventArgs e)
 {
-StiReport report = LoadSimpleList();
-
-StiReportResponse.PrintAsPdf(report);
-//StiReportResponse.PrintAsHtml(report);
+    StiReport report = LoadSimpleList();
+    
+    StiReportResponse.PrintAsPdf(report);
+    //StiReportResponse.PrintAsHtml(report);
 }
 
 protected void Button2_Click(object sender, EventArgs e)
 {
-StiReport report = LoadSimpleList();
-
-StiReportResponse.ResponseAsPdf(report);
-//StiReportResponse.ResponseAsExcel2007(report);
-//StiReportResponse.ResponseAsText(report);
-//StiReportResponse.ResponseAsJson(report);
+    StiReport report = LoadSimpleList();
+    
+    StiReportResponse.ResponseAsPdf(report);
+    //StiReportResponse.ResponseAsExcel2007(report);
+    //StiReportResponse.ResponseAsText(report);
+    //StiReportResponse.ResponseAsJson(report);
 }
 ...
 ```

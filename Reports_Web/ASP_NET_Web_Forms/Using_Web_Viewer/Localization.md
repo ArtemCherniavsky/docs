@@ -8,7 +8,7 @@ The **HTML5 Viewer** component supports the complete localization of its interfa
 ```
 ...
 <cc1:StiWebViewer ID="StiWebViewer1" runat="server"
-Localization="Localization/en.xml">
+    Localization="Localization/en.xml">
 </cc1:StiWebViewer>
 ...
 ```

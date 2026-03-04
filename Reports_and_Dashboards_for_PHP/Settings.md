@@ -11,22 +11,22 @@ Example of setting some viewer properties:
 ```php
 
 <?php
-use Stimulsoft\Viewer\StiViewer;
-use Stimulsoft\Viewer\Enums\StiToolbarDisplayMode;
-use Stimulsoft\Viewer\Enums\StiViewerTheme;
-use Stimulsoft\Viewer\Enums\StiHtmlExportMode;
-
-$viewer = new StiViewer();
-$viewer->options->appearance->theme = StiViewerTheme::Office2022WhiteGreen;
-$viewer->options->appearance->reportDisplayMode = StiHtmlExportMode::FromReport;
-$viewer->options->width = '1000px';
-$viewer->options->height = '1000px';
-$viewer->options->toolbar->displayMode = StiToolbarDisplayMode::Separated;
-$viewer->options->toolbar->zoom = 50;
-$viewer->options->appearance->fullScreenMode = true;
-$viewer->options->appearance->scrollbarsMode = true;
-$viewer->options->exports->ShowExportToWord = false;
-$viewer->options->exports->showExportToCsv = false;
+    use Stimulsoft\Viewer\StiViewer;
+    use Stimulsoft\Viewer\Enums\StiToolbarDisplayMode;
+    use Stimulsoft\Viewer\Enums\StiViewerTheme;
+    use Stimulsoft\Viewer\Enums\StiHtmlExportMode;
+    
+    $viewer = new StiViewer();
+    $viewer->options->appearance->theme = StiViewerTheme::Office2022WhiteGreen;
+    $viewer->options->appearance->reportDisplayMode = StiHtmlExportMode::FromReport;
+    $viewer->options->width = '1000px';
+    $viewer->options->height = '1000px';
+    $viewer->options->toolbar->displayMode = StiToolbarDisplayMode::Separated;
+    $viewer->options->toolbar->zoom = 50;
+    $viewer->options->appearance->fullScreenMode = true;
+    $viewer->options->appearance->scrollbarsMode = true;
+    $viewer->options->exports->ShowExportToWord = false;
+    $viewer->options->exports->showExportToCsv = false;
 ?>
 ```
 

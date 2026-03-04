@@ -80,14 +80,14 @@ def report():
 <html>
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Render and Export a Report</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Render and Export a Report</title>
 
-{{ reportJavaScript|safe }}
+    {{ reportJavaScript|safe }}
 </head>
 
 <body>
-{{ reportHtml|safe }}
+    {{ reportHtml|safe }}
 </body>
 
 </html>
@@ -179,20 +179,20 @@ def report(request):
 <html>
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Render and Export a Report</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Render and Export a Report</title>
 
-{{ reportJavaScript|safe }}
+    {{ reportJavaScript|safe }}
 
-<script type="text/javascript">
-function afterRender() {
-alert('Done!');
-}
+        <script type="text/javascript">
+        function afterRender() {
+        alert('Done!');
+        }
    </script>
 </head>
 
 <body>
-{{ reportHtml|safe }}
+    {{ reportHtml|safe }}
 </body>
 
 </html>
@@ -239,19 +239,19 @@ class ReportHandler(RequestHandler):
 <html>
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Render and Export a Report</title>
-
-{% raw reportJavaScript %}
-<script type="text/javascript">
-function afterRender() {
-alert('Done!');
-}
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Render and Export a Report</title>
+    
+    {% raw reportJavaScript %}
+        <script type="text/javascript">
+        function afterRender() {
+        alert('Done!');
+        }
    </script>
 </head>
 
 <body>
-{% raw reportHtml %}
+    {% raw reportHtml %}
 </body>
 
 </html>

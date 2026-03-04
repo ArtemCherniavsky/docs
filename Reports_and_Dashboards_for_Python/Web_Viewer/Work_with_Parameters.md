@@ -24,11 +24,11 @@ viewer.onInteraction += 'interaction'
 ```html
 
 <script>
-function interaction(args) {
-if (args.action == "Variables") {
-let variables = args.variables;
-}
-}
+    function interaction(args) {
+        if (args.action == "Variables") {
+            let variables = args.variables;
+        }
+    }
 </script>
 ```
 
@@ -40,10 +40,10 @@ The variable collection is an object that contains all the variables from the pa
 ```html
 
 <script>
-let variables = {
-VariableString: "Text value",
-VariableInt: 20
-}
+    let variables = {
+        VariableString: "Text value",
+        VariableInt: 20
+    }
 </script>
 ```
 
@@ -95,9 +95,9 @@ viewer.onPrepareVariables += 'onPrepareVariables'
 ```html
 
 <script>
-function prepareVariables(args) {
-let variables = args.variables;
-}
+    function prepareVariables(args) {
+        let variables = args.variables;
+    }
 </script>
 ```
 

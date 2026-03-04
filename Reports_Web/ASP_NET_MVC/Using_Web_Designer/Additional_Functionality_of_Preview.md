@@ -15,11 +15,11 @@ In any of the above actions, you can work with the report template, such as chan
 ```
 ...
 @Html.Stimulsoft().StiMvcDesigner("MvcDesigner1", 
-new StiMvcDesignerOptions() {
-Actions =
-{
-ExportReport = "ExportReport"
-}
+    new StiMvcDesignerOptions() {
+        Actions =
+        {
+            ExportReport = "ExportReport"
+        }
 })
 ...
 ```
@@ -31,10 +31,10 @@ ExportReport = "ExportReport"
 ...
 public ActionResult ExportReport()
 {
-StiReport report = StiMvcDesigner.GetActionReportObject();
-// ...
-
-return StiMvcDesigner.ExportReportResult(report);
+    StiReport report = StiMvcDesigner.GetActionReportObject();
+    // ...
+    
+    return StiMvcDesigner.ExportReportResult(report);
 }
 ...
 ```

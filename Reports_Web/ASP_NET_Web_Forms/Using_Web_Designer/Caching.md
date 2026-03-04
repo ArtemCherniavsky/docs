@@ -45,44 +45,44 @@ The **HTML5 Designer** component provides the ability to specify its methods for
 ...
 public partial class _Default : Page
 {
-public class StiMyCacheHelper : StiCacheHelper
-{
-public override object GetObject(string guid)
-{
-string path = Path.Combine(HttpContext.Current.Server.MapPath(string.Empty), "CacheFiles", guid);
-if (File.Exists(path))
-{
-byte[] cacheData = File.ReadAllBytes(path);
-return StiCacheHelper.GetObjectFromCacheData(cacheData);
-}
-return null;
-
-//return base.GetObject(guid);
-}
-
-public override void SaveObject(object obj, string guid)
-{
-byte[] cacheData = StiCacheHelper.GetCacheDataFromObject(obj);
-string path = Path.Combine(HttpContext.Current.Server.MapPath(string.Empty), "CacheFiles", guid);
-File.WriteAllBytes(path, cacheData);
-
-//base.SaveObject(obj, guid);
-}
-
-public override void RemoveReport(string guid)
-{
-string path = Path.Combine(HttpContext.Current.Server.MapPath(string.Empty), "CacheFiles", guid);
-if (File.Exists(path))
-{
-File.Delete(path);
-}
-}
-}
-
-static _Default()
-{
-StiWebDesigner.CacheHelper = new StiMyCacheHelper();
-}
+    public class StiMyCacheHelper : StiCacheHelper
+    {
+        public override object GetObject(string guid)
+        {
+            string path = Path.Combine(HttpContext.Current.Server.MapPath(string.Empty), "CacheFiles", guid);
+            if (File.Exists(path))
+            {
+                byte[] cacheData = File.ReadAllBytes(path);
+                return StiCacheHelper.GetObjectFromCacheData(cacheData);
+            }
+            return null;
+            
+            //return base.GetObject(guid);
+        }
+    
+        public override void SaveObject(object obj, string guid)
+        {
+            byte[] cacheData = StiCacheHelper.GetCacheDataFromObject(obj);
+            string path = Path.Combine(HttpContext.Current.Server.MapPath(string.Empty), "CacheFiles", guid);
+            File.WriteAllBytes(path, cacheData);
+            
+            //base.SaveObject(obj, guid);
+        }
+        
+        public override void RemoveReport(string guid)
+        {
+            string path = Path.Combine(HttpContext.Current.Server.MapPath(string.Empty), "CacheFiles", guid);
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+            }
+        }
+    }
+    
+    static _Default()
+    {
+        StiWebDesigner.CacheHelper = new StiMyCacheHelper();
+    }
 }
 ...
 ```

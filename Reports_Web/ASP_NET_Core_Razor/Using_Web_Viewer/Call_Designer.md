@@ -8,14 +8,14 @@ The **HTML5 Viewer** component has the ability to call the report designer. The 
 ```
 ...
 @Html.StiNetCoreViewer(new StiNetCoreViewerOptions() {
-Actions =
-{
-DesignReport = "DesignReport"
-},
-Toolbar =
-{
-ShowDesignButton = true
-}
+    Actions =
+    {
+        DesignReport = "DesignReport"
+    },
+    Toolbar =
+    {
+        ShowDesignButton = true
+    }
 })
 ...
 ```
@@ -27,10 +27,10 @@ ShowDesignButton = true
 ...
 public IActionResult OnPostDesignReport()
 {
-StiReport report = StiNetCoreViewer.GetReportObject(this);
-TempData["ReportName"] = report.ReportName;
-
-return RedirectToPage("Designer");
+    StiReport report = StiNetCoreViewer.GetReportObject(this);
+    TempData["ReportName"] = report.ReportName;
+    
+    return RedirectToPage("Designer");
 }
 ...
 ```

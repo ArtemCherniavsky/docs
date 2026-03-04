@@ -13,22 +13,22 @@ You can add a custom function to the Dictionary in the report designer when you 
 ...
 public static decimal MySum(object value)
 {
-if (!ListExt.IsList(value))
-return Stimulsoft.Base.Helpers.StiValueHelper.TryToDecimal(value);
-
-return Stimulsoft.Data.Functions.Funcs.SkipNulls(ListExt.ToList(value))
-.TryCastToDecimal()
-.Sum();
+    if (!ListExt.IsList(value))
+    return Stimulsoft.Base.Helpers.StiValueHelper.TryToDecimal(value);
+    
+    return Stimulsoft.Data.Functions.Funcs.SkipNulls(ListExt.ToList(value))
+    .TryCastToDecimal()
+    .Sum();
 }
 ...
 static IndexModel()
 {
-StiFunctions.AddFunction("MyCategory", "MySum",
-"description", typeof(DesignerController),
-typeof(decimal), "Calculates a sum of the specified set of values.",
-new[] { typeof(object) },
-new[] { "values" },
-new[] { "A set of values" }).UseFullPath = false;
+    StiFunctions.AddFunction("MyCategory", "MySum",
+    "description", typeof(DesignerController),
+    typeof(decimal), "Calculates a sum of the specified set of values.",
+    new[] { typeof(object) },
+    new[] { "values" },
+    new[] { "A set of values" }).UseFullPath = false;
 }
 ...
 ```

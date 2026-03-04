@@ -24,9 +24,9 @@ viewer.onEmailReport += 'emailReport'
 ```html
 
 <script>
-function emailReport(args) {
-let settings = args.settings;
-}
+    function emailReport(args) {
+        let settings = args.settings;
+    }
 </script>
 ```
 
@@ -38,9 +38,9 @@ When sending a report by Email, a menu for selecting the attachment format is di
 ```html
 
 <script>
-function emailReport(args) {
-args.settings.subject = "Invoice: " + args.settings.subject;
-}
+    function emailReport(args) {
+        args.settings.subject = "Invoice: " + args.settings.subject;
+    }
 </script>
 ```
 

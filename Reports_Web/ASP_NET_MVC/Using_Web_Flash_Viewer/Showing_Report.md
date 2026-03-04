@@ -8,12 +8,12 @@ To show the report, you need to add the **StiMvcViewerFx** component to the page
 ```
 ...
 @Html.Stimulsoft().StiMvcViewerFx("MvcViewerFx1", 
-new StiMvcViewerFxOptions() {
-Actions =
-{
-GetReport = "GetReport",
-ViewerEvent = "ViewerEvent"
-}
+    new StiMvcViewerFxOptions() {
+        Actions =
+        {
+            GetReport = "GetReport",
+            ViewerEvent = "ViewerEvent"
+        }
 })
 ...
 ```
@@ -25,15 +25,15 @@ ViewerEvent = "ViewerEvent"
 ...
 public ActionResult GetReport()
 {
-StiReport report = new StiReport();
-report.Load(Server.MapPath("~/Content/SimpleList.mrt"));
-
-return StiMvcViewerFx.GetReportResult(report);
+    StiReport report = new StiReport();
+    report.Load(Server.MapPath("~/Content/SimpleList.mrt"));
+    
+    return StiMvcViewerFx.GetReportResult(report);
 }
 
 public ActionResult ViewerEvent()
 {
-return StiMvcViewerFx.ViewerEventResult();
+    return StiMvcViewerFx.ViewerEventResult();
 }
 ...
 ```
@@ -57,10 +57,10 @@ If the report was not rendered before showing, the **Flash Viewer** component wi
 ...
 public ActionResult GetReport()
 {
-StiReport report = new StiReport();
-report.LoadDocument(Server.MapPath("~/Content/SimpleList.mdc"));
-
-return StiMvcViewerFx.GetReportResult(report);
+    StiReport report = new StiReport();
+    report.LoadDocument(Server.MapPath("~/Content/SimpleList.mdc"));
+    
+    return StiMvcViewerFx.GetReportResult(report);
 }
 ...
 ```
@@ -72,9 +72,9 @@ return StiMvcViewerFx.GetReportResult(report);
 ...
 public ActionResult GetReport()
 {
-StiReport report = new StiReportCompiledClass();
-
-return StiMvcViewerFx.GetReportResult(report);
+    StiReport report = new StiReportCompiledClass();
+    
+    return StiMvcViewerFx.GetReportResult(report);
 }
 ...
 ```

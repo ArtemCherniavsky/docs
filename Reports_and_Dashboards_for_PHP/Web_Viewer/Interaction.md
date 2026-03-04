@@ -62,48 +62,48 @@ The corresponding collections of parameters, `sortingParameters`, `collapsingPar
 ```php
 
 <?php
-use Stimulsoft\Viewer\StiViewer;
-
-$viewer = new StiViewer();
-$viewer->onInteraction = 'interaction';
-$viewer->process();
+    use Stimulsoft\Viewer\StiViewer;
+    
+    $viewer = new StiViewer();
+    $viewer->onInteraction = 'interaction';
+    $viewer->process();
 ?>
 
 ...
 
 <script>
-function interaction(args) {
-switch (args.action) {
-case "Sorting":
-args.sortingParameters = {
-ComponentName: "Text10;false",
-DataBand: "DataBand1;DESC;CompanyName"
-};
-break;
-
-case "DrillDown":
-drillDownParameters = [{
-ComponentIndex: "1"
-DrillDownMode: null
-ElementIndex: "6"
-PageGuid: "b916d048d3f446dc97c356d4ff47f48f"
-PageIndex: "0"
-ReportFile: null
-}];
-break;
-
-case "Collapsing":
-args.collapsingParameters = {
-CollapsingStates: {
-GroupHeaderBand1: {
-keys: [1],
-values: [false]
-},
-ComponentName: "GroupHeaderBand1"
-};
-break;
-}
-}
+    function interaction(args) {
+        switch (args.action) {
+            case "Sorting":
+                args.sortingParameters = {
+                    ComponentName: "Text10;false",
+                    DataBand: "DataBand1;DESC;CompanyName"
+                };
+            break;
+    
+            case "DrillDown":
+                drillDownParameters = [{
+                    ComponentIndex: "1"
+                    DrillDownMode: null
+                    ElementIndex: "6"
+                    PageGuid: "b916d048d3f446dc97c356d4ff47f48f"
+                    PageIndex: "0"
+                    ReportFile: null
+                }];
+            break;
+    
+            case "Collapsing":
+                args.collapsingParameters = {
+                    CollapsingStates: {
+                        GroupHeaderBand1: {
+                            keys: [1],
+                            values: [false]
+                        },
+                    ComponentName: "GroupHeaderBand1"
+                };
+            break;
+        }
+    }
 </script>
 ```
 

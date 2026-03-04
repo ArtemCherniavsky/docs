@@ -12,10 +12,10 @@ Sets the time in minutes that the server will store the rendered report since th
 ```
 ...
 @Html.StiNetCoreViewer(new StiNetCoreViewerOptions() {
-Server =
-{
-CacheTimeout = 10
-}
+    Server =
+    {
+        CacheTimeout = 10
+    }
 })
 ...
 ```
@@ -32,10 +32,10 @@ Sets the time to wait for a response from the server in seconds, after which an 
 ```
 ...
 @Html.StiNetCoreViewer(new StiNetCoreViewerOptions() {
-Server =
-{
-RequestTimeout = 30
-}
+    Server =
+    {
+        RequestTimeout = 30
+    }
 })
 ...
 ```
@@ -53,12 +53,12 @@ Below is an example of code that you may use to set the query timeout for the al
 ```
 ...
 @Html.StiNetCoreViewer(new StiNetCoreViewerOptions() {
-Actions =
-{
-GetReport = "GetReport",
-ViewerEvent = "ViewerEvent"
-}
-})
+    Actions =
+    {
+        GetReport = "GetReport",
+        ViewerEvent = "ViewerEvent"
+    }
+    })
 ...
 ```
 
@@ -69,16 +69,16 @@ ViewerEvent = "ViewerEvent"
 ...
 public IActionResult GetReport()
 {
-StiReport report = new StiReport();
-report.Load(Server.MapPath("Report.mrt"));
-((StiSqlSource)report.Dictionary.DataSources["DataSourceName"]).CommandTimeout = 1000;
-
-return StiNetCoreViewer.GetReportResult(this, report);
+    StiReport report = new StiReport();
+    report.Load(Server.MapPath("Report.mrt"));
+    ((StiSqlSource)report.Dictionary.DataSources["DataSourceName"]).CommandTimeout = 1000;
+    
+    return StiNetCoreViewer.GetReportResult(this, report);
 }
 
 public IActionResult ViewerEvent()
 {
-return StiNetCoreViewer.ViewerEventResult(this);
+    return StiNetCoreViewer.ViewerEventResult(this);
 }
 ...
 ```

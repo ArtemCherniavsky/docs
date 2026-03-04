@@ -14,10 +14,10 @@ Returns the report object with which the viewer is currently working. It is poss
 ...
 public IActionResult ViewerInteraction()
 {
-StiReport report = StiAngularViewer.GetReportObject(this);
-report.ReportName = "MyReportName";
-
-return StiAngularViewer.InteractionResult(this, report);
+    StiReport report = StiAngularViewer.GetReportObject(this);
+    report.ReportName = "MyReportName";
+    
+    return StiAngularViewer.InteractionResult(this, report);
 }
 ...
 ```
@@ -34,9 +34,9 @@ Returns values for URLs with which the viewer page was opened. Thus, it is possi
 ...
 public IActionResult ViewerInteraction()
 {
-RouteValueDictionary routeValues = StiAngularViewer.GetRouteValues(this);
-
-return StiAngularViewer.InteractionResult(this);
+    RouteValueDictionary routeValues = StiAngularViewer.GetRouteValues(this);
+    
+    return StiAngularViewer.InteractionResult(this);
 }
 ...
 ```
@@ -50,7 +50,7 @@ You can also get values of URL parameters by parameter name, specifying it as th
 ...
 public IActionResult ViewerInteraction(string id)
 {
-return StiAngularViewer.InteractionResult(this);
+    return StiAngularViewer.InteractionResult(this);
 }
 ...
 ```
@@ -67,9 +67,9 @@ Returns the values of the form that initiated (opened by the POST request) a pag
 ...
 public IActionResult ViewerInteraction()
 {
-NameValueCollection formValues = StiAngularViewer.GetFormValues(this);
-
-return StiAngularViewer.InteractionResult(this);
+    NameValueCollection formValues = StiAngularViewer.GetFormValues(this);
+    
+    return StiAngularViewer.InteractionResult(this);
 }
 ...
 ```
@@ -83,12 +83,12 @@ By default, this feature is disabled in order to optimize requests of the client
 ...
 public IActionResult InitViewer()
 {
-var requestParams = StiAngularViewer.GetRequestParams(this);
-var options = new StiAngularViewerOptions();
-options.Actions.ViewerEvent = "ViewerEvent";
-options.Server.PassFormValues = true;
-
-return StiAngularViewer.ViewerDataResult(requestParams, options);
+    var requestParams = StiAngularViewer.GetRequestParams(this);
+    var options = new StiAngularViewerOptions();
+    options.Actions.ViewerEvent = "ViewerEvent";
+    options.Server.PassFormValues = true;
+    
+    return StiAngularViewer.ViewerDataResult(requestParams, options);
 }
 ...
 ```
@@ -105,18 +105,18 @@ Returns all parameters of the current state of the viewer passed to the server s
 ...
 public IActionResult ExportReport()
 {
-StiRequestParams requestParams = StiAngularViewer.GetRequestParams(this);
-if (requestParams.ExportFormat == StiExportFormat.Pdf)
-{
-StiReport report = StiAngularViewer.GetReportObject(this);
-
-// Some action with report for the PDF export
-// ...
-
-return StiAngularViewer.ExportReportResult(this, report);
-}
-
-return StiAngularViewer.ExportReportResult(this);
+    StiRequestParams requestParams = StiAngularViewer.GetRequestParams(this);
+    if (requestParams.ExportFormat == StiExportFormat.Pdf)
+    {
+        StiReport report = StiAngularViewer.GetReportObject(this);
+        
+        // Some action with report for the PDF export
+        // ...
+        
+        return StiAngularViewer.ExportReportResult(this, report);
+    }
+    
+    return StiAngularViewer.ExportReportResult(this);
 }
 ...
 ```
@@ -130,14 +130,14 @@ You can change the values of some parameters. After making changes, for correct 
 ...
 public IActionResult ViewerInteraction()
 {
-StiRequestParams requestParams = StiAngularViewer.GetRequestParams(this);
-if (requestParams.Action == StiAction.Variables)
-{
-requestParams.Interaction.Variables["Variable1"] = "MyValue";
-return StiAngularViewer.InteractionResult(this, requestParams);
-}
-
-return StiAngularViewer.InteractionResult(this);
+    StiRequestParams requestParams = StiAngularViewer.GetRequestParams(this);
+    if (requestParams.Action == StiAction.Variables)
+    {
+        requestParams.Interaction.Variables["Variable1"] = "MyValue";
+        return StiAngularViewer.InteractionResult(this, requestParams);
+    }
+    
+    return StiAngularViewer.InteractionResult(this);
 }
 ...
 ```
@@ -154,16 +154,16 @@ Returns all the parameters of the current report export. The type of the paramet
 ...
 public IActionResult ExportReport()
 {
-StiExportSettings settings = StiAngularViewer.GetExportSettings(this);
-if (settings.GetExportFormat() == StiExportFormat.Pdf)
-{
-StiPdfExportSettings pdfSettings = (StiPdfExportSettings)settings;
-pdfSettings.EmbeddedFonts = true;
-pdfSettings.AllowEditable = StiPdfAllowEditable.No;
-return StiAngularViewer.ExportReportResult(this, settings);
-}
-
-return StiAngularViewer.ExportReportResult(this);
+    StiExportSettings settings = StiAngularViewer.GetExportSettings(this);
+    if (settings.GetExportFormat() == StiExportFormat.Pdf)
+    {
+        StiPdfExportSettings pdfSettings = (StiPdfExportSettings)settings;
+        pdfSettings.EmbeddedFonts = true;
+        pdfSettings.AllowEditable = StiPdfAllowEditable.No;
+        return StiAngularViewer.ExportReportResult(this, settings);
+    }
+    
+    return StiAngularViewer.ExportReportResult(this);
 }
 ...
 ```

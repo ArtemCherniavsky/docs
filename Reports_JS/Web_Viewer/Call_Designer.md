@@ -18,7 +18,7 @@ options.toolbar.showDesignButton = true;
 ```html
 ...
 viewer.onDesignReport = function (args) {
-window.open("https://www.stimulsoft.com?reportName=" + args.report.reportName);
+    window.open("https://www.stimulsoft.com?reportName=" + args.report.reportName);
 }
 ...
 ```

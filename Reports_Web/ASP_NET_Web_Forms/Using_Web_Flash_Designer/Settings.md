@@ -8,13 +8,13 @@ The **Flash Designer** can be configured using the component properties that can
 ```
 ...
 <cc1:StiWebDesignerFx ID="StiWebDesignerFx1" runat="server"
-AllowModifyConnections="false"
-AllowModifyDataSources="false"
-MainMenuShowOpenReport="false"
-RequestTimeout="300"
-AutoSaveInterval="3"
-Localization="Localization/de.xml"
-Theme="Office2022">
+    AllowModifyConnections="false"
+    AllowModifyDataSources="false"
+    MainMenuShowOpenReport="false"
+    RequestTimeout="300"
+    AutoSaveInterval="3"
+    Localization="Localization/de.xml"
+    Theme="Office2022">
 </cc1:StiWebDesignerFx>
 ...
 ```
@@ -26,13 +26,13 @@ Theme="Office2022">
 ...
 protected void Page_Load(object sender, EventArgs e)
 { 
-StiWebDesignerFx1.AllowModifyConnections = false;
-StiWebDesignerFx1.AllowModifyDataSources = false;
-StiWebDesignerFx1.MainMenuShowOpenReport = false;
-StiWebDesignerFx1.RequestTimeout = 75;
-StiWebDesignerFx1.AutoSaveInterval = 75;
-StiWebDesignerFx1.Localization = "Localization/de.xml";
-StiWebDesignerFx1.Theme = StiDesignerFxTheme.Office2022;
+    StiWebDesignerFx1.AllowModifyConnections = false;
+    StiWebDesignerFx1.AllowModifyDataSources = false;
+    StiWebDesignerFx1.MainMenuShowOpenReport = false;
+    StiWebDesignerFx1.RequestTimeout = 75;
+    StiWebDesignerFx1.AutoSaveInterval = 75;
+    StiWebDesignerFx1.Localization = "Localization/de.xml";
+    StiWebDesignerFx1.Theme = StiDesignerFxTheme.Office2022;
 }
 ...
 ```

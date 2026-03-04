@@ -8,11 +8,11 @@ The designer allows for changing the themes of the visual elements. To do this, 
 ```php
 
 <?php
-use Stimulsoft\Designer\StiDesigner;
-use Stimulsoft\Designer\Enums\StiDesignerTheme;
-
-$designer = new StiDesigner();
-$designer->options->appearance->theme = StiDesignerTheme::Office2022BlackGreen;
+    use Stimulsoft\Designer\StiDesigner;
+    use Stimulsoft\Designer\Enums\StiDesignerTheme;
+    
+    $designer = new StiDesigner();
+    $designer->options->appearance->theme = StiDesignerTheme::Office2022BlackGreen;
 ?>
 ```
 

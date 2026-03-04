@@ -13,11 +13,11 @@ To work with report parameters, no additional viewer settings are required. When
 ```
 ...
 @Html.Stimulsoft().StiMvcViewerFx("MvcViewerFx1", 
-new StiMvcViewerFxOptions() {
-Actions =
-{
-GetReportSnapshot = "GetReportSnapshot"
-}
+    new StiMvcViewerFxOptions() {
+        Actions =
+        {
+            GetReportSnapshot = "GetReportSnapshot"
+        }
 })
 ...
 ```
@@ -29,10 +29,10 @@ GetReportSnapshot = "GetReportSnapshot"
 ...
 public ActionResult GetReportSnapshot()
 {
-StiReport report = new StiReport();
-report.Load(Server.MapPath("~/Content/ReportWithParameters.mrt"));
-
-return StiMvcViewerFx.GetReportSnapshotResult(report);
+    StiReport report = new StiReport();
+    report.Load(Server.MapPath("~/Content/ReportWithParameters.mrt"));
+    
+    return StiMvcViewerFx.GetReportSnapshotResult(report);
 }
 ...
 ```
@@ -45,11 +45,11 @@ When working with parameters is not required, you can disable this feature. For 
 ```
 ...
 @Html.Stimulsoft().StiMvcViewerFx("MvcViewerFx1", 
-new StiMvcViewerFxOptions() {
-Toolbar =
-{
-ShowParametersButton = false
-}
+    new StiMvcViewerFxOptions() {
+        Toolbar =
+        {
+            ShowParametersButton = false
+        }
 })
 ...
 ```

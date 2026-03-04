@@ -8,7 +8,7 @@ The **HTML5 Designer** component supports the complete localization of its inter
 ```
 ...
 @Html.StiNetCoreDesigner(new StiNetCoreDesignerOptions() {
-Localization = "Localization/en.xml"
+    Localization = "Localization/en.xml"
 })
 ...
 ```
@@ -21,8 +21,8 @@ The interface of the report designer allows you to select the necessary localiza
 ```
 ...
 @Html.StiNetCoreDesigner(new StiNetCoreDesignerOptions() {
-Localization = "Localization/en.xml",
-LocalizationDirectory = "Localization"
+    Localization = "Localization/en.xml",
+    LocalizationDirectory = "Localization"
 })
 ...
 ```

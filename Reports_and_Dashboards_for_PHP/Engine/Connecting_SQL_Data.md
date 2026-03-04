@@ -15,20 +15,20 @@ Example of creating a connection to a MySQL database with a private SSL key:
 ```php
 
 <?php
-use Stimulsoft\Events\StiConnectionEventArgs;
-use Stimulsoft\Report\StiReport;
+    use Stimulsoft\Events\StiConnectionEventArgs;
+    use Stimulsoft\Report\StiReport;
 
-$report = new StiReport();
-$report->onDatabaseConnect = function (StiConnectionEventArgs $args)
-{
-$args->link = mysqli_init();
-mysqli_ssl_set($args->link, null, null, "./private/cert.pem", null, null);
-$args->link = mysqli_real_connect(
-$args->link, $args->info->host, $args->info->userId, $args->info->password,
-$args->info->database, $args->info->port, NULL, MYSQLI_CLIENT_SSL);
-};
-
-$report->render();
+    $report = new StiReport();
+    $report->onDatabaseConnect = function (StiConnectionEventArgs $args)
+    {
+        $args->link = mysqli_init();
+        mysqli_ssl_set($args->link, null, null, "./private/cert.pem", null, null);
+        $args->link = mysqli_real_connect(
+            $args->link, $args->info->host, $args->info->userId, $args->info->password,
+            $args->info->database, $args->info->port, NULL, MYSQLI_CLIENT_SSL);
+    };
+    
+    $report->render();
 ?>
 ```
 
@@ -44,27 +44,27 @@ Example of modifying an SQL query on the JavaScript client-side and the database
 
 ```php
 <?php
-use Stimulsoft\Events\StiDataEventArgs;
-use Stimulsoft\Report\StiReport;
-
-function beginProcessData(StiDataEventArgs $args) {
-if ($args->connection == 'MyConnectionName')
-$args->connectionString = 'Server=localhost;Database=test;uid=root;password=******;';
-};
-
-$report = new StiReport();
-$report->onBeginProcessData->append(beginProcessData);
-$report->onBeginProcessData->append('beginProcessData');
-$report->render();
+    use Stimulsoft\Events\StiDataEventArgs;
+    use Stimulsoft\Report\StiReport;
+    
+    function beginProcessData(StiDataEventArgs $args) {
+        if ($args->connection == 'MyConnectionName')
+            $args->connectionString = 'Server=localhost;Database=test;uid=root;password=******;';
+    };
+    
+    $report = new StiReport();
+    $report->onBeginProcessData->append(beginProcessData);
+    $report->onBeginProcessData->append('beginProcessData');
+    $report->render();
 ?>
 
 ...
 
 <script>
-function beginProcessData(args) {
-if (args.dataSource == "MyDataSource")
-args.queryString = "SELECT * FROM ProductsTable";
-}
+    function beginProcessData(args) {
+        if (args.dataSource == "MyDataSource")
+            args.queryString = "SELECT * FROM ProductsTable";
+    }
 </script>
 ```
 
@@ -86,35 +86,35 @@ Here’s an example of the result of an executed SQL query, where the result alr
 ```php
 
 <?php
-use Stimulsoft\Events\StiDataEventArgs;
-use Stimulsoft\Report\StiReport;
+    use Stimulsoft\Events\StiDataEventArgs;
+    use Stimulsoft\Report\StiReport;
 
-function endProcessData(StiDataEventArgs $args) {
-$args->result->columns = ['id', 'username', 'phone'];
-$args->result->types = ['int', 'string', 'string'];
-$args->result->rows = [
-[1, 'Mario Pontes', '555-6874'],
-[2, 'Helen Bennett', '555-2376']
-];
-};
+    function endProcessData(StiDataEventArgs $args) {
+        $args->result->columns = ['id', 'username', 'phone'];
+        $args->result->types = ['int', 'string', 'string'];
+        $args->result->rows = [
+            [1, 'Mario Pontes', '555-6874'],
+            [2, 'Helen Bennett', '555-2376']
+        ];
+    };
 
-$report = new StiReport();
-$report->onEndProcessData->append(endProcessData);
-$report->onEndProcessData->append('endProcessData');
-$report->render();
+    $report = new StiReport();
+    $report->onEndProcessData->append(endProcessData);
+    $report->onEndProcessData->append('endProcessData');
+    $report->render();
 ?>
 
 ...
 
 <script>
-function endProcessData(args) {
-args.result.columns = ["id", "username", "phone"];
-args.result.types = ["int", "string", "string"];
-args.result.rows = [
-[1, "Mario Pontes", "555-6874"],
-[2, "Helen Bennett", "555-2376"]
-];
-}
+    function endProcessData(args) {
+        args.result.columns = ["id", "username", "phone"];
+        args.result.types = ["int", "string", "string"];
+        args.result.rows = [
+            [1, "Mario Pontes", "555-6874"],
+            [2, "Helen Bennett", "555-2376"]
+        ];
+    }
 </script>
 ```
 
@@ -135,6 +135,8 @@ All data in the SQL query result can be modified both on the client-side JavaScr
 SQL queries can use parameters. For this, parameters need to be added to a special collection in the data source, with each parameter assigned a type and a default value. These parameters can then be used in the SQL query, for example:
 
 
+**SQL Data Source**
+
 ```
 
 SELECT * FROM @Parameter1 WHERE UserID = @Parameter2
@@ -148,18 +150,18 @@ All parameter values are stored in the data source as a collection. The collecti
 ```php
 
 args.parameters = [
-{
-name: "ParameterString",
-type: 752,
-typeName: "Text",
-value: "Text value"
-},
-{
-name: "ParameterInt",
-type: 3,
-typeName: "Int32",
-value: 20
-}
+    {
+        name: "ParameterString",
+        type: 752,
+        typeName: "Text",
+        value: "Text value"
+    },
+    {
+        name: "ParameterInt",
+        type: 3,
+        typeName: "Int32",
+        value: 20
+    }
 ];
 ```
 
@@ -171,19 +173,19 @@ To access query parameters, you can use the `onBeginProcessData` event, where th
 ```php
 
 <?php
-use Stimulsoft\Events\StiDataEventArgs;
-use Stimulsoft\Report\StiReport;
+    use Stimulsoft\Events\StiDataEventArgs;
+    use Stimulsoft\Report\StiReport;
 
-$report = new StiReport();
-$report->onBeginProcessData->append('
-args.parameters["Parameter1"] = "TableName";
-');
-
-$report->onBeginProcessData->append(function (StiDataEventArgs $args) {
-$args->parameters['Parameter1']->value = 'TableName';
-});
-
-$report->render();
+    $report = new StiReport();
+    $report->onBeginProcessData->append('
+        args.parameters["Parameter1"] = "TableName";
+    ');
+    
+    $report->onBeginProcessData->append(function (StiDataEventArgs $args) {
+        $args->parameters['Parameter1']->value = 'TableName';
+    });
+    
+    $report->render();
 ?>
 ```
 
@@ -202,10 +204,10 @@ If the report uses multiple data sources, you should check parameters before ass
 ```php
 
 $report->onBeginProcessData->append(function (StiDataEventArgs $args) {
-$args->parameters['Parameter1']->value = 'TableName';
+    $args->parameters['Parameter1']->value = 'TableName';
 
-if ($args->dataSource == 'DataSource2')
-$args->parameters['Parameter2']->value = 10;
+    if ($args->dataSource == 'DataSource2')
+        $args->parameters['Parameter2']->value = 10;
 });
 ```
 
@@ -228,10 +230,10 @@ All parameter values will be automatically escaped to prevent the possibility of
 ```php
 
 <?php
-use Stimulsoft\Report\StiReport;
-
-$report = new StiReport();
-$report->handler->escapeQueryParameters = false;
+    use Stimulsoft\Report\StiReport;
+    
+    $report = new StiReport();
+    $report->handler->escapeQueryParameters = false;
 ?>
 ```
 

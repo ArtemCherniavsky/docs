@@ -41,11 +41,11 @@ var report = new Stimulsoft.Report.StiReport();
 report.loadFile("reports/Invoice.mrt");
 
 report.renderAsync(function () {
-report.exportDocumentAsync(function (data) {
-var buffer = new Buffer.from(data, "utf-8");
-var fs = require("fs");
-fs.writeFileSync("Invoice.pdf", buffer);
-}, Stimulsoft.Report.StiExportFormat.Pdf);
+    report.exportDocumentAsync(function (data) {
+        var buffer = new Buffer.from(data, "utf-8");
+        var fs = require("fs");
+        fs.writeFileSync("Invoice.pdf", buffer);
+    }, Stimulsoft.Report.StiExportFormat.Pdf);
 });
 ```
 

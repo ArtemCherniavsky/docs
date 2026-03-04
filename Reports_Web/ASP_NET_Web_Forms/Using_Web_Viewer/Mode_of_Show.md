@@ -9,7 +9,7 @@ The **HTML5 Viewer** component has two modes for displaying reports - with and w
 ```
 ...
 <cc1:StiWebViewer ID="StiWebViewer1" runat="server"
-ScrollbarsMode="false">
+    ScrollbarsMode="false">
 </cc1:StiWebViewer>
 ...
 ```
@@ -29,7 +29,7 @@ The **HTML5 Viewer** component provides the full-screen report or dashboard mode
 ```
 ...
 <cc1:StiWebViewer ID="StiWebViewer1" runat="server"
-FullScreenMode="false">
+    FullScreenMode="false">
 </cc1:StiWebViewer>
 ...
 ```
@@ -66,7 +66,7 @@ The **HTML5 Viewer** component has three modes to display reports - page-by-page
 ```
 ...
 <cc1:StiWebViewer ID="StiWebViewer1" runat="server"
-InterfaceType="Auto">
+    InterfaceType="Auto">
 </cc1:StiWebViewer>
 ...
 ```

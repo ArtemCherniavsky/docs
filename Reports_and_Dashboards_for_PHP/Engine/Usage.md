@@ -28,8 +28,8 @@ To use the components in a web project, simply include the script autoloader at 
 ```php
 
 <?php
-require_once 'vendor/autoload.php';
-...
+    require_once 'vendor/autoload.php';
+    ...
 ?>
 ```
 
@@ -41,33 +41,33 @@ The class `StiReport` is designed for working with the report generator. Using t
 ```php
 
 <?php
-require_once 'vendor/autoload.php';
-
-use Stimulsoft\Report\StiReport;
-
-$report = new StiReport();
-$report->onAfterRender = 'afterRender';
-$report->process();
-$report->loadFile('reports/SimpleList.mrt');
-$report->render();
+    require_once 'vendor/autoload.php';
+    
+    use Stimulsoft\Report\StiReport;
+    
+    $report = new StiReport();
+    $report->onAfterRender = 'afterRender';
+    $report->process();
+    $report->loadFile('reports/SimpleList.mrt');
+    $report->render();
 ?>
 
 <html>
-<head>
-<?php
-$report->javascript->renderHtml();
-?>
-<script type="text/javascript">
-function afterRender() {
-alert('Done!');
-}
-</script>
-</head>
-<body>
-<?php
-$report->renderHtml();
-?>
-</body>
+    <head>
+        <?php
+            $report->javascript->renderHtml();
+        ?>
+        <script type="text/javascript">
+            function afterRender() {
+                alert('Done!');
+            }
+        </script>
+    </head>
+    <body>
+        <?php
+            $report->renderHtml();
+        ?>
+    </body>
 </html>
 ```
 
@@ -107,16 +107,16 @@ Thus, the methods described above allow you to display the component in differen
 ```php
 
 <?php
-require_once 'vendor/autoload.php';
-
-use Stimulsoft\Report\StiReport;
-
-$report = new StiReport();
-$report->onAfterRender = "alert('Done!');";
-$report->process();
-$report->loadFile('reports/SimpleList.mrt');
-$report->render();
-$report->printHtml();
+    require_once 'vendor/autoload.php';
+    
+    use Stimulsoft\Report\StiReport;
+    
+    $report = new StiReport();
+    $report->onAfterRender = "alert('Done!');";
+    $report->process();
+    $report->loadFile('reports/SimpleList.mrt');
+    $report->render();
+    $report->printHtml();
 ?>
 ```
 
@@ -158,10 +158,10 @@ By default, the scripts are loaded as static files. To enable dynamic script loa
 ```php
 
 <?php
-use Stimulsoft\Report\StiReport;
-
-$report = new StiReport();
-$report->javascript->useStaticUrls = false;
+    use Stimulsoft\Report\StiReport;
+    
+    $report = new StiReport();
+    $report->javascript->useStaticUrls = false;
 ?>
 ```
 

@@ -8,11 +8,11 @@ The **HTML5 Viewer** component has two modes for displaying reports - with and w
 ```
 ...
 @Html.Stimulsoft().StiMvcViewer("MvcViewer1", 
-new StiMvcViewerOptions() {
-Appearance =
-{
-ScrollbarsMode = true
-}
+    new StiMvcViewerOptions() {
+        Appearance =
+        {
+            ScrollbarsMode = true
+        }
 })
 ...
 ```
@@ -32,11 +32,11 @@ The **HTML5 Viewer** component provides the full-screen report and dashboard mod
 ```
 ...
 @Html.Stimulsoft().StiMvcViewer("MvcViewer1", 
-new StiMvcViewerOptions() {
-Appearance =
-{
-FullScreenMode = true
-}
+    new StiMvcViewerOptions() {
+        Appearance =
+        {
+            FullScreenMode = true
+        }
 })
 ...
 ```
@@ -52,11 +52,11 @@ The **HTML5 Viewer** component has three modes to display reports - page-by-page
 ```
 ...
 @Html.Stimulsoft().StiMvcViewer("MvcViewer1", 
-new StiMvcViewerOptions() {
-Toolbar =
-{
-ViewMode = StiWebViewMode.OnePage
-}
+    new StiMvcViewerOptions() {
+        Toolbar =
+        {
+            ViewMode = StiWebViewMode.OnePage
+        }
 })
 ...
 ```
@@ -77,11 +77,11 @@ ViewMode = StiWebViewMode.OnePage
 ```
 ...
 @Html.Stimulsoft().StiMvcViewer("MvcViewer1", 
-new StiMvcViewerOptions() {
-Appearance =
-{
-InterfaceType = StiInterfaceType.Auto
-}
+    new StiMvcViewerOptions() {
+        Appearance =
+        {
+            InterfaceType = StiInterfaceType.Auto
+        }
 })
 ...
 ```

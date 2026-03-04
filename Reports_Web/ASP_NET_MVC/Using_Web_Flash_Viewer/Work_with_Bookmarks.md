@@ -13,11 +13,11 @@ If you do not need to work with report bookmarks, you can completely disable thi
 ```
 ...
 @Html.Stimulsoft().StiMvcViewerFx("MvcViewerFx1", 
-new StiMvcViewerFxOptions() {
-Toolbar =
-{
-ShowBookmarksButton = false
-}
+    new StiMvcViewerFxOptions() {
+        Toolbar =
+        {
+            ShowBookmarksButton = false
+        }
 })
 ...
 ```

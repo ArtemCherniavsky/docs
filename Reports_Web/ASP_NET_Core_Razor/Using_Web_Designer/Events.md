@@ -18,10 +18,10 @@ Returns the report object with which the designer is currently working. It is po
 ...
 public IActionResult OnPostExportReport()
 {
-StiReport report = StiNetCoreDesigner.GetReportObject(this);
-report.ReportName = "MyReportName";
-
-return StiNetCoreDesigner.ExportReportResult(this, report);
+    StiReport report = StiNetCoreDesigner.GetReportObject(this);
+    report.ReportName = "MyReportName";
+    
+    return StiNetCoreDesigner.ExportReportResult(this, report);
 }
 ...
 ```
@@ -38,15 +38,15 @@ Returns the report object that will be used for the particular action. For examp
 ...
 public IActionResult OnPostOpenReport()
 {
-StiReport report = StiNetCoreDesigner.GetActionReportObject(this);
-
-// Register data for the opened report, if necessary
-DataSet data = new DataSet("Demo");
-data.ReadXml(StiNetCoreHelper.MapPath(this, "Data/Demo.xml"));
-report.RegData(data);
-report.Dictionary.Synchronize();
-
-return StiNetCoreDesigner.GetReportResult(this, report);
+    StiReport report = StiNetCoreDesigner.GetActionReportObject(this);
+    
+    // Register data for the opened report, if necessary
+    DataSet data = new DataSet("Demo");
+    data.ReadXml(StiNetCoreHelper.MapPath(this, "Data/Demo.xml"));
+    report.RegData(data);
+    report.Dictionary.Synchronize();
+    
+    return StiNetCoreDesigner.GetReportResult(this, report);
 }
 ...
 ```
@@ -63,9 +63,9 @@ Returns the values of the form that initiated (opened by the POST request) a pag
 ...
 public IActionResult OnPostDesignerInteraction()
 {
-NameValueCollection formValues = StiNetCoreDesigner.GetFormValues(this);
-
-return StiNetCoreDesigner.InteractionResult(this);
+    NameValueCollection formValues = StiNetCoreDesigner.GetFormValues(this);
+    
+    return StiNetCoreDesigner.InteractionResult(this);
 }
 ...
 ```
@@ -78,10 +78,10 @@ By default, this feature is disabled to optimize requests of the client-side of 
 ```
 ...
 @Html.StiNetCoreDesigner(new StiNetCoreDesignerOptions() {
-Server =
-{
-PassFormValues = true
-}
+    Server =
+    {
+        PassFormValues = true
+    }
 })
 ...
 ```
@@ -98,18 +98,18 @@ Returns all parameters of the current state of the designer passed to the server
 ...
 public IActionResult OnPostExportReport()
 {
-StiRequestParams requestParams = StiNetCoreDesigner.GetRequestParams(this);
-if (requestParams.ExportFormat == StiExportFormat.Pdf)
-{
-StiReport report = StiNetCoreDesigner.GetReportObject(this);
-
-// Some action with report for the PDF export
-// ...
-
-return StiNetCoreDesigner.ExportReportResult(this, report);
-}
-
-return StiNetCoreDesigner.ExportReportResult(this);
+    StiRequestParams requestParams = StiNetCoreDesigner.GetRequestParams(this);
+    if (requestParams.ExportFormat == StiExportFormat.Pdf)
+    {
+        StiReport report = StiNetCoreDesigner.GetReportObject(this);
+        
+        // Some action with report for the PDF export
+        // ...
+        
+        return StiNetCoreDesigner.ExportReportResult(this, report);
+    }
+    
+    return StiNetCoreDesigner.ExportReportResult(this);
 }
 ...
 ```
@@ -126,16 +126,16 @@ Returns all parameters of the current report export. The type of the parameter o
 ...
 public IActionResult OnPostExportReport()
 {
-StiExportSettings settings = StiNetCoreDesigner.GetExportSettings(this);
-if (settings.GetExportFormat() == StiExportFormat.Pdf)
-{
-StiPdfExportSettings pdfSettings = (StiPdfExportSettings)settings;
-pdfSettings.EmbeddedFonts = true;
-pdfSettings.AllowEditable = StiPdfAllowEditable.No;
-return StiNetCoreDesigner.ExportReportResult(this, settings);
-}
-
-return StiNetCoreDesigner.ExportReportResult(this);
+    StiExportSettings settings = StiNetCoreDesigner.GetExportSettings(this);
+    if (settings.GetExportFormat() == StiExportFormat.Pdf)
+    {
+        StiPdfExportSettings pdfSettings = (StiPdfExportSettings)settings;
+        pdfSettings.EmbeddedFonts = true;
+        pdfSettings.AllowEditable = StiPdfAllowEditable.No;
+        return StiNetCoreDesigner.ExportReportResult(this, settings);
+    }
+    
+    return StiNetCoreDesigner.ExportReportResult(this);
 }
 ...
 ```

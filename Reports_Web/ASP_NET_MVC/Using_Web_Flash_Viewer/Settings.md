@@ -8,25 +8,25 @@ The **Flash Viewer** is configured using the properties in the **StiMvcViewerFxO
 ```
 ...
 @Html.Stimulsoft().StiMvcViewerFx("MvcViewerFx1", 
-new StiMvcViewerFxOptions() {
-Theme = StiViewerFxTheme.Office2022,
-Localization = "~/Content/Localization/en.xml",
-Actions =
-{
-GetReport = "GetReport",
-ViewerEvent = "ViewerEvent"
-},
-Appearance =
-{
-BackgroundColor = System.Drawing.Color.LightGray,
-ShowTooltipsHelp = false
-},
-Exports =
-{
-ShowExportDialog = true,
-ShowExportToDbf = false,
-ShowExportToDif = false   
-}
+    new StiMvcViewerFxOptions() {
+        Theme = StiViewerFxTheme.Office2022,
+        Localization = "~/Content/Localization/en.xml",
+        Actions =
+        {
+            GetReport = "GetReport",
+            ViewerEvent = "ViewerEvent"
+        },
+        Appearance =
+        {
+            BackgroundColor = System.Drawing.Color.LightGray,
+            ShowTooltipsHelp = false
+        },
+        Exports =
+        {
+            ShowExportDialog = true,
+            ShowExportToDbf = false,
+            ShowExportToDif = false   
+        }
 })
 ...
 ```

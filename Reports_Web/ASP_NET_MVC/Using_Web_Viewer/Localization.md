@@ -8,8 +8,8 @@ The **HTML5 Viewer** component supports the complete localization of its interfa
 ```
 ...
 @Html.Stimulsoft().StiMvcViewer("MvcViewer1",
-new StiMvcViewerOptions() {
-Localization = "~/Content/Localization/en.xml"
+    new StiMvcViewerOptions() {
+        Localization = "~/Content/Localization/en.xml"
 })
 ...
 ```

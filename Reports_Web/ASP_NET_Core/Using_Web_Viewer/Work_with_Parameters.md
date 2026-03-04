@@ -17,10 +17,10 @@ To work with reports with parameters, no additional viewer settings are required
 ```
 ...
 @Html.StiNetCoreViewer(new StiNetCoreViewerOptions() {
-Actions =
-{
-Interaction = "ViewerInteraction"
-}
+    Actions =
+    {
+        Interaction = "ViewerInteraction"
+    }
 })
 ...
 ```
@@ -32,10 +32,10 @@ Interaction = "ViewerInteraction"
 ...
 public IActionResult ViewerInteraction()
 {
-// Some code before any interaction
-// ...
-
-return StiNetCoreViewer.InteractionResult(this);
+    // Some code before any interaction
+    // ...
+    
+    return StiNetCoreViewer.InteractionResult(this);
 }
 ...
 ```
@@ -49,13 +49,13 @@ This action is called during any interactive actions of the viewer. If you need 
 ...
 public IActionResult ViewerInteraction()
 {
-StiRequestParams requestParams = StiNetCoreViewer.GetRequestParams(this);
-if (requestParams.Action == StiAction.Variables)
-{
-// Some code before apply parameters
-}
-
-return StiNetCoreViewer.InteractionResult(this);
+    StiRequestParams requestParams = StiNetCoreViewer.GetRequestParams(this);
+    if (requestParams.Action == StiAction.Variables)
+    {
+        // Some code before apply parameters
+    }
+    
+    return StiNetCoreViewer.InteractionResult(this);
 }
 ...
 ```
@@ -68,10 +68,10 @@ If you do not need to work with parameters, you can completely disable this feat
 ```
 ...
 @Html.StiNetCoreViewer(new StiNetCoreViewerOptions() {
-Toolbar =
-{
-ShowParametersButton = false
-}
+    Toolbar =
+    {
+        ShowParametersButton = false
+    }
 })
 ...
 ```

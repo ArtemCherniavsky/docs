@@ -20,11 +20,11 @@ Now open the **index.jsp** and edit it so that it displays the current date. The
 <title>stimulsoft reports</title>
 </head>
 <body>
-<%java.util.Date date = new java.util.Date();%>
-<h1>
-This index.jsp.<br>
-<%=date.toString()%>
-</h1>
+    <%java.util.Date date = new java.util.Date();%>
+        <h1>
+            This index.jsp.<br>
+            <%=date.toString()%>
+        </h1>
 </body>
 </html>
 ```

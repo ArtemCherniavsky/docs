@@ -20,27 +20,27 @@ To save an edited report on the server-side, you should define the **OnSaveRepor
 
 @code
 {
-//Report object to use in designer
-private StiReport Report;
-
-protected override void OnInitialized()
-{
-base.OnInitialized();
-
-//Create empty report object
-var report = new StiReport();
-
-//Load report template
-report.Load("Reports/TwoSimpleLists.mrt");
-
-//Assing report object to designer
-Report = report;
-}
-
-private void OnSaveReport(StiSaveReportEventArgs args)
-{
-args.Report.Save("Reports/TwoSimpleLists.mrt");
-}
+    //Report object to use in designer
+    private StiReport Report;
+    
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        
+        //Create empty report object
+        var report = new StiReport();
+        
+        //Load report template
+        report.Load("Reports/TwoSimpleLists.mrt");
+        
+        //Assing report object to designer
+        Report = report;
+    }
+    
+    private void OnSaveReport(StiSaveReportEventArgs args)
+    {
+        args.Report.Save("Reports/TwoSimpleLists.mrt");
+    }
 }
 ```
 
@@ -53,9 +53,9 @@ The **OnSaveReport** event will be invoked when clicking **Save**. The edited re
 ...
 private void OnSaveReport(StiSaveReportEventArgs args)
 {
-args.Report.Save("Reports/TwoSimpleLists.mrt");
-
-args.ErrorString = "Some message after saving";
+    args.Report.Save("Reports/TwoSimpleLists.mrt");
+    
+    args.ErrorString = "Some message after saving";
 }
 ...
 ```
@@ -74,11 +74,11 @@ If required, you can access the original report name or report name from the sav
 ...
 private void OnSaveReport(StiSaveReportEventArgs args)
 {
-//Report name from designer save dialog
-var savingReportName = args.FileName;
-
-//Original report name from properties
-var originalReportName = args.Report.ReportName; 
+    //Report name from designer save dialog
+    var savingReportName = args.FileName;
+    
+    //Original report name from properties
+    var originalReportName = args.Report.ReportName; 
 }
 ...
 ```
@@ -100,7 +100,7 @@ The **Blazor Designer** component changes the behavior of the specified saving v
 ...
 private void OnSaveReportAs(StiSaveReportAsEventArgs args)
 {
-args.Report.Save("Reports/TwoSimpleLists.mrt");
+    args.Report.Save("Reports/TwoSimpleLists.mrt");
 }
 ...
 ```
@@ -122,20 +122,20 @@ A report is saved in the background mode, i.e., without reloading a page in the 
 
 @code
 {
-//Report object to use in designer
-private StiReport Report;
-
-private StiBlazorDesignerOptions Options;
-
-protected override void OnInitialized()
-{
-base.OnInitialized();
-
-//Init options object
-Options = new StiBlazorDesignerOptions();
-Options.Behavior.SaveReportMode = StiSaveMode.Visible; 
-Options.Behavior.SaveReportAsMode = StiSaveMode.Visible;
-}
+    //Report object to use in designer
+    private StiReport Report;
+    
+    private StiBlazorDesignerOptions Options;
+    
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        
+        //Init options object
+        Options = new StiBlazorDesignerOptions();
+        Options.Behavior.SaveReportMode = StiSaveMode.Visible; 
+        Options.Behavior.SaveReportAsMode = StiSaveMode.Visible;
+    }
 }
 ```
 

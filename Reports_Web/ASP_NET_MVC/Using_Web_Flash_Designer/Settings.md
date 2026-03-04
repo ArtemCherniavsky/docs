@@ -8,30 +8,30 @@ The **Flash Designer** configuration is done using properties that are located i
 ```
 ...
 @Html.Stimulsoft().StiMvcDesignerFx("MvcDesignerFx1", 
-new StiMvcDesignerFxOptions() {
-Theme = StiDesignerFxTheme.Office2022,
-Localization = "~/Content/Localization/en.xml",
-LocalizationDirectory = "~/Content/Localization",
-Actions =
-{
-GetReport = "GetReport",
-PreviewReport = "PreviewReport",
-SaveReport = "SaveReport",
-ExportReport = "ExportReport"
-},
-Behavior =
-{
-AutoSaveInterval = 3
-},
-PreviewToolbar =
-{
-ShowSendEmailButton = true
-},
-Print =
-{
-AutoPageOrientation = true,
-AutoPageScale = true   
-}
+    new StiMvcDesignerFxOptions() {
+        Theme = StiDesignerFxTheme.Office2022,
+        Localization = "~/Content/Localization/en.xml",
+        LocalizationDirectory = "~/Content/Localization",
+        Actions =
+        {
+            GetReport = "GetReport",
+            PreviewReport = "PreviewReport",
+            SaveReport = "SaveReport",
+            ExportReport = "ExportReport"
+        },
+        Behavior =
+        {
+            AutoSaveInterval = 3
+        },
+        PreviewToolbar =
+        {
+            ShowSendEmailButton = true
+        },
+        Print =
+        {
+            AutoPageOrientation = true,
+            AutoPageScale = true   
+        }
 })
 ...
 ```

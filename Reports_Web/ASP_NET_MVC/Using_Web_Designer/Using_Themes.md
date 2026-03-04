@@ -8,8 +8,8 @@ In the **HTML5 Designer** component, you can change the appearance of visual con
 ```
 ...
 @Html.Stimulsoft().StiMvcDesigner("MvcDesigner1",
-new StiMvcDesignerOptions() {
-Theme = StiDesignerTheme.Office2022WhiteTeal
+    new StiMvcDesignerOptions() {
+        Theme = StiDesignerTheme.Office2022WhiteTeal
 })
 ...
 ```

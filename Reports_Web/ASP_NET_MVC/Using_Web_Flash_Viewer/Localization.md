@@ -8,8 +8,8 @@ The **Flash Viewer** component supports the complete localization of its interfa
 ```
 ...
 @Html.Stimulsoft().StiMvcViewerFx("MvcViewerFx1",
-new StiMvcViewerFxOptions() {
-Localization = "~/Content/Localization/en.xml"
+    new StiMvcViewerFxOptions() {
+        Localization = "~/Content/Localization/en.xml"
 })
 ...
 ```
@@ -22,12 +22,12 @@ If you need to control loading the localization, you need to define a special **
 ```
 ...
 @Html.Stimulsoft().StiMvcViewerFx("MvcViewerFx1",
-new StiMvcViewerFxOptions() {
-Actions =
-{
-GetLocalization = "GetLocalization"
-},
-Localization = "~/Content/Localization/en.xml"
+    new StiMvcViewerFxOptions() {
+        Actions =
+        {
+            GetLocalization = "GetLocalization"
+        },
+        Localization = "~/Content/Localization/en.xml"
 })
 ...
 ```
@@ -39,9 +39,9 @@ Localization = "~/Content/Localization/en.xml"
 ...
 public ActionResult GetLocalization()
 {
-return StiMvcViewerFx.GetLocalizationResult();
-//return StiMvcViewerFx.GetLocalizationResult(path);
-//return StiMvcViewerFx.GetLocalizationResult(xml);
+    return StiMvcViewerFx.GetLocalizationResult();
+    //return StiMvcViewerFx.GetLocalizationResult(path);
+    //return StiMvcViewerFx.GetLocalizationResult(xml);
 }
 ...
 ```

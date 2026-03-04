@@ -45,38 +45,38 @@ The **HTML5 Designer** component provides the ability to specify its own methods
 ...
 public class IndexModel : PageModel
 {
-public class StiMyCacheHelper : StiCacheHelper
-{
-public override object GetObject(string guid)
-{
-var path = Path.Combine(HttpContext.Server.MapPath("CacheFiles"), guid);
-if (File.Exists(path))
-{
-byte[] cacheData = System.IO.File.ReadAllBytes(path);
-return StiCacheHelper.GetObjectFromCacheData(cacheData);
-}
-return null;
-}
+    public class StiMyCacheHelper : StiCacheHelper
+    {
+        public override object GetObject(string guid)
+        {
+            var path = Path.Combine(HttpContext.Server.MapPath("CacheFiles"), guid);
+            if (File.Exists(path))
+            {
+                byte[] cacheData = System.IO.File.ReadAllBytes(path);
+                return StiCacheHelper.GetObjectFromCacheData(cacheData);
+            }
+            return null;
+        }
 
-public override void SaveObject(object obj, string guid)
-{
-byte[] cacheData = StiCacheHelper.GetCacheDataFromObject(obj);
-var path = Path.Combine(HttpContext.Server.MapPath("CacheFiles"), guid);
-File.WriteAllBytes(path, cacheData);
-}
+        public override void SaveObject(object obj, string guid)
+        {
+            byte[] cacheData = StiCacheHelper.GetCacheDataFromObject(obj);
+            var path = Path.Combine(HttpContext.Server.MapPath("CacheFiles"), guid);
+            File.WriteAllBytes(path, cacheData);
+        }
 
-public override void RemoveObject(string guid)
-{
-var path = Path.Combine(HttpContext.Server.MapPath("CacheFiles"), guid);
-if (File.Exists(path))
-File.Delete(path);
-}
-}
+        public override void RemoveObject(string guid)
+        {
+            var path = Path.Combine(HttpContext.Server.MapPath("CacheFiles"), guid);
+            if (File.Exists(path))
+                File.Delete(path);
+        }
+    }
 
-static IndexModel()
-{
-StiNetCoreDesigner.CacheHelper = new StiMyCacheHelper();
-}
+    static IndexModel()
+    {
+        StiNetCoreDesigner.CacheHelper = new StiMyCacheHelper();
+    }
 }
 ...
 ```

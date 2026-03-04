@@ -14,20 +14,20 @@ To work with reports with parameters, no additional viewer settings are required
 ...
 public IActionResult InitViewer()
 {
-var requestParams = StiAngularViewer.GetRequestParams(this);
-var options = new StiAngularViewerOptions();
-options.Actions.ViewerEvent = "ViewerEvent";
-options.Actions.Interaction = "ViewerInteraction";
-
-return StiAngularViewer.ViewerDataResult(requestParams, options);
+    var requestParams = StiAngularViewer.GetRequestParams(this);
+    var options = new StiAngularViewerOptions();
+    options.Actions.ViewerEvent = "ViewerEvent";
+    options.Actions.Interaction = "ViewerInteraction";
+    
+    return StiAngularViewer.ViewerDataResult(requestParams, options);
 }
 
 public IActionResult ViewerInteraction()
 {
-// Some code before any interaction
-// ...
-
-return StiAngularViewer.InteractionResult(this);
+    // Some code before any interaction
+    // ...
+    
+    return StiAngularViewer.InteractionResult(this);
 }
 ...
 ```
@@ -41,13 +41,13 @@ This action is called during any interactive actions of the viewer. If you need 
 ...
 public IActionResult ViewerInteraction()
 {
-StiRequestParams requestParams = StiAngularViewer.GetRequestParams(this);
-if (requestParams.Action == StiAction.Variables)
-{
-// Some code before apply parameters
-}
-
-return StiAngularViewer.InteractionResult(this);
+    StiRequestParams requestParams = StiAngularViewer.GetRequestParams(this);
+    if (requestParams.Action == StiAction.Variables)
+    {
+        // Some code before apply parameters
+    }
+    
+    return StiAngularViewer.InteractionResult(this);
 }
 ...
 ```
@@ -61,12 +61,12 @@ If you do not need to work with parameters, you can completely disable this feat
 ...
 public IActionResult InitViewer()
 {
-var requestParams = StiAngularViewer.GetRequestParams(this);
-var options = new StiAngularViewerOptions();
-options.Actions.ViewerEvent = "ViewerEvent";
-options.Toolbar.ShowParametersButton = false;
-
-return StiAngularViewer.ViewerDataResult(requestParams, options);
+    var requestParams = StiAngularViewer.GetRequestParams(this);
+    var options = new StiAngularViewerOptions();
+    options.Actions.ViewerEvent = "ViewerEvent";
+    options.Toolbar.ShowParametersButton = false;
+    
+    return StiAngularViewer.ViewerDataResult(requestParams, options);
 }
 ...
 ```

@@ -32,7 +32,7 @@ To work with dynamic sorting, collapsing, and drill-down reports, no additional 
 ```
 ...
 <cc1:StiWebViewer ID="StiWebViewer1" runat="server"
-OnInteraction="StiWebViewer1_Interaction">
+    OnInteraction="StiWebViewer1_Interaction">
 </cc1:StiWebViewer>
 ...
 ```
@@ -44,17 +44,17 @@ OnInteraction="StiWebViewer1_Interaction">
 ...
 protected void StiWebViewer1_Interaction(object sender, StiReportDataEventArgs e)
 {
-switch (e.Action)
-{
-case StiAction.Sorting:
-break;
-
-case StiAction.DrillDown:
-break;
-
-case StiAction.Collapsing:
-break;
-}
+    switch (e.Action)
+    {
+        case StiAction.Sorting:
+            break;
+        
+        case StiAction.DrillDown:
+            break;
+        
+        case StiAction.Collapsing:
+            break;
+    }
 }
 ...
 ```

@@ -14,16 +14,16 @@ After acquiring a Stimulsoft product, you should activate the license. You can d
 
 @code
 {
-protected override void OnInitialized()
-{
-//Activation with using license code
-Stimulsoft.Base.StiLicense.Key = "Your activation code...";
-
-//Activation with using license file
-Stimulsoft.Base.StiLicense.LoadFromFile("Content/license.key");
-
-base.OnInitialized();
-}
+    protected override void OnInitialized()
+    {
+        //Activation with using license code
+        Stimulsoft.Base.StiLicense.Key = "Your activation code...";
+        
+        //Activation with using license file
+        Stimulsoft.Base.StiLicense.LoadFromFile("Content/license.key");
+        
+        base.OnInitialized();
+    }
 }
 ```
 

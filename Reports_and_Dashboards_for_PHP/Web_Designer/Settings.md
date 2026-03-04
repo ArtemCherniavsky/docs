@@ -8,17 +8,17 @@ The designer is set using the properties found in the `Stimulsoft.Designer.StiDe
 ```php
 
 <?php
-use Stimulsoft\Designer\StiDesigner;
-use Stimulsoft\Designer\Enums\StiDesignerTheme;
-
-$designer = new StiDesigner();
-$designer->options->appearance->theme = StiDesignerTheme::Office2022WhiteGreen;
-$designer->options->toolbar->showFileMenuExit = false;
-$designer->options->toolbar->showFileMenuOptions = false;
-$designer->options->bands->showChildBand = false;
-$designer->options->components->showPanel = false;
-$designer->options->appearance->showReportTree = false;
-$designer->options->appearance->showTooltips = false;
+    use Stimulsoft\Designer\StiDesigner;
+    use Stimulsoft\Designer\Enums\StiDesignerTheme;
+    
+    $designer = new StiDesigner();
+    $designer->options->appearance->theme = StiDesignerTheme::Office2022WhiteGreen;
+    $designer->options->toolbar->showFileMenuExit = false;
+    $designer->options->toolbar->showFileMenuOptions = false;
+    $designer->options->bands->showChildBand = false;
+    $designer->options->components->showPanel = false;
+    $designer->options->appearance->showReportTree = false;
+    $designer->options->appearance->showTooltips = false;
 ?>
 ```
 
@@ -222,12 +222,12 @@ You can configure the built-in `StiViewer` component used to preview the report.
 ```php
 
 <?php
-use Stimulsoft\Designer\StiDesigner;
-use Stimulsoft\Viewer\Enums\StiHtmlExportMode;
-
-$designer = new StiDesigner();
-$designer->options->viewerOptions->appearance->reportDisplayMode = StiHtmlExportMode::FromReport;
-$designer->options->viewerOptions->exports->ShowExportToWord = false;
-$designer->options->viewerOptions->exports->showExportToCsv = false;
+    use Stimulsoft\Designer\StiDesigner;
+    use Stimulsoft\Viewer\Enums\StiHtmlExportMode;
+    
+    $designer = new StiDesigner();
+    $designer->options->viewerOptions->appearance->reportDisplayMode = StiHtmlExportMode::FromReport;
+    $designer->options->viewerOptions->exports->ShowExportToWord = false;
+    $designer->options->viewerOptions->exports->showExportToCsv = false;
 ?>
 ```

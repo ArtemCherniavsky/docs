@@ -24,30 +24,30 @@ And in the view controller, specify the necessary actions.
 ...
 public IActionResult InitViewer()
 {
-var requestParams = StiAngularViewer.GetRequestParams(this);            
-var options = new StiAngularViewerOptions();
-options.Actions.ViewerEvent = "ViewerEvent";
-
-return StiAngularViewer.ViewerDataResult(requestParams, options);
+    var requestParams = StiAngularViewer.GetRequestParams(this);            
+    var options = new StiAngularViewerOptions();
+    options.Actions.ViewerEvent = "ViewerEvent";
+    
+    return StiAngularViewer.ViewerDataResult(requestParams, options);
 }
 
 public IActionResult ViewerEvent()
 {
-var requestParams = StiAngularViewer.GetRequestParams(this);
-
-if (requestParams.Action == StiAction.GetReport)
-{
-return GetReport(reportName);
-}
-return StiAngularViewer.ProcessRequestResult(this);
+    var requestParams = StiAngularViewer.GetRequestParams(this);
+        
+    if (requestParams.Action == StiAction.GetReport)
+    {
+        return GetReport(reportName);
+    }
+    return StiAngularViewer.ProcessRequestResult(this);
 }
 
 public IActionResult GetReport()
 {
-StiReport report = new StiReport();
-report.Load(StiAngularHelper.MapPath(this, "Reports/SimpleList.mrt"));
- 
-return StiAngularViewer.GetReportResult(this, report);
+    StiReport report = new StiReport();
+    report.Load(StiAngularHelper.MapPath(this, "Reports/SimpleList.mrt"));
+     
+    return StiAngularViewer.GetReportResult(this, report);
 }
 ...
 ```
@@ -71,10 +71,10 @@ If the report was not rendered before showing, the **Angular Viewer** component 
 ...
 public IActionResult GetReport()
 {
-StiReport report = new StiReport();
-report.LoadDocument(StiAngularHelper.MapPath(this, "Reports/SimpleList.mdc"));
-
-return StiAngularViewer.GetReportResult(this, report);
+    StiReport report = new StiReport();
+    report.LoadDocument(StiAngularHelper.MapPath(this, "Reports/SimpleList.mdc"));
+    
+    return StiAngularViewer.GetReportResult(this, report);
 }
 ...
 ```

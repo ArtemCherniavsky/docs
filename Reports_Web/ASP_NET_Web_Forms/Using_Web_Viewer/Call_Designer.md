@@ -8,8 +8,8 @@ The **HTML5 Viewer** component has the ability to call the report designer. The 
 ```
 ...
 <cc1:StiWebViewer ID="StiWebViewer1" runat="server"
-ShowDesignButton="true"
-OnDesignReport="StiWebViewer1_DesignReport">
+    ShowDesignButton="true"
+    OnDesignReport="StiWebViewer1_DesignReport">
 </cc1:StiWebViewer>
 ...
 ```
@@ -21,8 +21,8 @@ OnDesignReport="StiWebViewer1_DesignReport">
 ...
 protected void StiWebViewer1_DesignReport(object sender, StiReportDataEventArgs e)
 {
-StiReport report = e.Report;
-this.Response.Redirect("Designer.aspx?report=" + report.ReportName);
+    StiReport report = e.Report;
+    this.Response.Redirect("Designer.aspx?report=" + report.ReportName);
 }
 ...
 ```

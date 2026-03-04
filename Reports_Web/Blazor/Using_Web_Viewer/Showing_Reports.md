@@ -18,22 +18,22 @@ To display a report, you should add the **StiBlazorViewer** component on the Raz
 
 @code
 {
-//Report object to use in viewer
-private StiReport Report;
+    //Report object to use in viewer
+    private StiReport Report;
+    
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        
+        //Create empty report object
+        var report = new StiReport();
+        
+        //Load report template
+        report.Load("Reports/TwoSimpleLists.mrt");
 
-protected override void OnInitialized()
-{
-base.OnInitialized();
-
-//Create empty report object
-var report = new StiReport();
-
-//Load report template
-report.Load("Reports/TwoSimpleLists.mrt");
-
-//Assing report object to viewer
-Report = report;
-}
+        //Assing report object to viewer
+        Report = report;
+    }
 }
 ```
 
@@ -55,28 +55,28 @@ The Blazor does not have access to the fonts installed on a computer, so to rend
 
 @code
 {
-//Report object to use in viewer
-private StiReport Report;
-
-protected override void OnInitialized()
-{
-base.OnInitialized();
-
-//Init base font as a file
-Stimulsoft.Base.StiFontCollection.AddFontFile("Fonts/Microsoft Sans Serif.ttf", "Segoe UI");
-
-//Init base font as a Base64 string
-var fontBase64 = "AAEAAAAVAQAABABQRFNJR/W/YxAAA814A...";
-Stimulsoft.Base.StiFontCollection.AddFontBase64(fontBase64, "Segoe UI");
-
-//Create empty report object
-report = new StiReport();
-
-//Load report template
-report.Load("Reports/TwoSimpleLists.mrt");
-
-//Assing report object to viewer
-Report = report;
-}
+    //Report object to use in viewer
+    private StiReport Report;
+    
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        
+        //Init base font as a file
+        Stimulsoft.Base.StiFontCollection.AddFontFile("Fonts/Microsoft Sans Serif.ttf", "Segoe UI");
+        
+        //Init base font as a Base64 string
+        var fontBase64 = "AAEAAAAVAQAABABQRFNJR/W/YxAAA814A...";
+        Stimulsoft.Base.StiFontCollection.AddFontBase64(fontBase64, "Segoe UI");
+        
+        //Create empty report object
+        report = new StiReport();
+        
+        //Load report template
+        report.Load("Reports/TwoSimpleLists.mrt");
+        
+        //Assing report object to viewer
+        Report = report;
+    }
 }
 ```

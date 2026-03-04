@@ -8,14 +8,14 @@ The **HTML5 Designer** can be configured using the component properties that can
 ```
 ...
 <cc1:StiWebDesigner ID="StiWebDesigner1" runat="server"
-ShowClone="false"
-ShowCrossDataBand="false"
-ShowFileMenuOpen="false"
-PermissionBusinessObjects="None"
-PermissionDataConnections="View"
-DefaultUnit="Centimeters"
-Localization="Localization/de.xml"
-Theme="Office2022WhiteTeal">
+    ShowClone="false"
+    ShowCrossDataBand="false"
+    ShowFileMenuOpen="false"
+    PermissionBusinessObjects="None"
+    PermissionDataConnections="View"
+    DefaultUnit="Centimeters"
+    Localization="Localization/de.xml"
+    Theme="Office2022WhiteTeal">
 </cc1:StiWebDesigner>
 ...
 ```
@@ -27,15 +27,15 @@ Theme="Office2022WhiteTeal">
 ...
 protected void Page_Load(object sender, EventArgs e)
 { 
-StiWebDesigner1.ShowClone = false;
-StiWebDesigner1.ShowCrossDataBand = false;
-StiWebDesigner1.ShowFileMenuOpen = false;
-StiWebDesigner1.PermissionBusinessObjects = StiDesignerPermissions.None;
-StiWebDesigner1.PermissionDataConnections = StiDesignerPermissions.View;
-StiWebDesigner1.DefaultUnit = StiReportUnitType.Centimeters; 
-StiWebDesigner1.Localization = "Localization/de.xml";
-StiWebDesigner1.Theme = StiDesignerTheme.Office2022WhiteTeal;
-StiWebDesigner1.ReportDisplayMode = StiReportDisplayMode.Auto;
+    StiWebDesigner1.ShowClone = false;
+    StiWebDesigner1.ShowCrossDataBand = false;
+    StiWebDesigner1.ShowFileMenuOpen = false;
+    StiWebDesigner1.PermissionBusinessObjects = StiDesignerPermissions.None;
+    StiWebDesigner1.PermissionDataConnections = StiDesignerPermissions.View;
+    StiWebDesigner1.DefaultUnit = StiReportUnitType.Centimeters; 
+    StiWebDesigner1.Localization = "Localization/de.xml";
+    StiWebDesigner1.Theme = StiDesignerTheme.Office2022WhiteTeal;
+    StiWebDesigner1.ReportDisplayMode = StiReportDisplayMode.Auto;
 }
 ...
 ```

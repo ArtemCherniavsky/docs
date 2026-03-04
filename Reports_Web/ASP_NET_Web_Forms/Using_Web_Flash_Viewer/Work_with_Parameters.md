@@ -13,7 +13,7 @@ To perform any action before applying parameters, there is a special **OnInterac
 ```
 ...
 <cc1:StiWebViewerFx ID="StiWebViewerFx1" runat="server"
-OnInteraction="StiWebViewerFx1_Interaction">
+    OnInteraction="StiWebViewerFx1_Interaction">
 </cc1:StiWebViewerFx>
 ...
 ```
@@ -25,11 +25,11 @@ OnInteraction="StiWebViewerFx1_Interaction">
 ...
 protected void StiWebViewerFx1_Interaction(object sender, StiReportDataEventArgs e)
 {
-if (e.Action == StiAction.Variables)
-{
-// The values of the variables passed from the client
-Hashtable variables = e.RequestParams.Interaction.Variables;
-}
+    if (e.Action == StiAction.Variables)
+    {
+        // The values of the variables passed from the client
+        Hashtable variables = e.RequestParams.Interaction.Variables;
+    }
 }
 ...
 ```
@@ -42,7 +42,7 @@ When working with parameters is not required, you can disable this feature. For 
 ```
 ...
 <cc1:StiWebViewerFx ID="StiWebViewerFx1" runat="server"
-ShowParametersButton="false">
+    ShowParametersButton="false">
 </cc1:StiWebViewerFx>
 ...
 ```

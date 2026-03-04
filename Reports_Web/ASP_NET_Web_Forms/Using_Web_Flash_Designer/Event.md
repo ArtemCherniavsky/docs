@@ -8,8 +8,8 @@
 ```
 ...
 <cc1:StiWebDesignerFx ID="StiWebDesignerFx1" runat="server"
-OnGetReport="StiWebDesignerFx1_GetReport"
-OnSaveReport="StiWebDesignerFx1_SaveReport">
+    OnGetReport="StiWebDesignerFx1_GetReport"
+    OnSaveReport="StiWebDesignerFx1_SaveReport">
 </cc1:StiWebDesignerFx>
 ...
 ```
@@ -21,23 +21,23 @@ OnSaveReport="StiWebDesignerFx1_SaveReport">
 ...
 protected void StiWebDesignerFx1_GetReport(object sender, StiReportDataEventArgs e)
 {
-StiReport report = new StiReport();
-report.Load(Server.MapPath("Reports/SimpleList.mrt"));
-
-e.Report = report;
+    StiReport report = new StiReport();
+    report.Load(Server.MapPath("Reports/SimpleList.mrt"));
+    
+    e.Report = report;
 }
 
 protected void StiWebDesignerFx1_SaveReport(object sender, StiReportDataEventArgs e)
 {
-try
-{
-e.Report.Save(Server.MapPath("Reports/" + e.Report.ReportName + ".mrt"));
-e.ErrorCode = 0;
-}
-catch (Exception ex)
-{
-e.ErrorString = ex.Message;
-}
+    try
+    {
+        e.Report.Save(Server.MapPath("Reports/" + e.Report.ReportName + ".mrt"));
+        e.ErrorCode = 0;
+    }
+    catch (Exception ex)
+    {
+        e.ErrorString = ex.Message;
+    }
 }
 ...
 ```

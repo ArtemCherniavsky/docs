@@ -8,7 +8,7 @@ The **Flash Designer** component supports the complete localization of its inter
 ```
 ...
 <cc1:StiWebDesignerFx ID="StiWebDesignerFx1" runat="server"
-Localization="Localization/en.xml">
+    Localization="Localization/en.xml">
 </cc1:StiWebDesignerFx>
 ...
 ```
@@ -21,8 +21,8 @@ The interface of the report designer allows you to select the necessary localiza
 ```
 ...
 <cc1:StiWebDesignerFx ID="StiWebDesignerFx1" runat="server"
-Localization="Localization/en.xml"
-LocalizationDirectory="Localization">
+    Localization="Localization/en.xml"
+    LocalizationDirectory="Localization">
 </cc1:StiWebDesignerFx>
 ...
 ```

@@ -14,26 +14,26 @@ The option to send a report by email is implemented in the **Blazor Viewer** com
 
 @code
 {
-//Options object
-private StiBlazorViewerOptions Options;
-
-private void OnEmailReport(StiEmailReportEventArgs args)
-{
-//args.Options.AddressTo = "";
-//args.Options.Subject = "";
-//args.Options.Body = "";
-
-// Should be filled here
-args.Options.AddressFrom = "admin_address@test.com";
-args.Options.Host = "smtp.test.com";
-args.Options.Port = 465;
-args.Options.UserName = "admin_address@test.com";
-args.Options.Password = "admin_password";
-
-//args.Options.CC.Add("email@test.com");
-//args.Options.BCC.Add("email@test.com");
-//args.Options.EnableSsl = true;
-}
+    //Options object
+    private StiBlazorViewerOptions Options;
+    
+    private void OnEmailReport(StiEmailReportEventArgs args)
+    {
+        //args.Options.AddressTo = "";
+        //args.Options.Subject = "";
+        //args.Options.Body = "";
+        
+        // Should be filled here
+        args.Options.AddressFrom = "admin_address@test.com";
+        args.Options.Host = "smtp.test.com";
+        args.Options.Port = 465;
+        args.Options.UserName = "admin_address@test.com";
+        args.Options.Password = "admin_password";
+        
+        //args.Options.CC.Add("email@test.com");
+        //args.Options.BCC.Add("email@test.com");
+        //args.Options.EnableSsl = true;
+    }
 }
 ```
 
@@ -59,18 +59,18 @@ The **Blazor Viewer** component allows setting values by default for the Send Em
 
 @code
 {
-//Options object
-private StiBlazorViewerOptions Options;
-
-protected override void OnInitialized()
-{
-base.OnInitialized();
-
-//Init options object
-Options = new StiBlazorViewerOptions();
-Options.Email.DefaultEmailAddress = "recipient_address@gmail.com";
-Options.Email.DefaultEmailSubject = "New Invoice";
-Options.Email.DefaultEmailMessage = "Please check the new invoice in the attachment";
-}
+    //Options object
+    private StiBlazorViewerOptions Options;
+    
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        
+        //Init options object
+        Options = new StiBlazorViewerOptions();
+        Options.Email.DefaultEmailAddress = "recipient_address@gmail.com";
+        Options.Email.DefaultEmailSubject = "New Invoice";
+        Options.Email.DefaultEmailMessage = "Please check the new invoice in the attachment";
+    }
 }
 ```

@@ -16,9 +16,9 @@ To use caching, you need to connect modules to work with a session or cache on t
 ...
 public void ConfigureServices(IServiceCollection services)
 {
-services.AddMemoryCache();
-services.AddSession();
-services.AddMvc();
+    services.AddMemoryCache();
+    services.AddSession();
+    services.AddMvc();
 }
 ...
 ```
@@ -61,35 +61,35 @@ The **HTML5 Designer** component provides the ability to specify its own methods
 ...
 public class DesignerController : Controller
 {
-public class StiMyCacheHelper : StiCacheHelper
-{
-public override object GetObject(string guid)
-{
-string path = System.IO.Path.Combine(this.HttpContext.Server.MapPath("CacheFiles"), guid);
-if (System.IO.File.Exists(path))
-{
-byte[] cacheData = System.IO.File.ReadAllBytes(path);
-return StiCacheHelper.GetObjectFromCacheData(cacheData);
-}
-return null;
+    public class StiMyCacheHelper : StiCacheHelper
+    {
+        public override object GetObject(string guid)
+        {
+            string path = System.IO.Path.Combine(this.HttpContext.Server.MapPath("CacheFiles"), guid);
+            if (System.IO.File.Exists(path))
+            {
+                byte[] cacheData = System.IO.File.ReadAllBytes(path);
+                return StiCacheHelper.GetObjectFromCacheData(cacheData);
+            }
+            return null;
+            
+            //return base.GetObject(guid);
+        }
+        
+        public override void SaveObject(object obj, string guid)
+        {
+            byte[] cacheData = StiCacheHelper.GetCacheDataFromObject(obj);
+            string path = System.IO.Path.Combine(this.HttpContext.Server.MapPath("CacheFiles"), guid);
+            System.IO.File.WriteAllBytes(path, cacheData);
+            
+            //base.SaveObject(obj, guid);
+        }
+    }
 
-//return base.GetObject(guid);
-}
-
-public override void SaveObject(object obj, string guid)
-{
-byte[] cacheData = StiCacheHelper.GetCacheDataFromObject(obj);
-string path = System.IO.Path.Combine(this.HttpContext.Server.MapPath("CacheFiles"), guid);
-System.IO.File.WriteAllBytes(path, cacheData);
-
-//base.SaveObject(obj, guid);
-}
-}
-
-static DesignerController()
-{
-StiNetCoreDesigner.CacheHelper = new StiMyCacheHelper();
-}
+    static DesignerController()
+    {
+        StiNetCoreDesigner.CacheHelper = new StiMyCacheHelper();
+    }
 }
 ...
 ```
